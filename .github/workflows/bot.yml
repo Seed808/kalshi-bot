@@ -3,7 +3,13 @@ name: kalshi-bot
 on:
   schedule:
     - cron: "17 * * * *"      # hourly at :17 (UTC). Hourly keeps a private repo inside 2,000 free minutes/month.
-  workflow_dispatch: {}        # "Run workflow" button for manual runs
+  workflow_dispatch:           # "Run workflow" button for manual runs
+    inputs:
+      command:
+        description: "paper = normal cycle; discover = list series/keys for new sports (no odds credits)"
+        type: choice
+        default: paper
+        options: [paper, discover]
 
 permissions:
   contents: write              # lets the run save its paper-trade history back to the repo
@@ -37,7 +43,7 @@ jobs:
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
           REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
           REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
-        run: python main.py paper -v 2>&1 | tee last_run.log
+        run: python main.py ${{ github.event.inputs.command || 'paper' }} -v 2>&1 | tee last_run.log
 
       - name: Report to run summary
         if: always()

@@ -323,7 +323,8 @@ def main():
     install_redaction()
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("cmd", choices=["series", "anomalies", "scan", "paper", "run", "settle", "train",
-                                    "report", "postmortem"])
+                                    "report", "postmortem", "discover"])
+    ap.add_argument("--q", default="tennis,atp,wta", help="discover: comma-separated keywords")
     ap.add_argument("--interval", type=int, default=1800)
     ap.add_argument("--config", default="config.json")
     ap.add_argument("-v", "--verbose", action="store_true")
@@ -368,6 +369,41 @@ def main():
         report(cfg, store)
     elif a.cmd == "postmortem":
         show_postmortems(store)
+    elif a.cmd == "discover":
+        discover(a.q)
+
+
+def discover(q):
+    """Find Kalshi series + Odds API sport keys for new sports. Uses NO odds credits."""
+    kws = [k.strip().lower() for k in q.split(",") if k.strip()]
+    hit = lambda s: any(k in s.lower() for k in kws)
+    series = http_get(f"{KALSHI}/series", {"category": "Sports"}).json().get("series", [])
+    found = [s for s in series if hit(f'{s.get("ticker", "")} {s.get("title", "")}')]
+    print(f"== Kalshi Sports series matching {kws}: {len(found)}")
+    for s in found:
+        print(f'  {s.get("ticker"):<28} {s.get("title")}')
+    for s in found:
+        ms = scanner.kalshi_markets({"series_ticker": s["ticker"], "status": "open"}, max_pages=1)
+        evs = {}
+        for m in ms:
+            evs.setdefault(m["event_ticker"], []).append(m)
+        print(f'\n== {s["ticker"]}: {len(ms)} open markets, {len(evs)} events; sample:')
+        for et, mk in list(evs.items())[:4]:
+            print(f"  {et} ({len(mk)} mkts) title={mk[0].get('title')!r}")
+            for m in mk[:3]:
+                print(f"    {m['ticker']} yes_sub={m.get('yes_sub_title')!r} "
+                      f"exp_end={m.get('expected_expiration_time')} close={m.get('close_time')} "
+                      f"bid/ask={m.get('yes_bid_dollars')}/{m.get('yes_ask_dollars')}")
+        if ms:
+            print(f"  rules: {(ms[0].get('rules_primary') or '')[:400]}")
+    key = os.environ.get("ODDS_API_KEY")
+    if key:   # /v4/sports does not count against the Odds API quota
+        sp = http_get(f"https://api.the-odds-api.com/v4/sports", {"apiKey": key}).json()
+        print(f"\n== Odds API sport keys matching {kws} (in season):")
+        for s in sp:
+            if hit(f'{s.get("key")} {s.get("title")} {s.get("group")}'):
+                print(f'  {s.get("key"):<40} {s.get("title")} | active={s.get("active")} '
+                      f'| outrights={s.get("has_outrights")}')
 
 
 if __name__ == "__main__":
