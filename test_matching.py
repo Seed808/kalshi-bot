@@ -17,3 +17,19 @@ assert scanner.match_event("E26", k26, [o26, o27], 0.5)[0]["id"] == "o26"
 assert scanner.match_event("E27", k27, [o26, o27], 0.5)[0]["id"] == "o27"
 assert scanner.match_event("E26", [mk("A1", "E26", "Milwaukee", None), mk("B1", "E26", "Tampa Bay", None)], [o26], 0.5)[0] is None
 print("MATCHING TESTS PASSED")
+
+# ---- real names seen in the live log
+from common import name_score as ns
+assert ns("Texas St.", "Texas State Bobcats") == 1.0
+assert ns("Utah St.", "Utah State Aggies") == 1.0
+assert ns("Utah St.", "Utah Utes") == 0.0
+assert ns("Los Angeles L", "Los Angeles Lakers") == 1.0
+assert ns("Los Angeles L", "Los Angeles Clippers") == 0.0
+assert ns("Los Angeles C", "Los Angeles Clippers") == 1.0
+assert ns("New York R", "New York Rangers") == 1.0
+assert ns("New York R", "New York Islanders") == 0.0
+assert ns("Texas St.", "Texas Longhorns") == 0.0
+assert ns("UNLV", "UNLV Rebels") == 1.0
+assert ns("Norfolk St.", "Norfolk State Spartans") == 1.0
+assert ns("Tampa Bay", "Tampa Bay Rays") == 1.0
+print("NAME TESTS PASSED")

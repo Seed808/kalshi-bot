@@ -242,21 +242,28 @@ def kelly_binary(q, cost):
 _STOP = {"the", "fc", "sc", "university", "of"}
 
 
+_ALIAS = {"st": "state"}   # Kalshi writes "Texas St.", sportsbooks "Texas State Bobcats"
+
+
 def norm(name):
     name = re.sub(r"[^a-z0-9 ]", " ", (name or "").lower())
-    return [t for t in name.split() if t and t not in _STOP]
+    return [_ALIAS.get(t, t) for t in name.split() if t and t not in _STOP]
 
 
-def name_score(a_name, b_name):
-    a, b = norm(a_name), norm(b_name)
+def name_score(kalshi_name, odds_name):
+    """1.0 if EVERY word of the (short) Kalshi name is the start of a different word in the
+    sportsbook name, else 0.0. 'Los Angeles L' -> Lakers (not Clippers); 'Utah St.' -> Utah
+    State Aggies (not Utah Utes). Strict on purpose: unmatched games are skipped, never guessed."""
+    a, b = norm(kalshi_name), norm(odds_name)
     if not a or not b:
         return 0.0
-    sa, sb = " ".join(a), " ".join(b)
-    if sa == sb:
-        return 1.0
-    if sa in sb or sb in sa:
-        return 0.9
-    return len(set(a) & set(b)) / max(1, min(len(a), len(b)))
+    used = set()
+    for tok in a:
+        hit = next((i for i, w in enumerate(b) if i not in used and w.startswith(tok)), None)
+        if hit is None:
+            return 0.0
+        used.add(hit)
+    return 1.0
 
 
 _MON = {m: i for i, m in enumerate(
