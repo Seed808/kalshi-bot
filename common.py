@@ -26,7 +26,12 @@ DEFAULTS = {
         "KXMLBGAME": "baseball_mlb",
         "KXNHLGAME": "icehockey_nhl",
         "KXNCAAFGAME": "americanfootball_ncaaf",
+        # tennis: Odds API has one key per tournament; "*" = every active key with that prefix
+        "KXATPMATCH": "tennis_atp_*",
+        "KXWTAMATCH": "tennis_wta_*",
     },
+    "individual_series": ["KXATPMATCH", "KXWTAMATCH"],   # players, not teams (no nickname aliases)
+    "odds_spend_horizon_hours": 12,   # only spend an odds credit on a sport with a game ending within this
     # ---- step 1: scan agent (all Kalshi markets)
     "scan_min_volume_24h": 500,
     "scan_max_hours": 72,
@@ -60,6 +65,8 @@ DEFAULTS = {
         "KXMLBGAME": ["baseball", "fantasybaseball"],
         "KXNHLGAME": ["hockey", "fantasyhockey"],
         "KXNCAAFGAME": ["CFB"],
+        "KXATPMATCH": ["tennis"],
+        "KXWTAMATCH": ["tennis"],
     },
     "research_lookback_hours": 24,
     "research_ttl_min": 60,
@@ -245,8 +252,13 @@ _STOP = {"the", "fc", "sc", "university", "of"}
 _ALIAS = {"st": "state"}   # Kalshi writes "Texas St.", sportsbooks "Texas State Bobcats"
 
 
+def strip_accents(s):
+    import unicodedata
+    return "".join(c for c in unicodedata.normalize("NFKD", s or "") if not unicodedata.combining(c))
+
+
 def norm(name):
-    name = re.sub(r"[^a-z0-9 ]", " ", (name or "").lower())
+    name = re.sub(r"[^a-z0-9 ]", " ", strip_accents(name).lower())
     return [_ALIAS.get(t, t) for t in name.split() if t and t not in _STOP]
 
 

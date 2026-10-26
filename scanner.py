@@ -127,6 +127,22 @@ def fetch_odds_raw(sport_key, cfg, api_key, store):
     return raw, f"fresh, {cost:.0f} credit(s), {rem} left"
 
 
+def resolve_sport_keys(pattern, api_key, store):
+    """'tennis_atp_*' -> active Odds API keys with that prefix. /v4/sports costs no credits.
+    Cached 6h so the list isn't re-fetched every run."""
+    if not pattern.endswith("*"):
+        return [pattern]
+    cached = store.get_odds_cache("__sports__")
+    if cached and cached[0] < 360:
+        sports = cached[1]
+    else:
+        sports = http_get(f"{ODDS}/sports", {"apiKey": api_key}).json()
+        store.put_odds_cache("__sports__", sports)
+    pre = pattern[:-1]
+    return [s["key"] for s in sports if s.get("key", "").startswith(pre) and s.get("active")
+            and not s.get("has_outrights")]
+
+
 def odds_consensus(sport_key, cfg, api_key, store):
     raw, note = fetch_odds_raw(sport_key, cfg, api_key, store)
     if raw is None:
@@ -135,6 +151,18 @@ def odds_consensus(sport_key, cfg, api_key, store):
     events = []
     for ev in json.loads(json.dumps(raw)):
         home, away = ev.get("home_team"), ev.get("away_team")
+        if not home or not away:   # e.g. tennis: take the two names from the first 2-way h2h line
+            for bk in ev.get("bookmakers", []):
+                for mkt in bk.get("markets", []):
+                    names = [o.get("name") for o in mkt.get("outcomes", [])]
+                    if mkt.get("key") == "h2h" and len(names) == 2 and all(names):
+                        home, away = names
+                        break
+                if home and away:
+                    break
+            if not home or not away:
+                continue
+            ev["home_team"], ev["away_team"] = home, away
         probs, stale = [], []
         for bk in ev.get("bookmakers", []):
             for mkt in bk.get("markets", []):
@@ -223,18 +251,35 @@ def sports_games(cfg, api_key, store, verbose=False):
             if verbose:
                 print(f"[{series}] no open markets")
             continue
-        # don't spend an odds credit unless some game in this series resolves soon
-        horizon = now + timedelta(hours=cfg["max_hours_ahead"] + 12)
-        if not any((resolution_time(m) or horizon + timedelta(days=1)) <= horizon for m in ms):
+        # don't spend an odds credit unless some game in this series ENDS soon (rations free credits
+        # to near-term games, which is also when sportsbook lines are sharpest)
+        horizon = now + timedelta(hours=cfg["odds_spend_horizon_hours"])
+        soon = [e for e in (parse_ts(m.get("expected_expiration_time")) for m in ms) if e]
+        if not any(now < e <= horizon for e in soon):
             if verbose:
-                print(f"[{series}] no games in window — no odds credit spent")
+                print(f"[{series}] no games ending within {cfg['odds_spend_horizon_hours']}h "
+                      f"— no odds credit spent")
             continue
         fmult = fee_multiplier(series)
         try:
-            odds_events, remaining = odds_consensus(sport, cfg, api_key, store)
+            keys = resolve_sport_keys(sport, api_key, store)
         except Exception as e:
-            print(f"[{sport}] Odds API error: {e}")
+            print(f"[{series}] Odds API sports-list error: {e}")
             continue
+        if not keys:
+            if verbose:
+                print(f"[{series}] no active sportsbook tournaments for {sport}")
+            continue
+        odds_events, notes = [], []
+        for key in keys:
+            try:
+                evs, note = odds_consensus(key, cfg, api_key, store)
+            except Exception as e:
+                print(f"[{key}] Odds API error: {e}")
+                continue
+            odds_events.extend(evs)
+            notes.append(f"{key.split('_', 2)[-1] if '*' in sport else ''}{':' if '*' in sport else ''}{note}")
+        remaining = "; ".join(notes)
         by_event = {}
         for m in ms:
             by_event.setdefault(m["event_ticker"], []).append(m)
@@ -270,7 +315,9 @@ def sports_games(cfg, api_key, store, verbose=False):
             matched += 1
             games.append({"series": series, "event_ticker": et, "markets": mk, "mapping": mapping,
                           "oe": oe, "start": start, "fee_mult": fmult,
-                          "matchup": f'{oe["away_team"]} @ {oe["home_team"]}'})
+                          "matchup": (f'{oe["home_team"]} vs {oe["away_team"]}'
+                                      if series in cfg.get("individual_series", [])
+                                      else f'{oe["away_team"]} @ {oe["home_team"]}')})
         if verbose:
             print(f"[{series}] {len(ms)} mkts | {len(odds_events)} odds events | matched {matched} "
                   f"| unmatched {unmatched} | ambiguous {dup} | odds: {remaining}")

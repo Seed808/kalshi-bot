@@ -69,6 +69,18 @@ Everything the bot uses by default is free: Kalshi market data, ESPN RSS, the Od
 
 **X stays off** (`x_enabled: false`, `x_monthly_read_cap: 0`). It's $0.005 per post read. Turning it on is the only way this bot can cost money.
 
+## Tennis
+
+- **Kalshi series:** `KXATPMATCH` (ATP) and `KXWTAMATCH` (WTA) match winners.
+- **Odds API keys:** one per tournament. Each run uses every active `tennis_atp_*` / `tennis_wta_*` key from the free `/v4/sports` list, cached 6h.
+- **Not covered:** Challenger events (`KXCHALLENGERMATCH`, `KXWTACHALLENGERMATCH`) and tournaments the Odds API doesn't list have no sportsbook odds, so they're skipped.
+- **Matching:** player names are matched with accents removed.
+- **Research:** uses full player names only, so siblings (e.g. the Cerundolos) aren't mixed up.
+- **Retirements:** Kalshi resolves to the match winner "after a ball has been played". Sportsbooks may void a bet on retirement, so mid-match retirements can make the consensus a slightly imperfect estimate.
+- **Credits:** each active tournament costs 1 Odds API credit per refresh. Odds are only bought for a sport with a game or match **ending within `odds_spend_horizon_hours` (12h)**, which keeps every sport inside the free 500/month.
+
+To find series/keys for any other sport (costs no odds credits): **Actions → kalshi-bot → Run workflow → command: discover**, then read `last_run.log`. The default keywords are tennis; locally, `python main.py discover --q golf,pga`.
+
 ## Know before trusting it
 
 - **Series tickers.** Only `KXNHLGAME` appeared in the sources I found. Verify the others with `series` and fix `config.json`.

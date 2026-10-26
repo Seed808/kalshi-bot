@@ -4,8 +4,14 @@
     "KXNBAGAME": "basketball_nba",
     "KXMLBGAME": "baseball_mlb",
     "KXNHLGAME": "icehockey_nhl",
-    "KXNCAAFGAME": "americanfootball_ncaaf"
+    "KXNCAAFGAME": "americanfootball_ncaaf",
+    "KXATPMATCH": "tennis_atp_*",
+    "KXWTAMATCH": "tennis_wta_*"
   },
+  "individual_series": [
+    "KXATPMATCH",
+    "KXWTAMATCH"
+  ],
   "min_edge": 0.03,
   "max_spread": 0.06,
   "min_size": 25,
@@ -17,6 +23,7 @@
   "odds_credit_reserve": 25,
   "odds_max_credits_per_day": 15,
   "odds_cache_min": 45,
+  "odds_spend_horizon_hours": 12,
   "scan_min_volume_24h": 500,
   "scan_max_hours": 72,
   "scan_move_threshold": 0.1,
@@ -58,6 +65,12 @@
     ],
     "KXNCAAFGAME": [
       "CFB"
+    ],
+    "KXATPMATCH": [
+      "tennis"
+    ],
+    "KXWTAMATCH": [
+      "tennis"
     ]
   },
   "x_enabled": false,

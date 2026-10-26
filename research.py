@@ -11,7 +11,7 @@ from datetime import datetime, timezone, timedelta
 
 import requests
 
-from common import now_utc
+from common import now_utc, strip_accents
 
 try:
     import feedparser
@@ -30,11 +30,13 @@ INJURY_RE = re.compile(
     r"day-to-day|concussion|suspend\w*|placed on (?:the )?(?:il|ir|injured))\b", re.I)
 
 
-def team_aliases(name):
-    n = name.lower().strip()
+def team_aliases(name, nickname=True):
+    """Team: full name + nickname ('celtics'). Individual (tennis): full name only, so news about
+    Francisco Cerundolo never counts for Juan Manuel Cerundolo."""
+    n = strip_accents(name).lower().strip()
     al = {n}
     parts = n.split()
-    if len(parts) > 1 and len(parts[-1]) > 3:
+    if nickname and len(parts) > 1 and len(parts[-1]) > 3:
         al.add(parts[-1])
     return al
 
@@ -133,11 +135,11 @@ def fetch_x(team, cfg):
 
 # ---------------------------------------------------------------- scoring
 
-def score_team(team, items):
-    pat = re.compile(r"\b(" + "|".join(re.escape(a) for a in team_aliases(team)) + r")\b", re.I)
+def score_team(team, items, nickname=True):
+    pat = re.compile(r"\b(" + "|".join(re.escape(a) for a in team_aliases(team, nickname)) + r")\b", re.I)
     mentions, sents, inj = 0, [], 0
     for it in items:
-        if not pat.search(it["text"]):
+        if not pat.search(strip_accents(it["text"])):
             continue
         mentions += 1
         if _VADER:
@@ -179,7 +181,8 @@ def research_games(games, cfg, store):
     if n_x:
         store.add_x_reads(n_x)
     for team, series in todo:
-        sc = score_team(team, pool[series] + x_items.get(team, []))
+        sc = score_team(team, pool[series] + x_items.get(team, []),
+                        nickname=series not in cfg.get("individual_series", []))
         store.put_research(team, sc)
         out[team] = sc
     return out
