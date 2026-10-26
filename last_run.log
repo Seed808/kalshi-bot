@@ -1,13 +1,16 @@
-Scan: 10000 open markets, 263 pass volume/time filters, 8 flagged
-  KXAAAGASDCA-26OCT27-6.0050: spread 0.77 | vol24 1771
-  KXAAAGASDPA-26OCT27-4.4400: spread 0.23 | vol24 1689
-  KXAAAGASDCA-26OCT27-5.9800: spread 0.16 | vol24 1650
-  KXAAAGASDVA-26OCT27-4.0350: spread 0.10 | vol24 1003
-  KXAAAGASDIL-26OCT27-4.8700: spread 0.10 | vol24 1001
-  KXITFDOUBLES-26OCT26BEAVUJAGUCOO-AGUCOO: spread 0.16 | vol24 759
-  KXEBASKETBALLGAME-26OCT261052TIMCONO-CONO: spread 0.67 | vol24 753
-  KXAAAGASDTN-26OCT27-3.8000: spread 0.10 | vol24 587
-[KXNFLGAME] no games ending within 12h — no odds credit spent
+Settled 0 paper trade(s); labeled 2 training snapshot(s).
+Scan: 10000 open markets, 302 pass volume/time filters, 24 flagged
+  KXAAAGASDDE-26OCT27-3.8750: spread 0.17 | vol24 5900
+  KXAAAGASDDE-26OCT27-3.9450: spread 0.22 | vol24 3967
+  KXAAAGASDPA-26OCT27-4.4400: spread 0.78 | vol24 2937
+  KXAAAGASDPA-26OCT27-4.4350: spread 0.35 | vol24 2516
+  KXAAAGASDOR-26OCT27-4.8550: spread 0.12 | vol24 2510
+  KXAAAGASDCA-26OCT27-6.0050: spread 0.11 | vol24 2074
+  KXVTBSPREAD-26OCT261230ENIZSP-ZSP15: spread 0.27 | vol24 1936
+  KXAAAGASDPA-26OCT27-4.4450: spread 0.82 | vol24 1756
+  KXAAAGASDWV-26OCT27-4.1600: spread 0.88 | vol24 1491
+  KXAAAGASDDE-26OCT27-3.8700: spread 0.88 | vol24 1434
+[KXNFLGAME] 30 mkts | 15 odds events | matched 1 | unmatched 0 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
   unmatched KXNBAGAME-26OCT29MEMPOR: ['Portland', 'Memphis'] ends 2026-10-30T05:00:00+00:00 | closest odds: Washington Wizards @ Charlotte Hornets starts 2026-10-26T23:10:00Z
   unmatched KXNBAGAME-26OCT29SACNOP: ['Sacramento', 'New Orleans'] ends 2026-10-30T03:00:00+00:00 | closest odds: Washington Wizards @ Charlotte Hornets starts 2026-10-26T23:10:00Z
   unmatched KXNBAGAME-26OCT29CLEATL: ['Cleveland', 'Atlanta'] ends 2026-10-30T02:00:00+00:00 | closest odds: Minnesota Timberwolves @ Cleveland Cavaliers starts 2026-10-26T23:10:00Z
@@ -27,7 +30,8 @@ Scan: 10000 open markets, 263 pass volume/time filters, 8 flagged
   unmatched KXATPMATCH-26OCT25WAWLEH: ['Stan Wawrinka', 'Jiri Lehecka'] ends 2026-10-25T12:00:00+00:00 | closest odds: Jiri Lehecka @ Stan Wawrinka starts 2026-10-27T11:00:00Z
 [KXATPMATCH] 58 mkts | 32 odds events | matched 8 | unmatched 19 | ambiguous 0 | odds: swiss_indoors:daily odds allowance reached (15/15.0); vienna_open:daily odds allowance reached (15/15.0)
 [KXWTAMATCH] no games ending within 12h — no odds credit spent
-21 pregame games | 2 researched
+22 pregame games | 3 researched
+  skip Dallas Cowboys @ Philadelphia Eagles: odds stale
   skip Golden State Warriors @ Denver Nuggets: odds stale
   skip Memphis Grizzlies @ Utah Jazz: odds stale
   skip Atlanta Hawks @ Houston Rockets: odds stale
@@ -49,4 +53,4 @@ Scan: 10000 open markets, 263 pass volume/time filters, 8 flagged
   skip Giovanni Mpetshi Perricard vs Arthur Fils: odds stale
   skip Arthur Fery vs Jacob Fearnley: odds stale
   skip Jakub Mensik vs Lukas Neumayer: odds stale
-Mon 10/26 05:14 AM HST | Predictor: consensus | 0 signal(s), 0 new paper trade(s)
+Mon 10/26 06:14 AM HST | Predictor: consensus | 0 signal(s), 0 new paper trade(s)

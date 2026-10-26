@@ -1,6 +1,33 @@
 {
- "updated": "2026-10-26T15:14:49.935912+00:00",
+ "updated": "2026-10-26T16:14:17.427223+00:00",
  "board": [
+  {
+   "series": "KXNFLGAME",
+   "event_ticker": "KXNFLGAME-26OCT26DALPHI",
+   "matchup": "Dallas Cowboys @ Philadelphia Eagles",
+   "start": "2026-10-27T00:15:00+00:00",
+   "books": 9,
+   "sides": [
+    {
+     "name": "Philadelphia Eagles",
+     "bid": 0.33,
+     "ask": 0.33,
+     "route": "no on opponent",
+     "fair": 0.33328043642136457,
+     "ev": -0.012196563578635466
+    },
+    {
+     "name": "Dallas Cowboys",
+     "bid": 0.67,
+     "ask": 0.67,
+     "route": "no on opponent",
+     "fair": 0.6667195635786354,
+     "ev": -0.018757436421364626
+    }
+   ],
+   "why": "odds stale",
+   "signal": null
+  },
   {
    "series": "KXNBAGAME",
    "event_ticker": "KXNBAGAME-26OCT26GSWDEN",
@@ -10,19 +37,19 @@
    "sides": [
     {
      "name": "Golden State Warriors",
-     "bid": 0.28,
-     "ask": 0.29,
+     "bid": 0.29,
+     "ask": 0.3,
      "route": "no on opponent",
      "fair": 0.28048829397992625,
-     "ev": -0.023924706020073738
+     "ev": -0.03421170602007373
     },
     {
      "name": "Denver Nuggets",
-     "bid": 0.71,
-     "ask": 0.72,
+     "bid": 0.7,
+     "ask": 0.71,
      "route": "no on opponent",
      "fair": 0.7195117060200737,
-     "ev": -0.014600293979926238
+     "ev": -0.0049012939799262245
     }
    ],
    "why": "odds stale",
@@ -37,19 +64,19 @@
    "sides": [
     {
      "name": "Utah Jazz",
-     "bid": 0.49,
-     "ask": 0.5,
-     "route": "no on opponent",
-     "fair": 0.5236576405537485,
-     "ev": 0.006157640553748567
-    },
-    {
-     "name": "Memphis Grizzlies",
      "bid": 0.5,
      "ask": 0.51,
      "route": "no on opponent",
+     "fair": 0.5236576405537485,
+     "ev": -0.003835359446251463
+    },
+    {
+     "name": "Memphis Grizzlies",
+     "bid": 0.49,
+     "ask": 0.5,
+     "route": "no on opponent",
      "fair": 0.4763423594462515,
-     "ev": -0.051150640553748516
+     "ev": -0.04115764055374849
     }
    ],
    "why": "odds stale",
@@ -145,19 +172,19 @@
    "sides": [
     {
      "name": "Miami Heat",
-     "bid": 0.73,
-     "ask": 0.74,
+     "bid": 0.72,
+     "ask": 0.73,
      "route": "no on opponent",
      "fair": 0.7361147455307908,
-     "ev": -0.01735325446920921
+     "ev": -0.0076822544692091155
     },
     {
      "name": "Dallas Mavericks",
-     "bid": 0.26,
-     "ask": 0.27,
+     "bid": 0.27,
+     "ask": 0.28,
      "route": "no on opponent",
      "fair": 0.2638852544692092,
-     "ev": -0.019911745530790836
+     "ev": -0.030226745530790855
     }
    ],
    "why": "odds stale",
@@ -199,7 +226,7 @@
    "sides": [
     {
      "name": "Minnesota Timberwolves",
-     "bid": 0.38,
+     "bid": 0.37,
      "ask": 0.38,
      "route": "no on opponent",
      "fair": 0.4309631140506608,
@@ -208,10 +235,10 @@
     {
      "name": "Cleveland Cavaliers",
      "bid": 0.62,
-     "ask": 0.62,
+     "ask": 0.63,
      "route": "no on opponent",
      "fair": 0.5690368859493392,
-     "ev": -0.06745511405066074
+     "ev": -0.07728011405066082
     }
    ],
    "why": "odds stale",
@@ -226,19 +253,19 @@
    "sides": [
     {
      "name": "Washington Wizards",
-     "bid": 0.43,
-     "ask": 0.44,
-     "route": "yes",
+     "bid": 0.42,
+     "ask": 0.43,
+     "route": "no on opponent",
      "fair": 0.4631325214849199,
-     "ev": 0.0058845214849199134
+     "ev": 0.01597552148491993
     },
     {
      "name": "Charlotte Hornets",
-     "bid": 0.55,
-     "ask": 0.56,
-     "route": "yes",
+     "bid": 0.57,
+     "ask": 0.58,
+     "route": "no on opponent",
      "fair": 0.5368674785150801,
-     "ev": -0.040380521484919996
+     "ev": -0.06018452148491982
     }
    ],
    "why": "odds stale",
@@ -307,17 +334,17 @@
    "sides": [
     {
      "name": "Toronto Maple Leafs",
-     "bid": 0.57,
-     "ask": 0.58,
-     "route": "no on opponent",
+     "bid": 0.56,
+     "ask": 0.57,
+     "route": "yes",
      "fair": 0.5881160343117076,
-     "ev": -0.008935965688292358
+     "ev": 0.0009590343117076294
     },
     {
      "name": "Calgary Flames",
      "bid": 0.42,
      "ask": 0.43,
-     "route": "no on opponent",
+     "route": "yes",
      "fair": 0.41188396568829244,
      "ev": -0.03527303431170753
     }
@@ -335,14 +362,14 @@
     {
      "name": "New York Rangers",
      "bid": 0.55,
-     "ask": 0.55,
+     "ask": 0.56,
      "route": "no on opponent",
      "fair": 0.5499129523291223,
-     "ev": -0.017412047670877784
+     "ev": -0.0273350476708778
     },
     {
      "name": "Los Angeles Kings",
-     "bid": 0.45,
+     "bid": 0.44,
      "ask": 0.45,
      "route": "no on opponent",
      "fair": 0.4500870476708777,
@@ -361,7 +388,7 @@
    "sides": [
     {
      "name": "Adrian Mannarino",
-     "bid": 0.6,
+     "bid": 0.61,
      "ask": 0.61,
      "route": "no on opponent",
      "fair": 0.5465585562324031,
@@ -370,10 +397,10 @@
     {
      "name": "Ignacio Buse",
      "bid": 0.39,
-     "ask": 0.4,
+     "ask": 0.39,
      "route": "no on opponent",
      "fair": 0.4534414437675969,
-     "ev": 0.03664144376759687
+     "ev": 0.04678844376759683
     }
    ],
    "why": "odds stale",
@@ -389,10 +416,10 @@
     {
      "name": "Ben Shelton",
      "bid": 0.81,
-     "ask": 0.82,
-     "route": "yes",
+     "ask": 0.83,
+     "route": "no on opponent",
      "fair": 0.8219602374110124,
-     "ev": -0.00837176258898753
+     "ev": -0.017916762588987556
     },
     {
      "name": "Aleksandar Kovacevic",
@@ -496,19 +523,19 @@
    "sides": [
     {
      "name": "Giovanni Mpetshi Perricard",
-     "bid": 0.15,
-     "ask": 0.16,
+     "bid": 0.17,
+     "ask": 0.18,
      "route": "yes",
      "fair": 0.15582314521320656,
-     "ev": -0.013584854786793443
+     "ev": -0.03450885478679344
     },
     {
      "name": "Arthur Fils",
-     "bid": 0.82,
-     "ask": 0.85,
-     "route": "no on opponent",
+     "bid": 0.81,
+     "ask": 0.82,
+     "route": "yes",
      "fair": 0.8441768547867934,
-     "ev": -0.014748145213206554
+     "ev": 0.013844854786793426
     }
    ],
    "why": "odds stale",
@@ -523,19 +550,19 @@
    "sides": [
     {
      "name": "Arthur Fery",
-     "bid": 0.46,
-     "ask": 0.47,
+     "bid": 0.49,
+     "ask": 0.5,
      "route": "no on opponent",
      "fair": 0.49939792412438366,
-     "ev": 0.01196092412438371
+     "ev": -0.018102075875616297
     },
     {
      "name": "Jacob Fearnley",
-     "bid": 0.53,
-     "ask": 0.54,
+     "bid": 0.5,
+     "ask": 0.51,
      "route": "no on opponent",
      "fair": 0.5006020758756163,
-     "ev": -0.05678592412438366
+     "ev": -0.026890924124383653
     }
    ],
    "why": "odds stale",
@@ -550,7 +577,7 @@
    "sides": [
     {
      "name": "Lukas Neumayer",
-     "bid": 0.15,
+     "bid": 0.14,
      "ask": 0.15,
      "route": "no on opponent",
      "fair": 0.15193997670245063,
@@ -559,10 +586,10 @@
     {
      "name": "Jakub Mensik",
      "bid": 0.85,
-     "ask": 0.85,
+     "ask": 0.86,
      "route": "no on opponent",
      "fair": 0.8480600232975494,
-     "ev": -0.010864976702450568
+     "ev": -0.020367976702450608
     }
    ],
    "why": "odds stale",
