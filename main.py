@@ -22,6 +22,7 @@ Commands:
   python main.py postmortem             recent loss postmortems
 """
 import argparse
+from datetime import timedelta
 import json
 import os
 import sys
@@ -186,19 +187,31 @@ def evaluate_game(game, feats, predictor, cfg, res):
     return best, (None if best else reason)
 
 
-def fmt_signal(s, n=None):
+def fmt_signal(s, n=None, need=0.03):
+    """Plain-language play alert (Telegram/Discord/ntfy and the run log)."""
+    from site_builder import max_price
     m = s["market"]
-    rs, ro = s["research"]["side"], s["research"]["opp"]
-    src = f'model {s["model_prob"]:.3f} / consensus {s["consensus"]:.3f}' if s["model_prob"] is not None \
-        else f'consensus {s["consensus"]:.3f}'
-    lines = [f'{s["matchup"]} | {hst(s["start"])}',
-             f'  BUY {s["side"].upper()} on "{m["yes_sub_title"]}" @ ${s["ask"]:.2f} '
-             f'(w/ fee ${s["cost"]:.4f}) -> backing {s["team"]}',
-             f'  prob {s["prob"]:.3f} ({src}, {s["n_books"]} books) | EV +${s["ev"]:.3f}/contract',
-             f'  research {s["team"]}: {rs.get("mentions", 0)} mentions, sent {rs.get("sent", 0):+.2f}, '
-             f'inj {rs.get("inj", 0)} | opp: {ro.get("mentions", 0)} mentions, '
-             f'sent {ro.get("sent", 0):+.2f}, inj {ro.get("inj", 0)}',
-             f'  {m["ticker"]}' + (f' | PAPER {n} contracts' if n else '')]
+    label = m.get("yes_sub_title") or s["team"]
+    if s["side"] == "yes":
+        what = f'On Kalshi, buy YES on "{label}".'
+    else:
+        what = f'On Kalshi, buy NO on "{label}". That\'s a bet on {s["team"]} to win.'
+    mp = max_price(s["prob"], need, s.get("fee_mult", 1.0))
+    role = "favorite" if s["prob"] >= 0.5 else "underdog"
+    rs = (s.get("research") or {}).get("side") or {}
+    lines = [what,
+             f'It\'s {s["ask"] * 100:.0f}¢ now.' + (f' Pay {mp * 100:.0f}¢ or less.' if mp else ""),
+             f'{s["matchup"]}, {hst(s["start"])}',
+             f'Sportsbooks give {s["team"]} a {s["prob"] * 100:.1f}% chance ({s["n_books"]} books), so '
+             f'{s["team"]} is the {role}. Edge after Kalshi\'s fee: +{s["ev"] * 100:.1f}¢ per contract.']
+    if n:
+        lines.append(f'Paper size: {n} contracts (about ${n * s["cost"]:,.2f}). If {s["team"]} wins, '
+                     f'that pays ${n:,.2f}.')
+    if rs.get("mentions"):
+        lines.append(f'News check: {rs["mentions"]} recent mention(s) of {s["team"]}, '
+                     f'{rs.get("inj", 0)} about injuries.')
+    lines.append(f'Kalshi market: {m["ticker"]}')
+    lines.append("https://seed808.github.io/kalshi-bot/")
     return "\n".join(lines)
 
 
@@ -213,10 +226,10 @@ def cycle(cfg_path, store, paper, verbose):
     # step 5 first: close the loop on anything that finished
     settle_all(cfg, store)
     for r, flags, verdict in postmortem.run_postmortems(cfg, store):
-        alert(f"POSTMORTEM loss on {r['matchup']} ({r['side'].upper()} {r['team']}): {verdict}")
+        alert(f"PAPER LOSS REVIEW\n{r['team']} lost ({r['matchup']}).\nWhy: {verdict}")
     changes = postmortem.learn(cfg, store)
     if changes:
-        alert("LEARNING UPDATE\n  " + "\n  ".join(changes))
+        alert("BOT ADJUSTED ITS SETTINGS\n" + "\n".join("- " + c for c in changes))
         cfg = load_config(cfg_path)
     model.maybe_retrain(cfg, store)
 
@@ -266,7 +279,7 @@ def cycle(cfg_path, store, paper, verbose):
             continue
         signals.append(sig)
         if not paper:
-            print(fmt_signal(sig))
+            print(fmt_signal(sig, need=cfg["series_min_edge"].get(sig["series"], cfg["min_edge"])))
             continue
         n, block = risk.check_and_size(sig, cfg, store)
         if block:
@@ -281,7 +294,7 @@ def cycle(cfg_path, store, paper, verbose):
                  sig["consensus"], sig["model_prob"], sig["ev"], sig["n_books"], sig["book_std"],
                  sig["staleness"], json.dumps(sig["research"]), sig["start"].isoformat()))
         opened += 1
-        alert("PAPER SIGNAL\n" + fmt_signal(sig, n))
+        alert("PAPER PLAY\n" + fmt_signal(sig, n, cfg["series_min_edge"].get(sig["series"], cfg["min_edge"])))
     mode = "Predictor: XGBoost" if predictor.active else "Predictor: consensus"
     print(f"{hst(now_utc())} | {mode} | {len(signals)} signal(s), {opened} new paper trade(s)")
     try:
@@ -367,7 +380,7 @@ def main():
     install_redaction()
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("cmd", choices=["series", "anomalies", "scan", "paper", "run", "settle", "train",
-                                    "report", "postmortem", "discover", "test-alert"])
+                                    "report", "postmortem", "discover", "test-alert", "sample-alert"])
     ap.add_argument("--q", default="tennis,atp,wta", help="discover: comma-separated keywords")
     ap.add_argument("--interval", type=int, default=1800)
     ap.add_argument("--config", default="config.json")
@@ -415,6 +428,16 @@ def main():
         show_postmortems(store)
     elif a.cmd == "discover":
         discover(a.q)
+    elif a.cmd == "sample-alert":
+        start = now_utc() + timedelta(hours=6)
+        fake = {"market": {"ticker": "KXMLBGAME-SAMPLE-MIL", "yes_sub_title": "Milwaukee"},
+                "team": "Tampa Bay Rays", "side": "no", "ask": 0.48, "cost": 0.48 + fee_per_contract(0.48),
+                "prob": 0.533, "ev": 0.533 - 0.48 - fee_per_contract(0.48), "n_books": 9,
+                "matchup": "Milwaukee Brewers @ Tampa Bay Rays", "start": start, "fee_mult": 1.0,
+                "research": {"side": {"mentions": 2, "inj": 0}}}
+        alert("SAMPLE (not a real play)\nPAPER PLAY\n" + fmt_signal(fake, 32, cfg["min_edge"]))
+        alert("SAMPLE (not a real result)\nPAPER LOSS REVIEW\nLos Angeles Lakers lost (Los Angeles Lakers @ "
+              "Boston Celtics).\nWhy: price moved -0.05 against us before start")
     elif a.cmd == "test-alert":
         have = [n for n in ("TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID") if os.environ.get(n)]
         print(f"Telegram secrets found: {', '.join(have) or 'none'}")

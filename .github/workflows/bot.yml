@@ -9,7 +9,7 @@ on:
         description: "paper = normal cycle; discover = find new sports (no credits); test-alert = send a test message"
         type: choice
         default: paper
-        options: [paper, discover, test-alert]
+        options: [paper, discover, test-alert, sample-alert]
 
 permissions:
   contents: write              # lets the run save its paper-trade history back to the repo
