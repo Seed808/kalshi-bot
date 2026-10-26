@@ -33,49 +33,105 @@ def when(iso):
     return d.astimezone(HST).strftime("%a %-I:%M %p") if d else ""
 
 
-def gap_bar(price, fair, edge, label, need=0.0):
-    """0–100% track: Kalshi price marker, sportsbook fair marker, span between them."""
-    lo, hi = sorted((price, fair))
-    cls = "pos" if edge is not None and edge > 0 and edge >= need else "neg"
-    aria = (f"{escape(label)}: Kalshi {cents(price)}, sportsbooks {pct(fair)}, "
-            f"edge after fees {signed_cents(edge) if edge is not None else 'n/a'}")
-    return (f'<div class="gap {cls}" role="img" aria-label="{aria}">'
-            f'<span class="span" style="left:{lo * 100:.1f}%;width:{max(0.6, (hi - lo) * 100):.1f}%"></span>'
-            f'<span class="mk k" style="left:{price * 100:.1f}%" title="Kalshi {cents(price)}"></span>'
-            f'<span class="mk s" style="left:{fair * 100:.1f}%" title="Sportsbooks {pct(fair)}"></span>'
-            f'</div>')
+def other_side(b, x):
+    return next((s for s in b["sides"] if s is not x), x)
+
+
+def best_side(b):
+    sides = [x for x in b["sides"] if x["ev"] is not None and x["ask"]]
+    return max(sides, key=lambda x: x["ev"]) if sides else None
+
+
+def action(b, x):
+    """Plain instruction for backing side x, using the cheaper Kalshi route."""
+    if x.get("route") == "no on opponent":
+        o = other_side(b, x)
+        return (f'buy No on {escape(o["name"])} at {cents(x["ask"])}',
+                f'Buying No on {escape(o["name"])} is the same bet as backing {escape(x["name"])}, '
+                f'and it\'s cheaper right now.')
+    return f'buy Yes on {escape(x["name"])} at {cents(x["ask"])}', ""
+
+
+def role_note(x):
+    """Say plainly whether the side is favored, and what backing an underdog means."""
+    if x["fair"] < 0.5:
+        return (f' {escape(x["name"])} is the underdog: sportsbooks expect them to lose about '
+                f'{(1 - x["fair"]) * 100:.0f} times out of 100, so this bet loses more often than it wins. '
+                f'The case for it is only that the price is low for that chance.')
+    return f' {escape(x["name"])} is the favorite, expected to win about {x["fair"] * 100:.0f} times out of 100.'
+
+
+def ten_dollar(x):
+    """What a $10 paper stake on side x looks like. cost per contract = price + Kalshi fee."""
+    cost = x["fair"] - x["ev"]
+    n = int(10 // cost) if cost > 0 else 0
+    if n < 1:
+        return ""
+    spend = n * cost
+    return (f'<p class="eg">$10 example: {n} contracts cost ${spend:.2f} with fees. If '
+            f'{escape(x["name"])} wins, you collect ${n:.2f} (a ${n - spend:.2f} profit). If not, you '
+            f'lose the ${spend:.2f}. On average that works out to '
+            f'{"+" if x["ev"] >= 0 else "−"}${abs(n * x["ev"]):.2f}.</p>')
+
+
+def verdict(b, need):
+    x = best_side(b)
+    if b["signal"]:
+        x = next((s for s in b["sides"] if s["name"] == b["signal"]["team"]), x)
+        act, note = action(b, x)
+        return ("play", f'Paper play: {act}',
+                f'Sportsbooks give {escape(x["name"])} a {pct(x["fair"])} chance, so each contract is '
+                f'worth about {signed_cents(x["ev"])} more than it costs after fees.{role_note(x)} {note}', x)
+    if b["why"] and b["why"] != "no edge":
+        return ("skip", f'Skipped: {escape(b["why"])}',
+                'The bot doesn\'t trust the sportsbook price for this one, so it won\'t trade it.', None)
+    if x is None:
+        return ("skip", "No Kalshi price yet", "", None)
+    act, note = action(b, x)
+    if x["ev"] > 0:
+        return ("pass", "Pass",
+                f'Best option is to {act}, but it\'s only {signed_cents(x["ev"])} per contract on '
+                f'average. The bot needs at least {signed_cents(need)}.{role_note(x)} {note}', x)
+    return ("pass", "Pass",
+            f'Both players cost more on Kalshi than the sportsbooks say they\'re worth. The closest is '
+            f'{escape(x["name"])} at {signed_cents(x["ev"])} per contract.'
+            if "vs" in b["matchup"] else
+            f'Both teams cost more on Kalshi than the sportsbooks say they\'re worth. The closest is '
+            f'{escape(x["name"])} at {signed_cents(x["ev"])} per contract.', x)
+
+
+HOWTO = """<details class="howto" open><summary>How to read this board</summary><ul>
+<li>A Kalshi contract pays <b>$1 if your side wins</b> and nothing if it loses. The price in cents is
+what one contract costs, so 29¢ means you pay $0.29 to maybe win $1.</li>
+<li><b>Sportsbooks' chance</b> is how likely several sportsbooks think that side is to win, with
+their built-in margin removed.</li>
+<li><b>Avg. profit per contract</b> is the sportsbooks' chance minus the Kalshi price minus Kalshi's fee.
+Positive means Kalshi is selling it cheap. Negative means it's overpriced.</li>
+<li>The bot only makes a paper play when that number is at least +{need}. Anything smaller is
+too close to call.</li></ul></details>"""
 
 
 def hero(board, cfg):
-    sigs = [b for b in board if b["signal"]]
-    if sigs:
-        b = max(sigs, key=lambda x: x["signal"]["ev"])
-        s = b["signal"]
-        side = next((x for x in b["sides"] if x["name"] == s["team"]), b["sides"][0])
-        return (f'<section class="hero live"><p class="kicker">Paper play</p>'
-                f'<h2>Back {escape(s["team"])} at {cents(s["ask"])}</h2>'
-                f'<p class="sub">{escape(b["matchup"])}, {when(b["start"])} HST. Sportsbooks make it '
-                f'{pct(s["prob"])}, which leaves <strong>{signed_cents(s["ev"])}</strong> per contract '
-                f'after Kalshi fees.</p>{gap_bar(s["ask"], side["fair"], s["ev"], s["team"])}'
-                f'{legend()}</section>')
-    priced = [(x["ev"], b, x) for b in board for x in b["sides"] if x["ev"] is not None]
-    if not priced:
-        return ('<section class="hero"><h2>No games on the board yet</h2><p class="sub">The bot only '
-                'buys sportsbook odds for games starting within about 12 hours, to stay inside the free '
-                'plan. Check back closer to game time.</p></section>')
-    ev, b, x = max(priced, key=lambda t: t[0])
-    return (f'<section class="hero"><h2>No edge right now</h2>'
-            f'<p class="sub">Closest: {escape(x["name"])} in {escape(b["matchup"])}. Kalshi asks '
-            f'{cents(x["ask"])}, sportsbooks say {pct(x["fair"])}: {signed_cents(ev)} after fees. '
-            f'A paper play needs at least {signed_cents(cfg["min_edge"])}.</p>'
-            f'{gap_bar(x["ask"], x["fair"], ev, x["name"], cfg["min_edge"])}'
-            f'{legend()}</section>')
-
-
-def legend():
-    return ('<p class="legend"><span class="key k"></span>Kalshi price '
-            '<span class="key s"></span>Sportsbook fair price '
-            '<span class="key span-pos"></span>Edge after fees</p>')
+    need = cfg["min_edge"]
+    howto = HOWTO.replace("{need}", signed_cents(need))
+    plays = [b for b in board if b["signal"]]
+    if plays:
+        b = max(plays, key=lambda p: p["signal"]["ev"])
+        kind, head, why, x = verdict(b, need)
+        return (f'<section class="hero live"><p class="kicker">Paper play</p><h2>{head[12:13].upper() + head[13:]}</h2>'
+                f'<p class="sub">{escape(b["matchup"])}, {when(b["start"])} HST. {why}</p>'
+                f'{ten_dollar(x) if x else ""}{howto}</section>')
+    if not board:
+        return ('<section class="hero"><h2>No games on the board yet</h2><p class="sub">To stay on the '
+                'free odds plan, the bot only checks sportsbooks for games ending within about 12 hours. '
+                'Check back closer to game time.</p>' + howto + '</section>')
+    cands = [(best_side(b), b) for b in board if not b["signal"] and best_side(b)]
+    x, b = max(cands, key=lambda t: t[0]["ev"])
+    act, note = action(b, x)
+    return (f'<section class="hero"><h2>No play right now</h2>'
+            f'<p class="sub">Nothing on the board clears the {signed_cents(need)} bar. The closest is '
+            f'{escape(b["matchup"])}: {act}. That\'s {signed_cents(x["ev"])} per contract on '
+            f'average, so the bot passes. {note}</p>{howto}</section>')
 
 
 def board_html(board, cfg):
@@ -85,32 +141,36 @@ def board_html(board, cfg):
     for b in sorted(board, key=lambda b: b["start"]):
         groups.setdefault(b["series"], []).append(b)
     out = ['<section><h2>The board</h2><p class="note">Games starting in the next 36 hours that '
-           'matched a sportsbook game. Kalshi prices are what one contract costs; it pays $1 if that '
-           'side wins.</p>']
+           'matched a sportsbook game.</p>']
     for series, games in groups.items():
         need = cfg["series_min_edge"].get(series, cfg["min_edge"])
-        out.append(f'<h3>{escape(SPORT.get(series, series))}</h3><div class="games">')
+        link = (f' <a class="klink" href="https://kalshi.com/markets/{series.lower()}">'
+                f'Open these on Kalshi</a>')
+        out.append(f'<h3>{escape(SPORT.get(series, series))}{link}</h3><div class="games">')
         for b in games:
-            flag = ""
-            if b["signal"]:
-                flag = '<span class="tag play">Paper play</span>'
-            elif b["why"] and b["why"] != "no edge":
-                flag = f'<span class="tag">{escape(b["why"])}</span>'
+            kind, head, why, x = verdict(b, need)
             rows = []
-            for x in b["sides"]:
-                ev = x["ev"]
-                evtxt = signed_cents(ev) if ev is not None else "—"
+            for s in b["sides"]:
+                ev = s["ev"]
+                via = (f'<span class="via">via No on {escape(other_side(b, s)["name"])}</span>'
+                       if s.get("route") == "no on opponent" else "")
+                tag = ('<span class="role fav">favorite</span>' if s["fair"] >= 0.5
+                       else '<span class="role dog">underdog</span>')
                 rows.append(
-                    f'<div class="side"><span class="who">{escape(x["name"])}</span>'
-                    f'<span class="num">{cents(x["ask"]) if x["ask"] else "—"}</span>'
-                    f'<span class="num">{pct(x["fair"])}</span>'
-                    f'<span class="num {"up" if ev is not None and ev >= need else "flat"}">{evtxt}</span>'
-                    f'{gap_bar(x["ask"], x["fair"], ev, x["name"], need) if x["ask"] else ""}</div>')
-            out.append(f'<article class="game"><header><span class="t">{when(b["start"])}</span>'
-                       f'<span class="m">{escape(b["matchup"])}</span>{flag}'
-                       f'<span class="books">{b["books"]} sportsbooks</span></header>'
-                       f'<div class="cols"><span></span><span>Kalshi</span><span>Fair</span>'
-                       f'<span>Edge</span></div>{"".join(rows)}</article>')
+                    f'<tr><td>{escape(s["name"])} {tag}{via}</td>'
+                    f'<td class="num">{cents(s["ask"]) if s["ask"] else "—"}</td>'
+                    f'<td class="num">{pct(s["fair"])}</td>'
+                    f'<td class="num {"up" if ev is not None and ev >= need else "flat"}">'
+                    f'{signed_cents(ev) if ev is not None else "—"}</td></tr>')
+            out.append(
+                f'<article class="game {kind}"><header><span class="t">{when(b["start"])} HST</span>'
+                f'<span class="m">{escape(b["matchup"])}</span></header>'
+                f'<p class="verdict">{head}</p><p class="why">{why}</p>'
+                f'{ten_dollar(x) if kind == "play" and x else ""}'
+                f'<table class="sides"><thead><tr><th></th><th class="num">Kalshi price</th>'
+                f'<th class="num">Sportsbooks\' chance</th><th class="num">Avg. profit per contract</th>'
+                f'</tr></thead><tbody>{"".join(rows)}</tbody></table>'
+                f'<p class="books">Based on {b["books"]} sportsbooks</p></article>')
         out.append("</div>")
     out.append("</section>")
     return "".join(out)
@@ -218,6 +278,21 @@ def anomalies_html(an):
 
 
 CSS = """
+
+.howto{margin:16px 0 0;border-top:1px solid var(--rule);padding-top:12px}
+.howto summary{cursor:pointer;font-weight:600}
+.howto ul{margin:8px 0 0}.howto li{max-width:70ch}
+.verdict{margin:2px 0 2px;font:700 1.35rem/1.15 "Saira Condensed",sans-serif}
+.game.play{border-color:var(--pine);border-width:2px}.game.play .verdict{color:var(--pine)}
+.game.skip .verdict{color:var(--soft)}
+.why{margin:0 0 8px;max-width:70ch}
+.eg{margin:0 0 10px;padding:8px 12px;background:var(--pine-tint);border-radius:4px;max-width:70ch}
+.sides{margin-top:4px}.sides th{font-size:.8rem;font-weight:600}.sides td{font-size:1rem}
+.sides td.num{font-family:"Saira Condensed",sans-serif;font-size:1.15rem}
+.via{display:block;color:var(--soft);font-size:.8rem}
+.game .books{margin:6px 0 0;color:var(--soft);font-size:.8rem}
+.role{font-size:.75rem;padding:0 6px;border-radius:8px;margin-left:4px;vertical-align:1px;background:var(--track);color:var(--soft)}.role.fav{color:var(--ink)}
+.klink{font:400 .9rem "Source Sans 3",sans-serif;margin-left:10px}
 :root{--paper:#eef2f6;--card:#f8fafc;--ink:#18222f;--soft:#5b6878;--rule:#cfd7e1;--pine:#0d7a63;
 --pine-tint:#cbe9df;--cran:#a33a57;--kal:#2f5bea;--track:#dde4ec}
 @media (prefers-color-scheme:dark){:root{--paper:#10161e;--card:#161e28;--ink:#e4eaf1;--soft:#9aa7b6;
