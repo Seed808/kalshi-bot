@@ -1,9 +1,5 @@
 Telegram secrets found: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
 Token belongs to bot: @es_kalshi_bot (EsKalshi)
-Chats that messaged this bot: 'Kalani' -> chat id is 10 digits, ending in ...076
-  PROBLEM: your saved number is an update_id, not a chat id.
-  Put that chat id (from "chat":{"id": ...} on the getUpdates page) in TELEGRAM_CHAT_ID.
-Chat id check: 9 digits | format looks OK
-Test alert from your Kalshi bot. If you can read this, Telegram alerts work. Sent Sun 10/25 08:35 PM HST. Site: https://seed808.github.io/kalshi-bot/
-Telegram alert failed: HTTP 400 Bad Request: chat not found
-  Fix: open your bot in Telegram, press Start, send it a message, then copy the chat id from getUpdates again into TELEGRAM_CHAT_ID (numbers only).
+Chat id matches a chat that messaged this bot.
+Chat id check: 10 digits | format looks OK
+Test alert from your Kalshi bot. If you can read this, Telegram alerts work. Sent Sun 10/25 08:37 PM HST. Site: https://seed808.github.io/kalshi-bot/
