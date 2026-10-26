@@ -156,6 +156,37 @@ def parse_ts(s):
         return None
 
 
+SECRET_ENV = ("ODDS_API_KEY", "TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID", "DISCORD_WEBHOOK_URL",
+              "NTFY_TOPIC", "REDDIT_CLIENT_ID", "REDDIT_CLIENT_SECRET", "X_BEARER_TOKEN")
+
+
+class _Redactor:
+    """Wraps stdout/stderr so secrets can't leak into logs (incl. the committed last_run.log)."""
+
+    def __init__(self, stream):
+        self._s = stream
+        self._secrets = [v for k, v in os.environ.items() if k in SECRET_ENV and v and len(v) >= 6]
+
+    def write(self, t):
+        for v in self._secrets:
+            t = t.replace(v, "***")
+        t = re.sub(r"(apiKey=)[^&\s'\"]+", r"\1***", t)
+        t = re.sub(r"(api\.telegram\.org/bot)[^/\s]+", r"\1***", t)
+        return self._s.write(t)
+
+    def flush(self):
+        self._s.flush()
+
+    def __getattr__(self, name):
+        return getattr(self._s, name)
+
+
+def install_redaction():
+    import sys
+    if not isinstance(sys.stdout, _Redactor):
+        sys.stdout, sys.stderr = _Redactor(sys.stdout), _Redactor(sys.stderr)
+
+
 _SESSION = requests.Session()
 
 

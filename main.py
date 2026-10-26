@@ -29,7 +29,7 @@ import time
 
 import requests
 
-from common import (KALSHI, load_config, now_utc, hst, fnum, fee_per_contract, order_fee,
+from common import (KALSHI, install_redaction, load_config, now_utc, hst, fnum, fee_per_contract, order_fee,
                     http_get, parse_ts)
 from store import Store
 import scanner
@@ -320,6 +320,7 @@ def show_postmortems(store):
 # ---------------------------------------------------------------- cli
 
 def main():
+    install_redaction()
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("cmd", choices=["series", "anomalies", "scan", "paper", "run", "settle", "train",
                                     "report", "postmortem"])
