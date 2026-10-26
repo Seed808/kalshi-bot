@@ -359,7 +359,7 @@ def main():
     install_redaction()
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("cmd", choices=["series", "anomalies", "scan", "paper", "run", "settle", "train",
-                                    "report", "postmortem", "discover"])
+                                    "report", "postmortem", "discover", "test-alert"])
     ap.add_argument("--q", default="tennis,atp,wta", help="discover: comma-separated keywords")
     ap.add_argument("--interval", type=int, default=1800)
     ap.add_argument("--config", default="config.json")
@@ -407,6 +407,13 @@ def main():
         show_postmortems(store)
     elif a.cmd == "discover":
         discover(a.q)
+    elif a.cmd == "test-alert":
+        have = [n for n in ("TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID") if os.environ.get(n)]
+        print(f"Telegram secrets found: {', '.join(have) or 'none'}")
+        if len(have) < 2:
+            print("Add both TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID as repo secrets, then run this again.")
+        alert(f"Test alert from your Kalshi bot. If you can read this, Telegram alerts work. "
+              f"Sent {hst(now_utc())}. Site: https://seed808.github.io/kalshi-bot/")
 
 
 def discover(q):

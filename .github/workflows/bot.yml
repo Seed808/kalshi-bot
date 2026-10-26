@@ -6,10 +6,10 @@ on:
   workflow_dispatch:           # "Run workflow" button for manual runs
     inputs:
       command:
-        description: "paper = normal cycle; discover = list series/keys for new sports (no odds credits)"
+        description: "paper = normal cycle; discover = find new sports (no credits); test-alert = send a test message"
         type: choice
         default: paper
-        options: [paper, discover]
+        options: [paper, discover, test-alert]
 
 permissions:
   contents: write              # lets the run save its paper-trade history back to the repo
