@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T22:45:46.049522+00:00",
+ "updated": "2026-10-26T23:41:42.136357+00:00",
  "board": [
   {
    "series": "KXNFLGAME",
@@ -145,127 +145,19 @@
    "sides": [
     {
      "name": "Milwaukee Bucks",
-     "bid": 0.38,
-     "ask": 0.39,
-     "route": "yes",
+     "bid": 0.39,
+     "ask": 0.4,
+     "route": "no on opponent",
      "fair": 0.40504873864095686,
-     "ev": -0.0016042613590431798
+     "ev": -0.011751261359043141
     },
     {
      "name": "Indiana Pacers",
      "bid": 0.6,
      "ask": 0.61,
-     "route": "yes",
+     "route": "no on opponent",
      "fair": 0.5949512613590431,
      "ev": -0.031701738640956934
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT26DALMIA",
-   "matchup": "Dallas Mavericks @ Miami Heat",
-   "start": "2026-10-26T23:30:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Miami Heat",
-     "bid": 0.71,
-     "ask": 0.72,
-     "route": "no on opponent",
-     "fair": 0.7361147455307908,
-     "ev": 0.002002745530790828
-    },
-    {
-     "name": "Dallas Mavericks",
-     "bid": 0.28,
-     "ask": 0.29,
-     "route": "no on opponent",
-     "fair": 0.2638852544692092,
-     "ev": -0.040527745530790804
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT26CHIBOS",
-   "matchup": "Chicago Bulls @ Boston Celtics",
-   "start": "2026-10-26T23:30:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Chicago Bulls",
-     "bid": 0.13,
-     "ask": 0.14,
-     "route": "no on opponent",
-     "fair": 0.15214426221992872,
-     "ev": 0.003716262219928712
-    },
-    {
-     "name": "Boston Celtics",
-     "bid": 0.86,
-     "ask": 0.87,
-     "route": "no on opponent",
-     "fair": 0.8478557377800713,
-     "ev": -0.030061262219928664
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT26MINCLE",
-   "matchup": "Minnesota Timberwolves @ Cleveland Cavaliers",
-   "start": "2026-10-26T23:10:00+00:00",
-   "books": 8,
-   "sides": [
-    {
-     "name": "Minnesota Timberwolves",
-     "bid": 0.42,
-     "ask": 0.43,
-     "route": "no on opponent",
-     "fair": 0.4309631140506608,
-     "ev": -0.016193885949339182
-    },
-    {
-     "name": "Cleveland Cavaliers",
-     "bid": 0.57,
-     "ask": 0.58,
-     "route": "no on opponent",
-     "fair": 0.5690368859493392,
-     "ev": -0.028015114050660705
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT26WASCHA",
-   "matchup": "Washington Wizards @ Charlotte Hornets",
-   "start": "2026-10-26T23:10:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Washington Wizards",
-     "bid": 0.4,
-     "ask": 0.42,
-     "route": "no on opponent",
-     "fair": 0.4631325214849199,
-     "ev": 0.026080521484919905
-    },
-    {
-     "name": "Charlotte Hornets",
-     "bid": 0.58,
-     "ask": 0.59,
-     "route": "yes",
-     "fair": 0.5368674785150801,
-     "ev": -0.07006552148491985
     }
    ],
    "why": "odds stale",
@@ -281,14 +173,14 @@
     {
      "name": "Tampa Bay Rays",
      "bid": 0.52,
-     "ask": 0.53,
+     "ask": 0.52,
      "route": "no on opponent",
      "fair": 0.521213201407082,
-     "ev": -0.01750529859291794
+     "ev": -0.007522798592917934
     },
     {
      "name": "Milwaukee Brewers",
-     "bid": 0.47,
+     "bid": 0.48,
      "ask": 0.48,
      "route": "no on opponent",
      "fair": 0.47878679859291795,
@@ -308,14 +200,14 @@
     {
      "name": "Edmonton Oilers",
      "bid": 0.61,
-     "ask": 0.61,
+     "ask": 0.62,
      "route": "no on opponent",
      "fair": 0.614845760682633,
-     "ev": -0.011807239317367046
+     "ev": -0.021646239317366978
     },
     {
      "name": "Detroit Red Wings",
-     "bid": 0.39,
+     "bid": 0.38,
      "ask": 0.39,
      "route": "no on opponent",
      "fair": 0.38515423931736703,
@@ -347,33 +239,6 @@
      "route": "no on opponent",
      "fair": 0.41188396568829244,
      "ev": -0.05544103431170755
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26OCT26LANYR",
-   "matchup": "Los Angeles Kings @ New York Rangers",
-   "start": "2026-10-26T23:10:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "New York Rangers",
-     "bid": 0.55,
-     "ask": 0.56,
-     "route": "no on opponent",
-     "fair": 0.5499129523291223,
-     "ev": -0.0273350476708778
-    },
-    {
-     "name": "Los Angeles Kings",
-     "bid": 0.44,
-     "ask": 0.45,
-     "route": "no on opponent",
-     "fair": 0.4500870476708777,
-     "ev": -0.017237952329122286
     }
    ],
    "why": "odds stale",
