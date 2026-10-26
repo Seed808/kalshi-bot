@@ -74,6 +74,20 @@ def ten_dollar(x):
             f'{"+" if x["ev"] >= 0 else "−"}${abs(n * x["ev"]):.2f}.</p>')
 
 
+SKIP_TEXT = {
+    "odds stale": ("Waiting for fresh odds",
+                   "The sportsbook odds here are more than 30 minutes old. To stay on the free plan the bot "
+                   "only refreshes them a few times a day, and it won't trade on old prices. Prices below "
+                   "are from the last refresh."),
+    "sportsbooks disagree": ("Skipped: sportsbooks disagree",
+                             "The sportsbooks' prices are too far apart to trust a single fair price."),
+    "research veto": ("Skipped: injury news",
+                      "Recent news mentions an injury for the side that looked cheap, so the bot sits out."),
+    "confidence gate": ("Skipped: model and sportsbooks disagree",
+                        "The bot's model and the sportsbooks don't both see an edge, so it passes."),
+}
+
+
 def verdict(b, need):
     x = best_side(b)
     if b["signal"]:
@@ -83,8 +97,10 @@ def verdict(b, need):
                 f'Sportsbooks give {escape(x["name"])} a {pct(x["fair"])} chance, so each contract is '
                 f'worth about {signed_cents(x["ev"])} more than it costs after fees.{role_note(x)} {note}', x)
     if b["why"] and b["why"] != "no edge":
-        return ("skip", f'Skipped: {escape(b["why"])}',
-                'The bot doesn\'t trust the sportsbook price for this one, so it won\'t trade it.', None)
+        head, why = SKIP_TEXT.get(b["why"].split(":")[0], (
+            f'Skipped: {escape(b["why"])}',
+            'The bot doesn\'t trust the sportsbook price for this one, so it won\'t trade it.'))
+        return ("skip", head, why, None)
     if x is None:
         return ("skip", "No Kalshi price yet", "", None)
     act, note = action(b, x)
@@ -125,9 +141,16 @@ def hero(board, cfg):
         return ('<section class="hero"><h2>No games on the board yet</h2><p class="sub">To stay on the '
                 'free odds plan, the bot only checks sportsbooks for games ending within about 12 hours. '
                 'Check back closer to game time.</p>' + howto + '</section>')
-    cands = [(best_side(b), b) for b in board if not b["signal"] and best_side(b)]
+    fresh = [b for b in board if not b["signal"] and (not b["why"] or b["why"] == "no edge")]
+    cands = [(best_side(b), b) for b in fresh if best_side(b)]
+    if not cands:
+        return ('<section class="hero"><h2>Waiting for fresh odds</h2><p class="sub">There are '
+                f'{len(board)} games on the board, but their sportsbook odds are more than 30 minutes '
+                'old. The bot refreshes them a few times a day to stay on the free plan, and only '
+                'judges games on fresh prices. Check back after the next refresh.</p>' + howto + '</section>')
     x, b = max(cands, key=lambda t: t[0]["ev"])
     act, note = action(b, x)
+    note = (role_note(x) + " " + note).strip()
     return (f'<section class="hero"><h2>No play right now</h2>'
             f'<p class="sub">Nothing on the board clears the {signed_cents(need)} bar. The closest is '
             f'{escape(b["matchup"])}: {act}. That\'s {signed_cents(x["ev"])} per contract on '
