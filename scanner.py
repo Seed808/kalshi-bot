@@ -246,6 +246,15 @@ def sports_games(cfg, api_key, store, verbose=False):
             oe, mapping, _gap = match_event(et, mk, odds_events, cfg["match_threshold"])
             if not oe:
                 unmatched += 1
+                if verbose and unmatched <= 4:
+                    end = game_time_ref(mk)
+                    names = [m.get("yes_sub_title") for m in mk]
+                    near = sorted(odds_events, key=lambda o: -max(name_score(names[0], o["home_team"]),
+                                                                  name_score(names[0], o["away_team"])))[:1]
+                    nd = (f'{near[0]["away_team"]} @ {near[0]["home_team"]} starts '
+                          f'{near[0]["commence_time"]}') if near else "none"
+                    print(f"  unmatched {et}: {names} ends {end.isoformat() if end else 'n/a'} "
+                          f"| closest odds: {nd}")
                 continue
             claims.setdefault(oe.get("id") or id(oe), []).append((et, mk, mapping, oe))
         for oid, cl in claims.items():
