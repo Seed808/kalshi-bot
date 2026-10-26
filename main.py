@@ -44,7 +44,8 @@ import site_builder as site
 
 def alert(text):
     print(text)
-    tg_token, tg_chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
+    tg_token = (os.environ.get("TELEGRAM_BOT_TOKEN") or "").strip()
+    tg_chat = (os.environ.get("TELEGRAM_CHAT_ID") or "").strip()
     if tg_token and tg_chat:
         try:
             r = requests.post(f"https://api.telegram.org/bot{tg_token}/sendMessage",
@@ -419,6 +420,29 @@ def main():
         print(f"Telegram secrets found: {', '.join(have) or 'none'}")
         if len(have) < 2:
             print("Add both TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID as repo secrets, then run this again.")
+        else:
+            tok = os.environ["TELEGRAM_BOT_TOKEN"].strip()
+            chat = os.environ["TELEGRAM_CHAT_ID"].strip()
+            try:   # getMe: which bot does this token belong to? (public info; no secrets printed)
+                me = requests.get(f"https://api.telegram.org/bot{tok}/getMe", timeout=10).json()
+                if me.get("ok"):
+                    print(f"Token belongs to bot: @{me['result'].get('username')} "
+                          f"({me['result'].get('first_name')})")
+                else:
+                    print(f"Token check failed: {me.get('description')}")
+            except Exception:
+                print("Token check failed: network error")
+            raw = os.environ["TELEGRAM_CHAT_ID"]
+            notes = []
+            if raw != chat:
+                notes.append("has spaces/newlines around it")
+            if not chat.lstrip("-").isdigit():
+                notes.append("is not just digits (remove quotes or words)")
+            if chat.lstrip("-") == tok.split(":")[0]:
+                notes.append("is the BOT's id (the number at the start of the token), not your chat id")
+            print(f"Chat id check: {len(chat.lstrip('-'))} digits"
+                  + (", negative (group/channel)" if chat.startswith("-") else "")
+                  + (" | PROBLEM: " + "; ".join(notes) if notes else " | format looks OK"))
         alert(f"Test alert from your Kalshi bot. If you can read this, Telegram alerts work. "
               f"Sent {hst(now_utc())}. Site: https://seed808.github.io/kalshi-bot/")
 
