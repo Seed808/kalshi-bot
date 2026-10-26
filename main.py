@@ -37,6 +37,7 @@ import research
 import model
 import risk
 import postmortem
+import site_builder as site
 
 
 # ---------------------------------------------------------------- alerts
@@ -212,6 +213,7 @@ def cycle(cfg_path, store, paper, verbose):
     model.maybe_retrain(cfg, store)
 
     # step 1a: whole-exchange anomaly scan
+    an = None
     try:
         an = scanner.anomaly_scan(cfg)
         if verbose:
@@ -240,7 +242,7 @@ def cycle(cfg_path, store, paper, verbose):
     # step 3 + 4
     predictor = model.Predictor(cfg)
     series_idx = {s: i for i, s in enumerate(cfg["series"])}
-    signals, opened = [], 0
+    signals, opened, board = [], 0, []
     for g in games:
         feats = {m["ticker"]: scanner.market_features(g, m, res, series_idx.get(g["series"], -1))
                  for m in g["markets"]}
@@ -248,6 +250,7 @@ def cycle(cfg_path, store, paper, verbose):
             store.upsert_snapshot(m["ticker"], g["event_ticker"], g["series"], g["start"],
                                   feats[m["ticker"]], feats[m["ticker"]]["fair"])
         sig, why = evaluate_game(g, feats, predictor, cfg, res)
+        board.append(board_entry(g, feats, sig, why))
         if not sig:
             if verbose and why and why != "no edge":
                 print(f"  skip {g['matchup']}: {why}")
@@ -272,6 +275,37 @@ def cycle(cfg_path, store, paper, verbose):
         alert("PAPER SIGNAL\n" + fmt_signal(sig, n))
     mode = "Predictor: XGBoost" if predictor.active else "Predictor: consensus"
     print(f"{hst(now_utc())} | {mode} | {len(signals)} signal(s), {opened} new paper trade(s)")
+    try:
+        site.render(cfg, store, board, an, predictor.active)
+    except Exception as e:   # the website must never break the bot
+        print(f"site render error: {e}")
+
+
+def board_entry(g, feats, sig, why):
+    """One row of the public price board: Kalshi YES ask vs sportsbook fair price for each side."""
+    # Each side can be backed two ways on Kalshi: YES on its own market, or NO on the opponent's
+    # market (separate order books). Show the cheaper one so the board agrees with the signals.
+    sides = []
+    mk = g["markets"]
+    for i, m in enumerate(mk):
+        other = mk[1 - i]
+        f = feats[m["ticker"]]
+        routes = [(fnum(m.get("yes_ask_dollars")), "yes")]
+        for side, ask, _size in side_quotes(other):
+            if side == "no":
+                routes.append((ask, "no on opponent"))
+        routes = [(a, r) for a, r in routes if 0 < a < 1]
+        if routes:
+            ask, route = min(routes)
+            ev = f["fair"] - (ask + fee_per_contract(ask, g["fee_mult"]))
+        else:
+            ask, route, ev = 0.0, "", None
+        sides.append({"name": g["mapping"][m["ticker"]], "bid": fnum(m.get("yes_bid_dollars")),
+                      "ask": ask, "route": route, "fair": f["fair"], "ev": ev})
+    return {"series": g["series"], "matchup": g["matchup"], "start": g["start"].isoformat(),
+            "books": g["oe"]["n_books"], "sides": sides, "why": why,
+            "signal": ({"team": sig["team"], "side": sig["side"], "ask": sig["ask"], "ev": sig["ev"],
+                        "prob": sig["prob"]} if sig else None)}
 
 
 # ---------------------------------------------------------------- report

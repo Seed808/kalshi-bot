@@ -61,6 +61,7 @@ jobs:
           for f in kalshibot.db learned_overrides.json model.json model_meta.json last_run.log; do
             if [ -f "$f" ]; then git add -f "$f"; fi
           done
+          if [ -d docs ]; then git add -f docs; fi
           if git diff --cached --quiet; then
             echo "No state changes."
           else

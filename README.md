@@ -10,6 +10,20 @@ This bot follows the same five steps as the bot in the video. It **never places 
 | **4 Risk** | Blocks trades on the daily loss limit, trades-per-day, open-trade cap, or an existing position in the same game. Otherwise sizes with quarter-Kelly, capped per trade and by total exposure. |
 | **5 Learn** | After every loss, runs five checks: stale odds, price moved against us before start (CLV), thin edge, research conflict, overconfident probability range. Otherwise the loss is logged as variance. Then it tightens settings when a pattern is actually losing money: raises a sport's min edge, shortens the odds-freshness limit, lowers the injury-veto bar, or blocks a sport. It only tightens, never loosens. Changes are saved to `learned_overrides.json`. |
 
+## Website
+
+Every run rebuilds `docs/index.html`, a public price board, and commits it. GitHub Pages serves it at **https://seed808.github.io/kalshi-bot/**. It shows:
+
+- the biggest current gap between Kalshi and the sportsbooks
+- every matched upcoming game, with Kalshi price vs. fair price and edge after fees
+- open and settled paper trades
+- what the bot learned from losses
+- unusual Kalshi markets
+
+One-time setup (repo must be public on GitHub Free): **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `main`, folder `/docs` → Save.**
+
+`docs/board.json` holds the same board as data.
+
 ## Running on GitHub Actions (no computer needed)
 
 `.github/workflows/bot.yml` runs one full cycle **every hour** in GitHub's cloud and saves `kalshibot.db` (paper trades, training data) back to the repo after each run.
