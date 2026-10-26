@@ -51,7 +51,14 @@ def alert(text):
                               json={"chat_id": tg_chat, "text": "[Kalshi bot] " + text[:3900],
                                     "disable_web_page_preview": True}, timeout=10)
             if r.status_code != 200:
-                print(f"Telegram alert failed: HTTP {r.status_code}")
+                try:
+                    why = r.json().get("description", "")
+                except ValueError:
+                    why = ""
+                print(f"Telegram alert failed: HTTP {r.status_code} {why}".rstrip())
+                if "chat not found" in why.lower():
+                    print("  Fix: open your bot in Telegram, press Start, send it a message, then copy the "
+                          "chat id from getUpdates again into TELEGRAM_CHAT_ID (numbers only).")
         except requests.RequestException:
             print("Telegram alert failed: network error")  # never print the URL (contains token)
     hook = os.environ.get("DISCORD_WEBHOOK_URL")
