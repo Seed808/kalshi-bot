@@ -171,9 +171,31 @@ def plays_box(board, cfg, store):
     """The one thing the page must answer: what do I bet right now?"""
     plays = sorted([b for b in board if b["signal"]], key=lambda b: -b["signal"]["ev"])
     if not plays:
-        return ('<section class="plays none"><h2>No plays right now</h2><p>The bot hasn\'t found a bet '
-                'worth making. When it does, it shows up here as one line: what to buy on Kalshi and the '
-                'most to pay.</p></section>')
+        lines = []
+        for b in sorted(board, key=lambda b: b["start"]):
+            need = cfg["series_min_edge"].get(b["series"], cfg["min_edge"])
+            x = best_side(b)
+            if b["why"] and b["why"] != "no edge":
+                head = SKIP_TEXT.get(b["why"].split(":")[0], (b["why"], ""))[0]
+                why = head
+                if head == "Waiting for fresh odds":
+                    why = "odds are old, waiting for a refresh"
+                    if x is not None:
+                        why += (f' (at the last refresh, the best was {escape(x["name"])} at {cents(x["ask"])}, '
+                                f'{signed_cents(x["ev"])} per contract)')
+            elif x is None:
+                why = "no Kalshi price yet"
+            elif x["ev"] <= 0:
+                why = f'both sides cost more than they\'re worth (best: {escape(x["name"])} {signed_cents(x["ev"])})'
+            else:
+                why = (f'closest is {escape(x["name"])} at {cents(x["ask"])}, {signed_cents(x["ev"])} per '
+                       f'contract, too small (needs {signed_cents(need)})')
+            lines.append(f'<li><b>{escape(b["matchup"])}</b>: pass. {why[0].upper() + why[1:]}.</li>')
+        checked = (f'<p>Checked {len(board)} game{"s" if len(board) != 1 else ""}. None is worth betting:</p>'
+                   f'<ul class="passes">{"".join(lines)}</ul>') if board else ""
+        return ('<section class="plays none"><h2>No plays right now</h2>' + checked +
+                '<p class="fine">When the bot finds a bet, it shows up here as one line: what to buy on '
+                'Kalshi and the most to pay.</p></section>')
     opens = {r["event_ticker"]: r for r in store.open_trades()}
     cards = []
     for b in plays:
@@ -355,6 +377,7 @@ CSS = """
 .play .do b{font-weight:700}
 .play .also{color:var(--soft);margin-top:-4px}
 .play .when{color:var(--soft);font-size:1rem}
+.passes{margin:6px 0 4px;padding-left:20px}.passes li{margin:4px 0;max-width:70ch}
 .plays .fine{color:var(--soft);font-size:.9rem;margin-top:10px}
 details.more{margin-top:28px}
 details.more>summary{cursor:pointer;font-weight:600;font-size:1.05rem;color:var(--kal)}
@@ -447,7 +470,7 @@ def render(cfg, store, board, anomalies, model_active):
     strip = (f'<dl class="strip"><div><dt>Paper bankroll</dt><dd>${bankroll:,.0f}</dd></div>'
              f'<div><dt>Record</dt><dd>{wins}–{len(allset) - wins}</dd></div>'
              f'<div><dt>Open plays</dt><dd>{store.open_count()}</dd></div>'
-             f'<div><dt>Games on board</dt><dd>{len(board)}</dd></div>'
+             f'<div><dt>Games checked</dt><dd>{len(board)}</dd></div>'
              f'<div><dt>Free odds credits left</dt><dd>{credits if credits is not None else "—"}</dd></div>'
              f'<div><dt>Fair price from</dt><dd>{"Model" if model_active else "Sportsbooks"}</dd></div></dl>')
     doc = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
