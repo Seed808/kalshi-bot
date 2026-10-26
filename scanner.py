@@ -72,9 +72,11 @@ def anomaly_scan(cfg):
         if ya > 0 and yb > 0 and (ya - yb) >= cfg["scan_wide_spread"]:
             flags.append(f"spread {ya - yb:.2f}")
         if flags:
-            flagged.append({"ticker": m["ticker"], "title": m.get("title") or m.get("yes_sub_title"),
-                            "vol24": vol, "bid": yb, "ask": ya, "last": last, "flags": flags,
-                            "resolves": rt})
+            flagged.append({"ticker": m["ticker"], "event_ticker": m.get("event_ticker", ""),
+                            "title": m.get("title") or "", "option": m.get("yes_sub_title") or "",
+                            "vol24": vol, "bid": yb, "ask": ya, "last": last, "prev": prev,
+                            "move": move, "spread": (ya - yb) if ya > 0 and yb > 0 else 0.0,
+                            "flags": flags, "resolves": rt})
     flagged.sort(key=lambda x: x["vol24"], reverse=True)
     return {"total": len(ms), "passed": passed, "flagged": flagged}
 
@@ -360,3 +362,27 @@ def market_features(game, m, research, series_idx):
         "staleness_min": oe["staleness_min"] if oe["staleness_min"] is not None else -1.0,
         "series_idx": series_idx,
     }
+
+
+# ---------------------------------------------------------------- plain-English titles
+
+def enrich_anomalies(flagged, store, limit=8):
+    """Add each flagged market's event title (e.g. 'Memphis at Utah: Rebounds') from Kalshi's
+    public /events endpoint, cached a day, so the website never shows raw ticker codes."""
+    for a in flagged[:limit]:
+        et = a.get("event_ticker")
+        if not et:
+            continue
+        key = f"evtitle:{et}"
+        cached = store.get_meta(key)
+        if cached is None:
+            try:
+                ev = http_get(f"{KALSHI}/events/{et}").json().get("event", {})
+                cached = json.dumps({"title": ev.get("title") or "", "sub": ev.get("sub_title") or ""})
+            except Exception:
+                cached = json.dumps({"title": "", "sub": ""})
+            store.set_meta(key, cached)
+        d = json.loads(cached)
+        a["event_title"], a["event_sub"] = d.get("title", ""), d.get("sub", "")
+        a["series_ticker"] = et.split("-")[0]
+    return flagged

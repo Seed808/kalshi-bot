@@ -184,11 +184,32 @@ def lessons_html(store):
 def anomalies_html(an):
     if not an or not an.get("flagged"):
         return ""
-    rows = "".join(f'<li><code>{escape(a["ticker"])}</code> {escape(", ".join(a["flags"]))}, '
-                   f'{a["vol24"]:,.0f} traded in 24h</li>' for a in an["flagged"][:8])
-    return (f'<section><h2>Unusual Kalshi markets</h2><p class="note">Of {an["total"]:,} open markets, '
-            f'{an["passed"]} had real volume and resolve within 3 days; these moved 10¢+ in a day or '
-            f'have a 10¢+ spread. Not plays, just worth a look.</p><ul class="anom">{rows}</ul></section>')
+    items = []
+    for a in an["flagged"][:8]:
+        title = a.get("event_title") or a.get("title") or "Kalshi market"
+        option = a.get("option") or ""
+        sub = a.get("event_sub") or ""
+        lines = []
+        if a.get("spread", 0) >= 0.10:
+            lines.append(f'Buyers are offering {cents(a["bid"])} but sellers want {cents(a["ask"])}, '
+                         f'a {cents(a["spread"])} gap. A gap that wide means traders don\'t agree on '
+                         f'the price yet.')
+        if abs(a.get("move", 0)) >= 0.10:
+            lines.append(f'The price {"jumped" if a["move"] > 0 else "dropped"} from '
+                         f'{cents(a["prev"])} to {cents(a["last"])} in the last day.')
+        lines.append(f'{a["vol24"]:,.0f} contracts traded in the last 24 hours'
+                     + (f', and it settles {when(a["resolves"].isoformat())} HST.' if a.get("resolves") else "."))
+        link = (f' <a href="https://kalshi.com/markets/{escape(a["series_ticker"].lower())}">'
+                f'Open on Kalshi</a>' if a.get("series_ticker") else "")
+        opt = (f'<p class="opt">Option: <b>{escape(option)}</b></p>'
+               if option and option.lower() not in title.lower() else "")
+        items.append(f'<li><p class="q">{escape(title)}</p>'
+                     + (f'<p class="opt">{escape(sub)}</p>' if sub and sub.lower() not in title.lower() else "")
+                     + f'{opt}<p>{" ".join(escape(x) for x in lines)}{link}</p></li>')
+    return (f'<section><h2>Unusual Kalshi markets</h2><p class="note">Markets with real trading in the '
+            f'last day that settle within 3 days, where the price moved 10¢ or more in a day, or buyers '
+            f'and sellers are 10¢ or more apart. They aren\'t plays: the bot has no sportsbook price to '
+            f'check them against. They\'re just worth a look.</p><ul class="anom">{"".join(items)}</ul></section>')
 
 
 CSS = """
@@ -246,7 +267,7 @@ th{text-align:left;font-weight:600;color:var(--soft);border-bottom:2px solid var
 td{border-bottom:1px solid var(--rule);padding:7px 8px 7px 0;vertical-align:top}
 td.num,th.num{text-align:right}
 ul{padding-left:20px;margin:0}li{margin:4px 0}
-.anom code{font-size:.85rem;overflow-wrap:anywhere}
+.anom{list-style:none;padding:0;display:grid;gap:10px}.anom li{margin:0;background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:10px 14px}.anom p{margin:2px 0;max-width:70ch}.anom .q{font-weight:600}.anom .opt{color:var(--soft)}
 footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--rule);color:var(--soft);font-size:.9rem}
 footer p{max-width:70ch}
 a{color:var(--kal)}a:focus-visible{outline:3px solid var(--kal);outline-offset:2px}

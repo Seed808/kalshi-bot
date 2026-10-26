@@ -216,6 +216,7 @@ def cycle(cfg_path, store, paper, verbose):
     an = None
     try:
         an = scanner.anomaly_scan(cfg)
+        scanner.enrich_anomalies(an["flagged"], store)
         if verbose:
             print(f"Scan: {an['total']} open markets, {an['passed']} pass volume/time filters, "
                   f"{len(an['flagged'])} flagged")
