@@ -440,6 +440,28 @@ def main():
                 notes.append("is not just digits (remove quotes or words)")
             if chat.lstrip("-") == tok.split(":")[0]:
                 notes.append("is the BOT's id (the number at the start of the token), not your chat id")
+            try:   # which chats have messaged this bot? show only the last 3 digits (log is public)
+                ups = requests.get(f"https://api.telegram.org/bot{tok}/getUpdates", timeout=10).json()
+                chats = {}
+                for u in ups.get("result", []):
+                    c = (u.get("message") or u.get("channel_post") or u.get("my_chat_member") or {}).get("chat")
+                    if c:
+                        chats[str(c["id"])] = c.get("first_name") or c.get("title") or c.get("type")
+                ids_seen = {str(u.get("update_id")) for u in ups.get("result", [])}
+                if chat in chats:
+                    print("Chat id matches a chat that messaged this bot.")
+                elif chats:
+                    for cid, who in chats.items():
+                        print(f"Chats that messaged this bot: '{who}' -> chat id is {len(cid.lstrip('-'))} "
+                              f"digits, ending in ...{cid[-3:]}")
+                    if chat in ids_seen:
+                        print("  PROBLEM: your saved number is an update_id, not a chat id.")
+                    print("  Put that chat id (from \"chat\":{\"id\": ...} on the getUpdates page) in "
+                          "TELEGRAM_CHAT_ID.")
+                else:
+                    print("No recent messages to this bot found. Send it a message in Telegram, then re-run.")
+            except Exception:
+                print("Couldn't check recent chats (network error).")
             print(f"Chat id check: {len(chat.lstrip('-'))} digits"
                   + (", negative (group/channel)" if chat.startswith("-") else "")
                   + (" | PROBLEM: " + "; ".join(notes) if notes else " | format looks OK"))
