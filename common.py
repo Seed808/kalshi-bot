@@ -1,0 +1,242 @@
+"""Shared config, time, HTTP and math helpers."""
+import copy
+import json
+import math
+import os
+import re
+import time
+from datetime import datetime, timezone, timedelta
+
+import requests
+
+try:
+    from zoneinfo import ZoneInfo
+    HST = ZoneInfo("Pacific/Honolulu")
+except Exception:  # pragma: no cover
+    HST = timezone(timedelta(hours=-10))
+
+KALSHI = "https://external-api.kalshi.com/trade-api/v2"
+ODDS = "https://api.the-odds-api.com/v4"
+
+DEFAULTS = {
+    # ---- markets: Kalshi game-winner series -> The Odds API sport key (VERIFY with `series`)
+    "series": {
+        "KXNFLGAME": "americanfootball_nfl",
+        "KXNBAGAME": "basketball_nba",
+        "KXMLBGAME": "baseball_mlb",
+        "KXNHLGAME": "icehockey_nhl",
+        "KXNCAAFGAME": "americanfootball_ncaaf",
+    },
+    # ---- step 1: scan agent (all Kalshi markets)
+    "scan_min_volume_24h": 500,
+    "scan_max_hours": 72,
+    "scan_move_threshold": 0.10,
+    "scan_wide_spread": 0.10,
+    "scan_max_pages": 10,
+    "alert_anomalies": False,
+    # ---- odds / pricing
+    "odds_regions": "us",            # 1 region x 1 market (h2h) = 1 credit per sport call
+    "odds_monthly_credit_budget": 450,   # free plan is 500/month; keep a buffer
+    "odds_credit_reserve": 25,
+    "odds_max_credits_per_day": 15,  # ~450/30; stops early-month burn       # never go below this many remaining (per API header)
+    "odds_cache_min": 45,            # reuse odds this long before spending another credit
+    "bookmakers": [],
+    "min_books": 3,
+    "max_book_std": 0.04,
+    "max_odds_staleness_min": 30,
+    "max_hours_ahead": 36,
+    "match_threshold": 0.5,
+    # ---- step 2: research agents
+    "rss_feeds": {
+        "KXNFLGAME": ["https://www.espn.com/espn/rss/nfl/news"],
+        "KXNBAGAME": ["https://www.espn.com/espn/rss/nba/news"],
+        "KXMLBGAME": ["https://www.espn.com/espn/rss/mlb/news"],
+        "KXNHLGAME": ["https://www.espn.com/espn/rss/nhl/news"],
+        "KXNCAAFGAME": ["https://www.espn.com/espn/rss/ncf/news"],
+    },
+    "subreddits": {
+        "KXNFLGAME": ["nfl", "fantasyfootball"],
+        "KXNBAGAME": ["nba", "fantasybball"],
+        "KXMLBGAME": ["baseball", "fantasybaseball"],
+        "KXNHLGAME": ["hockey", "fantasyhockey"],
+        "KXNCAAFGAME": ["CFB"],
+    },
+    "research_lookback_hours": 24,
+    "research_ttl_min": 60,
+    "x_enabled": False,              # X is PAID ($0.005/read) — off to keep the bot free
+    "x_max_results": 10,
+    "x_monthly_read_cap": 0,         # hard cap on paid X reads; 0 = none
+    "injury_veto_count": 2,
+    # ---- step 3: prediction agent
+    "min_edge": 0.03,
+    "series_min_edge": {},
+    "max_spread": 0.06,
+    "min_size": 25,
+    "model_min_samples": 400,
+    "model_min_improvement": 0.002,
+    "retrain_every": 50,
+    # ---- step 4: risk agent (PAPER)
+    "bankroll": 1000.0,
+    "kelly_fraction": 0.25,
+    "max_stake_pct": 0.05,
+    "max_open_exposure_pct": 0.40,
+    "max_open_trades": 8,
+    "max_trades_per_day": 10,
+    "daily_loss_limit_pct": 0.10,
+    # ---- step 5: postmortem / learning
+    "learn_window": 40,
+    "blocked_series": [],
+    # ---- files
+    "db_path": "kalshibot.db",
+    "overrides_path": "learned_overrides.json",
+    "model_path": "model.json",
+    "model_meta_path": "model_meta.json",
+}
+
+TIGHTEN_KEYS = ("min_edge", "max_odds_staleness_min", "injury_veto_count")
+
+
+def load_config(path="config.json"):
+    cfg = copy.deepcopy(DEFAULTS)
+    if os.path.exists(path):
+        with open(path) as f:
+            user = json.load(f)
+        for k, v in user.items():
+            if isinstance(v, dict) and isinstance(cfg.get(k), dict):
+                cfg[k].update(v)
+            else:
+                cfg[k] = v
+    ov = load_overrides(cfg)
+    for k in TIGHTEN_KEYS:
+        if k in ov:
+            cfg[k] = ov[k]
+    cfg["series_min_edge"].update(ov.get("series_min_edge", {}))
+    cfg["blocked_series"] = sorted(set(cfg["blocked_series"]) | set(ov.get("blocked_series", [])))
+    return cfg
+
+
+def load_overrides(cfg):
+    p = cfg["overrides_path"]
+    if os.path.exists(p):
+        with open(p) as f:
+            return json.load(f)
+    return {}
+
+
+def save_overrides(cfg, ov):
+    with open(cfg["overrides_path"], "w") as f:
+        json.dump(ov, f, indent=2)
+
+
+def now_utc():
+    return datetime.now(timezone.utc)
+
+
+def hst(dt):
+    return dt.astimezone(HST).strftime("%a %m/%d %I:%M %p HST")
+
+
+def hst_date(dt):
+    return dt.astimezone(HST).date()
+
+
+def fnum(x, default=0.0):
+    try:
+        return float(x)
+    except (TypeError, ValueError):
+        return default
+
+
+def parse_ts(s):
+    if not s:
+        return None
+    try:
+        return datetime.fromisoformat(str(s).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
+_SESSION = requests.Session()
+
+
+def http_get(url, params=None, headers=None, retries=3):
+    for i in range(retries):
+        try:
+            r = _SESSION.get(url, params=params, headers=headers, timeout=20)
+            if r.status_code == 429:
+                time.sleep(2 * (i + 1))
+                continue
+            r.raise_for_status()
+            return r
+        except requests.RequestException:
+            if i == retries - 1:
+                raise
+            time.sleep(1 + i)
+    raise RuntimeError(f"GET failed after retries: {url}")
+
+
+# ---------------------------------------------------------------- math
+
+def fee_per_contract(price, multiplier=1.0):
+    """Kalshi taker fee per contract before rounding: 0.07 * P * (1-P) * multiplier."""
+    return 0.07 * multiplier * price * (1 - price)
+
+
+def order_fee(price, contracts, multiplier=1.0):
+    """Order-level taker fee, rounded up to the next cent."""
+    raw = 0.07 * multiplier * contracts * price * (1 - price)
+    return math.ceil(round(raw * 100, 6)) / 100
+
+
+def american_to_decimal(a):
+    a = float(a)
+    return 1 + a / 100 if a > 0 else 1 + 100 / abs(a)
+
+
+def devig_two_way(dec_a, dec_b):
+    ia, ib = 1 / dec_a, 1 / dec_b
+    s = ia + ib
+    return ia / s, ib / s
+
+
+def kelly_binary(q, cost):
+    """Kelly fraction for paying `cost` for a $1 payout with win probability q."""
+    if cost <= 0 or cost >= 1:
+        return 0.0
+    return max(0.0, (q - cost) / (1 - cost))
+
+
+# ---------------------------------------------------------------- matching
+
+_STOP = {"the", "fc", "sc", "university", "of"}
+
+
+def norm(name):
+    name = re.sub(r"[^a-z0-9 ]", " ", (name or "").lower())
+    return [t for t in name.split() if t and t not in _STOP]
+
+
+def name_score(a_name, b_name):
+    a, b = norm(a_name), norm(b_name)
+    if not a or not b:
+        return 0.0
+    sa, sb = " ".join(a), " ".join(b)
+    if sa == sb:
+        return 1.0
+    if sa in sb or sb in sa:
+        return 0.9
+    return len(set(a) & set(b)) / max(1, min(len(a), len(b)))
+
+
+_MON = {m: i for i, m in enumerate(
+    ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"], 1)}
+
+
+def ticker_date(event_ticker):
+    m = re.search(r"-(\d{2})([A-Z]{3})(\d{2})", event_ticker or "")
+    if not m or m.group(2) not in _MON:
+        return None
+    try:
+        return datetime(2000 + int(m.group(1)), _MON[m.group(2)], int(m.group(3))).date()
+    except ValueError:
+        return None

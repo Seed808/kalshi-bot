@@ -1,0 +1,60 @@
+name: kalshi-bot
+
+on:
+  schedule:
+    - cron: "17 * * * *"      # hourly at :17 (UTC). Hourly keeps a private repo inside 2,000 free minutes/month.
+  workflow_dispatch: {}        # "Run workflow" button for manual runs
+
+permissions:
+  contents: write              # lets the run save its paper-trade history back to the repo
+
+concurrency:
+  group: kalshi-bot
+  cancel-in-progress: false    # never run two cycles at once
+
+jobs:
+  cycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10        # hard cap on minutes per run
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Run one cycle (settle -> postmortem -> learn -> scan -> research -> predict -> risk -> paper)
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
+        run: python main.py paper -v
+
+      - name: Report to run summary
+        if: always()
+        run: |
+          echo '### Kalshi bot report' >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          python main.py report >> "$GITHUB_STEP_SUMMARY" 2>&1 || true
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Save state back to repo
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f kalshibot.db learned_overrides.json model.json model_meta.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No state changes."
+          else
+            git commit -m "bot state $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi

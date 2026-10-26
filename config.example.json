@@ -1,0 +1,75 @@
+{
+  "series": {
+    "KXNFLGAME": "americanfootball_nfl",
+    "KXNBAGAME": "basketball_nba",
+    "KXMLBGAME": "baseball_mlb",
+    "KXNHLGAME": "icehockey_nhl",
+    "KXNCAAFGAME": "americanfootball_ncaaf"
+  },
+  "min_edge": 0.03,
+  "max_spread": 0.06,
+  "min_size": 25,
+  "max_hours_ahead": 36,
+  "min_books": 3,
+  "max_book_std": 0.04,
+  "max_odds_staleness_min": 30,
+  "odds_monthly_credit_budget": 450,
+  "odds_credit_reserve": 25,
+  "odds_max_credits_per_day": 15,
+  "odds_cache_min": 45,
+  "scan_min_volume_24h": 500,
+  "scan_max_hours": 72,
+  "scan_move_threshold": 0.1,
+  "scan_wide_spread": 0.1,
+  "alert_anomalies": false,
+  "rss_feeds": {
+    "KXNFLGAME": [
+      "https://www.espn.com/espn/rss/nfl/news"
+    ],
+    "KXNBAGAME": [
+      "https://www.espn.com/espn/rss/nba/news"
+    ],
+    "KXMLBGAME": [
+      "https://www.espn.com/espn/rss/mlb/news"
+    ],
+    "KXNHLGAME": [
+      "https://www.espn.com/espn/rss/nhl/news"
+    ],
+    "KXNCAAFGAME": [
+      "https://www.espn.com/espn/rss/ncf/news"
+    ]
+  },
+  "subreddits": {
+    "KXNFLGAME": [
+      "nfl",
+      "fantasyfootball"
+    ],
+    "KXNBAGAME": [
+      "nba",
+      "fantasybball"
+    ],
+    "KXMLBGAME": [
+      "baseball",
+      "fantasybaseball"
+    ],
+    "KXNHLGAME": [
+      "hockey",
+      "fantasyhockey"
+    ],
+    "KXNCAAFGAME": [
+      "CFB"
+    ]
+  },
+  "x_enabled": false,
+  "x_monthly_read_cap": 0,
+  "injury_veto_count": 2,
+  "model_min_samples": 400,
+  "retrain_every": 50,
+  "bankroll": 1000.0,
+  "kelly_fraction": 0.25,
+  "max_stake_pct": 0.05,
+  "max_open_exposure_pct": 0.4,
+  "max_open_trades": 8,
+  "max_trades_per_day": 10,
+  "daily_loss_limit_pct": 0.1
+}

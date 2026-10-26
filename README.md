@@ -1,0 +1,79 @@
+# Kalshi Sports Bot v2 — 5-step pipeline (paper trading + alerts)
+
+This bot follows the same five steps as the bot in the video. It **never places real orders**. Every trade is a paper trade logged to `kalshibot.db`.
+
+| Step | What it does |
+|---|---|
+| **1 Scan** | Pages through all open Kalshi markets and keeps those passing the 24h-volume and time-to-resolution filters. Flags 24h moves ≥ 10¢ and spreads ≥ 10¢. Matches sports game markets to de-vigged sportsbook consensus odds. |
+| **2 Research** | Runs in parallel for games near an edge: ESPN RSS, plus Reddit if you have approved access. Scores each team on mentions, VADER sentiment and injury-keyword hits. Results are cached for 60 min. X support exists but is **off by default** because X is paid. |
+| **3 Predict** | Uses the sportsbook consensus probability. Once enough games settle, it trains XGBoost starting from the consensus (corrections only). The model only turns on if it beats the consensus on held-out games. When it's on, a trade needs an edge under **both** the model and the consensus (the confidence gate). An injury-news veto blocks trades on teams with fresh injury reports. |
+| **4 Risk** | Blocks trades on the daily loss limit, trades-per-day, open-trade cap, or an existing position in the same game. Otherwise sizes with quarter-Kelly, capped per trade and by total exposure. |
+| **5 Learn** | After every loss, runs five checks: stale odds, price moved against us before start (CLV), thin edge, research conflict, overconfident probability range. Otherwise the loss is logged as variance. Then it tightens settings when a pattern is actually losing money: raises a sport's min edge, shortens the odds-freshness limit, lowers the injury-veto bar, or blocks a sport. It only tightens, never loosens. Changes are saved to `learned_overrides.json`. |
+
+## Running on GitHub Actions (no computer needed)
+
+`.github/workflows/bot.yml` runs one full cycle **every hour** in GitHub's cloud and saves `kalshibot.db` (paper trades, training data) back to the repo after each run.
+
+1. **Add secrets.** Go to repo → Settings → Secrets and variables → Actions → New repository secret.
+   - `ODDS_API_KEY` (required, free plan)
+   - Optional: `NTFY_TOPIC`, `DISCORD_WEBHOOK_URL`, `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`, `REDDIT_USER_AGENT`
+2. **Allow write access.** Go to repo → Settings → Actions → General → Workflow permissions → **Read and write permissions** → Save.
+3. **Test it.** Go to Actions → kalshi-bot → **Run workflow**. Open the run and check the summary for the report.
+4. **Change settings** by editing `config.json` in the repo. The next run picks it up.
+
+Hourly fits a private repo's 2,000 free Actions minutes/month. Each run is capped at 10 minutes. Don't make it more frequent unless the repo is public, which would expose your paper-trade history.
+
+## Setup (running on your own computer instead)
+
+```bash
+pip install -r requirements.txt
+cp config.example.json config.json
+
+export ODDS_API_KEY=...             # required — free Starter plan at the-odds-api.com
+export REDDIT_CLIENT_ID=...         # optional, free — needs Reddit-approved API access
+export REDDIT_CLIENT_SECRET=...
+export REDDIT_USER_AGENT="python:kalshibot:0.2 (by /u/yourname)"
+export DISCORD_WEBHOOK_URL=...      # optional alerts
+export NTFY_TOPIC=...               # optional phone alerts via the ntfy app
+```
+
+Any optional source left unset is skipped. RSS works with no keys.
+
+## Commands
+
+```bash
+python main.py series            # list Kalshi Sports series — verify tickers FIRST
+python main.py anomalies         # step 1 whole-exchange scan
+python main.py scan              # full pipeline, verbose, no paper trades
+python main.py paper -v          # one full cycle with paper trades + alerts
+python main.py run --interval 1800   # loop every 30 min
+python main.py report            # win rate vs expected, ROI, CLV, calibration, causes, learning
+python main.py postmortem        # recent loss postmortems
+python main.py train             # force model training/evaluation
+```
+
+## Staying free (default settings)
+
+Everything the bot uses by default is free: Kalshi market data, ESPN RSS, the Odds API free plan, and Discord/ntfy alerts. Reddit is free if Reddit approves you.
+
+**Odds API free plan = 500 credits/month.** Running out doesn't charge you. Calls just fail until the reset. The bot guards the budget anyway:
+
+- **Monthly budget:** `odds_monthly_credit_budget` = 450, leaving a 50-credit buffer.
+- **Reserve:** it also reads the API's own remaining-credits counter and stops at `odds_credit_reserve` (25).
+- **Daily pacing:** at most `odds_max_credits_per_day` (15), spread over the rest of the month.
+- **Cache:** reuses odds for `odds_cache_min` (45 min) instead of re-buying them.
+- **Skips idle sports:** spends no credit on a sport with no games in the time window.
+
+**Trade-off:** with about 15 odds pulls a day, the bot sees fresh odds only a few times a day per sport. If cached odds age past `max_odds_staleness_min` (30), it won't trade on them. That's on purpose, because stale odds are a common way to lose. Run `scan` closer to game times to get the most out of each credit.
+
+**X stays off** (`x_enabled: false`, `x_monthly_read_cap: 0`). It's $0.005 per post read. Turning it on is the only way this bot can cost money.
+
+## Know before trusting it
+
+- **Series tickers.** Only `KXNHLGAME` appeared in the sources I found. Verify the others with `series` and fix `config.json`.
+- **Resolution rules.** Read `rules_primary` on a few markets to confirm Kalshi settles like the sportsbook moneyline (overtime, postponements).
+- **The model starts OFF.** It needs `model_min_samples` (400) settled market snapshots, about 200 games. In offline testing with a weak signal, it correctly stayed off because it couldn't beat the consensus.
+- **Sentiment and injury rules are keyword-based**, not an LLM. Team nicknames can match unrelated posts (e.g. "Heat", "Kings").
+- **Paper fills assume you take the ask** and pay the taker fee.
+- **Sample size.** Under ~100 settled trades, results are mostly noise. Watch average CLV and the calibration table, not just the win rate.
+- **Unblocking a sport.** Delete it from `blocked_series` in `learned_overrides.json`.
