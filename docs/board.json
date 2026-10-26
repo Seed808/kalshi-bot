@@ -1,31 +1,31 @@
 {
- "updated": "2026-10-26T06:06:59.296254+00:00",
+ "updated": "2026-10-26T07:00:36.050611+00:00",
  "board": [
   {
    "series": "KXATPMATCH",
    "event_ticker": "KXATPMATCH-26OCT26ALTCER",
    "matchup": "Daniel Altmaier vs Juan Manuel Cerundolo",
    "start": "2026-10-26T13:40:00+00:00",
-   "books": 5,
+   "books": 8,
    "sides": [
     {
      "name": "Juan Manuel Cerundolo",
      "bid": 0.55,
-     "ask": 0.57,
-     "route": "no on opponent",
-     "fair": 0.5583288499566448,
-     "ev": -0.02882815004335515
+     "ask": 0.56,
+     "route": "yes",
+     "fair": 0.5596856563559336,
+     "ev": -0.017562343644066503
     },
     {
      "name": "Daniel Altmaier",
      "bid": 0.43,
      "ask": 0.45,
      "route": "no on opponent",
-     "fair": 0.44167115004335517,
-     "ev": -0.025653849956644825
+     "fair": 0.44031434364406635,
+     "ev": -0.027010656355933638
     }
    ],
-   "why": "odds stale",
+   "why": "no edge",
    "signal": null
   },
   {
@@ -33,26 +33,80 @@
    "event_ticker": "KXATPMATCH-26OCT26BRUBOR",
    "matchup": "Mika Brunold vs Nuno Borges",
    "start": "2026-10-26T12:30:00+00:00",
-   "books": 5,
+   "books": 8,
    "sides": [
     {
      "name": "Mika Brunold",
      "bid": 0.34,
      "ask": 0.35,
      "route": "no on opponent",
-     "fair": 0.3600095131890071,
-     "ev": -0.005915486810992909
+     "fair": 0.3568267139363386,
+     "ev": -0.00909828606366142
     },
     {
      "name": "Nuno Borges",
      "bid": 0.65,
      "ask": 0.66,
      "route": "no on opponent",
-     "fair": 0.6399904868109929,
-     "ev": -0.035717513189007066
+     "fair": 0.6431732860636614,
+     "ev": -0.032534713936338555
     }
    ],
-   "why": "odds stale",
+   "why": "no edge",
+   "signal": null
+  },
+  {
+   "series": "KXATPMATCH",
+   "event_ticker": "KXATPMATCH-26OCT26FERFEA",
+   "matchup": "Arthur Fery vs Jacob Fearnley",
+   "start": "2026-10-26T16:30:00+00:00",
+   "books": 5,
+   "sides": [
+    {
+     "name": "Arthur Fery",
+     "bid": 0.47,
+     "ask": 0.48,
+     "route": "no on opponent",
+     "fair": 0.49939792412438366,
+     "ev": 0.0019259241243836933
+    },
+    {
+     "name": "Jacob Fearnley",
+     "bid": 0.52,
+     "ask": 0.53,
+     "route": "no on opponent",
+     "fair": 0.5006020758756163,
+     "ev": -0.046834924124383726
+    }
+   ],
+   "why": "no edge",
+   "signal": null
+  },
+  {
+   "series": "KXATPMATCH",
+   "event_ticker": "KXATPMATCH-26OCT26MENNEU",
+   "matchup": "Jakub Mensik vs Lukas Neumayer",
+   "start": "2026-10-26T16:30:00+00:00",
+   "books": 5,
+   "sides": [
+    {
+     "name": "Lukas Neumayer",
+     "bid": 0.13,
+     "ask": 0.15,
+     "route": "no on opponent",
+     "fair": 0.15193997670245063,
+     "ev": -0.006985023297549353
+    },
+    {
+     "name": "Jakub Mensik",
+     "bid": 0.85,
+     "ask": 0.87,
+     "route": "no on opponent",
+     "fair": 0.8480600232975494,
+     "ev": -0.029856976702450577
+    }
+   ],
+   "why": "no edge",
    "signal": null
   },
   {
@@ -60,26 +114,80 @@
    "event_ticker": "KXATPMATCH-26OCT26MACDE",
    "matchup": "Tomas Machac vs Alex de Minaur",
    "start": "2026-10-26T13:40:00+00:00",
-   "books": 4,
+   "books": 7,
    "sides": [
     {
      "name": "Tomas Machac",
      "bid": 0.29,
      "ask": 0.29,
      "route": "no on opponent",
-     "fair": 0.3126362422723584,
-     "ev": 0.008223242272358433
+     "fair": 0.3093406089043381,
+     "ev": 0.004927608904338132
     },
     {
      "name": "Alex de Minaur",
      "bid": 0.71,
      "ask": 0.71,
      "route": "no on opponent",
-     "fair": 0.6873637577276416,
-     "ev": -0.037049242272358396
+     "fair": 0.6906593910956619,
+     "ev": -0.033753608904338095
     }
    ],
-   "why": "odds stale",
+   "why": "no edge",
+   "signal": null
+  },
+  {
+   "series": "KXWTAMATCH",
+   "event_ticker": "KXWTAMATCH-26OCT26PUTSAK",
+   "matchup": "Yulia Putintseva vs Maria Sakkari",
+   "start": "2026-10-27T02:40:00+00:00",
+   "books": 4,
+   "sides": [
+    {
+     "name": "Maria Sakkari",
+     "bid": 0.58,
+     "ask": 0.62,
+     "route": "yes",
+     "fair": 0.5898343848705265,
+     "ev": -0.04665761512947342
+    },
+    {
+     "name": "Yulia Putintseva",
+     "bid": 0.37,
+     "ask": 0.41,
+     "route": "yes",
+     "fair": 0.41016561512947347,
+     "ev": -0.016767384870526536
+    }
+   ],
+   "why": "no edge",
+   "signal": null
+  },
+  {
+   "series": "KXWTAMATCH",
+   "event_ticker": "KXWTAMATCH-26OCT26JOICIR",
+   "matchup": "Maya Joint vs Sorana Cirstea",
+   "start": "2026-10-27T01:30:00+00:00",
+   "books": 5,
+   "sides": [
+    {
+     "name": "Maya Joint",
+     "bid": 0.26,
+     "ask": 0.3,
+     "route": "no on opponent",
+     "fair": 0.29207657935146913,
+     "ev": -0.022623420648530845
+    },
+    {
+     "name": "Sorana Cirstea",
+     "bid": 0.7,
+     "ask": 0.72,
+     "route": "yes",
+     "fair": 0.7079234206485309,
+     "ev": -0.02618857935146912
+    }
+   ],
+   "why": "no edge",
    "signal": null
   }
  ]
