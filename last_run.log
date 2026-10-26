@@ -1,33 +1,52 @@
-Scan: 10000 open markets, 148 pass volume/time filters, 9 flagged
-  KXCBATOTAL-26OCT260735GSTSHAD-190: spread 0.86 | vol24 10286
-  KXCBASPREAD-26OCT260735GSTSHAD-SHAD15: spread 0.12 | vol24 4257
-  KXCBATOTAL-26OCT260735JILNIN-175: spread 0.33 | vol24 2752
-  KXCBATOTAL-26OCT260735JILNIN-170: spread 0.87 | vol24 1692
-  KXCBASPREAD-26OCT260735JILNIN-JIL7: spread 0.12 | vol24 1519
-  KXAAAGASDPA-26OCT27-4.4500: spread 0.88 | vol24 1168
-  KXAAAGASDWY-26OCT27-4.3950: spread 0.10 | vol24 550
-  KXAAAGASDNC-26OCT27-3.4550: spread 0.88 | vol24 501
-  KXAAAGASDNC-26OCT27-3.4500: spread 0.88 | vol24 500
+Scan: 10000 open markets, 263 pass volume/time filters, 8 flagged
+  KXAAAGASDCA-26OCT27-6.0050: spread 0.77 | vol24 1771
+  KXAAAGASDPA-26OCT27-4.4400: spread 0.23 | vol24 1689
+  KXAAAGASDCA-26OCT27-5.9800: spread 0.16 | vol24 1650
+  KXAAAGASDVA-26OCT27-4.0350: spread 0.10 | vol24 1003
+  KXAAAGASDIL-26OCT27-4.8700: spread 0.10 | vol24 1001
+  KXITFDOUBLES-26OCT26BEAVUJAGUCOO-AGUCOO: spread 0.16 | vol24 759
+  KXEBASKETBALLGAME-26OCT261052TIMCONO-CONO: spread 0.67 | vol24 753
+  KXAAAGASDTN-26OCT27-3.8000: spread 0.10 | vol24 587
 [KXNFLGAME] no games ending within 12h — no odds credit spent
-[KXNBAGAME] no games ending within 12h — no odds credit spent
-[KXMLBGAME] no games ending within 12h — no odds credit spent
-[KXNHLGAME] no games ending within 12h — no odds credit spent
+  unmatched KXNBAGAME-26OCT29MEMPOR: ['Portland', 'Memphis'] ends 2026-10-30T05:00:00+00:00 | closest odds: Washington Wizards @ Charlotte Hornets starts 2026-10-26T23:10:00Z
+  unmatched KXNBAGAME-26OCT29SACNOP: ['Sacramento', 'New Orleans'] ends 2026-10-30T03:00:00+00:00 | closest odds: Washington Wizards @ Charlotte Hornets starts 2026-10-26T23:10:00Z
+  unmatched KXNBAGAME-26OCT29CLEATL: ['Cleveland', 'Atlanta'] ends 2026-10-30T02:00:00+00:00 | closest odds: Minnesota Timberwolves @ Cleveland Cavaliers starts 2026-10-26T23:10:00Z
+  unmatched KXNBAGAME-26OCT28LALLAC: ['Los Angeles L', 'Los Angeles C'] ends 2026-10-29T05:30:00+00:00 | closest odds: Washington Wizards @ Charlotte Hornets starts 2026-10-26T23:10:00Z
+[KXNBAGAME] 56 mkts | 9 odds events | matched 9 | unmatched 19 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
+  unmatched KXMLBGAME-26OCT272000MILTB: ['Tampa Bay', 'Milwaukee'] ends 2026-10-28T03:00:00+00:00 | closest odds: Milwaukee Brewers @ Tampa Bay Rays starts 2026-10-27T00:10:00Z
+[KXMLBGAME] 4 mkts | 1 odds events | matched 1 | unmatched 1 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
+  unmatched KXNHLGAME-26NOV01OTTANA: ['Ottawa', 'Anaheim'] ends 2026-11-02T04:00:00+00:00 | closest odds: Los Angeles Kings @ New York Rangers starts 2026-10-26T23:10:00Z
+  unmatched KXNHLGAME-26NOV01EDMNYR: ['New York R', 'Edmonton'] ends 2026-11-02T02:00:00+00:00 | closest odds: Los Angeles Kings @ New York Rangers starts 2026-10-26T23:10:00Z
+  unmatched KXNHLGAME-26NOV01UTAPHI: ['Utah', 'Philadelphia'] ends 2026-11-02T00:00:00+00:00 | closest odds: Los Angeles Kings @ New York Rangers starts 2026-10-26T23:10:00Z
+  unmatched KXNHLGAME-26NOV01MINWSH: ['Washington', 'Minnesota'] ends 2026-11-01T23:30:00+00:00 | closest odds: Los Angeles Kings @ New York Rangers starts 2026-10-26T23:10:00Z
+[KXNHLGAME] 94 mkts | 3 odds events | matched 3 | unmatched 44 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
 [KXNCAAFGAME] no games ending within 12h — no odds credit spent
   unmatched KXATPMATCH-26OCT26HURBER: ['Hubert Hurkacz', 'Zizou Bergs'] ends 2026-10-26T14:00:00+00:00 | closest odds: Zizou Bergs @ Hubert Hurkacz starts 2026-10-27T11:00:00Z
   unmatched KXATPMATCH-26OCT25STRRUU: ['Dominic Stricker', 'Casper Ruud'] ends 2026-10-25T12:00:00+00:00 | closest odds: Casper Ruud @ Dominic Stephan Stricker starts 2026-10-26T19:00:00Z
   unmatched KXATPMATCH-26OCT25KYMRIN: ['Arthur Rinderknech', 'Jerome Kym'] ends 2026-10-25T12:00:00+00:00 | closest odds: Arthur Rinderknech @ Jerome Kym starts 2026-10-27T11:00:00Z
   unmatched KXATPMATCH-26OCT25WAWLEH: ['Stan Wawrinka', 'Jiri Lehecka'] ends 2026-10-25T12:00:00+00:00 | closest odds: Jiri Lehecka @ Stan Wawrinka starts 2026-10-27T11:00:00Z
-[KXATPMATCH] 64 mkts | 32 odds events | matched 10 | unmatched 21 | ambiguous 0 | odds: swiss_indoors:daily odds allowance reached (15/15.0); vienna_open:daily odds allowance reached (15/15.0)
+[KXATPMATCH] 58 mkts | 32 odds events | matched 8 | unmatched 19 | ambiguous 0 | odds: swiss_indoors:daily odds allowance reached (15/15.0); vienna_open:daily odds allowance reached (15/15.0)
 [KXWTAMATCH] no games ending within 12h — no odds credit spent
-10 pregame games | 2 researched
+21 pregame games | 2 researched
+  skip Golden State Warriors @ Denver Nuggets: odds stale
+  skip Memphis Grizzlies @ Utah Jazz: odds stale
+  skip Atlanta Hawks @ Houston Rockets: odds stale
+  skip Phoenix Suns @ Oklahoma City Thunder: odds stale
+  skip Indiana Pacers @ Milwaukee Bucks: odds stale
+  skip Dallas Mavericks @ Miami Heat: odds stale
+  skip Chicago Bulls @ Boston Celtics: odds stale
+  skip Minnesota Timberwolves @ Cleveland Cavaliers: odds stale
+  skip Washington Wizards @ Charlotte Hornets: odds stale
+  skip Milwaukee Brewers @ Tampa Bay Rays: odds stale
+  skip Detroit Red Wings @ Edmonton Oilers: odds stale
+  skip Toronto Maple Leafs @ Calgary Flames: odds stale
+  skip Los Angeles Kings @ New York Rangers: odds stale
   skip Adrian Mannarino vs Ignacio Buse: odds stale
   skip Ben Shelton vs Aleksandar Kovacevic: odds stale
   skip Yannick Hanfmann vs Jan-Lennard Struff: odds stale
   skip Taylor Fritz vs Rinky Hijikata: odds stale
   skip Rémy Bertola vs Denis Shapovalov: odds stale
   skip Giovanni Mpetshi Perricard vs Arthur Fils: odds stale
-  skip Daniel Altmaier vs Juan Manuel Cerundolo: odds stale
   skip Arthur Fery vs Jacob Fearnley: odds stale
   skip Jakub Mensik vs Lukas Neumayer: odds stale
-  skip Tomas Machac vs Alex de Minaur: odds stale
-Mon 10/26 02:42 AM HST | Predictor: consensus | 0 signal(s), 0 new paper trade(s)
+Mon 10/26 05:14 AM HST | Predictor: consensus | 0 signal(s), 0 new paper trade(s)
