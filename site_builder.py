@@ -191,9 +191,14 @@ def anomalies_html(an):
         sub = a.get("event_sub") or ""
         lines = []
         if a.get("spread", 0) >= 0.10:
-            lines.append(f'Buyers are offering {cents(a["bid"])} but sellers want {cents(a["ask"])}, '
-                         f'a {cents(a["spread"])} gap. A gap that wide means traders don\'t agree on '
-                         f'the price yet.')
+            if a["ask"] >= 0.99:
+                lines.append(f'Buyers are offering {cents(a["bid"])}, but no one is selling right now.')
+            elif a["bid"] <= 0.01:
+                lines.append(f'Sellers want {cents(a["ask"])}, but no one is buying right now.')
+            else:
+                lines.append(f'Buyers are offering {cents(a["bid"])} but sellers want {cents(a["ask"])}, '
+                             f'a {cents(a["spread"])} gap. A gap that wide means traders don\'t agree on '
+                             f'the price yet.')
         if abs(a.get("move", 0)) >= 0.10:
             lines.append(f'The price {"jumped" if a["move"] > 0 else "dropped"} from '
                          f'{cents(a["prev"])} to {cents(a["last"])} in the last day.')
