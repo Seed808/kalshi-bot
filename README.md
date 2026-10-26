@@ -16,7 +16,8 @@ This bot follows the same five steps as the bot in the video. It **never places 
 
 1. **Add secrets.** Go to repo → Settings → Secrets and variables → Actions → New repository secret.
    - `ODDS_API_KEY` (required, free plan)
-   - Optional: `NTFY_TOPIC`, `DISCORD_WEBHOOK_URL`, `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`, `REDDIT_USER_AGENT`
+   - Optional alerts: `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` (messages are prefixed `[Kalshi bot]`), `NTFY_TOPIC`, `DISCORD_WEBHOOK_URL`
+   - Optional research: `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`, `REDDIT_USER_AGENT`
 2. **Allow write access.** Go to repo → Settings → Actions → General → Workflow permissions → **Read and write permissions** → Save.
 3. **Test it.** Go to Actions → kalshi-bot → **Run workflow**. Open the run and check the summary for the report.
 4. **Change settings** by editing `config.json` in the repo. The next run picks it up.

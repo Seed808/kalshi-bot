@@ -43,6 +43,16 @@ import postmortem
 
 def alert(text):
     print(text)
+    tg_token, tg_chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
+    if tg_token and tg_chat:
+        try:
+            r = requests.post(f"https://api.telegram.org/bot{tg_token}/sendMessage",
+                              json={"chat_id": tg_chat, "text": "[Kalshi bot] " + text[:3900],
+                                    "disable_web_page_preview": True}, timeout=10)
+            if r.status_code != 200:
+                print(f"Telegram alert failed: HTTP {r.status_code}")
+        except requests.RequestException:
+            print("Telegram alert failed: network error")  # never print the URL (contains token)
     hook = os.environ.get("DISCORD_WEBHOOK_URL")
     if hook:
         try:
