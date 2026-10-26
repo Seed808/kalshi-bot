@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T17:48:29.893462+00:00",
+ "updated": "2026-10-26T18:59:03.143695+00:00",
  "board": [
   {
    "series": "KXNFLGAME",
@@ -91,7 +91,7 @@
    "sides": [
     {
      "name": "Houston Rockets",
-     "bid": 0.65,
+     "bid": 0.64,
      "ask": 0.65,
      "route": "no on opponent",
      "fair": 0.6464046936619486,
@@ -100,10 +100,10 @@
     {
      "name": "Atlanta Hawks",
      "bid": 0.35,
-     "ask": 0.35,
+     "ask": 0.36,
      "route": "no on opponent",
      "fair": 0.35359530633805136,
-     "ev": -0.012329693661948637
+     "ev": -0.0225326936619486
     }
    ],
    "why": "odds stale",
@@ -118,19 +118,19 @@
    "sides": [
     {
      "name": "Phoenix Suns",
-     "bid": 0.21,
-     "ask": 0.22,
+     "bid": 0.26,
+     "ask": 0.26,
      "route": "no on opponent",
      "fair": 0.23811655455933745,
-     "ev": 0.0061045545593374495
+     "ev": -0.03535144544066254
     },
     {
      "name": "Oklahoma City Thunder",
-     "bid": 0.78,
-     "ask": 0.79,
+     "bid": 0.74,
+     "ask": 0.74,
      "route": "no on opponent",
      "fair": 0.7618834454406626,
-     "ev": -0.039729554559337465
+     "ev": 0.008415445440662528
     }
    ],
    "why": "odds stale",
@@ -147,17 +147,17 @@
      "name": "Milwaukee Bucks",
      "bid": 0.38,
      "ask": 0.39,
-     "route": "no on opponent",
+     "route": "yes",
      "fair": 0.40504873864095686,
      "ev": -0.0016042613590431798
     },
     {
      "name": "Indiana Pacers",
-     "bid": 0.61,
-     "ask": 0.62,
-     "route": "no on opponent",
+     "bid": 0.6,
+     "ask": 0.61,
+     "route": "yes",
      "fair": 0.5949512613590431,
-     "ev": -0.041540738640956865
+     "ev": -0.031701738640956934
     }
    ],
    "why": "odds stale",
@@ -172,17 +172,17 @@
    "sides": [
     {
      "name": "Miami Heat",
-     "bid": 0.7,
-     "ask": 0.71,
-     "route": "yes",
+     "bid": 0.71,
+     "ask": 0.72,
+     "route": "no on opponent",
      "fair": 0.7361147455307908,
-     "ev": 0.011701745530790841
+     "ev": 0.002002745530790828
     },
     {
      "name": "Dallas Mavericks",
      "bid": 0.28,
      "ask": 0.29,
-     "route": "yes",
+     "route": "no on opponent",
      "fair": 0.2638852544692092,
      "ev": -0.040527745530790804
     }
@@ -226,7 +226,7 @@
    "sides": [
     {
      "name": "Minnesota Timberwolves",
-     "bid": 0.36,
+     "bid": 0.37,
      "ask": 0.37,
      "route": "no on opponent",
      "fair": 0.4309631140506608,
@@ -235,10 +235,10 @@
     {
      "name": "Cleveland Cavaliers",
      "bid": 0.63,
-     "ask": 0.64,
+     "ask": 0.63,
      "route": "no on opponent",
      "fair": 0.5690368859493392,
-     "ev": -0.08709111405066083
+     "ev": -0.07728011405066082
     }
    ],
    "why": "odds stale",
@@ -335,14 +335,14 @@
     {
      "name": "Toronto Maple Leafs",
      "bid": 0.55,
-     "ask": 0.56,
+     "ask": 0.55,
      "route": "no on opponent",
      "fair": 0.5881160343117076,
-     "ev": 0.010868034311707464
+     "ev": 0.02079103431170748
     },
     {
      "name": "Calgary Flames",
-     "bid": 0.44,
+     "bid": 0.45,
      "ask": 0.45,
      "route": "no on opponent",
      "fair": 0.41188396568829244,
@@ -374,168 +374,6 @@
      "route": "no on opponent",
      "fair": 0.4500870476708777,
      "ev": -0.017237952329122286
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXATPMATCH",
-   "event_ticker": "KXATPMATCH-26OCT27MANBUS",
-   "matchup": "Adrian Mannarino vs Ignacio Buse",
-   "start": "2026-10-27T12:30:00+00:00",
-   "books": 5,
-   "sides": [
-    {
-     "name": "Adrian Mannarino",
-     "bid": 0.61,
-     "ask": 0.61,
-     "route": "no on opponent",
-     "fair": 0.5465585562324031,
-     "ev": -0.08009444376759689
-    },
-    {
-     "name": "Ignacio Buse",
-     "bid": 0.39,
-     "ask": 0.39,
-     "route": "no on opponent",
-     "fair": 0.4534414437675969,
-     "ev": 0.04678844376759683
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXATPMATCH",
-   "event_ticker": "KXATPMATCH-26OCT27SHEKOV",
-   "matchup": "Ben Shelton vs Aleksandar Kovacevic",
-   "start": "2026-10-27T11:00:00+00:00",
-   "books": 5,
-   "sides": [
-    {
-     "name": "Ben Shelton",
-     "bid": 0.81,
-     "ask": 0.83,
-     "route": "no on opponent",
-     "fair": 0.8219602374110124,
-     "ev": -0.017916762588987556
-    },
-    {
-     "name": "Aleksandar Kovacevic",
-     "bid": 0.17,
-     "ask": 0.18,
-     "route": "yes",
-     "fair": 0.17803976258898757,
-     "ev": -0.01229223741101243
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXATPMATCH",
-   "event_ticker": "KXATPMATCH-26OCT27HANSTR",
-   "matchup": "Yannick Hanfmann vs Jan-Lennard Struff",
-   "start": "2026-10-27T11:00:00+00:00",
-   "books": 5,
-   "sides": [
-    {
-     "name": "Jan-Lennard Struff",
-     "bid": 0.53,
-     "ask": 0.55,
-     "route": "no on opponent",
-     "fair": 0.5363702059496169,
-     "ev": -0.03095479405038315
-    },
-    {
-     "name": "Yannick Hanfmann",
-     "bid": 0.45,
-     "ask": 0.47,
-     "route": "no on opponent",
-     "fair": 0.4636297940503831,
-     "ev": -0.023807205949616828
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXATPMATCH",
-   "event_ticker": "KXATPMATCH-26OCT27FRIHIJ",
-   "matchup": "Taylor Fritz vs Rinky Hijikata",
-   "start": "2026-10-27T11:00:00+00:00",
-   "books": 3,
-   "sides": [
-    {
-     "name": "Rinky Hijikata",
-     "bid": 0.11,
-     "ask": 0.12,
-     "route": "yes",
-     "fair": 0.1217879862457325,
-     "ev": -0.005604013754267501
-    },
-    {
-     "name": "Taylor Fritz",
-     "bid": 0.87,
-     "ask": 0.89,
-     "route": "no on opponent",
-     "fair": 0.8782120137542675,
-     "ev": -0.018640986245732516
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXATPMATCH",
-   "event_ticker": "KXATPMATCH-26OCT27BERSHA",
-   "matchup": "R\u00e9my Bertola vs Denis Shapovalov",
-   "start": "2026-10-27T11:00:00+00:00",
-   "books": 5,
-   "sides": [
-    {
-     "name": "Denis Shapovalov",
-     "bid": 0.72,
-     "ask": 0.73,
-     "route": "yes",
-     "fair": 0.7593691632819992,
-     "ev": 0.015572163281999285
-    },
-    {
-     "name": "R\u00e9my Bertola",
-     "bid": 0.26,
-     "ask": 0.27,
-     "route": "yes",
-     "fair": 0.24063083671800073,
-     "ev": -0.04316616328199929
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXATPMATCH",
-   "event_ticker": "KXATPMATCH-26OCT27MPEFIL",
-   "matchup": "Giovanni Mpetshi Perricard vs Arthur Fils",
-   "start": "2026-10-27T11:00:00+00:00",
-   "books": 5,
-   "sides": [
-    {
-     "name": "Giovanni Mpetshi Perricard",
-     "bid": 0.2,
-     "ask": 0.22,
-     "route": "no on opponent",
-     "fair": 0.15582314521320656,
-     "ev": -0.07618885478679344
-    },
-    {
-     "name": "Arthur Fils",
-     "bid": 0.78,
-     "ask": 0.8,
-     "route": "no on opponent",
-     "fair": 0.8441768547867934,
-     "ev": 0.03297685478679335
     }
    ],
    "why": "odds stale",
@@ -577,19 +415,19 @@
    "sides": [
     {
      "name": "Maya Joint",
-     "bid": 0.29,
-     "ask": 0.3,
+     "bid": 0.31,
+     "ask": 0.31,
      "route": "no on opponent",
      "fair": 0.29207657935146913,
-     "ev": -0.022623420648530845
+     "ev": -0.03289642064853088
     },
     {
      "name": "Sorana Cirstea",
-     "bid": 0.7,
-     "ask": 0.71,
+     "bid": 0.69,
+     "ask": 0.69,
      "route": "no on opponent",
      "fair": 0.7079234206485309,
-     "ev": -0.016489579351469108
+     "ev": 0.002950420648530905
     }
    ],
    "why": "odds stale",
