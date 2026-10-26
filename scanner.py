@@ -159,14 +159,35 @@ def odds_consensus(sport_key, cfg, api_key, store):
     return events, note
 
 
+MAX_GAME_HOURS = 12   # a game's start must fall within this many hours before the market's expected end
+
+
+def game_time_ref(mk):
+    """Kalshi game markets carry expected_expiration_time (~game end). Use it to pin the exact game."""
+    exp = [parse_ts(m.get("expected_expiration_time")) for m in mk]
+    exp = [e for e in exp if e]
+    return min(exp) if exp else None
+
+
+def time_distance(end_ref, commence):
+    """Hours from game start to expected market end, or None if this odds game can't be that game."""
+    if not end_ref or not commence:
+        return None
+    gap = (end_ref - commence).total_seconds() / 3600
+    return gap if 0 < gap <= MAX_GAME_HOURS else None
+
+
 def match_event(event_ticker, mk, odds_events, threshold):
-    tdate = ticker_date(event_ticker)
-    best, best_score, best_map = None, 0.0, None
+    """Match a Kalshi game (2 markets) to ONE sportsbook game: names must match AND the start time
+    must fit the market's own expected end. Prevents pairing back-to-back games of a series."""
+    end_ref = game_time_ref(mk)
+    if end_ref is None:
+        return None, None, None   # can't pin the game in time -> never guess
+    best, best_key, best_map, best_gap = None, None, None, None
     for oe in odds_events:
-        if tdate:
-            ct = parse_ts(oe.get("commence_time"))
-            if ct and abs(((ct - timedelta(hours=5)).date() - tdate).days) > 1:
-                continue
+        gap = time_distance(end_ref, parse_ts(oe.get("commence_time")))
+        if gap is None:
+            continue
         home, away = oe.get("home_team"), oe.get("away_team")
         n0, n1 = mk[0]["yes_sub_title"], mk[1]["yes_sub_title"]
         straight = (name_score(n0, home), name_score(n1, away))
@@ -175,9 +196,11 @@ def match_event(event_ticker, mk, odds_events, threshold):
             s, mapping = straight, {mk[0]["ticker"]: home, mk[1]["ticker"]: away}
         else:
             s, mapping = cross, {mk[0]["ticker"]: away, mk[1]["ticker"]: home}
-        if min(s) >= threshold and sum(s) > best_score:
-            best, best_score, best_map = oe, sum(s), mapping
-    return best, best_map
+        if min(s) >= threshold:
+            key = (-sum(s), gap)          # best names first, then closest in time
+            if best_key is None or key < best_key:
+                best, best_key, best_map, best_gap = oe, key, mapping, gap
+    return best, best_map, best_gap
 
 
 def sports_games(cfg, api_key, store, verbose=False):
@@ -215,14 +238,23 @@ def sports_games(cfg, api_key, store, verbose=False):
         by_event = {}
         for m in ms:
             by_event.setdefault(m["event_ticker"], []).append(m)
-        matched = unmatched = 0
+        matched = unmatched = dup = 0
+        claims = {}   # odds event id -> list of (event_ticker, markets, mapping, oe)
         for et, mk in by_event.items():
             if len(mk) != 2:
                 continue
-            oe, mapping = match_event(et, mk, odds_events, cfg["match_threshold"])
+            oe, mapping, _gap = match_event(et, mk, odds_events, cfg["match_threshold"])
             if not oe:
                 unmatched += 1
                 continue
+            claims.setdefault(oe.get("id") or id(oe), []).append((et, mk, mapping, oe))
+        for oid, cl in claims.items():
+            if len(cl) > 1:   # two Kalshi games claim one sportsbook game -> ambiguous, skip all
+                dup += len(cl)
+                if verbose:
+                    print(f"  ambiguous: {', '.join(c[0] for c in cl)} all match one odds game — skipped")
+                continue
+            et, mk, mapping, oe = cl[0]
             start = parse_ts(oe.get("commence_time"))
             if not start or start <= now or start > now + timedelta(hours=cfg["max_hours_ahead"]):
                 continue
@@ -232,7 +264,7 @@ def sports_games(cfg, api_key, store, verbose=False):
                           "matchup": f'{oe["away_team"]} @ {oe["home_team"]}'})
         if verbose:
             print(f"[{series}] {len(ms)} mkts | {len(odds_events)} odds events | matched {matched} "
-                  f"| unmatched {unmatched} | odds: {remaining}")
+                  f"| unmatched {unmatched} | ambiguous {dup} | odds: {remaining}")
     return games, all_markets
 
 
