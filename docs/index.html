@@ -1,0 +1,80 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kalshi price board</title>
+<meta name="description" content="Kalshi sports prices compared with sportsbook consensus, with paper-trade results.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#eef2f6;--card:#f8fafc;--ink:#18222f;--soft:#5b6878;--rule:#cfd7e1;--pine:#0d7a63;
+--pine-tint:#cbe9df;--cran:#a33a57;--kal:#2f5bea;--track:#dde4ec}
+@media (prefers-color-scheme:dark){:root{--paper:#10161e;--card:#161e28;--ink:#e4eaf1;--soft:#9aa7b6;
+--rule:#2a3542;--pine:#3fbf9a;--pine-tint:#1d4a3e;--cran:#e07a95;--kal:#7d9bff;--track:#24303d}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.55 "Source Sans 3",system-ui,sans-serif}
+main{max-width:920px;margin:0 auto;padding:28px 16px 64px}
+h1,h2,h3,.num,.t,.stats b{font-family:"Saira Condensed","Arial Narrow",sans-serif;font-variant-numeric:tabular-nums}
+h1{font-size:2.6rem;line-height:1;margin:0 0 6px;font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.75rem;line-height:1.1;margin:0 0 6px;font-weight:700}
+h3{font-size:1.2rem;margin:26px 0 8px;font-weight:600;color:var(--soft)}
+section{margin-top:44px}
+.updated{color:var(--soft);margin:0}
+.strip{display:flex;flex-wrap:wrap;gap:8px 28px;margin:16px 0 0;padding:0}
+.strip div{display:flex;flex-direction:column}
+.strip dt{color:var(--soft);font-size:.85rem}
+.strip dd{margin:0;font:600 1.35rem/1.1 "Saira Condensed",sans-serif;font-variant-numeric:tabular-nums}
+.hero{margin-top:32px;padding:24px 22px 18px;background:var(--card);border-left:5px solid var(--rule);border-radius:4px}
+.hero.live{border-left-color:var(--pine)}
+.hero h2{font-size:2.3rem}
+.kicker{margin:0 0 4px;color:var(--pine);font-weight:600}
+.sub{margin:0 0 18px;max-width:62ch}
+.gap{position:relative;height:10px;background:var(--track);border-radius:5px;margin:6px 0}
+.hero .gap{height:16px;border-radius:8px}
+.gap .span{position:absolute;top:0;bottom:0;background:var(--soft);opacity:.35;border-radius:inherit}
+.gap.pos .span{background:var(--pine);opacity:1}
+.gap .mk{position:absolute;top:-3px;bottom:-3px;width:3px;margin-left:-1.5px;border-radius:2px}
+.hero .gap .mk{top:-5px;bottom:-5px;width:4px;margin-left:-2px}
+.mk.k{background:var(--kal)}.mk.s{background:var(--ink)}
+.legend{color:var(--soft);font-size:.85rem;margin:10px 0 0;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+.key{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.key.k{background:var(--kal);width:4px}.key.s{background:var(--ink);width:4px}.key.span-pos{background:var(--pine)}
+.note{color:var(--soft);margin:0 0 10px;max-width:68ch}
+.games{display:grid;gap:10px}
+.game{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:12px 14px}
+.game header{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:6px}
+.game .t{color:var(--soft);font-size:1.05rem}
+.game .m{font-weight:600}
+.books{margin-left:auto;color:var(--soft);font-size:.85rem}
+.tag{font-size:.8rem;padding:1px 8px;border-radius:10px;background:var(--track);color:var(--soft)}
+.tag.play{background:var(--pine);color:var(--card);font-weight:600}
+.cols,.side{display:grid;grid-template-columns:minmax(0,1fr) 56px 64px 64px;gap:2px 10px;align-items:center}
+.cols{color:var(--soft);font-size:.8rem}.cols span:not(:first-child){text-align:right}
+.side{padding:4px 0}.side .gap{grid-column:1/-1}
+.side .num{text-align:right;font-size:1.1rem}
+.who{overflow-wrap:anywhere}
+.up{color:var(--pine);font-weight:600}.down{color:var(--cran);font-weight:600}.flat{color:var(--soft)}
+.stats{display:flex;flex-wrap:wrap;gap:6px 26px;margin:0 0 8px}
+.stats b{font-size:1.5rem;font-weight:700;margin-right:4px}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th{text-align:left;font-weight:600;color:var(--soft);border-bottom:2px solid var(--rule);padding:6px 8px 6px 0}
+td{border-bottom:1px solid var(--rule);padding:7px 8px 7px 0;vertical-align:top}
+td.num,th.num{text-align:right}
+ul{padding-left:20px;margin:0}li{margin:4px 0}
+.anom code{font-size:.85rem;overflow-wrap:anywhere}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--rule);color:var(--soft);font-size:.9rem}
+footer p{max-width:70ch}
+a{color:var(--kal)}a:focus-visible{outline:3px solid var(--kal);outline-offset:2px}
+@media (max-width:560px){h1{font-size:2.1rem}.hero h2{font-size:1.85rem}
+.cols,.side{grid-template-columns:minmax(0,1fr) 46px 54px 56px}.books{margin-left:0;width:100%}
+table{font-size:.85rem}}
+</style></head><body><main>
+<header><h1>Kalshi price board</h1>
+<p class="updated">Updated Sun 10/25 07:42 PM HST. Refreshes about every hour. Paper trading only.</p><dl class="strip"><div><dt>Paper bankroll</dt><dd>$1,000</dd></div><div><dt>Record</dt><dd>0–0</dd></div><div><dt>Open plays</dt><dd>0</dd></div><div><dt>Games on board</dt><dd>3</dd></div><div><dt>Free odds credits left</dt><dd>487</dd></div><div><dt>Fair price from</dt><dd>Sportsbooks</dd></div></dl></header>
+<section class="hero"><h2>No edge right now</h2><p class="sub">Closest: Tomas Machac in Tomas Machac vs Alex de Minaur. Kalshi asks 29¢, sportsbooks say 31.3%: +0.8¢ after fees. A paper play needs at least +3.0¢.</p><div class="gap neg" role="img" aria-label="Tomas Machac: Kalshi 29¢, sportsbooks 31.3%, edge after fees +0.8¢"><span class="span" style="left:29.0%;width:2.3%"></span><span class="mk k" style="left:29.0%" title="Kalshi 29¢"></span><span class="mk s" style="left:31.3%" title="Sportsbooks 31.3%"></span></div><p class="legend"><span class="key k"></span>Kalshi price <span class="key s"></span>Sportsbook fair price <span class="key span-pos"></span>Edge after fees</p></section>
+<section><h2>The board</h2><p class="note">Games starting in the next 36 hours that matched a sportsbook game. Kalshi prices are what one contract costs; it pays $1 if that side wins.</p><h3>Men&#x27;s tennis (ATP)</h3><div class="games"><article class="game"><header><span class="t">Mon 2:30 AM</span><span class="m">Mika Brunold vs Nuno Borges</span><span class="books">5 sportsbooks</span></header><div class="cols"><span></span><span>Kalshi</span><span>Fair</span><span>Edge</span></div><div class="side"><span class="who">Mika Brunold</span><span class="num">35¢</span><span class="num">36.0%</span><span class="num flat">−0.6¢</span><div class="gap neg" role="img" aria-label="Mika Brunold: Kalshi 35¢, sportsbooks 36.0%, edge after fees −0.6¢"><span class="span" style="left:35.0%;width:1.0%"></span><span class="mk k" style="left:35.0%" title="Kalshi 35¢"></span><span class="mk s" style="left:36.0%" title="Sportsbooks 36.0%"></span></div></div><div class="side"><span class="who">Nuno Borges</span><span class="num">66¢</span><span class="num">64.0%</span><span class="num flat">−3.6¢</span><div class="gap neg" role="img" aria-label="Nuno Borges: Kalshi 66¢, sportsbooks 64.0%, edge after fees −3.6¢"><span class="span" style="left:64.0%;width:2.0%"></span><span class="mk k" style="left:66.0%" title="Kalshi 66¢"></span><span class="mk s" style="left:64.0%" title="Sportsbooks 64.0%"></span></div></div></article><article class="game"><header><span class="t">Mon 3:40 AM</span><span class="m">Daniel Altmaier vs Juan Manuel Cerundolo</span><span class="books">5 sportsbooks</span></header><div class="cols"><span></span><span>Kalshi</span><span>Fair</span><span>Edge</span></div><div class="side"><span class="who">Juan Manuel Cerundolo</span><span class="num">57¢</span><span class="num">55.8%</span><span class="num flat">−2.9¢</span><div class="gap neg" role="img" aria-label="Juan Manuel Cerundolo: Kalshi 57¢, sportsbooks 55.8%, edge after fees −2.9¢"><span class="span" style="left:55.8%;width:1.2%"></span><span class="mk k" style="left:57.0%" title="Kalshi 57¢"></span><span class="mk s" style="left:55.8%" title="Sportsbooks 55.8%"></span></div></div><div class="side"><span class="who">Daniel Altmaier</span><span class="num">44¢</span><span class="num">44.2%</span><span class="num flat">−1.6¢</span><div class="gap neg" role="img" aria-label="Daniel Altmaier: Kalshi 44¢, sportsbooks 44.2%, edge after fees −1.6¢"><span class="span" style="left:44.0%;width:0.6%"></span><span class="mk k" style="left:44.0%" title="Kalshi 44¢"></span><span class="mk s" style="left:44.2%" title="Sportsbooks 44.2%"></span></div></div></article><article class="game"><header><span class="t">Mon 3:40 AM</span><span class="m">Tomas Machac vs Alex de Minaur</span><span class="books">4 sportsbooks</span></header><div class="cols"><span></span><span>Kalshi</span><span>Fair</span><span>Edge</span></div><div class="side"><span class="who">Tomas Machac</span><span class="num">29¢</span><span class="num">31.3%</span><span class="num flat">+0.8¢</span><div class="gap neg" role="img" aria-label="Tomas Machac: Kalshi 29¢, sportsbooks 31.3%, edge after fees +0.8¢"><span class="span" style="left:29.0%;width:2.3%"></span><span class="mk k" style="left:29.0%" title="Kalshi 29¢"></span><span class="mk s" style="left:31.3%" title="Sportsbooks 31.3%"></span></div></div><div class="side"><span class="who">Alex de Minaur</span><span class="num">71¢</span><span class="num">68.7%</span><span class="num flat">−3.7¢</span><div class="gap neg" role="img" aria-label="Alex de Minaur: Kalshi 71¢, sportsbooks 68.7%, edge after fees −3.7¢"><span class="span" style="left:68.7%;width:2.3%"></span><span class="mk k" style="left:71.0%" title="Kalshi 71¢"></span><span class="mk s" style="left:68.7%" title="Sportsbooks 68.7%"></span></div></div></article></div></section>
+<section><h2>Paper trades</h2><p class="note">No paper trades have settled yet.</p><p class="note">Paper bankroll $1,000.00 (started at $1,000); $0.00 in open plays.</p></section>
+
+<section><h2>Unusual Kalshi markets</h2><p class="note">Of 10,000 open markets, 120 had real volume and resolve within 3 days; these moved 10¢+ in a day or have a 10¢+ spread. Not plays, just worth a look.</p><ul class="anom"><li><code>KXEBASKETBALLGAME-26OCT260122CLYDSHAQ-CLYD</code> spread 0.10, 2,259 traded in 24h</li><li><code>KXEBASKETBALLGAME-26OCT260122CLYDSHAQ-SHAQ</code> spread 0.16, 1,488 traded in 24h</li><li><code>KXNFLFFWEEKTOP-2026W7TET5-MTAYLOR85</code> spread 0.39, 1,083 traded in 24h</li><li><code>KXNBAREB-26OCT26MEMUTA-MEMCCOWARD23-6</code> spread 0.20, 736 traded in 24h</li><li><code>KXEBASKETBALLGAME-26OCT260122STEVBARR-STEV</code> spread 0.15, 508 traded in 24h</li></ul></section>
+<footer><p>Each game's fair price is the average of several sportsbooks' moneylines with their
+built-in margin removed. A paper play needs Kalshi's price to be at least 3¢ below that after
+Kalshi's taker fee. No real orders are ever placed, and nothing here is betting advice.</p></footer>
+</main></body></html>
