@@ -303,7 +303,8 @@ def board_entry(g, feats, sig, why):
             ask, route, ev = 0.0, "", None
         sides.append({"name": g["mapping"][m["ticker"]], "bid": fnum(m.get("yes_bid_dollars")),
                       "ask": ask, "route": route, "fair": f["fair"], "ev": ev})
-    return {"series": g["series"], "matchup": g["matchup"], "start": g["start"].isoformat(),
+    return {"series": g["series"], "event_ticker": g["event_ticker"], "matchup": g["matchup"],
+            "start": g["start"].isoformat(),
             "books": g["oe"]["n_books"], "sides": sides, "why": why,
             "signal": ({"team": sig["team"], "side": sig["side"], "ask": sig["ask"], "ev": sig["ev"],
                         "prob": sig["prob"]} if sig else None)}

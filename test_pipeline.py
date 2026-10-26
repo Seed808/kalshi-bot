@@ -115,7 +115,7 @@ print("step1 anomalies:", [(a["ticker"], a["flags"]) for a in an["flagged"]])
 # ---- full cycle (steps 1-4)
 main.cycle("config.json", store, paper=True, verbose=True)
 html = open("docs/index.html").read()
-assert "Kalshi price board" in html and "Buy Yes on Los Angeles Lakers at 30¢" in html, "site not rendered"
+assert "Kalshi price board" in html and "buy <b>YES</b> on Los Angeles Lakers" in html and "1 play right now" in html and "Paper size: 49 contracts" in html, "site not rendered"
 b = json.load(open("docs/board.json"))["board"]
 lal = [x for g in b for x in g["sides"] if x["name"] == "Los Angeles Lakers"][0]
 sig = [g["signal"] for g in b if g["signal"]][0]

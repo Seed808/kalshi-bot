@@ -157,6 +157,50 @@ def hero(board, cfg):
             f'average, so the bot passes. {note}</p>{howto}</section>')
 
 
+def max_price(fair, need, fee_mult=1.0):
+    """Highest Kalshi price (whole cents) at which the bet still clears the bot's edge bar."""
+    best = None
+    for c in range(1, 100):
+        p = c / 100
+        if fair - (p + 0.07 * fee_mult * p * (1 - p)) >= need:
+            best = p
+    return best
+
+
+def plays_box(board, cfg, store):
+    """The one thing the page must answer: what do I bet right now?"""
+    plays = sorted([b for b in board if b["signal"]], key=lambda b: -b["signal"]["ev"])
+    if not plays:
+        return ('<section class="plays none"><h2>No plays right now</h2><p>The bot hasn\'t found a bet '
+                'worth making. When it does, it shows up here as one line: what to buy on Kalshi and the '
+                'most to pay.</p></section>')
+    opens = {r["event_ticker"]: r for r in store.open_trades()}
+    cards = []
+    for b in plays:
+        sg = b["signal"]
+        need = cfg["series_min_edge"].get(b["series"], cfg["min_edge"])
+        team = sg["team"]
+        if sg["side"] == "no":
+            opp = next((x["name"] for x in b["sides"] if x["name"] != team), "")
+            what = (f'On Kalshi, buy <b>NO</b> on {escape(opp)}</p><p class="also">That\'s a bet on '
+                    f'{escape(team)} to win.')
+        else:
+            what = f'On Kalshi, buy <b>YES</b> on {escape(team)}'
+        mp = max_price(sg["prob"], need)
+        pay = (f'It\'s {cents(sg["ask"])} now. Pay {cents(mp)} or less per contract.' if mp
+               else f'It\'s {cents(sg["ask"])} now.')
+        r = opens.get(b.get("event_ticker", ""))
+        size = (f' Paper size: {r["contracts"]} contracts (${r["price"] * r["contracts"] + r["fee"]:,.2f}).'
+                if r else "")
+        cards.append(f'<article class="play"><p class="do">{what}</p>'
+                     f'<p>{pay} Each contract pays $1 if {escape(team)} wins.{size}</p>'
+                     f'<p class="when">{escape(b["matchup"])}, {when(b["start"])} HST. '
+                     f'<a href="https://kalshi.com/markets/{b["series"].lower()}">Open on Kalshi</a></p></article>')
+    n = len(plays)
+    return (f'<section class="plays"><h2>{"1 play" if n == 1 else f"{n} plays"} right now</h2>'
+            f'{"".join(cards)}<p class="fine">Paper trading only. These are the bot\'s picks, not advice.</p></section>')
+
+
 def board_html(board, cfg):
     if not board:
         return ""
@@ -302,6 +346,19 @@ def anomalies_html(an):
 
 CSS = """
 
+.plays{margin-top:28px;padding:22px;background:var(--card);border:2px solid var(--rule);border-radius:6px}
+.plays h2{font-size:2.4rem;margin:0 0 10px}
+.plays.none h2{color:var(--soft)}
+.plays p{margin:4px 0;max-width:62ch;font-size:1.1rem}
+.play{padding:14px 0;border-top:1px solid var(--rule)}.play:first-of-type{border-top:0;padding-top:4px}
+.play .do{font:700 2rem/1.15 "Saira Condensed",sans-serif;color:var(--pine);margin:0 0 6px}
+.play .do b{font-weight:700}
+.play .also{color:var(--soft);margin-top:-4px}
+.play .when{color:var(--soft);font-size:1rem}
+.plays .fine{color:var(--soft);font-size:.9rem;margin-top:10px}
+details.more{margin-top:28px}
+details.more>summary{cursor:pointer;font-weight:600;font-size:1.05rem;color:var(--kal)}
+
 .howto{margin:16px 0 0;border-top:1px solid var(--rule);padding-top:12px}
 .howto summary{cursor:pointer;font-weight:600}
 .howto ul{margin:8px 0 0}.howto li{max-width:70ch}
@@ -402,11 +459,14 @@ def render(cfg, store, board, anomalies, model_active):
 <style>{CSS}</style></head><body><main>
 <header><h1>Kalshi price board</h1>
 <p class="updated">Updated {escape(hst(now))}. Refreshes about every hour. Paper trading only.</p>{strip}</header>
-{hero(board, cfg)}
+{plays_box(board, cfg, store)}
+<details class="more"><summary>Details: every game the bot checked, paper results, and how it works</summary>
+{HOWTO.replace("{need}", signed_cents(cfg["min_edge"]))}
 {board_html(board, cfg)}
 {trades_html(store, cfg)}
 {lessons_html(store)}
 {anomalies_html(anomalies)}
+</details>
 <footer><p>Each game's fair price is the average of several sportsbooks' moneylines with their
 built-in margin removed. A paper play needs Kalshi's price to be at least {cfg["min_edge"] * 100:.0f}¢ below that after
 Kalshi's taker fee. No real orders are ever placed, and nothing here is betting advice.</p></footer>
