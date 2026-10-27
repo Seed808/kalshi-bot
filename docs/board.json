@@ -1,6 +1,33 @@
 {
- "updated": "2026-10-27T00:59:56.376185+00:00",
+ "updated": "2026-10-27T01:52:21.646497+00:00",
  "board": [
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT27DETNYK",
+   "matchup": "Detroit Pistons @ New York Knicks",
+   "start": "2026-10-28T00:10:00+00:00",
+   "books": 3,
+   "sides": [
+    {
+     "name": "New York Knicks",
+     "bid": 0.6,
+     "ask": 0.61,
+     "route": "no on opponent",
+     "fair": 0.6080515412108327,
+     "ev": -0.018601458789167302
+    },
+    {
+     "name": "Detroit Pistons",
+     "bid": 0.39,
+     "ask": 0.4,
+     "route": "no on opponent",
+     "fair": 0.3919484587891673,
+     "ev": -0.024851541210832717
+    }
+   ],
+   "why": "no edge",
+   "signal": null
+  },
   {
    "series": "KXNBAGAME",
    "event_ticker": "KXNBAGAME-26OCT26GSWDEN",
@@ -10,46 +37,19 @@
    "sides": [
     {
      "name": "Golden State Warriors",
-     "bid": 0.28,
-     "ask": 0.29,
-     "route": "yes",
-     "fair": 0.29856091324609,
-     "ev": -0.005852086753909969
+     "bid": 0.29,
+     "ask": 0.3,
+     "route": "no on opponent",
+     "fair": 0.2987958013779335,
+     "ev": -0.01590419862206649
     },
     {
      "name": "Denver Nuggets",
      "bid": 0.7,
      "ask": 0.71,
-     "route": "yes",
-     "fair": 0.70143908675391,
-     "ev": -0.022973913246089994
-    }
-   ],
-   "why": "no edge",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT26MEMUTA",
-   "matchup": "Memphis Grizzlies @ Utah Jazz",
-   "start": "2026-10-27T01:10:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Utah Jazz",
-     "bid": 0.46,
-     "ask": 0.47,
-     "route": "yes",
-     "fair": 0.4820974327945472,
-     "ev": -0.005339567205452755
-    },
-    {
-     "name": "Memphis Grizzlies",
-     "bid": 0.52,
-     "ask": 0.53,
-     "route": "yes",
-     "fair": 0.5179025672054528,
-     "ev": -0.02953443279454726
+     "route": "no on opponent",
+     "fair": 0.7012041986220665,
+     "ev": -0.023208801377933463
     }
    ],
    "why": "no edge",
@@ -310,16 +310,16 @@
      "bid": 0.45,
      "ask": 0.47,
      "route": "no on opponent",
-     "fair": 0.46069051238545256,
-     "ev": -0.0267464876145474
+     "fair": 0.4594389840885313,
+     "ev": -0.027998015911468666
     },
     {
      "name": "Florida Panthers",
      "bid": 0.53,
      "ask": 0.54,
      "route": "yes",
-     "fair": 0.5393094876145474,
-     "ev": -0.01807851238545255
+     "fair": 0.5405610159114687,
+     "ev": -0.016826984088531338
     }
    ],
    "why": "no edge",
@@ -337,43 +337,70 @@
      "bid": 0.46,
      "ask": 0.47,
      "route": "no on opponent",
-     "fair": 0.4725990990335945,
-     "ev": -0.01483790096640547
+     "fair": 0.468439888507137,
+     "ev": -0.018997111492862928
     },
     {
      "name": "Columbus Blue Jackets",
      "bid": 0.53,
      "ask": 0.54,
      "route": "no on opponent",
-     "fair": 0.5274009009664056,
-     "ev": -0.029987099033594422
+     "fair": 0.531560111492863,
+     "ev": -0.02582788850713702
     }
    ],
    "why": "no edge",
    "signal": null
   },
   {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26OCT26DETEDM",
-   "matchup": "Detroit Red Wings @ Edmonton Oilers",
-   "start": "2026-10-27T01:40:00+00:00",
-   "books": 9,
+   "series": "KXWTAMATCH",
+   "event_ticker": "KXWTAMATCH-26OCT27PARBIR",
+   "matchup": "Alycia Parks vs Kimberly Birrell",
+   "start": "2026-10-28T04:00:00+00:00",
+   "books": 7,
    "sides": [
     {
-     "name": "Edmonton Oilers",
-     "bid": 0.61,
-     "ask": 0.62,
+     "name": "Alycia Parks",
+     "bid": 0.38,
+     "ask": 0.4,
      "route": "no on opponent",
-     "fair": 0.6150418935058247,
-     "ev": -0.021450106494175225
+     "fair": 0.39398656823901457,
+     "ev": -0.022813431760985436
     },
     {
-     "name": "Detroit Red Wings",
-     "bid": 0.38,
-     "ask": 0.39,
+     "name": "Kimberly Birrell",
+     "bid": 0.6,
+     "ask": 0.62,
      "route": "no on opponent",
-     "fair": 0.3849581064941753,
-     "ev": -0.021694893505824764
+     "fair": 0.6060134317609854,
+     "ev": -0.030478568239014514
+    }
+   ],
+   "why": "no edge",
+   "signal": null
+  },
+  {
+   "series": "KXWTAMATCH",
+   "event_ticker": "KXWTAMATCH-26OCT27EALGIB",
+   "matchup": "Alexandra Eala vs Talia Gibson",
+   "start": "2026-10-28T04:00:00+00:00",
+   "books": 7,
+   "sides": [
+    {
+     "name": "Talia Gibson",
+     "bid": 0.26,
+     "ask": 0.29,
+     "route": "no on opponent",
+     "fair": 0.28285241894804625,
+     "ev": -0.021560581051953742
+    },
+    {
+     "name": "Alexandra Eala",
+     "bid": 0.71,
+     "ask": 0.74,
+     "route": "no on opponent",
+     "fair": 0.7171475810519538,
+     "ev": -0.036320418948046274
     }
    ],
    "why": "no edge",
@@ -391,43 +418,16 @@
      "bid": 0.61,
      "ask": 0.62,
      "route": "no on opponent",
-     "fair": 0.609369524511776,
-     "ev": -0.027122475488223996
+     "fair": 0.6083406499823296,
+     "ev": -0.02815135001767033
     },
     {
      "name": "Yulia Putintseva",
      "bid": 0.38,
      "ask": 0.39,
      "route": "no on opponent",
-     "fair": 0.39063047548822405,
-     "ev": -0.016022524511775993
-    }
-   ],
-   "why": "no edge",
-   "signal": null
-  },
-  {
-   "series": "KXWTAMATCH",
-   "event_ticker": "KXWTAMATCH-26OCT26JOICIR",
-   "matchup": "Maya Joint vs Sorana Cirstea",
-   "start": "2026-10-27T01:30:00+00:00",
-   "books": 7,
-   "sides": [
-    {
-     "name": "Maya Joint",
-     "bid": 0.31,
-     "ask": 0.31,
-     "route": "no on opponent",
-     "fair": 0.31500015178165974,
-     "ev": -0.009972848218340269
-    },
-    {
-     "name": "Sorana Cirstea",
-     "bid": 0.69,
-     "ask": 0.69,
-     "route": "no on opponent",
-     "fair": 0.6849998482183403,
-     "ev": -0.019973151781659704
+     "fair": 0.3916593500176703,
+     "ev": -0.014993649982329715
     }
    ],
    "why": "no edge",
