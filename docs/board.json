@@ -1,28 +1,28 @@
 {
- "updated": "2026-10-27T01:52:21.646497+00:00",
+ "updated": "2026-10-27T02:44:44.883482+00:00",
  "board": [
   {
    "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT27DETNYK",
-   "matchup": "Detroit Pistons @ New York Knicks",
-   "start": "2026-10-28T00:10:00+00:00",
-   "books": 3,
+   "event_ticker": "KXNBAGAME-26OCT27PORLAL",
+   "matchup": "Portland Trail Blazers @ Los Angeles Lakers",
+   "start": "2026-10-28T03:10:00+00:00",
+   "books": 6,
    "sides": [
     {
-     "name": "New York Knicks",
-     "bid": 0.6,
-     "ask": 0.61,
-     "route": "no on opponent",
-     "fair": 0.6080515412108327,
-     "ev": -0.018601458789167302
+     "name": "Portland Trail Blazers",
+     "bid": 0.41,
+     "ask": 0.42,
+     "route": "yes",
+     "fair": 0.4260922197581426,
+     "ev": -0.010959780241857398
     },
     {
-     "name": "Detroit Pistons",
-     "bid": 0.39,
-     "ask": 0.4,
-     "route": "no on opponent",
-     "fair": 0.3919484587891673,
-     "ev": -0.024851541210832717
+     "name": "Los Angeles Lakers",
+     "bid": 0.57,
+     "ask": 0.58,
+     "route": "yes",
+     "fair": 0.5739077802418574,
+     "ev": -0.023144219758142515
     }
    ],
    "why": "no edge",
@@ -30,26 +30,80 @@
   },
   {
    "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT26GSWDEN",
-   "matchup": "Golden State Warriors @ Denver Nuggets",
-   "start": "2026-10-27T02:10:00+00:00",
-   "books": 9,
+   "event_ticker": "KXNBAGAME-26OCT27SACSAS",
+   "matchup": "Sacramento Kings @ San Antonio Spurs",
+   "start": "2026-10-28T00:10:00+00:00",
+   "books": 8,
    "sides": [
     {
-     "name": "Golden State Warriors",
-     "bid": 0.29,
-     "ask": 0.3,
+     "name": "San Antonio Spurs",
+     "bid": 0.92,
+     "ask": 0.93,
      "route": "no on opponent",
-     "fair": 0.2987958013779335,
-     "ev": -0.01590419862206649
+     "fair": 0.9114903026485002,
+     "ev": -0.02306669735149991
     },
     {
-     "name": "Denver Nuggets",
-     "bid": 0.7,
-     "ask": 0.71,
+     "name": "Sacramento Kings",
+     "bid": 0.07,
+     "ask": 0.08,
      "route": "no on opponent",
-     "fair": 0.7012041986220665,
-     "ev": -0.023208801377933463
+     "fair": 0.08850969735149983,
+     "ev": 0.003357697351499822
+    }
+   ],
+   "why": "no edge",
+   "signal": null
+  },
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT27DETNYK",
+   "matchup": "Detroit Pistons @ New York Knicks",
+   "start": "2026-10-28T00:10:00+00:00",
+   "books": 8,
+   "sides": [
+    {
+     "name": "New York Knicks",
+     "bid": 0.59,
+     "ask": 0.61,
+     "route": "no on opponent",
+     "fair": 0.6011538920979633,
+     "ev": -0.02549910790203669
+    },
+    {
+     "name": "Detroit Pistons",
+     "bid": 0.39,
+     "ask": 0.4,
+     "route": "yes",
+     "fair": 0.3988461079020367,
+     "ev": -0.01795389209796333
+    }
+   ],
+   "why": "no edge",
+   "signal": null
+  },
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT27BKNBOS",
+   "matchup": "Brooklyn Nets @ Boston Celtics",
+   "start": "2026-10-27T23:40:00+00:00",
+   "books": 8,
+   "sides": [
+    {
+     "name": "Boston Celtics",
+     "bid": 0.83,
+     "ask": 0.84,
+     "route": "no on opponent",
+     "fair": 0.8203975979806317,
+     "ev": -0.02901040201936822
+    },
+    {
+     "name": "Brooklyn Nets",
+     "bid": 0.16,
+     "ask": 0.17,
+     "route": "no on opponent",
+     "fair": 0.17960240201936828,
+     "ev": -0.00027459798063173
     }
    ],
    "why": "no edge",
@@ -60,23 +114,23 @@
    "event_ticker": "KXNHLGAME-26OCT27BUFSJ",
    "matchup": "Buffalo Sabres @ San Jose Sharks",
    "start": "2026-10-28T02:30:00+00:00",
-   "books": 8,
+   "books": 9,
    "sides": [
     {
      "name": "San Jose Sharks",
      "bid": 0.44,
      "ask": 0.45,
      "route": "no on opponent",
-     "fair": 0.44385856985504424,
-     "ev": -0.023466430144955752
+     "fair": 0.44468287813199037,
+     "ev": -0.022642121868009624
     },
     {
      "name": "Buffalo Sabres",
      "bid": 0.55,
      "ask": 0.56,
      "route": "no on opponent",
-     "fair": 0.5561414301449558,
-     "ev": -0.021106569855044333
+     "fair": 0.5553171218680096,
+     "ev": -0.02193087813199046
     }
    ],
    "why": "no edge",
@@ -87,23 +141,23 @@
    "event_ticker": "KXNHLGAME-26OCT27OTTVGK",
    "matchup": "Ottawa Senators @ Vegas Golden Knights",
    "start": "2026-10-28T02:00:00+00:00",
-   "books": 8,
+   "books": 9,
    "sides": [
     {
      "name": "Vegas Golden Knights",
      "bid": 0.58,
      "ask": 0.59,
      "route": "no on opponent",
-     "fair": 0.5824119762252045,
-     "ev": -0.02452102377479548
+     "fair": 0.5819303482563996,
+     "ev": -0.02500265174360039
     },
     {
      "name": "Ottawa Senators",
      "bid": 0.41,
      "ask": 0.42,
      "route": "no on opponent",
-     "fair": 0.41758802377479554,
-     "ev": -0.01946397622520446
+     "fair": 0.41806965174360045,
+     "ev": -0.01898234825639955
     }
    ],
    "why": "no edge",
@@ -114,23 +168,23 @@
    "event_ticker": "KXNHLGAME-26OCT27VANANA",
    "matchup": "Vancouver Canucks @ Anaheim Ducks",
    "start": "2026-10-28T02:00:00+00:00",
-   "books": 8,
+   "books": 9,
    "sides": [
     {
      "name": "Vancouver Canucks",
-     "bid": 0.33,
+     "bid": 0.34,
      "ask": 0.34,
      "route": "no on opponent",
-     "fair": 0.3494247668246435,
-     "ev": -0.006283233175356506
+     "fair": 0.3511583812590354,
+     "ev": -0.0045496187409646005
     },
     {
      "name": "Anaheim Ducks",
      "bid": 0.66,
-     "ask": 0.67,
+     "ask": 0.66,
      "route": "no on opponent",
-     "fair": 0.6505752331753565,
-     "ev": -0.03490176682464352
+     "fair": 0.6488416187409646,
+     "ev": -0.0268663812590354
     }
    ],
    "why": "no edge",
@@ -148,16 +202,16 @@
      "bid": 0.53,
      "ask": 0.54,
      "route": "no on opponent",
-     "fair": 0.5370003585454639,
-     "ev": -0.020387641454536087
+     "fair": 0.5382848593329468,
+     "ev": -0.01910314066705321
     },
     {
      "name": "Minnesota Wild",
      "bid": 0.46,
      "ask": 0.47,
      "route": "no on opponent",
-     "fair": 0.4629996414545361,
-     "ev": -0.02443735854546386
+     "fair": 0.4617151406670532,
+     "ev": -0.02572185933294674
     }
    ],
    "why": "no edge",
@@ -168,23 +222,23 @@
    "event_ticker": "KXNHLGAME-26OCT27MTLSTL",
    "matchup": "Montr\u00e9al Canadiens @ St Louis Blues",
    "start": "2026-10-28T00:00:00+00:00",
-   "books": 8,
+   "books": 9,
    "sides": [
     {
      "name": "St Louis Blues",
      "bid": 0.51,
      "ask": 0.52,
      "route": "no on opponent",
-     "fair": 0.5141095357281156,
-     "ev": -0.023362464271884487
+     "fair": 0.513613839924525,
+     "ev": -0.023858160075475032
     },
     {
      "name": "Montr\u00e9al Canadiens",
      "bid": 0.48,
      "ask": 0.49,
      "route": "no on opponent",
-     "fair": 0.4858904642718844,
-     "ev": -0.021602535728115546
+     "fair": 0.48638616007547497,
+     "ev": -0.021106839924525
     }
    ],
    "why": "no edge",
@@ -195,23 +249,23 @@
    "event_ticker": "KXNHLGAME-26OCT27LACHI",
    "matchup": "Los Angeles Kings @ Chicago Blackhawks",
    "start": "2026-10-28T00:00:00+00:00",
-   "books": 8,
+   "books": 9,
    "sides": [
     {
      "name": "Los Angeles Kings",
      "bid": 0.52,
      "ask": 0.52,
      "route": "no on opponent",
-     "fair": 0.5238926424544237,
-     "ev": -0.013579357545576376
+     "fair": 0.5228970989404421,
+     "ev": -0.014574901059557943
     },
     {
      "name": "Chicago Blackhawks",
      "bid": 0.48,
      "ask": 0.48,
      "route": "no on opponent",
-     "fair": 0.47610735754557637,
-     "ev": -0.0213646424544236
+     "fair": 0.4771029010595579,
+     "ev": -0.020369098940442087
     }
    ],
    "why": "no edge",
@@ -222,23 +276,23 @@
    "event_ticker": "KXNHLGAME-26OCT27NJDAL",
    "matchup": "New Jersey Devils @ Dallas Stars",
    "start": "2026-10-28T00:00:00+00:00",
-   "books": 8,
+   "books": 9,
    "sides": [
     {
      "name": "New Jersey Devils",
      "bid": 0.46,
      "ask": 0.47,
      "route": "no on opponent",
-     "fair": 0.4683185570509244,
-     "ev": -0.019118442949075554
+     "fair": 0.4707462801032244,
+     "ev": -0.016690719896775563
     },
     {
      "name": "Dallas Stars",
      "bid": 0.53,
      "ask": 0.54,
      "route": "no on opponent",
-     "fair": 0.5316814429490756,
-     "ev": -0.025706557050924395
+     "fair": 0.5292537198967756,
+     "ev": -0.028134280103224385
     }
    ],
    "why": "no edge",
@@ -249,23 +303,23 @@
    "event_ticker": "KXNHLGAME-26OCT27BOSCAR",
    "matchup": "Boston Bruins @ Carolina Hurricanes",
    "start": "2026-10-28T00:00:00+00:00",
-   "books": 8,
+   "books": 9,
    "sides": [
     {
      "name": "Carolina Hurricanes",
      "bid": 0.62,
      "ask": 0.63,
      "route": "no on opponent",
-     "fair": 0.6263929138160022,
-     "ev": -0.01992408618399788
+     "fair": 0.6255908605128777,
+     "ev": -0.02072613948712232
     },
     {
      "name": "Boston Bruins",
      "bid": 0.37,
      "ask": 0.38,
      "route": "no on opponent",
-     "fair": 0.37360708618399785,
-     "ev": -0.02288491381600216
+     "fair": 0.3744091394871223,
+     "ev": -0.022082860512877722
     }
    ],
    "why": "no edge",
@@ -276,23 +330,23 @@
    "event_ticker": "KXNHLGAME-26OCT27NYINSH",
    "matchup": "New York Islanders @ Nashville Predators",
    "start": "2026-10-28T00:00:00+00:00",
-   "books": 8,
+   "books": 9,
    "sides": [
     {
      "name": "New York Islanders",
      "bid": 0.48,
      "ask": 0.47,
      "route": "no on opponent",
-     "fair": 0.47117613538547776,
-     "ev": -0.016260864614522197
+     "fair": 0.4715161216942314,
+     "ev": -0.01592087830576855
     },
     {
      "name": "Nashville Predators",
      "bid": 0.53,
      "ask": 0.52,
      "route": "no on opponent",
-     "fair": 0.5288238646145222,
-     "ev": -0.008648135385477818
+     "fair": 0.5284838783057686,
+     "ev": -0.008988121694231466
     }
    ],
    "why": "no edge",
@@ -303,23 +357,23 @@
    "event_ticker": "KXNHLGAME-26OCT27FLAWPG",
    "matchup": "Florida Panthers @ Winnipeg Jets",
    "start": "2026-10-28T00:00:00+00:00",
-   "books": 8,
+   "books": 9,
    "sides": [
     {
      "name": "Winnipeg Jets",
      "bid": 0.45,
-     "ask": 0.47,
-     "route": "no on opponent",
-     "fair": 0.4594389840885313,
-     "ev": -0.027998015911468666
+     "ask": 0.46,
+     "route": "yes",
+     "fair": 0.45982013984981557,
+     "ev": -0.017567860150184467
     },
     {
      "name": "Florida Panthers",
      "bid": 0.53,
      "ask": 0.54,
      "route": "yes",
-     "fair": 0.5405610159114687,
-     "ev": -0.016826984088531338
+     "fair": 0.5401798601501844,
+     "ev": -0.017208139849815618
     }
    ],
    "why": "no edge",
@@ -330,26 +384,53 @@
    "event_ticker": "KXNHLGAME-26OCT27CBJPHI",
    "matchup": "Columbus Blue Jackets @ Philadelphia Flyers",
    "start": "2026-10-27T23:00:00+00:00",
-   "books": 8,
+   "books": 9,
    "sides": [
     {
      "name": "Philadelphia Flyers",
      "bid": 0.46,
      "ask": 0.47,
      "route": "no on opponent",
-     "fair": 0.468439888507137,
-     "ev": -0.018997111492862928
+     "fair": 0.4690839022468174,
+     "ev": -0.018353097753182557
     },
     {
      "name": "Columbus Blue Jackets",
      "bid": 0.53,
      "ask": 0.54,
      "route": "no on opponent",
-     "fair": 0.531560111492863,
-     "ev": -0.02582788850713702
+     "fair": 0.5309160977531826,
+     "ev": -0.02647190224681739
     }
    ],
    "why": "no edge",
+   "signal": null
+  },
+  {
+   "series": "KXATPMATCH",
+   "event_ticker": "KXATPMATCH-26OCT27MANBUS",
+   "matchup": "Adrian Mannarino vs Ignacio Buse",
+   "start": "2026-10-27T12:30:00+00:00",
+   "books": 5,
+   "sides": [
+    {
+     "name": "Adrian Mannarino",
+     "bid": 0.62,
+     "ask": 0.63,
+     "route": "no on opponent",
+     "fair": 0.5465585562324031,
+     "ev": -0.0997584437675969
+    },
+    {
+     "name": "Ignacio Buse",
+     "bid": 0.37,
+     "ask": 0.38,
+     "route": "no on opponent",
+     "fair": 0.4534414437675969,
+     "ev": 0.05694944376759686
+    }
+   ],
+   "why": "odds stale",
    "signal": null
   },
   {
@@ -361,7 +442,7 @@
    "sides": [
     {
      "name": "Alycia Parks",
-     "bid": 0.38,
+     "bid": 0.39,
      "ask": 0.4,
      "route": "no on opponent",
      "fair": 0.39398656823901457,
@@ -370,13 +451,13 @@
     {
      "name": "Kimberly Birrell",
      "bid": 0.6,
-     "ask": 0.62,
+     "ask": 0.61,
      "route": "no on opponent",
      "fair": 0.6060134317609854,
-     "ev": -0.030478568239014514
+     "ev": -0.020639568239014583
     }
    ],
-   "why": "no edge",
+   "why": "odds stale",
    "signal": null
   },
   {
@@ -403,34 +484,7 @@
      "ev": -0.036320418948046274
     }
    ],
-   "why": "no edge",
-   "signal": null
-  },
-  {
-   "series": "KXWTAMATCH",
-   "event_ticker": "KXWTAMATCH-26OCT26PUTSAK",
-   "matchup": "Yulia Putintseva vs Maria Sakkari",
-   "start": "2026-10-27T02:40:00+00:00",
-   "books": 7,
-   "sides": [
-    {
-     "name": "Maria Sakkari",
-     "bid": 0.61,
-     "ask": 0.62,
-     "route": "no on opponent",
-     "fair": 0.6083406499823296,
-     "ev": -0.02815135001767033
-    },
-    {
-     "name": "Yulia Putintseva",
-     "bid": 0.38,
-     "ask": 0.39,
-     "route": "no on opponent",
-     "fair": 0.3916593500176703,
-     "ev": -0.014993649982329715
-    }
-   ],
-   "why": "no edge",
+   "why": "odds stale",
    "signal": null
   }
  ]
