@@ -1,39 +1,35 @@
-Scan: 10000 open markets, 186 pass volume/time filters, 5 flagged
-  KXTEMPMIAH-26OCT2620-T76.99: spread 0.15 | vol24 13323
-  KXNHLPTS-26OCT26LANYR-LAEGUSTAFSSON64-1: spread 0.30 | vol24 7650
-  KXNHLSAVE-26OCT26LANYR-LADKUEMPER35-23: spread 0.29 | vol24 1209
-  KXNBAPTSPROT-26OCT26PHXOKC-OKCJMCCAIN3-20: spread 0.17 | vol24 878
-  KXCS2SPREAD-26OCT270930NEMICE-ICE2: spread 0.70 | vol24 692
-[KXNFLGAME] 30 mkts | 15 odds events | matched 1 | unmatched 0 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
-  unmatched KXNBAGAME-26OCT30ORLTOR: ['Toronto', 'Orlando'] ends 2026-10-31T02:30:00+00:00 | closest odds: Washington Wizards @ Charlotte Hornets starts 2026-10-26T23:10:00Z
-  unmatched KXNBAGAME-26OCT30DETBKN: ['Detroit', 'Brooklyn'] ends 2026-10-31T02:30:00+00:00 | closest odds: Washington Wizards @ Charlotte Hornets starts 2026-10-26T23:10:00Z
-  unmatched KXNBAGAME-26OCT30CHIBOS: ['Chicago', 'Boston'] ends 2026-10-31T02:30:00+00:00 | closest odds: Chicago Bulls @ Boston Celtics starts 2026-10-26T23:30:00Z
-  unmatched KXNBAGAME-26OCT30NYKPHI: ['Philadelphia', 'New York'] ends 2026-10-31T02:30:00+00:00 | closest odds: Washington Wizards @ Charlotte Hornets starts 2026-10-26T23:10:00Z
-[KXNBAGAME] 66 mkts | 9 odds events | matched 5 | unmatched 24 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
+Scan: 10000 open markets, 254 pass volume/time filters, 48 flagged
+  KXNBAPTS-26OCT26INDMIL-INDJWALKER5-10: spread 0.19 | vol24 16185
+  KXNFLRSHYDSPROT-26OCT26DALPHI-PHISBARKLEY26-40: spread 0.24 | vol24 14424
+  KXNFLRSHATT-26OCT26DALPHI-PHISBARKLEY26-16: spread 0.11 | vol24 13824
+  KXMLBRBI-26OCT262000MILTB-TBVMESA25-1: spread 0.16 | vol24 10657
+  KXNFLRRYDS-26OCT26DALPHI-PHISBARKLEY26-105: spread 0.10 | vol24 5659
+  KXMLBSB-26OCT262000MILTB-MILSFRELICK10-1: spread 0.20 | vol24 5162
+  KXNBASTL-26OCT26WASCHA-WASTYOUNG3-1: spread 0.79 | vol24 4233
+  KXNFLREC-26OCT26DALPHI-PHISBARKLEY26-4: spread 0.10 | vol24 4075
+  KXNFLRSHATT-26OCT26DALPHI-PHISBARKLEY26-19: spread 0.29 | vol24 3841
+  KXNBAPTS-26OCT26INDMIL-INDKOUBRE10-10: spread 0.26 | vol24 3774
+  unmatched KXNFLGAME-26NOV01PHIWAS: ['Washington', 'Philadelphia'] ends 2026-11-02T04:20:00+00:00 | closest odds: Dallas Cowboys @ Philadelphia Eagles starts 2026-10-27T00:16:21Z
+  unmatched KXNFLGAME-26NOV01ARIDAL: ['Dallas', 'Arizona'] ends 2026-11-01T21:00:00+00:00 | closest odds: Dallas Cowboys @ Philadelphia Eagles starts 2026-10-27T00:16:21Z
+[KXNFLGAME] 30 mkts | 13 odds events | matched 0 | unmatched 2 | ambiguous 0 | odds: fresh, 1 credit(s), 479 left
+  unmatched KXNBAGAME-26OCT30HOUDAL: ['Houston', 'Dallas'] ends 2026-10-31T03:00:00+00:00 | closest odds: Atlanta Hawks @ Houston Rockets starts 2026-10-27T00:40:32Z
+  unmatched KXNBAGAME-26OCT30LACMIN: ['Minnesota', 'Los Angeles C'] ends 2026-10-31T03:00:00+00:00 | closest odds: Minnesota Timberwolves @ Cleveland Cavaliers starts 2026-10-26T23:13:00Z
+  unmatched KXNBAGAME-26OCT30INDMIA: ['Miami', 'Indiana'] ends 2026-10-31T03:00:00+00:00 | closest odds: Dallas Mavericks @ Miami Heat starts 2026-10-26T23:41:37Z
+  unmatched KXNBAGAME-26OCT30ORLTOR: ['Toronto', 'Orlando'] ends 2026-10-31T02:30:00+00:00 | closest odds: Washington Wizards @ Charlotte Hornets starts 2026-10-26T23:10:34Z
+[KXNBAGAME] 72 mkts | 9 odds events | matched 2 | unmatched 27 | ambiguous 0 | odds: fresh, 1 credit(s), 478 left
   unmatched KXMLBGAME-26OCT272000MILTB: ['Tampa Bay', 'Milwaukee'] ends 2026-10-28T03:00:00+00:00 | closest odds: Milwaukee Brewers @ Tampa Bay Rays starts 2026-10-27T00:10:00Z
-[KXMLBGAME] 4 mkts | 1 odds events | matched 1 | unmatched 1 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
-  unmatched KXNHLGAME-26NOV01OTTANA: ['Ottawa', 'Anaheim'] ends 2026-11-02T04:00:00+00:00 | closest odds: Los Angeles Kings @ New York Rangers starts 2026-10-26T23:10:00Z
-  unmatched KXNHLGAME-26NOV01EDMNYR: ['New York R', 'Edmonton'] ends 2026-11-02T02:00:00+00:00 | closest odds: Los Angeles Kings @ New York Rangers starts 2026-10-26T23:10:00Z
-  unmatched KXNHLGAME-26NOV01UTAPHI: ['Utah', 'Philadelphia'] ends 2026-11-02T00:00:00+00:00 | closest odds: Los Angeles Kings @ New York Rangers starts 2026-10-26T23:10:00Z
-  unmatched KXNHLGAME-26NOV01MINWSH: ['Washington', 'Minnesota'] ends 2026-11-01T23:30:00+00:00 | closest odds: Los Angeles Kings @ New York Rangers starts 2026-10-26T23:10:00Z
-[KXNHLGAME] 94 mkts | 3 odds events | matched 2 | unmatched 44 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
+[KXMLBGAME] 4 mkts | 1 odds events | matched 0 | unmatched 1 | ambiguous 0 | odds: fresh, 1 credit(s), 477 left
+  unmatched KXNHLGAME-26NOV01OTTANA: ['Ottawa', 'Anaheim'] ends 2026-11-02T04:00:00+00:00 | closest odds: Ottawa Senators @ Vegas Golden Knights starts 2026-10-28T02:00:00Z
+  unmatched KXNHLGAME-26NOV01EDMNYR: ['New York R', 'Edmonton'] ends 2026-11-02T02:00:00+00:00 | closest odds: Los Angeles Kings @ New York Rangers starts 2026-10-26T23:10:23Z
+  unmatched KXNHLGAME-26NOV01UTAPHI: ['Utah', 'Philadelphia'] ends 2026-11-02T00:00:00+00:00 | closest odds: Minnesota Wild @ Utah Mammoth starts 2026-10-28T01:00:00Z
+  unmatched KXNHLGAME-26NOV01MINWSH: ['Washington', 'Minnesota'] ends 2026-11-01T23:30:00+00:00 | closest odds: Los Angeles Kings @ New York Rangers starts 2026-10-26T23:10:23Z
+[KXNHLGAME] 94 mkts | 14 odds events | matched 12 | unmatched 33 | ambiguous 0 | odds: fresh, 1 credit(s), 476 left
 [KXNCAAFGAME] no games ending within 12h — no odds credit spent
 [KXATPMATCH] no games ending within 12h — no odds credit spent
-  unmatched KXWTAMATCH-26OCT26ZAKLIN: ['Anastasia Zakharova', 'Magda Linette'] ends 2026-10-27T06:00:00+00:00 | closest odds: Mika Stojsavljevic @ Alexandra Eala starts 2026-10-26T08:00:00Z
-  unmatched KXWTAMATCH-26OCT26YASVOL: ['Dayana Yastremska', 'Katie Volynets'] ends 2026-10-27T06:00:00+00:00 | closest odds: Mika Stojsavljevic @ Alexandra Eala starts 2026-10-26T08:00:00Z
+  unmatched KXWTAMATCH-26OCT26ZAKLIN: ['Anastasia Zakharova', 'Magda Linette'] ends 2026-10-27T06:00:00+00:00 | closest odds: Sorana Cirstea @ Maya Joint starts 2026-10-27T01:30:00Z
+  unmatched KXWTAMATCH-26OCT26YASVOL: ['Dayana Yastremska', 'Katie Volynets'] ends 2026-10-27T06:00:00+00:00 | closest odds: Sorana Cirstea @ Maya Joint starts 2026-10-27T01:30:00Z
   unmatched KXWTAMATCH-26OCT26VALPOH: ['Tereza Valentova', 'Mia Pohankova'] ends 2026-10-27T04:30:00+00:00 | closest odds: Mia Pohánková @ Tereza Valentova starts 2026-10-27T05:30:00Z
   unmatched KXWTAMATCH-26OCT25SASBAR: ['Aliaksandra Sasnovich', 'Nikola Bartunkova'] ends 2026-10-26T05:00:00+00:00 | closest odds: Nikola Bartunkova @ Aliaksandra Sasnovich starts 2026-10-27T04:20:00Z
-[KXWTAMATCH] 36 mkts | 9 odds events | matched 2 | unmatched 16 | ambiguous 0 | odds: pan_pacific_open:daily odds allowance reached (15/15.0)
-11 pregame games | 0 researched
-  skip Dallas Cowboys @ Philadelphia Eagles: odds stale
-  skip Golden State Warriors @ Denver Nuggets: odds stale
-  skip Memphis Grizzlies @ Utah Jazz: odds stale
-  skip Atlanta Hawks @ Houston Rockets: odds stale
-  skip Phoenix Suns @ Oklahoma City Thunder: odds stale
-  skip Indiana Pacers @ Milwaukee Bucks: odds stale
-  skip Milwaukee Brewers @ Tampa Bay Rays: odds stale
-  skip Detroit Red Wings @ Edmonton Oilers: odds stale
-  skip Toronto Maple Leafs @ Calgary Flames: odds stale
-  skip Yulia Putintseva vs Maria Sakkari: odds stale
-  skip Maya Joint vs Sorana Cirstea: odds stale
-Mon 10/26 01:41 PM HST | Predictor: consensus | 0 signal(s), 0 new paper trade(s)
+[KXWTAMATCH] 36 mkts | 10 odds events | matched 2 | unmatched 16 | ambiguous 0 | odds: pan_pacific_open:fresh, 1 credit(s), 475 left
+16 pregame games | 0 researched
+Mon 10/26 02:59 PM HST | Predictor: consensus | 0 signal(s), 0 new paper trade(s)
