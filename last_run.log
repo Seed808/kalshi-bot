@@ -1,14 +1,15 @@
-Scan: 10000 open markets, 611 pass volume/time filters, 35 flagged
-  KXAAAGASDSC-26OCT28-3.7800: spread 0.35 | vol24 6577
-  KXTEMPLAXHS-26OCT2712-T65.99: spread 0.13 | vol24 2913
-  KXAAAGASDWI-26OCT28-4.4500: spread 0.26 | vol24 2654
-  KXAAAGASDPA-26OCT28-4.4450: spread 0.12 | vol24 2332
-  KXNBA1H-26OCT28LALLAC-LAC: spread 0.12 | vol24 2194
-  KXAAAGASDOH-26OCT28-4.3650: spread 0.11 | vol24 2184
-  KXAAAGASDSC-26OCT28-3.7500: spread 0.64 | vol24 1591
-  KXTEMPNYCHS-26OCT2712-T57.99: spread 0.10 | vol24 1473
-  KXAAAGASDIL-26OCT28-4.8250: spread 0.68 | vol24 1458
-  KXAAAGASDSC-26OCT28-3.7450: spread 0.60 | vol24 1356
+Settled 0 paper trade(s); labeled 2 training snapshot(s).
+Scan: 10000 open markets, 647 pass volume/time filters, 49 flagged
+  KXTEMPMIAH-26OCT2713-T81.99: spread 0.13 | vol24 7088
+  KXAAAGASDSC-26OCT28-3.7800: spread 0.14 | vol24 6578
+  KXAAAGASDSC-26OCT28-3.7550: spread 0.67 | vol24 3239
+  KXAAAGASDWI-26OCT28-4.4500: spread 0.23 | vol24 2654
+  KXAAAGASDTN-26OCT28-3.7800: spread 0.48 | vol24 2325
+  KXNBA1H-26OCT28LALLAC-LAC: spread 0.11 | vol24 2194
+  KXAAAGASDOH-26OCT28-4.3650: spread 0.10 | vol24 2184
+  KXEUROCUPSPREAD-26OCT271200PAOBAH-BAH4: spread 0.13 | vol24 1961
+  KXNBAPRA-26OCT27PORLAL-PORDLILLARD0-30: spread 0.14 | vol24 1764
+  KXAAAGASDSC-26OCT28-3.7000: spread 0.61 | vol24 1700
 [KXNFLGAME] no games ending within 12h — no odds credit spent
   unmatched KXNBAGAME-26OCT30DENPHX: ['Phoenix', 'Denver'] ends 2026-10-31T05:00:00+00:00 | closest odds: Memphis Grizzlies @ Utah Jazz starts 2026-10-27T01:12:00Z
   unmatched KXNBAGAME-26OCT30LALGSW: ['Los Angeles L', 'Golden State'] ends 2026-10-31T05:00:00+00:00 | closest odds: Portland Trail Blazers @ Los Angeles Lakers starts 2026-10-28T03:10:00Z
@@ -28,8 +29,12 @@ Scan: 10000 open markets, 611 pass volume/time filters, 35 flagged
   unmatched KXNCAAFGAME-26NOV07BYUUTAH: ['Utah', 'BYU'] ends 2026-11-07T20:00:00+00:00 | closest odds: Colorado State Rams @ Utah State Aggies starts 2026-10-31T19:30:00Z
 [KXNCAAFGAME] 472 mkts | 56 odds events | matched 4 | unmatched 212 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
 [KXATPMATCH] no games ending within 12h — no odds credit spent
-[KXWTAMATCH] no games ending within 12h — no odds credit spent
-19 pregame games | 0 researched
+  unmatched KXWTAMATCH-26OCT28DARTJE: ['Janice Tjen', 'Harriet Dart'] ends 2026-10-28T08:00:00+00:00 | closest odds: Sorana Cirstea @ Maya Joint starts 2026-10-27T01:37:00Z
+  unmatched KXWTAMATCH-26OCT28SHIYAS: ['Dayana Yastremska', 'Han Shi'] ends 2026-10-28T08:00:00+00:00 | closest odds: Sorana Cirstea @ Maya Joint starts 2026-10-27T01:37:00Z
+  unmatched KXWTAMATCH-26OCT27SASSHN: ['Diana Shnaider', 'Aliaksandra Sasnovich'] ends 2026-10-28T04:30:00+00:00 | closest odds: Sorana Cirstea @ Maya Joint starts 2026-10-27T01:37:00Z
+  unmatched KXWTAMATCH-26OCT27FERMER: ['Elise Mertens', 'Leylah Fernandez'] ends 2026-10-28T04:30:00+00:00 | closest odds: Sorana Cirstea @ Maya Joint starts 2026-10-27T01:37:00Z
+[KXWTAMATCH] 26 mkts | 10 odds events | matched 2 | unmatched 11 | ambiguous 0 | odds: pan_pacific_open:daily odds allowance reached (15/15.0)
+21 pregame games | 0 researched
   skip Portland Trail Blazers @ Los Angeles Lakers: odds stale
   skip Sacramento Kings @ San Antonio Spurs: odds stale
   skip Detroit Pistons @ New York Knicks: odds stale
@@ -49,4 +54,6 @@ Scan: 10000 open markets, 611 pass volume/time filters, 35 flagged
   skip Kennesaw State Owls @ Middle Tennessee Blue Raiders: odds stale
   skip Sam Houston State Bearkats @ Missouri State Bears: odds stale
   skip Delaware Blue Hens @ Western Kentucky Hilltoppers: odds stale
-Tue 10/27 05:56 AM HST | Predictor: consensus | 0 signal(s), 0 new paper trade(s)
+  skip Alycia Parks vs Kimberly Birrell: odds stale
+  skip Alexandra Eala vs Talia Gibson: odds stale
+Tue 10/27 06:56 AM HST | Predictor: consensus | 0 signal(s), 0 new paper trade(s)
