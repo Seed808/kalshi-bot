@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T18:55:12.773462+00:00",
+ "updated": "2026-10-27T19:49:33.253068+00:00",
  "board": [
   {
    "series": "KXNBAGAME",
@@ -93,13 +93,13 @@
      "name": "Boston Celtics",
      "bid": 0.84,
      "ask": 0.85,
-     "route": "yes",
+     "route": "no on opponent",
      "fair": 0.8203975979806317,
      "ev": -0.03852740201936822
     },
     {
      "name": "Brooklyn Nets",
-     "bid": 0.14,
+     "bid": 0.15,
      "ask": 0.16,
      "route": "no on opponent",
      "fair": 0.17960240201936828,
@@ -226,19 +226,19 @@
    "sides": [
     {
      "name": "St Louis Blues",
-     "bid": 0.51,
-     "ask": 0.51,
-     "route": "no on opponent",
-     "fair": 0.513613839924525,
-     "ev": -0.013879160075474961
-    },
-    {
-     "name": "Montr\u00e9al Canadiens",
      "bid": 0.49,
      "ask": 0.49,
      "route": "no on opponent",
+     "fair": 0.513613839924525,
+     "ev": 0.006120839924525057
+    },
+    {
+     "name": "Montr\u00e9al Canadiens",
+     "bid": 0.51,
+     "ask": 0.51,
+     "route": "no on opponent",
      "fair": 0.48638616007547497,
-     "ev": -0.021106839924525
+     "ev": -0.04110683992452502
     }
    ],
    "why": "odds stale",
@@ -361,17 +361,17 @@
    "sides": [
     {
      "name": "Winnipeg Jets",
-     "bid": 0.46,
-     "ask": 0.47,
-     "route": "no on opponent",
+     "bid": 0.45,
+     "ask": 0.46,
+     "route": "yes",
      "fair": 0.45982013984981557,
-     "ev": -0.027616860150184386
+     "ev": -0.017567860150184467
     },
     {
      "name": "Florida Panthers",
      "bid": 0.53,
      "ask": 0.54,
-     "route": "no on opponent",
+     "route": "yes",
      "fair": 0.5401798601501844,
      "ev": -0.017208139849815618
     }
@@ -469,7 +469,7 @@
    "sides": [
     {
      "name": "Sam Houston State Bearkats",
-     "bid": 0.34,
+     "bid": 0.33,
      "ask": 0.34,
      "route": "no on opponent",
      "fair": 0.33038690665569526,
@@ -478,10 +478,10 @@
     {
      "name": "Missouri State Bears",
      "bid": 0.66,
-     "ask": 0.66,
+     "ask": 0.67,
      "route": "no on opponent",
      "fair": 0.6696130933443047,
-     "ev": -0.006094906655695231
+     "ev": -0.01586390665569526
     }
    ],
    "why": "odds stale",
@@ -496,17 +496,17 @@
    "sides": [
     {
      "name": "Western Kentucky Hilltoppers",
-     "bid": 0.52,
-     "ask": 0.53,
-     "route": "yes",
+     "bid": 0.53,
+     "ask": 0.54,
+     "route": "no on opponent",
      "fair": 0.5088946899293113,
-     "ev": -0.03854231007068876
+     "ev": -0.04849331007068869
     },
     {
      "name": "Delaware Blue Hens",
      "bid": 0.46,
      "ask": 0.47,
-     "route": "yes",
+     "route": "no on opponent",
      "fair": 0.4911053100706887,
      "ev": 0.0036683100706887406
     }
