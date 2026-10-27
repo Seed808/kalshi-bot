@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T22:45:38.533728+00:00",
+ "updated": "2026-10-27T23:42:03.420660+00:00",
  "board": [
   {
    "series": "KXNBAGAME",
@@ -10,19 +10,19 @@
    "sides": [
     {
      "name": "Portland Trail Blazers",
-     "bid": 0.47,
-     "ask": 0.48,
+     "bid": 0.46,
+     "ask": 0.47,
      "route": "no on opponent",
      "fair": 0.4260922197581426,
-     "ev": -0.07137978024185737
+     "ev": -0.061344780241857355
     },
     {
      "name": "Los Angeles Lakers",
-     "bid": 0.52,
-     "ask": 0.53,
+     "bid": 0.53,
+     "ask": 0.54,
      "route": "no on opponent",
      "fair": 0.5739077802418574,
-     "ev": 0.02647078024185734
+     "ev": 0.016519780241857407
     }
    ],
    "why": "odds stale",
@@ -83,33 +83,6 @@
    "signal": null
   },
   {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT27BKNBOS",
-   "matchup": "Brooklyn Nets @ Boston Celtics",
-   "start": "2026-10-27T23:40:00+00:00",
-   "books": 8,
-   "sides": [
-    {
-     "name": "Boston Celtics",
-     "bid": 0.84,
-     "ask": 0.85,
-     "route": "no on opponent",
-     "fair": 0.8203975979806317,
-     "ev": -0.03852740201936822
-    },
-    {
-     "name": "Brooklyn Nets",
-     "bid": 0.15,
-     "ask": 0.16,
-     "route": "no on opponent",
-     "fair": 0.17960240201936828,
-     "ev": 0.010194402019368276
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
    "series": "KXNHLGAME",
    "event_ticker": "KXNHLGAME-26OCT27BUFSJ",
    "matchup": "Buffalo Sabres @ San Jose Sharks",
@@ -120,17 +93,17 @@
      "name": "San Jose Sharks",
      "bid": 0.41,
      "ask": 0.42,
-     "route": "no on opponent",
+     "route": "yes",
      "fair": 0.44468287813199037,
      "ev": 0.007630878131990371
     },
     {
      "name": "Buffalo Sabres",
-     "bid": 0.58,
-     "ask": 0.59,
-     "route": "no on opponent",
+     "bid": 0.57,
+     "ask": 0.58,
+     "route": "yes",
      "fair": 0.5553171218680096,
-     "ev": -0.05161587813199031
+     "ev": -0.04173487813199028
     }
    ],
    "why": "odds stale",
@@ -201,17 +174,17 @@
      "name": "Utah Mammoth",
      "bid": 0.51,
      "ask": 0.52,
-     "route": "yes",
+     "route": "no on opponent",
      "fair": 0.5382848593329468,
      "ev": 0.0008128593329467249
     },
     {
      "name": "Minnesota Wild",
-     "bid": 0.47,
-     "ask": 0.48,
-     "route": "yes",
+     "bid": 0.48,
+     "ask": 0.49,
+     "route": "no on opponent",
      "fair": 0.4617151406670532,
-     "ev": -0.035756859332946755
+     "ev": -0.04577785933294676
     }
    ],
    "why": "odds stale",
@@ -226,19 +199,19 @@
    "sides": [
     {
      "name": "St Louis Blues",
-     "bid": 0.48,
-     "ask": 0.49,
+     "bid": 0.47,
+     "ask": 0.48,
      "route": "no on opponent",
      "fair": 0.513613839924525,
-     "ev": 0.006120839924525057
+     "ev": 0.01614183992452506
     },
     {
      "name": "Montr\u00e9al Canadiens",
-     "bid": 0.51,
-     "ask": 0.52,
+     "bid": 0.52,
+     "ask": 0.53,
      "route": "no on opponent",
      "fair": 0.48638616007547497,
-     "ev": -0.05108583992452509
+     "ev": -0.06105083992452509
     }
    ],
    "why": "odds stale",
@@ -253,7 +226,7 @@
    "sides": [
     {
      "name": "Los Angeles Kings",
-     "bid": 0.5,
+     "bid": 0.49,
      "ask": 0.5,
      "route": "no on opponent",
      "fair": 0.5228970989404421,
@@ -262,10 +235,10 @@
     {
      "name": "Chicago Blackhawks",
      "bid": 0.5,
-     "ask": 0.5,
+     "ask": 0.51,
      "route": "no on opponent",
      "fair": 0.4771029010595579,
-     "ev": -0.04039709894044208
+     "ev": -0.05039009894044211
     }
    ],
    "why": "odds stale",
@@ -280,19 +253,19 @@
    "sides": [
     {
      "name": "New Jersey Devils",
-     "bid": 0.49,
-     "ask": 0.49,
+     "bid": 0.47,
+     "ask": 0.48,
      "route": "no on opponent",
      "fair": 0.4707462801032244,
-     "ev": -0.03674671989677558
+     "ev": -0.02672571989677558
     },
     {
      "name": "Dallas Stars",
-     "bid": 0.51,
-     "ask": 0.51,
+     "bid": 0.52,
+     "ask": 0.53,
      "route": "no on opponent",
      "fair": 0.5292537198967756,
-     "ev": 0.00176071989677562
+     "ev": -0.018183280103224453
     }
    ],
    "why": "odds stale",
@@ -307,17 +280,17 @@
    "sides": [
     {
      "name": "Carolina Hurricanes",
-     "bid": 0.62,
-     "ask": 0.63,
-     "route": "yes",
+     "bid": 0.63,
+     "ask": 0.64,
+     "route": "no on opponent",
      "fair": 0.6255908605128777,
-     "ev": -0.02072613948712232
+     "ev": -0.030537139487122333
     },
     {
      "name": "Boston Bruins",
      "bid": 0.36,
      "ask": 0.37,
-     "route": "yes",
+     "route": "no on opponent",
      "fair": 0.3744091394871223,
      "ev": -0.011907860512877733
     }
@@ -361,46 +334,19 @@
    "sides": [
     {
      "name": "Winnipeg Jets",
-     "bid": 0.45,
-     "ask": 0.46,
-     "route": "yes",
+     "bid": 0.46,
+     "ask": 0.47,
+     "route": "no on opponent",
      "fair": 0.45982013984981557,
-     "ev": -0.017567860150184467
+     "ev": -0.027616860150184386
     },
     {
      "name": "Florida Panthers",
      "bid": 0.53,
      "ask": 0.54,
-     "route": "yes",
+     "route": "no on opponent",
      "fair": 0.5401798601501844,
      "ev": -0.017208139849815618
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26OCT27CBJPHI",
-   "matchup": "Columbus Blue Jackets @ Philadelphia Flyers",
-   "start": "2026-10-27T23:00:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Philadelphia Flyers",
-     "bid": 0.47,
-     "ask": 0.48,
-     "route": "no on opponent",
-     "fair": 0.4690839022468174,
-     "ev": -0.028388097753182573
-    },
-    {
-     "name": "Columbus Blue Jackets",
-     "bid": 0.52,
-     "ask": 0.53,
-     "route": "no on opponent",
-     "fair": 0.5309160977531826,
-     "ev": -0.01652090224681746
     }
    ],
    "why": "odds stale",
@@ -416,14 +362,14 @@
     {
      "name": "New Mexico State Aggies",
      "bid": 0.41,
-     "ask": 0.42,
+     "ask": 0.41,
      "route": "no on opponent",
      "fair": 0.42173832153055996,
-     "ev": -0.01531367846944004
+     "ev": -0.0051946784694400505
     },
     {
      "name": "Jacksonville State Gamecocks",
-     "bid": 0.58,
+     "bid": 0.59,
      "ask": 0.59,
      "route": "no on opponent",
      "fair": 0.5782616784694401,
@@ -469,46 +415,19 @@
    "sides": [
     {
      "name": "Sam Houston State Bearkats",
-     "bid": 0.33,
-     "ask": 0.34,
+     "bid": 0.34,
+     "ask": 0.35,
      "route": "no on opponent",
      "fair": 0.33038690665569526,
-     "ev": -0.025321093344304768
+     "ev": -0.035538093344304744
     },
     {
      "name": "Missouri State Bears",
-     "bid": 0.66,
-     "ask": 0.67,
+     "bid": 0.65,
+     "ask": 0.66,
      "route": "no on opponent",
      "fair": 0.6696130933443047,
-     "ev": -0.01586390665569526
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNCAAFGAME",
-   "event_ticker": "KXNCAAFGAME-26OCT27DELWKU",
-   "matchup": "Delaware Blue Hens @ Western Kentucky Hilltoppers",
-   "start": "2026-10-27T23:00:00+00:00",
-   "books": 8,
-   "sides": [
-    {
-     "name": "Western Kentucky Hilltoppers",
-     "bid": 0.54,
-     "ask": 0.55,
-     "route": "no on opponent",
-     "fair": 0.5088946899293113,
-     "ev": -0.058430310070688773
-    },
-    {
-     "name": "Delaware Blue Hens",
-     "bid": 0.45,
-     "ask": 0.46,
-     "route": "no on opponent",
-     "fair": 0.4911053100706887,
-     "ev": 0.01371731007068866
+     "ev": -0.006094906655695231
     }
    ],
    "why": "odds stale",
@@ -550,17 +469,17 @@
    "sides": [
     {
      "name": "Talia Gibson",
-     "bid": 0.27,
-     "ask": 0.28,
-     "route": "yes",
+     "bid": 0.28,
+     "ask": 0.29,
+     "route": "no on opponent",
      "fair": 0.28285241894804625,
-     "ev": -0.011259581051953793
+     "ev": -0.021560581051953742
     },
     {
      "name": "Alexandra Eala",
      "bid": 0.71,
      "ask": 0.72,
-     "route": "yes",
+     "route": "no on opponent",
      "fair": 0.7171475810519538,
      "ev": -0.016964418948046234
     }
