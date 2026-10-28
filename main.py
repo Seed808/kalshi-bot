@@ -344,7 +344,7 @@ def run_picks(games, cfg, store, paper, verbose, skipped):
     for g in sorted(games, key=lambda g: g["start"]):
         feats = {m["ticker"]: scanner.market_features(g, m, res, series_idx.get(g["series"], -1))
                  for m in g["markets"]}
-        for m in g["markets"]:   # keep logging training data
+        for m in (g["markets"] if g.get("source") == "sportsbooks" else []):   # model training data
             store.upsert_snapshot(m["ticker"], g["event_ticker"], g["series"], g["start"],
                                   feats[m["ticker"]], feats[m["ticker"]]["fair"])
         sides = []
@@ -353,7 +353,8 @@ def run_picks(games, cfg, store, paper, verbose, skipped):
             sides.append({"name": team, "fair": g["oe"]["fair"][team], "ask": route[2] if route else 0.0})
         entry = {"series": g["series"], "event_ticker": g["event_ticker"], "matchup": g["matchup"],
                  "start": g["start"].isoformat(), "books": g["oe"]["n_books"],
-                 "odds_age_min": g["oe"]["staleness_min"], "sides": sides, "pick": None, "why": None}
+                 "odds_age_min": g["oe"]["staleness_min"], "sides": sides, "pick": None, "why": None,
+                 "source": g.get("source", "sportsbooks"), "three_way": g.get("three_way", False)}
         board.append(entry)
 
         prior = store.open_trade_for_event(g["event_ticker"])

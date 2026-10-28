@@ -15,6 +15,13 @@ The bot picks a side in every Kalshi game it can match to sportsbook odds, for f
 - **Learning:** the self-tuning step is off in pick mode. It exists to protect an edge, and would block whole sports after a few losing favorites.
 - **Telegram:** one "NEW PICKS" message per run with new picks, and one "RESULTS" message when picks settle.
 
+**Sports covered:** NFL, NCAAFB, CFL, NBA, NCAA men's and women's basketball, WNBA, MLB, NCAA baseball and softball, NHL, NCAA hockey, MLS, NWSL, Premier League, Champions League, La Liga, Bundesliga, Serie A, Ligue 1, Liga MX, UFC, boxing, ATP and WTA tennis, and NCAA women's volleyball (`series` in `common.py`).
+
+- **Kalshi-price fallback:** when no sportsbook lists a game (no feed for that sport, not in season there, or out of free credits for the day), the favorite comes from Kalshi's own prices. This only happens when both teams' bid/ask gaps are 10¢ or tighter (`pick_kalshi_max_spread`). The start time is then estimated from Kalshi's expected end (`game_hours`), so games that may already be under way are left alone.
+- **Soccer:** soccer can end in a tie, so the bot picks one of the two teams to win (YES on that team).
+- **Not covered:** golf, NASCAR and F1 have no head-to-head game markets to pick.
+- **Sport labels:** every pick shows its sport on the site and in Telegram.
+
 **Edge mode:** set `"mode": "edge"` in `config.json` to go back to the original edge-hunting pipeline described below.
 
 

@@ -130,19 +130,22 @@ def fetch_odds_raw(sport_key, cfg, api_key, store):
 
 
 def resolve_sport_keys(pattern, api_key, store):
-    """'tennis_atp_*' -> active Odds API keys with that prefix. /v4/sports costs no credits.
-    Cached 6h so the list isn't re-fetched every run."""
-    if not pattern.endswith("*"):
-        return [pattern]
+    """Odds API keys to query for one Kalshi series. None -> [] (no sportsbook feed for it).
+    'tennis_atp_*' -> every active key with that prefix. A plain key is used only if it's in
+    season, so off-season sports never spend a credit. /v4/sports itself is free; cached 6h."""
+    if not pattern:
+        return []
     cached = store.get_odds_cache("__sports__")
     if cached and cached[0] < 360:
         sports = cached[1]
     else:
         sports = http_get(f"{ODDS}/sports", {"apiKey": api_key}).json()
         store.put_odds_cache("__sports__", sports)
+    active = {s.get("key") for s in sports if s.get("active") and not s.get("has_outrights")}
+    if not pattern.endswith("*"):
+        return [pattern] if (pattern in active or not sports) else []
     pre = pattern[:-1]
-    return [s["key"] for s in sports if s.get("key", "").startswith(pre) and s.get("active")
-            and not s.get("has_outrights")]
+    return sorted(k for k in active if k and k.startswith(pre))
 
 
 def odds_consensus(sport_key, cfg, api_key, store):
@@ -165,25 +168,32 @@ def odds_consensus(sport_key, cfg, api_key, store):
             if not home or not away:
                 continue
             ev["home_team"], ev["away_team"] = home, away
-        probs, stale = [], []
+        probs, stale = [], []   # per book: (p_home, p_away, p_draw) with the margin removed
         for bk in ev.get("bookmakers", []):
             for mkt in bk.get("markets", []):
                 if mkt.get("key") != "h2h":
                     continue
                 prices = {o["name"]: o["price"] for o in mkt.get("outcomes", [])}
-                if len(prices) != 2 or home not in prices or away not in prices:
-                    continue  # skip 3-way / malformed
-                ph, _ = devig_two_way(american_to_decimal(prices[home]),
-                                      american_to_decimal(prices[away]))
-                probs.append(ph)
+                if home not in prices or away not in prices:
+                    continue
+                names = [home, away] + (["Draw"] if "Draw" in prices else [])
+                if len(prices) != len(names):
+                    continue  # malformed
+                inv = [1 / american_to_decimal(prices[n]) for n in names]
+                tot = sum(inv)
+                probs.append((inv[0] / tot, inv[1] / tot, inv[2] / tot if len(inv) == 3 else 0.0))
                 lu = parse_ts(mkt.get("last_update") or bk.get("last_update"))
                 if lu:
                     stale.append((now - lu).total_seconds() / 60)
         if len(probs) >= cfg["min_books"]:
-            ph = sum(probs) / len(probs)
-            ev["fair"] = {home: ph, away: 1 - ph}
+            ph = sum(p[0] for p in probs) / len(probs)
+            pa = sum(p[1] for p in probs) / len(probs)
+            pd = sum(p[2] for p in probs) / len(probs)
+            ev["fair"] = {home: ph, away: pa}
+            if pd:
+                ev["fair"]["Draw"] = pd
             ev["n_books"] = len(probs)
-            ev["book_std"] = statistics.pstdev(probs)
+            ev["book_std"] = statistics.pstdev([p[0] for p in probs])
             ev["staleness_min"] = statistics.median(stale) if stale else None
             events.append(ev)
     return events, note
@@ -233,6 +243,45 @@ def match_event(event_ticker, mk, odds_events, threshold):
     return best, best_map, best_gap
 
 
+def is_tie_market(m):
+    return (m.get("yes_sub_title") or "").strip().lower() in ("tie", "draw") or m["ticker"].endswith("-TIE")
+
+
+def kalshi_only_game(series, et, mk, mk_all, three_way, cfg, now, fmult):
+    """Build a game from Kalshi's own prices when no sportsbook has it. Returns (game, None),
+    (None, reason) when it's in the window but unusable, or (None, None) when outside the window."""
+    end = game_time_ref(mk)
+    if not end:
+        return None, None
+    gh = cfg["game_hours"]
+    hours = gh.get(series) or (gh.get("soccer", 2.0) if three_way else gh.get("default", 3.0))
+    start = end - timedelta(hours=hours)   # estimated; Kalshi only gives the expected end
+    if start <= now or start > now + timedelta(hours=cfg["max_hours_ahead"]):
+        return None, None
+    mids = []
+    for m in mk:
+        yb, ya = fnum(m.get("yes_bid_dollars")), fnum(m.get("yes_ask_dollars"))
+        if not (0 < yb < ya < 1) or ya - yb > cfg["pick_kalshi_max_spread"]:
+            return None, "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
+        mids.append((yb + ya) / 2)
+    tie = 0.0
+    if three_way:
+        t = next((m for m in mk_all if is_tie_market(m)), None)
+        tb, ta = (fnum(t.get("yes_bid_dollars")), fnum(t.get("yes_ask_dollars"))) if t else (0, 0)
+        tie = (tb + ta) / 2 if 0 < tb < ta < 1 else max(0.0, 1 - sum(mids))
+    total = sum(mids) + tie
+    names = [m.get("yes_sub_title") or m["ticker"] for m in mk]
+    if names[0] == names[1]:
+        return None, "couldn't tell the two sides apart"
+    fair = {names[0]: mids[0] / total, names[1]: mids[1] / total}
+    oe = {"id": et, "home_team": names[1], "away_team": names[0], "commence_time": start.isoformat(),
+          "fair": fair, "n_books": 0, "book_std": 0.0, "staleness_min": None}
+    return {"series": series, "event_ticker": et, "markets": mk,
+            "mapping": {mk[0]["ticker"]: names[0], mk[1]["ticker"]: names[1]}, "oe": oe,
+            "start": start, "fee_mult": fmult, "three_way": three_way, "source": "kalshi",
+            "matchup": f"{names[0]} vs {names[1]}"}, None
+
+
 def sports_games(cfg, api_key, store, verbose=False, skipped=None):
     """Return (games, all_markets_by_ticker). If `skipped` is a list, Kalshi games in the pick
     window that couldn't be used are appended to it as {series, names, ends, reason}."""
@@ -247,6 +296,12 @@ def sports_games(cfg, api_key, store, verbose=False, skipped=None):
         if end and now < end <= window_end:
             skipped.append({"series": series, "names": [m.get("yes_sub_title") or "" for m in mk],
                             "ends": end.isoformat(), "reason": reason})
+    pick_mode = cfg.get("mode") == "picks"
+    fallback = pick_mode and cfg.get("pick_kalshi_fallback", False)
+    soccer = set(cfg.get("soccer_series", []))
+
+    # 1) Kalshi markets for every series (free)
+    loaded = []
     for series, sport in cfg["series"].items():
         if series in cfg["blocked_series"]:
             if verbose:
@@ -263,48 +318,60 @@ def sports_games(cfg, api_key, store, verbose=False, skipped=None):
             if verbose:
                 print(f"[{series}] no open markets")
             continue
-        # don't spend an odds credit unless some game in this series ENDS soon (rations free credits
-        # to near-term games, which is also when sportsbook lines are sharpest)
+        ends = [e for e in (parse_ts(m.get("expected_expiration_time")) for m in ms) if e and e > now]
+        loaded.append((min(ends) if ends else now + timedelta(days=3650), series, sport, ms))
+
+    # 2) sports with the soonest games go first, so the free daily odds credits go to them
+    loaded.sort(key=lambda t: t[0])
+    for _soonest, series, sport, ms in loaded:
+        odds_events, notes = [], []
         horizon = now + timedelta(hours=cfg["odds_spend_horizon_hours"])
         soon = [e for e in (parse_ts(m.get("expected_expiration_time")) for m in ms) if e]
-        if not any(now < e <= horizon for e in soon):
-            if verbose:
-                print(f"[{series}] no games ending within {cfg['odds_spend_horizon_hours']}h "
-                      f"— no odds credit spent")
-            continue
-        fmult = fee_multiplier(series)
-        try:
-            keys = resolve_sport_keys(sport, api_key, store)
-        except Exception as e:
-            print(f"[{series}] Odds API sports-list error: {e}")
-            continue
-        if not keys:
-            if verbose:
-                print(f"[{series}] no active sportsbook tournaments for {sport}")
-            continue
-        odds_events, notes = [], []
-        for key in keys:
+        if not sport:
+            notes.append("no sportsbook feed for this sport")
+        elif not any(now < e <= horizon for e in soon):
+            notes.append(f"no games ending within {cfg['odds_spend_horizon_hours']}h, no odds bought")
+        else:
             try:
-                evs, note = odds_consensus(key, cfg, api_key, store)
+                keys = resolve_sport_keys(sport, api_key, store)
             except Exception as e:
-                print(f"[{key}] Odds API error: {e}")
-                continue
-            odds_events.extend(evs)
-            notes.append(f"{key.split('_', 2)[-1] if '*' in sport else ''}{':' if '*' in sport else ''}{note}")
+                keys = []
+                notes.append(f"sports-list error: {e}")
+            if not keys and not notes:
+                notes.append(f"{sport} isn't in season at the sportsbooks")
+            for key in keys:
+                try:
+                    evs, note = odds_consensus(key, cfg, api_key, store)
+                except Exception as e:
+                    print(f"[{key}] Odds API error: {e}")
+                    continue
+                odds_events.extend(evs)
+                notes.append(f"{key.split('_', 2)[-1] + ':' if '*' in sport else ''}{note}")
         remaining = "; ".join(notes)
-        no_odds_reason = ("no sportsbook odds for this sport yet" if not odds_events
+        no_odds_reason = ("no sportsbook odds for this sport right now" if not odds_events
                           else "not found at the sportsbooks (or too few books price it)")
+        fmult = fee_multiplier(series)
         by_event = {}
         for m in ms:
             by_event.setdefault(m["event_ticker"], []).append(m)
-        matched = unmatched = dup = 0
-        claims = {}   # odds event id -> list of (event_ticker, markets, mapping, oe)
-        for et, mk in by_event.items():
-            if len(mk) != 2:
-                continue
+        matched = unmatched = dup = kal = 0
+        claims = {}   # odds event id -> list of (event_ticker, team markets, mapping, oe, three_way)
+        for et, mk_all in by_event.items():
+            mk = [m for m in mk_all if not is_tie_market(m)]   # soccer: drop the "Tie" market
+            three_way = len(mk) != len(mk_all) or series in soccer
+            if len(mk) != 2 or (three_way and not pick_mode):
+                continue   # edge mode handles two-outcome games only
             oe, mapping, _gap = match_event(et, mk, odds_events, cfg["match_threshold"])
             if not oe:
                 unmatched += 1
+                if fallback:   # no sportsbook line: let Kalshi's own prices say who's favored
+                    g, why = kalshi_only_game(series, et, mk, mk_all, three_way, cfg, now, fmult)
+                    if g:
+                        games.append(g)
+                        kal += 1
+                    elif why:
+                        note_skip(series, mk, why)
+                    continue
                 note_skip(series, mk, no_odds_reason)
                 if verbose and unmatched <= 4:
                     end = game_time_ref(mk)
@@ -316,7 +383,7 @@ def sports_games(cfg, api_key, store, verbose=False, skipped=None):
                     print(f"  unmatched {et}: {names} ends {end.isoformat() if end else 'n/a'} "
                           f"| closest odds: {nd}")
                 continue
-            claims.setdefault(oe.get("id") or id(oe), []).append((et, mk, mapping, oe))
+            claims.setdefault(oe.get("id") or id(oe), []).append((et, mk, mapping, oe, three_way))
         for oid, cl in claims.items():
             if len(cl) > 1:   # two Kalshi games claim one sportsbook game -> ambiguous, skip all
                 dup += len(cl)
@@ -325,19 +392,20 @@ def sports_games(cfg, api_key, store, verbose=False, skipped=None):
                 if verbose:
                     print(f"  ambiguous: {', '.join(c[0] for c in cl)} all match one odds game — skipped")
                 continue
-            et, mk, mapping, oe = cl[0]
+            et, mk, mapping, oe, three_way = cl[0]
             start = parse_ts(oe.get("commence_time"))
             if not start or start <= now or start > now + timedelta(hours=cfg["max_hours_ahead"]):
                 continue
             matched += 1
             games.append({"series": series, "event_ticker": et, "markets": mk, "mapping": mapping,
-                          "oe": oe, "start": start, "fee_mult": fmult,
+                          "oe": oe, "start": start, "fee_mult": fmult, "three_way": three_way,
+                          "source": "sportsbooks",
                           "matchup": (f'{oe["home_team"]} vs {oe["away_team"]}'
                                       if series in cfg.get("individual_series", [])
                                       else f'{oe["away_team"]} @ {oe["home_team"]}')})
         if verbose:
             print(f"[{series}] {len(ms)} mkts | {len(odds_events)} odds events | matched {matched} "
-                  f"| unmatched {unmatched} | ambiguous {dup} | odds: {remaining}")
+                  f"| kalshi-only {kal} | unmatched {unmatched - kal} | ambiguous {dup} | odds: {remaining}")
     return games, all_markets
 
 

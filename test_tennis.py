@@ -90,7 +90,9 @@ assert sorted(calls["odds"]) == ["tennis_atp_swiss_indoors", "tennis_atp_vienna_
     "WTA has no match ending within 12h -> no credit spent"
 names = sorted(g["matchup"] for g in games)
 print("matched:", names)
-assert len(games) == 2
+book_games = [g for g in games if g["source"] == "sportsbooks"]
+assert len(book_games) == 2, [g["matchup"] for g in book_games]
+assert [g["matchup"] for g in games if g["source"] == "kalshi"] == ["Maya Joint vs Sorana Cirstea"]  # no odds bought -> Kalshi prices
 mensik = [g for g in games if "Neumayer" in g["matchup"]][0]
 assert mensik["mapping"]["KXATPMATCH-Y-MEN"] == "Jakub Menšík"     # accent-insensitive match
 assert abs(mensik["oe"]["fair"]["Jakub Menšík"] - 0.82) < 0.03

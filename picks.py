@@ -15,7 +15,11 @@ Each pick is a fixed-dollar PAPER bet (pick_stake_dollars). No real orders, ever
 import hashlib
 import random
 
-from common import fnum, fee_per_contract
+from common import fnum, fee_per_contract, DEFAULTS
+
+
+def sport_label(series):
+    return DEFAULTS["sport_labels"].get(series, series)
 
 PICK_LABEL = {
     "favorite": "Favorite",
@@ -50,7 +54,8 @@ def choose_side(game, research, cfg):
 
 def cheapest_route(game, team):
     """A team can be backed on Kalshi two ways: YES on its own market, or NO on the opponent's.
-    Returns (side, market, price, size) for the cheaper one, or None if neither has a price."""
+    Returns (side, market, price, size) for the cheaper one, or None if neither has a price.
+    Soccer can end in a tie, so there only YES on the team itself means "this team wins"."""
     own = next(m for m in game["markets"] if game["mapping"][m["ticker"]] == team)
     opp = next(m for m in game["markets"] if m is not own)
     yes_ask = fnum(own.get("yes_ask_dollars"))
@@ -59,7 +64,7 @@ def cheapest_route(game, team):
     routes = []
     if 0 < yes_ask < 1:
         routes.append(("yes", own, yes_ask, fnum(own.get("yes_ask_size_fp"))))
-    if 0 < no_ask < 1:
+    if 0 < no_ask < 1 and not game.get("three_way"):
         routes.append(("no", opp, no_ask, fnum(opp.get("yes_bid_size_fp"))))
     return min(routes, key=lambda r: r[2]) if routes else None
 
@@ -81,7 +86,7 @@ def make_pick(game, research, cfg):
         "ev": prob - cost, "n_books": game["oe"]["n_books"], "book_std": game["oe"]["book_std"],
         "staleness": game["oe"]["staleness_min"], "fee_mult": game["fee_mult"],
         "research": {"side": research.get(team) or {}, "opp": research.get(other) or {}},
-        "pick_type": kind,
+        "pick_type": kind, "source": game.get("source", "sportsbooks"),
     }, None
 
 
@@ -90,8 +95,9 @@ def fmt_pick(p, n=None):
     label = p["market"].get("yes_sub_title") or p["team"]
     how = (f'buy YES on "{label}"' if p["side"] == "yes"
            else f'buy NO on "{label}" (same as backing {p["team"]})')
-    line = (f'{p["team"]} to beat {p["opponent"]}\n'
-            f'{PICK_LABEL[p["pick_type"]]}. Sportsbooks give {p["team"]} {p["prob"] * 100:.0f}%.\n'
+    who = "Sportsbooks give" if p.get("source", "sportsbooks") == "sportsbooks" else "Kalshi prices give"
+    line = (f'[{sport_label(p["series"])}] {p["team"]} to beat {p["opponent"]}\n'
+            f'{PICK_LABEL[p["pick_type"]]}. {who} {p["team"]} {p["prob"] * 100:.0f}%.\n'
             f'Paper: {how} at {p["ask"] * 100:.0f}¢')
     if n:
         line += f', {n} contracts (${n * p["cost"]:,.2f}). Pays ${n:,.2f} if {p["team"]} wins.'

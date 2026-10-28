@@ -27,18 +27,64 @@ DEFAULTS = {
     "pick_upset_rate": 0.25,         # chance of taking the underdog instead of the favorite
     "pick_injury_override": True,    # strong injury news on the favorite -> take the underdog
     "pick_min_books": 2,             # sportsbooks needed for a consensus in pick mode
+    "pick_kalshi_fallback": True,    # no sportsbook line? use Kalshi's own prices to find the favorite
+    "pick_kalshi_max_spread": 0.10,  # ...only if both teams' bid/ask gaps are this tight or tighter
     # ---- markets: Kalshi game-winner series -> The Odds API sport key (VERIFY with `series`)
-    "series": {
+    "series": {   # Kalshi game-winner series -> Odds API key (None = no sportsbook feed: Kalshi prices only)
+        # football
         "KXNFLGAME": "americanfootball_nfl",
-        "KXNBAGAME": "basketball_nba",
-        "KXMLBGAME": "baseball_mlb",
-        "KXNHLGAME": "icehockey_nhl",
         "KXNCAAFGAME": "americanfootball_ncaaf",
+        "KXCFLGAME": "americanfootball_cfl",
+        # basketball
+        "KXNBAGAME": "basketball_nba",
+        "KXNCAAMBGAME": "basketball_ncaab",
+        "KXNCAAWBGAME": "basketball_wncaab",
+        "KXWNBAGAME": "basketball_wnba",
+        # baseball / softball
+        "KXMLBGAME": "baseball_mlb",
+        "KXNCAABBGAME": "baseball_ncaa",
+        "KXNCAASBGAME": None,
+        # hockey
+        "KXNHLGAME": "icehockey_nhl",
+        "KXNCAAHGAME": None,
+        # soccer (three outcomes: the bot picks one of the two teams to win)
+        "KXMLSGAME": "soccer_usa_mls",
+        "KXNWSLGAME": None,
+        "KXEPLGAME": "soccer_epl",
+        "KXUCLGAME": "soccer_uefa_champs_league",
+        "KXLALIGAGAME": "soccer_spain_la_liga",
+        "KXBUNDESLIGAGAME": "soccer_germany_bundesliga",
+        "KXSERIEAGAME": "soccer_italy_serie_a",
+        "KXLIGUE1GAME": "soccer_france_ligue_one",
+        "KXLIGAMXGAME": "soccer_mexico_ligamx",
+        # combat sports
+        "KXUFCFIGHT": "mma_mixed_martial_arts",
+        "KXBOXINGFIGHT": "boxing_boxing",
         # tennis: Odds API has one key per tournament; "*" = every active key with that prefix
         "KXATPMATCH": "tennis_atp_*",
         "KXWTAMATCH": "tennis_wta_*",
+        # other college
+        "KXNCAAWVMATCH": None,
     },
-    "individual_series": ["KXATPMATCH", "KXWTAMATCH"],   # players, not teams (no nickname aliases)
+    "sport_labels": {
+        "KXNFLGAME": "NFL", "KXNCAAFGAME": "NCAAFB", "KXCFLGAME": "CFL",
+        "KXNBAGAME": "NBA", "KXNCAAMBGAME": "NCAA Men's Basketball",
+        "KXNCAAWBGAME": "NCAA Women's Basketball", "KXWNBAGAME": "WNBA",
+        "KXMLBGAME": "MLB", "KXNCAABBGAME": "NCAA Baseball", "KXNCAASBGAME": "NCAA Softball",
+        "KXNHLGAME": "NHL", "KXNCAAHGAME": "NCAA Hockey",
+        "KXMLSGAME": "MLS", "KXNWSLGAME": "NWSL", "KXEPLGAME": "Premier League",
+        "KXUCLGAME": "Champions League", "KXLALIGAGAME": "La Liga", "KXBUNDESLIGAGAME": "Bundesliga",
+        "KXSERIEAGAME": "Serie A", "KXLIGUE1GAME": "Ligue 1", "KXLIGAMXGAME": "Liga MX",
+        "KXUFCFIGHT": "UFC", "KXBOXINGFIGHT": "Boxing",
+        "KXATPMATCH": "Tennis (ATP)", "KXWTAMATCH": "Tennis (WTA)",
+        "KXNCAAWVMATCH": "NCAA Women's Volleyball",
+    },
+    # rough hours from start to Kalshi's expected end; used to estimate start time when only
+    # Kalshi prices are available, so the bot never picks a game that may already be under way
+    "game_hours": {"default": 3.0, "soccer": 2.0, "KXUFCFIGHT": 6.0, "KXBOXINGFIGHT": 6.0},
+    "soccer_series": ["KXMLSGAME", "KXNWSLGAME", "KXEPLGAME", "KXUCLGAME", "KXLALIGAGAME",
+                      "KXBUNDESLIGAGAME", "KXSERIEAGAME", "KXLIGUE1GAME", "KXLIGAMXGAME"],
+    "individual_series": ["KXATPMATCH", "KXWTAMATCH", "KXUFCFIGHT", "KXBOXINGFIGHT"],  # people, not teams
     "odds_spend_horizon_hours": 36,   # only spend an odds credit on a sport with a game ending within this
     # ---- step 1: scan agent (all Kalshi markets)
     "scan_min_volume_24h": 500,

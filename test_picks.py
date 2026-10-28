@@ -68,8 +68,8 @@ for suf, (ka, kh), (oa, oh), hp, ap in GAMES:
                  "bookmakers": [book(oh, hp, oa, ap)] * 3})
 # a Kalshi game with no sportsbook line
 UNM = f"KXNBAGAME-{d}PORMEM"
-MARKETS[UNM + "-P"] = mk(UNM + "-P", UNM, "Portland", 0.40, 0.42)
-MARKETS[UNM + "-M"] = mk(UNM + "-M", UNM, "Memphis", 0.58, 0.60)
+MARKETS[UNM + "-P"] = mk(UNM + "-P", UNM, "Portland", 0.10, 0.90)   # thin: Kalshi fallback can't use it
+MARKETS[UNM + "-M"] = mk(UNM + "-M", UNM, "Memphis", 0.10, 0.90)
 RESULTS = {}
 
 
@@ -131,13 +131,15 @@ for suf, (ka, kh), (oa, oh), hp, ap in GAMES:
     cost = t["price"] + common.fee_per_contract(t["price"])
     assert t["contracts"] == int(10 // cost), (t["contracts"], cost)
 assert len(alerts) == 1 and alerts[0].startswith(f"NEW PICKS ({len(GAMES)})"), alerts
+assert "[NBA] " in alerts[0]
 print(alerts[0][:400])
 
 board = json.load(open("docs/board.json"))
 sk = board["skipped"]
-assert any("Portland" in x["names"] and "not found at the sportsbooks" in x["reason"] for x in sk), sk
+assert any("Portland" in x["names"] and "too thin" in x["reason"] for x in sk), sk
 html = open("docs/index.html").read()
 assert f"{len(GAMES)} open picks" in html and "Games skipped" in html and "Portland vs Memphis" in html
+assert '<p class="sport">NBA</p>' in html
 
 # ---- re-run: no duplicates, board shows the earlier picks
 main.cycle("config.json", store, paper=True, verbose=False)

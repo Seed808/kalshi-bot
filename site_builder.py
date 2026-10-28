@@ -8,11 +8,9 @@ import os
 from datetime import timedelta
 from html import escape
 
-from common import now_utc, parse_ts, hst, HST
+from common import now_utc, parse_ts, hst, HST, DEFAULTS
 
-SPORT = {"KXNFLGAME": "NFL", "KXNBAGAME": "NBA", "KXMLBGAME": "MLB", "KXNHLGAME": "NHL",
-         "KXNCAAFGAME": "College football", "KXATPMATCH": "Men's tennis (ATP)",
-         "KXWTAMATCH": "Women's tennis (WTA)"}
+SPORT = DEFAULTS["sport_labels"]
 OUT_DIR = "docs"
 
 
@@ -395,9 +393,11 @@ def open_picks_box(store, cfg):
         cost = r["price"] * r["contracts"] + r["fee"]
         cards.append(
             f'<article class="play {"dog" if kind in ("upset", "injury") else "fav"}">'
+            f'<p class="sport">{escape(SPORT.get(r["series"], r["series"]))}</p>'
             f'<p class="do">{escape(r["team"])}{" to beat " + escape(opp) if opp else ""}</p>'
             f'<p><span class="tag {"play" if kind == "favorite" else "dogtag"}">{TYPE_TEXT.get(kind, kind)}</span> '
-            f'Sportsbooks give {escape(r["team"])} {r["prob"] * 100:.0f}%.</p>'
+            f'{"Kalshi prices give" if not r["n_books"] else "Sportsbooks give"} {escape(r["team"])} '
+            f'{r["prob"] * 100:.0f}%.</p>'
             f'<p class="when">{"Started" if started else "Starts"} {when(r["start_ts"])} HST'
             f'{", waiting for the result" if started else ""}. Paper: {r["contracts"]} contracts at '
             f'{cents(r["price"])} (${cost:,.2f}), pays ${r["contracts"]:,.2f} if they win.</p></article>')
@@ -427,11 +427,12 @@ def picks_record_html(store, cfg):
                + f'<span><b class="{"up" if pnl >= 0 else "down"}">{"+" if pnl >= 0 else "−"}${abs(pnl):,.2f}</b> paper P&amp;L</span></p>'
                f'<p class="note">Sportsbook odds said to expect about {exp:.1f} wins from these '
                f'{len(allset)} picks.</p>')
-    out.append('<table><thead><tr><th>Game</th><th>Pick</th><th>Type</th><th>Result</th>'
-               '<th class="num">P&amp;L</th></tr></thead><tbody>')
+    out.append('<table class="board"><thead><tr><th>Sport</th><th>Game</th><th>Pick</th><th>Type</th>'
+               '<th>Result</th><th class="num">P&amp;L</th></tr></thead><tbody>')
     for r in allset[:30]:
         won = r["result"] == r["side"]
-        out.append(f'<tr><td>{escape(r["matchup"])}</td><td>{escape(r["team"])} '
+        out.append(f'<tr><td>{escape(SPORT.get(r["series"], r["series"]))}</td>'
+                   f'<td>{escape(r["matchup"])}</td><td>{escape(r["team"])} '
                    f'({r["prob"] * 100:.0f}%)</td><td>{TYPE_TEXT.get(r["pick_type"] or "edge", "")}</td>'
                    f'<td>{"Won" if won else "Lost"}</td><td class="num {"up" if (r["pnl"] or 0) >= 0 else "down"}">'
                    f'{"+" if (r["pnl"] or 0) >= 0 else "−"}${abs(r["pnl"] or 0):,.2f}</td></tr>')
@@ -443,7 +444,7 @@ def picks_board_html(board):
     if not board:
         return ""
     out = ['<section><h2>Every game checked this run</h2><table class="board"><thead><tr><th>Time (HST)</th>'
-           '<th>Game</th><th>Pick</th><th class="num">Sportsbooks</th><th>Status</th></tr></thead><tbody>']
+           '<th>Game</th><th>Pick</th><th class="num">Chance</th><th>Status</th></tr></thead><tbody>']
     for b in sorted(board, key=lambda b: b["start"]):
         pk = b["pick"]
         if pk:
@@ -454,9 +455,10 @@ def picks_board_html(board):
         else:
             status, pick, chance = f'Skipped: {escape(b["why"] or "")}', "—", ""
         age = b.get("odds_age_min")
-        books = f'{b["books"]} books' + (f', odds {age / 60:.0f}h old' if age and age >= 90 else "")
-        out.append(f'<tr><td>{when(b["start"])}</td><td>{escape(b["matchup"])}<span class="via">'
-                   f'{escape(SPORT.get(b["series"], b["series"]))}, {books}</span></td>'
+        books = (f'{b["books"]} sportsbooks' + (f', odds {age / 60:.0f}h old' if age and age >= 90 else "")
+                 if b.get("source", "sportsbooks") == "sportsbooks" else "no sportsbook line: Kalshi prices, start time estimated")
+        out.append(f'<tr><td>{when(b["start"])}</td><td><span class="sport">{escape(SPORT.get(b["series"], b["series"]))}'
+                   f'</span>{escape(b["matchup"])}<span class="via">{books}</span></td>'
                    f'<td>{pick}</td><td class="num">{chance}</td><td>{status}</td></tr>')
     out.append('</tbody></table></section>')
     return "".join(out)
@@ -478,8 +480,10 @@ def skipped_html(skipped):
 def picks_howto(cfg):
     dog = round(cfg["pick_upset_rate"] * 100)
     return (f'<details class="howto"><summary>How the bot picks</summary><ul>'
-            f'<li>For every Kalshi game starting in the next 36 hours that it can match to sportsbook '
-            f'odds, it backs the side the sportsbooks give the better chance to win.</li>'
+            f'<li>For every Kalshi game starting in the next 36 hours, it backs the side the sportsbooks give '
+            f'the better chance to win. If no sportsbook lists the game, it uses Kalshi\'s own prices '
+            f'instead, but only when they\'re tight enough to trust. Soccer picks are always a team to win, '
+            f'never a tie.</li>'
             f'<li>About {dog} games in 100, a coin flip sends it to the underdog instead, so it isn\'t '
             f'all favorites. ' + ('If recent news mentions injuries for the favorite, it also takes '
             'the underdog.' if cfg["pick_injury_override"] else '') + '</li>'
@@ -503,7 +507,7 @@ def render_picks(cfg, store, board, anomalies, skipped):
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TheEsness Kalshi picks</title>
-<meta name="description" content="Paper picks on Kalshi sports games: the sportsbook favorite, with the odd underdog.">
+<meta name="description" content="Paper picks on Kalshi college and pro sports games: the favorite, with the odd underdog.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <style>{CSS}</style></head><body><main>
@@ -522,6 +526,8 @@ removed. Picks are paper bets only. No real orders are ever placed, and nothing 
 
 CSS = """
 .play.dog .do{color:var(--kal)}
+.sport{display:block;margin:0 0 2px;font:600 .8rem/1.2 "Source Sans 3",sans-serif;color:var(--soft);letter-spacing:.02em}
+.play .sport{font-size:.95rem;color:var(--ink)}
 .tag.dogtag{background:var(--kal);color:var(--card);font-weight:600}
 .board td{font-size:.95rem}.board .via{display:block}
 .skips{list-style:none;padding:0;margin:0}.skips li{padding:6px 0;border-bottom:1px solid var(--rule);max-width:none}
