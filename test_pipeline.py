@@ -16,7 +16,7 @@ from store import Store  # noqa: E402
 
 work = tempfile.mkdtemp()
 os.chdir(work)
-open("config.json", "w").write(json.dumps({"mode": "edge", "odds_spend_horizon_hours": 12}))  # this test covers edge mode
+open("config.json", "w").write(json.dumps({"mode": "edge", "odds_spend_horizon_hours": 12, "daily_loss_limit_pct": 0.10, "max_open_trades": 8, "max_trades_per_day": 10, "max_open_exposure_pct": 0.40}))  # this test covers edge mode
 os.environ["ODDS_API_KEY"] = "test"
 for k in ("X_BEARER_TOKEN", "REDDIT_CLIENT_ID", "DISCORD_WEBHOOK_URL", "NTFY_TOPIC"):
     os.environ.pop(k, None)

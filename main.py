@@ -50,7 +50,21 @@ import site_builder as site
 # ---------------------------------------------------------------- alerts
 
 def alert(text):
+    """Send to every configured channel. Long texts are split on blank lines into several messages."""
     print(text)
+    parts, cur = [], ""
+    for block in text.split("\n\n"):
+        if cur and len(cur) + len(block) + 2 > 3800:
+            parts.append(cur)
+            cur = block
+        else:
+            cur = f"{cur}\n\n{block}" if cur else block
+    parts.append(cur)
+    for i, part in enumerate(parts):
+        _send(part if len(parts) == 1 else f"({i + 1}/{len(parts)}) {part}")
+
+
+def _send(text):
     tg_token = (os.environ.get("TELEGRAM_BOT_TOKEN") or "").strip()
     tg_chat = (os.environ.get("TELEGRAM_CHAT_ID") or "").strip()
     if tg_token and tg_chat:
@@ -340,7 +354,7 @@ def run_picks(games, cfg, store, paper, verbose, skipped):
     if cfg["pick_injury_override"] and games:
         res.update(research.research_games(games, cfg, store))
     series_idx = {s: i for i, s in enumerate(cfg["series"])}
-    board, new = [], []
+    board, new, cands = [], [], []
     for g in sorted(games, key=lambda g: g["start"]):
         feats = {m["ticker"]: scanner.market_features(g, m, res, series_idx.get(g["series"], -1))
                  for m in g["markets"]}
@@ -369,6 +383,12 @@ def run_picks(games, cfg, store, paper, verbose, skipped):
             continue
         entry["pick"] = {"team": p["team"], "type": p["pick_type"], "prob": p["prob"], "price": p["ask"],
                          "contracts": None, "status": "new"}
+        cands.append((p, entry))
+
+    # Open the best picks first, so if a limit fills, the strongest ones are already in:
+    # sportsbook-backed before Kalshi-price-only, then the highest win chance.
+    cands.sort(key=lambda c: (c[0]["source"] != "sportsbooks", -c[0]["prob"]))
+    for p, entry in cands:
         if not paper:
             print(picks.fmt_pick(p))
             continue
@@ -377,7 +397,7 @@ def run_picks(games, cfg, store, paper, verbose, skipped):
             entry["pick"]["status"] = "blocked"
             entry["why"] = block
             if verbose:
-                print(f"  not opened {g['matchup']}: {block}")
+                print(f"  not opened {p['matchup']}: {block}")
             continue
         fee = order_fee(p["ask"], n, p["fee_mult"])
         store.x("""INSERT INTO trades(ts,market_ticker,event_ticker,series,matchup,team,side,price,fee,
@@ -389,6 +409,7 @@ def run_picks(games, cfg, store, paper, verbose, skipped):
                  p["start"].isoformat(), p["pick_type"]))
         entry["pick"].update(status="open", contracts=n)
         new.append((p, n))
+    new.sort(key=lambda pn: pn[0]["start"])
     if new:
         alert(f"NEW PICKS ({len(new)})\n\n" + "\n\n".join(
             f"{hst(p['start'])}\n{picks.fmt_pick(p, n)}" for p, n in new)

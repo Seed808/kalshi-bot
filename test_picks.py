@@ -165,6 +165,19 @@ main.cycle("config.json", store2, paper=True, verbose=False)
 assert store2.open_count() == 2
 blocked = [b for b in json.load(open("docs/board.json"))["board"] if b["pick"]["status"] == "blocked"]
 assert len(blocked) == len(GAMES) - 2 and "open-pick limit (2)" in blocked[0]["why"], blocked
+# the two that got in are the strongest picks (highest win chance), not the soonest games
+all_probs = sorted((b["pick"]["prob"] for b in json.load(open("docs/board.json"))["board"]), reverse=True)
+assert sorted((t["prob"] for t in store2.open_trades()), reverse=True) == all_probs[:2]
+
+# long alerts are split into several messages, not cut off
+sent = []
+for p in patches:
+    p.stop()
+with mock.patch.object(main, "_send", lambda t: sent.append(t)):
+    main.alert("NEW PICKS (40)\n\n" + "\n\n".join("x" * 230 for _ in range(40)))
+assert len(sent) == 3 and sent[0].startswith("(1/3) NEW PICKS") and all(len(t) <= 3900 for t in sent), \
+    [len(t) for t in sent]
+patches = []
 
 for p in patches:
     p.stop()

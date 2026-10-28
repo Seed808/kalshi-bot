@@ -79,10 +79,10 @@
   "bankroll": 1000.0,
   "kelly_fraction": 0.25,
   "max_stake_pct": 0.05,
-  "max_open_exposure_pct": 0.4,
-  "max_open_trades": 8,
-  "max_trades_per_day": 10,
-  "daily_loss_limit_pct": 0.1,
+  "max_open_exposure_pct": 0.6,
+  "max_open_trades": 50,
+  "max_trades_per_day": 50,
+  "daily_loss_limit_pct": 0.25,
   "pick_kalshi_fallback": true,
   "pick_kalshi_max_spread": 0.1
 }
