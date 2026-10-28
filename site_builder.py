@@ -378,13 +378,22 @@ def opponent_of(matchup, team):
     return ""
 
 
-def rank_key(r):
-    """Best Bet order: highest win chance first; on a tie, sportsbook-backed before Kalshi-only."""
+def top_pick_key(r):
+    """Top Pick order (the card order): highest win chance first; ties: sportsbook-backed first."""
     return (-r["prob"], 0 if r["n_books"] else 1, r["start_ts"] or "")
 
 
+def bet_value(r):
+    """Best Bet value: average return per dollar = win chance / cost per contract (incl. fee) - 1.
+    Positive means the price is cheap for that chance; negative means you're paying up."""
+    cost = r["price"] + (r["fee"] / r["contracts"] if r["contracts"] else 0)
+    return r["prob"] / cost - 1 if cost > 0 else -1
+
+
 def open_picks_box(store, cfg):
-    rows = sorted(store.open_trades(), key=rank_key)
+    rows = sorted(store.open_trades(), key=top_pick_key)
+    by_value = sorted(rows, key=lambda r: (-bet_value(r), top_pick_key(r)))
+    best_bet = {r["id"]: i for i, r in enumerate(by_value, 1)}
     now = now_utc()
     if not rows:
         return ('<section class="plays none"><h2>No open picks right now</h2><p>The bot picks every '
@@ -400,16 +409,17 @@ def open_picks_box(store, cfg):
         cards.append(
             f'<article class="play {"dog" if kind in ("upset", "injury") else "fav"}">'
             f'<p class="sport">{escape(SPORT.get(r["series"], r["series"]))}</p>'
-            f'<p class="do">{escape(r["team"])}{" to beat " + escape(opp) if opp else ""}</p>'
+            f'<p class="do">#{rank} {escape(r["team"])}{" to beat " + escape(opp) if opp else ""}</p>'
             f'<p><span class="tag {"play" if kind == "favorite" else "dogtag"}">{TYPE_TEXT.get(kind, kind)}</span> '
             f'{"Kalshi prices give" if not r["n_books"] else "Sportsbooks give"} {escape(r["team"])} '
             f'{r["prob"] * 100:.0f}%.</p>'
             f'<p class="when">{"Started" if started else "Starts"} {when(r["start_ts"])} HST'
             f'{", waiting for the result" if started else ""}. Paper: {r["contracts"]} contracts at '
             f'{cents(r["price"])} (${cost:,.2f}), pays ${r["contracts"]:,.2f} if they win.</p>'
-            f'<p class="rank">Best Bet #{rank} of {n}</p></article>')
-    return (f'<section class="plays"><h2>Top Picks</h2><p class="fine top">{n} open, strongest first: '
-            f'ranked by win chance.</p>{"".join(cards)}'
+            f'<p class="rank">Best Bet #{best_bet[r["id"]]} of {n}</p></article>')
+    return (f'<section class="plays"><h2>Top Picks</h2><p class="fine top">{n} open. The number in front '
+            f'ranks by win chance. Best Bet ranks by value: how the win chance compares with the price.</p>'
+            f'{"".join(cards)}'
             f'<p class="fine">For fun only: paper bets, nothing real is bought.</p></section>')
 
 
@@ -497,6 +507,9 @@ def picks_howto(cfg):
             f'<li>Each pick is a ${cfg["pick_stake_dollars"]:,.0f} paper bet at the Kalshi price. A contract '
             f'pays $1 if your side wins. At most {cfg["max_open_trades"]} picks are open at once and '
             f'{cfg["max_trades_per_day"]} a day.</li>'
+            f'<li><b>Top Pick #</b> ranks open picks by win chance. <b>Best Bet #</b> ranks them by value: '
+            f'win chance divided by what a contract costs, including Kalshi\'s fee. A 30% underdog at 25¢ '
+            f'can be a better bet than an 80% favorite at 85¢.</li>'
             f'<li>Favorites still lose often, and paying the favorite\'s price usually costs a little over '
             f'time. This is for watching games, not a money-making system.</li></ul></details>')
 

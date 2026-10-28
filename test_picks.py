@@ -144,6 +144,13 @@ assert f"Best Bet #1 of {len(GAMES)}" in html and f"Best Bet #{len(GAMES)} of {l
 import re as _re
 card_probs = [int(x) for x in _re.findall(r"give [^<]*? (\d+)%\.</p>", html.split("<h2>Top Picks</h2>")[1].split("For fun only")[0])]
 assert card_probs == sorted(card_probs, reverse=True), card_probs
+assert '<p class="do">#1 ' in html and f'<p class="do">#{len(GAMES)} ' in html
+# Best Bet #1 is the pick with the best value (win chance per dollar of cost), not the top pick
+import site_builder as _sb
+vals = {t["team"]: _sb.bet_value(t) for t in store.open_trades()}
+best_team = max(vals, key=vals.get)
+card1 = [c for c in _re.findall(r'<article class="play[^"]*">(.*?)</article>', html) if "Best Bet #1 of" in c][0]
+assert f"#{1} " in html and best_team in card1, (best_team, card1[:200])
 assert '<p class="sport">NBA</p>' in html
 
 # ---- re-run: no duplicates, board shows the earlier picks
