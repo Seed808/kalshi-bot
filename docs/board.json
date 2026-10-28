@@ -1,18 +1,111 @@
 {
- "updated": "2026-10-28T05:25:14.025664+00:00",
+ "updated": "2026-10-28T05:43:41.078818+00:00",
  "mode": "picks",
  "board": [
+  {
+   "series": "KXATPMATCH",
+   "event_ticker": "KXATPMATCH-26OCT28COBBER",
+   "matchup": "Flavio Cobolli vs Matteo Berrettini",
+   "start": "2026-10-28T12:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Flavio Cobolli",
+     "fair": 0.495,
+     "ask": 0.5
+    },
+    {
+     "name": "Matteo Berrettini",
+     "fair": 0.505,
+     "ask": 0.51
+    }
+   ],
+   "pick": {
+    "team": "Matteo Berrettini",
+    "type": "favorite",
+    "prob": 0.505,
+    "price": 0.51,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": false
+  },
+  {
+   "series": "KXATPMATCH",
+   "event_ticker": "KXATPMATCH-26OCT28ALTLEH",
+   "matchup": "Jiri Lehecka vs Daniel Altmaier",
+   "start": "2026-10-28T13:00:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Jiri Lehecka",
+     "fair": 0.841025641025641,
+     "ask": 0.84
+    },
+    {
+     "name": "Daniel Altmaier",
+     "fair": 0.15897435897435896,
+     "ask": 0.16
+    }
+   ],
+   "pick": {
+    "team": "Daniel Altmaier",
+    "type": "upset",
+    "prob": 0.15897435897435896,
+    "price": 0.16,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": false
+  },
+  {
+   "series": "KXATPMATCH",
+   "event_ticker": "KXATPMATCH-26OCT28HURRUN",
+   "matchup": "Holger Rune vs Hubert Hurkacz",
+   "start": "2026-10-28T13:00:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Holger Rune",
+     "fair": 0.36180904522613067,
+     "ask": 0.37
+    },
+    {
+     "name": "Hubert Hurkacz",
+     "fair": 0.6381909547738693,
+     "ask": 0.64
+    }
+   ],
+   "pick": {
+    "team": "Hubert Hurkacz",
+    "type": "favorite",
+    "prob": 0.6381909547738693,
+    "price": 0.64,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": false
+  },
   {
    "series": "KXATPMATCH",
    "event_ticker": "KXATPMATCH-26OCT28BORRUU",
    "matchup": "Nuno Borges vs Casper Ruud",
    "start": "2026-10-28T13:00:00+00:00",
    "books": 8,
-   "odds_age_min": 202.09607549999998,
+   "odds_age_min": 220.5796611,
    "sides": [
     {
      "name": "Casper Ruud",
-     "fair": 0.6546195863139603,
+     "fair": 0.6546195863139604,
      "ask": 0.66
     },
     {
@@ -29,7 +122,9 @@
     "contracts": 14,
     "status": "open"
    },
-   "why": null
+   "why": null,
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXATPMATCH",
@@ -37,7 +132,7 @@
    "matchup": "Jakub Mensik vs Adrian Mannarino",
    "start": "2026-10-28T14:50:00+00:00",
    "books": 7,
-   "odds_age_min": 202.45443311666668,
+   "odds_age_min": 220.93801463333332,
    "sides": [
     {
      "name": "Jakub Mensik",
@@ -46,7 +141,7 @@
     },
     {
      "name": "Adrian Mannarino",
-     "fair": 0.20907540816833048,
+     "fair": 0.20907540816833056,
      "ask": 0.2
     }
    ],
@@ -58,7 +153,164 @@
     "contracts": 12,
     "status": "open"
    },
-   "why": null
+   "why": null,
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
+   "series": "KXSERIEAGAME",
+   "event_ticker": "KXSERIEAGAME-26OCT28ACMBFC",
+   "matchup": "Bologna vs Milan",
+   "start": "2026-10-28T18:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Bologna",
+     "fair": 0.18592964824120603,
+     "ask": 0.19
+    },
+    {
+     "name": "Milan",
+     "fair": 0.5678391959798994,
+     "ask": 0.57
+    }
+   ],
+   "pick": {
+    "team": "Milan",
+    "type": "favorite",
+    "prob": 0.5678391959798994,
+    "price": 0.57,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXSERIEAGAME",
+   "event_ticker": "KXSERIEAGAME-26OCT28PARUDI",
+   "matchup": "Udinese vs Parma Calcio",
+   "start": "2026-10-28T18:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Udinese",
+     "fair": 0.35323383084577115,
+     "ask": 0.36
+    },
+    {
+     "name": "Parma Calcio",
+     "fair": 0.33333333333333337,
+     "ask": 0.34
+    }
+   ],
+   "pick": {
+    "team": "Udinese",
+    "type": "favorite",
+    "prob": 0.35323383084577115,
+    "price": 0.36,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXSERIEAGAME",
+   "event_ticker": "KXSERIEAGAME-26OCT28VENINT",
+   "matchup": "Venezia vs Inter",
+   "start": "2026-10-28T18:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Venezia",
+     "fair": 0.11442786069651742,
+     "ask": 0.12
+    },
+    {
+     "name": "Inter",
+     "fair": 0.7213930348258707,
+     "ask": 0.73
+    }
+   ],
+   "pick": {
+    "team": "Inter",
+    "type": "favorite",
+    "prob": 0.7213930348258707,
+    "price": 0.73,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXSERIEAGAME",
+   "event_ticker": "KXSERIEAGAME-26OCT28GENJUV",
+   "matchup": "Juventus vs Genoa",
+   "start": "2026-10-28T20:45:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Juventus",
+     "fair": 0.5678391959798994,
+     "ask": 0.57
+    },
+    {
+     "name": "Genoa",
+     "fair": 0.1658291457286432,
+     "ask": 0.17
+    }
+   ],
+   "pick": {
+    "team": "Genoa",
+    "type": "upset",
+    "prob": 0.1658291457286432,
+    "price": 0.17,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXSERIEAGAME",
+   "event_ticker": "KXSERIEAGAME-26OCT28MONNAP",
+   "matchup": "Napoli vs Monza",
+   "start": "2026-10-28T20:45:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Napoli",
+     "fair": 0.5522388059701494,
+     "ask": 0.56
+    },
+    {
+     "name": "Monza",
+     "fair": 0.2139303482587065,
+     "ask": 0.22
+    }
+   ],
+   "pick": {
+    "team": "Napoli",
+    "type": "favorite",
+    "prob": 0.5522388059701494,
+    "price": 0.56,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
   },
   {
    "series": "KXNCAAFGAME",
@@ -66,7 +318,7 @@
    "matchup": "Kennesaw State Owls @ Middle Tennessee Blue Raiders",
    "start": "2026-10-28T23:00:00+00:00",
    "books": 9,
-   "odds_age_min": 201.96850631666666,
+   "odds_age_min": 220.45546418333333,
    "sides": [
     {
      "name": "Middle Tennessee Blue Raiders",
@@ -75,7 +327,7 @@
     },
     {
      "name": "Kennesaw State Owls",
-     "fair": 0.44086634616072296,
+     "fair": 0.440866346160723,
      "ask": 0.46
     }
    ],
@@ -87,7 +339,9 @@
     "contracts": 17,
     "status": "open"
    },
-   "why": null
+   "why": null,
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXNBAGAME",
@@ -95,11 +349,11 @@
    "matchup": "Philadelphia 76ers @ Indiana Pacers",
    "start": "2026-10-28T23:10:00+00:00",
    "books": 9,
-   "odds_age_min": 149.78190775,
+   "odds_age_min": 168.27045588333334,
    "sides": [
     {
      "name": "Philadelphia 76ers",
-     "fair": 0.6128686697657402,
+     "fair": 0.6128686697657401,
      "ask": 0.63
     },
     {
@@ -116,7 +370,9 @@
     "contracts": 15,
     "status": "open"
    },
-   "why": null
+   "why": null,
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXNBAGAME",
@@ -124,7 +380,7 @@
    "matchup": "Charlotte Hornets @ Detroit Pistons",
    "start": "2026-10-28T23:10:00+00:00",
    "books": 4,
-   "odds_age_min": 149.94857441666667,
+   "odds_age_min": 168.43712255,
    "sides": [
     {
      "name": "Detroit Pistons",
@@ -145,7 +401,9 @@
     "contracts": 14,
     "status": "open"
    },
-   "why": null
+   "why": null,
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXNBAGAME",
@@ -153,11 +411,11 @@
    "matchup": "Washington Wizards @ Cleveland Cavaliers",
    "start": "2026-10-28T23:10:00+00:00",
    "books": 9,
-   "odds_age_min": 149.78190775,
+   "odds_age_min": 168.27045588333334,
    "sides": [
     {
      "name": "Washington Wizards",
-     "fair": 0.23137382298739895,
+     "fair": 0.23137382298739892,
      "ask": 0.22
     },
     {
@@ -174,7 +432,9 @@
     "contracts": 12,
     "status": "open"
    },
-   "why": null
+   "why": null,
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXNBAGAME",
@@ -182,7 +442,7 @@
    "matchup": "Miami Heat @ Atlanta Hawks",
    "start": "2026-10-28T23:10:00+00:00",
    "books": 9,
-   "odds_age_min": 149.78190775,
+   "odds_age_min": 168.27045588333334,
    "sides": [
     {
      "name": "Miami Heat",
@@ -203,7 +463,9 @@
     "contracts": 16,
     "status": "open"
    },
-   "why": null
+   "why": null,
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXNBAGAME",
@@ -211,7 +473,7 @@
    "matchup": "Orlando Magic @ Toronto Raptors",
    "start": "2026-10-28T23:40:00+00:00",
    "books": 9,
-   "odds_age_min": 149.78190775,
+   "odds_age_min": 168.27045588333334,
    "sides": [
     {
      "name": "Toronto Raptors",
@@ -221,7 +483,7 @@
     {
      "name": "Orlando Magic",
      "fair": 0.37508716816367293,
-     "ask": 0.36
+     "ask": 0.37
     }
    ],
    "pick": {
@@ -232,7 +494,9 @@
     "contracts": 15,
     "status": "open"
    },
-   "why": null
+   "why": null,
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXNHLGAME",
@@ -240,7 +504,7 @@
    "matchup": "Philadelphia Flyers @ Washington Capitals",
    "start": "2026-10-28T23:40:00+00:00",
    "books": 9,
-   "odds_age_min": 150.06722415000002,
+   "odds_age_min": 168.55726258333334,
    "sides": [
     {
      "name": "Washington Capitals",
@@ -261,7 +525,9 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (8) reached"
+   "why": "open-pick limit (8) reached",
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXNCAAFGAME",
@@ -269,7 +535,7 @@
    "matchup": "Jacksonville State Gamecocks @ New Mexico State Aggies",
    "start": "2026-10-29T00:00:00+00:00",
    "books": 9,
-   "odds_age_min": 201.96850631666666,
+   "odds_age_min": 220.45546418333333,
    "sides": [
     {
      "name": "New Mexico State Aggies",
@@ -290,7 +556,40 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (8) reached"
+   "why": "open-pick limit (8) reached",
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
+   "series": "KXMLBGAME",
+   "event_ticker": "KXMLBGAME-26OCT282000MILTB",
+   "matchup": "Tampa Bay vs Milwaukee",
+   "start": "2026-10-29T00:00:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Tampa Bay",
+     "fair": 0.425,
+     "ask": 0.43
+    },
+    {
+     "name": "Milwaukee",
+     "fair": 0.575,
+     "ask": 0.58
+    }
+   ],
+   "pick": {
+    "team": "Tampa Bay",
+    "type": "upset",
+    "prob": 0.425,
+    "price": 0.43,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": false
   },
   {
    "series": "KXNBAGAME",
@@ -298,7 +597,7 @@
    "matchup": "Denver Nuggets @ New Orleans Pelicans",
    "start": "2026-10-29T00:10:00+00:00",
    "books": 9,
-   "odds_age_min": 149.78190775,
+   "odds_age_min": 168.27045588333334,
    "sides": [
     {
      "name": "New Orleans Pelicans",
@@ -307,7 +606,7 @@
     },
     {
      "name": "Denver Nuggets",
-     "fair": 0.6386596976841241,
+     "fair": 0.638659697684124,
      "ask": 0.65
     }
    ],
@@ -319,7 +618,9 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (8) reached"
+   "why": "open-pick limit (8) reached",
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXNBAGAME",
@@ -327,7 +628,7 @@
    "matchup": "Golden State Warriors @ Minnesota Timberwolves",
    "start": "2026-10-29T00:10:00+00:00",
    "books": 9,
-   "odds_age_min": 149.78190775,
+   "odds_age_min": 168.27045588333334,
    "sides": [
     {
      "name": "Minnesota Timberwolves",
@@ -336,7 +637,7 @@
     },
     {
      "name": "Golden State Warriors",
-     "fair": 0.4198960730205076,
+     "fair": 0.4198960730205075,
      "ask": 0.42
     }
    ],
@@ -348,7 +649,9 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (8) reached"
+   "why": "open-pick limit (8) reached",
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXNBAGAME",
@@ -356,7 +659,7 @@
    "matchup": "Houston Rockets @ Milwaukee Bucks",
    "start": "2026-10-29T00:10:00+00:00",
    "books": 9,
-   "odds_age_min": 149.78190775,
+   "odds_age_min": 168.27045588333334,
    "sides": [
     {
      "name": "Milwaukee Bucks",
@@ -365,19 +668,21 @@
     },
     {
      "name": "Houston Rockets",
-     "fair": 0.734111445261475,
+     "fair": 0.7341114452614751,
      "ask": 0.75
     }
    ],
    "pick": {
     "team": "Houston Rockets",
     "type": "favorite",
-    "prob": 0.734111445261475,
+    "prob": 0.7341114452614751,
     "price": 0.75,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (8) reached"
+   "why": "open-pick limit (8) reached",
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXNBAGAME",
@@ -385,7 +690,7 @@
    "matchup": "New York Knicks @ Chicago Bulls",
    "start": "2026-10-29T00:10:00+00:00",
    "books": 4,
-   "odds_age_min": 149.94857441666667,
+   "odds_age_min": 168.43712255,
    "sides": [
     {
      "name": "New York Knicks",
@@ -406,7 +711,164 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (8) reached"
+   "why": "open-pick limit (8) reached",
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
+   "series": "KXMLSGAME",
+   "event_ticker": "KXMLSGAME-26OCT28CLTMTL",
+   "matchup": "Montreal vs Charlotte",
+   "start": "2026-10-29T00:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Montreal",
+     "fair": 0.18226600985221672,
+     "ask": 0.19
+    },
+    {
+     "name": "Charlotte",
+     "fair": 0.6256157635467979,
+     "ask": 0.64
+    }
+   ],
+   "pick": {
+    "team": "Montreal",
+    "type": "upset",
+    "prob": 0.18226600985221672,
+    "price": 0.19,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXMLSGAME",
+   "event_ticker": "KXMLSGAME-26OCT28MIACIN",
+   "matchup": "Miami vs Cincinnati",
+   "start": "2026-10-29T00:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Miami",
+     "fair": 0.6548223350253807,
+     "ask": 0.65
+    },
+    {
+     "name": "Cincinnati",
+     "fair": 0.16751269035532995,
+     "ask": 0.17
+    }
+   ],
+   "pick": {
+    "team": "Miami",
+    "type": "favorite",
+    "prob": 0.6548223350253807,
+    "price": 0.65,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXMLSGAME",
+   "event_ticker": "KXMLSGAME-26OCT28NENYRB",
+   "matchup": "New York RB vs New England",
+   "start": "2026-10-29T00:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "New York RB",
+     "fair": 0.2763819095477387,
+     "ask": 0.28
+    },
+    {
+     "name": "New England",
+     "fair": 0.49748743718592964,
+     "ask": 0.5
+    }
+   ],
+   "pick": {
+    "team": "New York RB",
+    "type": "upset",
+    "prob": 0.2763819095477387,
+    "price": 0.28,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXMLSGAME",
+   "event_ticker": "KXMLSGAME-26OCT28NYCATL",
+   "matchup": "New York City vs Atlanta",
+   "start": "2026-10-29T00:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "New York City",
+     "fair": 0.5577889447236182,
+     "ask": 0.56
+    },
+    {
+     "name": "Atlanta",
+     "fair": 0.21608040201005024,
+     "ask": 0.22
+    }
+   ],
+   "pick": {
+    "team": "New York City",
+    "type": "favorite",
+    "prob": 0.5577889447236182,
+    "price": 0.56,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXMLSGAME",
+   "event_ticker": "KXMLSGAME-26OCT28TORDCU",
+   "matchup": "Toronto vs DC United",
+   "start": "2026-10-29T00:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Toronto",
+     "fair": 0.5024875621890548,
+     "ask": 0.51
+    },
+    {
+     "name": "DC United",
+     "fair": 0.2537313432835821,
+     "ask": 0.26
+    }
+   ],
+   "pick": {
+    "team": "Toronto",
+    "type": "favorite",
+    "prob": 0.5024875621890548,
+    "price": 0.51,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
   },
   {
    "series": "KXNHLGAME",
@@ -414,7 +876,7 @@
    "matchup": "Calgary Flames @ Edmonton Oilers",
    "start": "2026-10-29T00:40:00+00:00",
    "books": 9,
-   "odds_age_min": 149.71722415000002,
+   "odds_age_min": 168.20726258333335,
    "sides": [
     {
      "name": "Edmonton Oilers",
@@ -423,7 +885,7 @@
     },
     {
      "name": "Calgary Flames",
-     "fair": 0.34493594826794505,
+     "fair": 0.344935948267945,
      "ask": 0.34
     }
    ],
@@ -435,7 +897,9 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (8) reached"
+   "why": "open-pick limit (8) reached",
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXNBAGAME",
@@ -443,7 +907,7 @@
    "matchup": "San Antonio Spurs @ Utah Jazz",
    "start": "2026-10-29T01:10:00+00:00",
    "books": 9,
-   "odds_age_min": 149.78190775,
+   "odds_age_min": 168.27045588333334,
    "sides": [
     {
      "name": "Utah Jazz",
@@ -452,19 +916,21 @@
     },
     {
      "name": "San Antonio Spurs",
-     "fair": 0.8224213742733454,
+     "fair": 0.8224213742733455,
      "ask": 0.85
     }
    ],
    "pick": {
     "team": "San Antonio Spurs",
     "type": "favorite",
-    "prob": 0.8224213742733454,
+    "prob": 0.8224213742733455,
     "price": 0.85,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (8) reached"
+   "why": "open-pick limit (8) reached",
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXNHLGAME",
@@ -472,11 +938,11 @@
    "matchup": "New Jersey Devils @ Colorado Avalanche",
    "start": "2026-10-29T01:10:00+00:00",
    "books": 9,
-   "odds_age_min": 150.06722415000002,
+   "odds_age_min": 168.55726258333334,
    "sides": [
     {
      "name": "New Jersey Devils",
-     "fair": 0.383072699006465,
+     "fair": 0.38307269900646496,
      "ask": 0.38
     },
     {
@@ -493,7 +959,9 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (8) reached"
+   "why": "open-pick limit (8) reached",
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXWTAMATCH",
@@ -501,11 +969,11 @@
    "matchup": "Naomi Osaka vs Mia Poh\u00e1nkov\u00e1",
    "start": "2026-10-29T01:30:00+00:00",
    "books": 6,
-   "odds_age_min": 202.13087678333335,
+   "odds_age_min": 220.57925335,
    "sides": [
     {
      "name": "Mia Poh\u00e1nkov\u00e1",
-     "fair": 0.24353814040094157,
+     "fair": 0.24353814040094154,
      "ask": 0.21
     },
     {
@@ -522,7 +990,195 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (8) reached"
+   "why": "open-pick limit (8) reached",
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
+   "series": "KXMLSGAME",
+   "event_ticker": "KXMLSGAME-26OCT28ATXRSL",
+   "matchup": "Salt Lake vs Austin",
+   "start": "2026-10-29T01:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Salt Lake",
+     "fair": 0.4129353233830846,
+     "ask": 0.42
+    },
+    {
+     "name": "Austin",
+     "fair": 0.33333333333333337,
+     "ask": 0.34
+    }
+   ],
+   "pick": {
+    "team": "Austin",
+    "type": "upset",
+    "prob": 0.33333333333333337,
+    "price": 0.34,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXMLSGAME",
+   "event_ticker": "KXMLSGAME-26OCT28CHIORL",
+   "matchup": "Orlando vs Chicago Fire",
+   "start": "2026-10-29T01:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Orlando",
+     "fair": 0.185929648241206,
+     "ask": 0.19
+    },
+    {
+     "name": "Chicago Fire",
+     "fair": 0.6381909547738693,
+     "ask": 0.64
+    }
+   ],
+   "pick": {
+    "team": "Orlando",
+    "type": "upset",
+    "prob": 0.185929648241206,
+    "price": 0.19,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXMLSGAME",
+   "event_ticker": "KXMLSGAME-26OCT28DALCLB",
+   "matchup": "Dallas vs Columbus",
+   "start": "2026-10-29T01:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Dallas",
+     "fair": 0.45273631840796025,
+     "ask": 0.46
+    },
+    {
+     "name": "Columbus",
+     "fair": 0.3034825870646766,
+     "ask": 0.31
+    }
+   ],
+   "pick": {
+    "team": "Dallas",
+    "type": "favorite",
+    "prob": 0.45273631840796025,
+    "price": 0.46,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXMLSGAME",
+   "event_ticker": "KXMLSGAME-26OCT28MINSKC",
+   "matchup": "Kansas City vs Minnesota",
+   "start": "2026-10-29T01:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Kansas City",
+     "fair": 0.15422885572139303,
+     "ask": 0.16
+    },
+    {
+     "name": "Minnesota",
+     "fair": 0.6716417910447761,
+     "ask": 0.68
+    }
+   ],
+   "pick": {
+    "team": "Minnesota",
+    "type": "favorite",
+    "prob": 0.6716417910447761,
+    "price": 0.68,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXMLSGAME",
+   "event_ticker": "KXMLSGAME-26OCT28NSHPHI",
+   "matchup": "Philadelphia vs Nashville",
+   "start": "2026-10-29T01:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Philadelphia",
+     "fair": 0.2238805970149254,
+     "ask": 0.23
+    },
+    {
+     "name": "Nashville",
+     "fair": 0.5422885572139304,
+     "ask": 0.55
+    }
+   ],
+   "pick": {
+    "team": "Nashville",
+    "type": "favorite",
+    "prob": 0.5422885572139304,
+    "price": 0.55,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXMLSGAME",
+   "event_ticker": "KXMLSGAME-26OCT28STLPOR",
+   "matchup": "Saint Louis vs Portland",
+   "start": "2026-10-29T01:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Saint Louis",
+     "fair": 0.5024875621890548,
+     "ask": 0.51
+    },
+    {
+     "name": "Portland",
+     "fair": 0.263681592039801,
+     "ask": 0.27
+    }
+   ],
+   "pick": {
+    "team": "Saint Louis",
+    "type": "favorite",
+    "prob": 0.5024875621890548,
+    "price": 0.51,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
   },
   {
    "series": "KXNBAGAME",
@@ -530,11 +1186,11 @@
    "matchup": "Oklahoma City Thunder @ Dallas Mavericks",
    "start": "2026-10-29T01:40:00+00:00",
    "books": 9,
-   "odds_age_min": 149.78190775,
+   "odds_age_min": 168.27045588333334,
    "sides": [
     {
      "name": "Oklahoma City Thunder",
-     "fair": 0.6666468359878477,
+     "fair": 0.6666468359878478,
      "ask": 0.68
     },
     {
@@ -546,12 +1202,14 @@
    "pick": {
     "team": "Oklahoma City Thunder",
     "type": "favorite",
-    "prob": 0.6666468359878477,
+    "prob": 0.6666468359878478,
     "price": 0.68,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (8) reached"
+   "why": "open-pick limit (8) reached",
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXNHLGAME",
@@ -559,7 +1217,7 @@
    "matchup": "Toronto Maple Leafs @ Seattle Kraken",
    "start": "2026-10-29T02:10:00+00:00",
    "books": 9,
-   "odds_age_min": 149.71722415000002,
+   "odds_age_min": 168.20726258333335,
    "sides": [
     {
      "name": "Toronto Maple Leafs",
@@ -580,7 +1238,9 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (8) reached"
+   "why": "open-pick limit (8) reached",
+   "source": "sportsbooks",
+   "three_way": false
   },
   {
    "series": "KXNBAGAME",
@@ -588,138 +1248,236 @@
    "matchup": "Los Angeles Lakers @ Los Angeles Clippers",
    "start": "2026-10-29T02:40:00+00:00",
    "books": 4,
-   "odds_age_min": 149.94857441666667,
+   "odds_age_min": 168.43712255,
    "sides": [
     {
      "name": "Los Angeles Lakers",
      "fair": 0.6399582211112175,
-     "ask": 0.64
+     "ask": 0.66
     },
     {
      "name": "Los Angeles Clippers",
      "fair": 0.3600417788887825,
-     "ask": 0.37
+     "ask": 0.36
     }
    ],
    "pick": {
     "team": "Los Angeles Lakers",
     "type": "favorite",
     "prob": 0.6399582211112175,
-    "price": 0.64,
+    "price": 0.66,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (8) reached"
+   "why": "open-pick limit (8) reached",
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
+   "series": "KXMLSGAME",
+   "event_ticker": "KXMLSGAME-26OCT28SJCOL",
+   "matchup": "San Jose vs Colorado",
+   "start": "2026-10-29T03:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "San Jose",
+     "fair": 0.4328358208955224,
+     "ask": 0.44
+    },
+    {
+     "name": "Colorado",
+     "fair": 0.31343283582089554,
+     "ask": 0.32
+    }
+   ],
+   "pick": {
+    "team": "San Jose",
+    "type": "favorite",
+    "prob": 0.4328358208955224,
+    "price": 0.44,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXMLSGAME",
+   "event_ticker": "KXMLSGAME-26OCT28SEAHOU",
+   "matchup": "Seattle vs Houston",
+   "start": "2026-10-29T03:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Seattle",
+     "fair": 0.5422885572139304,
+     "ask": 0.55
+    },
+    {
+     "name": "Houston",
+     "fair": 0.2238805970149254,
+     "ask": 0.23
+    }
+   ],
+   "pick": {
+    "team": "Seattle",
+    "type": "favorite",
+    "prob": 0.5422885572139304,
+    "price": 0.55,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXMLSGAME",
+   "event_ticker": "KXMLSGAME-26OCT28VANSD",
+   "matchup": "Vancouver vs San Diego FC",
+   "start": "2026-10-29T03:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Vancouver",
+     "fair": 0.681592039800995,
+     "ask": 0.69
+    },
+    {
+     "name": "San Diego FC",
+     "fair": 0.14427860696517414,
+     "ask": 0.15
+    }
+   ],
+   "pick": {
+    "team": "Vancouver",
+    "type": "favorite",
+    "prob": 0.681592039800995,
+    "price": 0.69,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXLIGAMXGAME",
+   "event_ticker": "KXLIGAMXGAME-26OCT28AMETIJ",
+   "matchup": "Tijuana vs America",
+   "start": "2026-10-29T04:00:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Tijuana",
+     "fair": 0.1457286432160804,
+     "ask": 0.15
+    },
+    {
+     "name": "America",
+     "fair": 0.6683417085427136,
+     "ask": 0.67
+    }
+   ],
+   "pick": {
+    "team": "America",
+    "type": "favorite",
+    "prob": 0.6683417085427136,
+    "price": 0.67,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXWTAMATCH",
+   "event_ticker": "KXWTAMATCH-26OCT29TAGLIN",
+   "matchup": "Lilli Tagger vs Magda Linette",
+   "start": "2026-10-29T05:00:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Lilli Tagger",
+     "fair": 0.7,
+     "ask": 0.71
+    },
+    {
+     "name": "Magda Linette",
+     "fair": 0.3,
+     "ask": 0.31
+    }
+   ],
+   "pick": {
+    "team": "Lilli Tagger",
+    "type": "favorite",
+    "prob": 0.7,
+    "price": 0.71,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": false
+  },
+  {
+   "series": "KXWTAMATCH",
+   "event_ticker": "KXWTAMATCH-26OCT29TIMSUN",
+   "matchup": "Maria Timofeeva vs Xinran Sun",
+   "start": "2026-10-29T05:00:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Maria Timofeeva",
+     "fair": 0.665,
+     "ask": 0.68
+    },
+    {
+     "name": "Xinran Sun",
+     "fair": 0.33499999999999996,
+     "ask": 0.35
+    }
+   ],
+   "pick": {
+    "team": "Xinran Sun",
+    "type": "upset",
+    "prob": 0.33499999999999996,
+    "price": 0.35,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached",
+   "source": "kalshi",
+   "three_way": false
   }
  ],
  "skipped": [
   {
-   "series": "KXMLBGAME",
+   "series": "KXNCAAWVMATCH",
    "names": [
-    "Tampa Bay",
-    "Milwaukee"
+    "Stanford",
+    "California"
+   ],
+   "ends": "2026-10-29T05:00:00+00:00",
+   "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
+  },
+  {
+   "series": "KXNCAAWVMATCH",
+   "names": [
+    "Georgia",
+    "Texas"
    ],
    "ends": "2026-10-29T03:00:00+00:00",
-   "reason": "not found at the sportsbooks (or too few books price it)"
-  },
-  {
-   "series": "KXATPMATCH",
-   "names": [
-    "Flavio Cobolli",
-    "Matteo Berrettini"
-   ],
-   "ends": "2026-10-28T15:30:00+00:00",
-   "reason": "not found at the sportsbooks (or too few books price it)"
-  },
-  {
-   "series": "KXATPMATCH",
-   "names": [
-    "Jiri Lehecka",
-    "Daniel Altmaier"
-   ],
-   "ends": "2026-10-28T16:00:00+00:00",
-   "reason": "not found at the sportsbooks (or too few books price it)"
-  },
-  {
-   "series": "KXATPMATCH",
-   "names": [
-    "Holger Rune",
-    "Hubert Hurkacz"
-   ],
-   "ends": "2026-10-28T16:00:00+00:00",
-   "reason": "not found at the sportsbooks (or too few books price it)"
-  },
-  {
-   "series": "KXATPMATCH",
-   "names": [
-    "Learner Tien",
-    "Alex de Minaur"
-   ],
-   "ends": "2026-10-28T13:30:00+00:00",
-   "reason": "not found at the sportsbooks (or too few books price it)"
-  },
-  {
-   "series": "KXWTAMATCH",
-   "names": [
-    "Lilli Tagger",
-    "Magda Linette"
-   ],
-   "ends": "2026-10-29T08:00:00+00:00",
-   "reason": "not found at the sportsbooks (or too few books price it)"
-  },
-  {
-   "series": "KXWTAMATCH",
-   "names": [
-    "Maria Timofeeva",
-    "Xinran Sun"
-   ],
-   "ends": "2026-10-29T08:00:00+00:00",
-   "reason": "not found at the sportsbooks (or too few books price it)"
-  },
-  {
-   "series": "KXWTAMATCH",
-   "names": [
-    "Janice Tjen",
-    "Harriet Dart"
-   ],
-   "ends": "2026-10-28T08:00:00+00:00",
-   "reason": "not found at the sportsbooks (or too few books price it)"
-  },
-  {
-   "series": "KXWTAMATCH",
-   "names": [
-    "Dayana Yastremska",
-    "Han Shi"
-   ],
-   "ends": "2026-10-28T08:00:00+00:00",
-   "reason": "not found at the sportsbooks (or too few books price it)"
-  },
-  {
-   "series": "KXWTAMATCH",
-   "names": [
-    "Jil Teichmann",
-    "Zeynep Sonmez"
-   ],
-   "ends": "2026-10-28T08:00:00+00:00",
-   "reason": "not found at the sportsbooks (or too few books price it)"
-  },
-  {
-   "series": "KXWTAMATCH",
-   "names": [
-    "Kaitlin Quevedo",
-    "Anna Bondar"
-   ],
-   "ends": "2026-10-28T08:00:00+00:00",
-   "reason": "not found at the sportsbooks (or too few books price it)"
-  },
-  {
-   "series": "KXWTAMATCH",
-   "names": [
-    "Sinja Kraus",
-    "Paula Badosa"
-   ],
-   "ends": "2026-10-28T08:00:00+00:00",
-   "reason": "not found at the sportsbooks (or too few books price it)"
+   "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
   }
  ]
 }
