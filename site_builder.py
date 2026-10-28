@@ -392,7 +392,9 @@ def bet_value(r):
 
 def open_picks_box(store, cfg):
     rows = sorted(store.open_trades(), key=top_pick_key)
-    by_value = sorted(rows, key=lambda r: (-bet_value(r), top_pick_key(r)))
+    # Value needs an outside price: Kalshi-only picks would just be compared with themselves
+    priced = [r for r in rows if r["n_books"]]
+    by_value = sorted(priced, key=lambda r: (-bet_value(r), top_pick_key(r)))
     best_bet = {r["id"]: i for i, r in enumerate(by_value, 1)}
     now = now_utc()
     if not rows:
@@ -416,9 +418,11 @@ def open_picks_box(store, cfg):
             f'<p class="when">{"Started" if started else "Starts"} {when(r["start_ts"])} HST'
             f'{", waiting for the result" if started else ""}. Paper: {r["contracts"]} contracts at '
             f'{cents(r["price"])} (${cost:,.2f}), pays ${r["contracts"]:,.2f} if they win.</p>'
-            f'<p class="rank">Best Bet #{best_bet[r["id"]]} of {n}</p></article>')
+            + (f'<p class="rank">Best Bet #{best_bet[r["id"]]} of {len(priced)}</p></article>' if r["id"] in best_bet
+               else '<p class="rank muted">Best Bet: not ranked (no sportsbook price to compare)</p></article>'))
     return (f'<section class="plays"><h2>Top Picks</h2><p class="fine top">{n} open. The number in front '
-            f'ranks by win chance. Best Bet ranks by value: how the win chance compares with the price.</p>'
+            f'ranks by win chance. Best Bet ranks the sportsbook-priced picks by value: how the win chance '
+            f'compares with the price.</p>'
             f'{"".join(cards)}'
             f'<p class="fine">For fun only: paper bets, nothing real is bought.</p></section>')
 
@@ -547,6 +551,7 @@ CSS = """
 .play.dog .do{color:var(--kal)}
 .play .rank{margin-top:6px;font:700 1.05rem/1.2 "Saira Condensed",sans-serif;color:var(--ink)}
 .plays .fine.top{margin:-4px 0 6px}
+.play .rank.muted{font:400 .9rem/1.3 "Source Sans 3",sans-serif;color:var(--soft)}
 .sport{display:block;margin:0 0 2px;font:600 .8rem/1.2 "Source Sans 3",sans-serif;color:var(--soft);letter-spacing:.02em}
 .play .sport{font-size:.95rem;color:var(--ink)}
 .tag.dogtag{background:var(--kal);color:var(--card);font-weight:600}

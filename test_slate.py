@@ -90,6 +90,8 @@ html = open("docs/index.html").read()
 assert html.count('<article class="play') == 15
 for gone in ("Every game checked", "Games skipped", "Unusual Kalshi markets", "<h2>Record</h2>"):
     assert gone not in html, gone
-assert "Best Bet #1 of 15" in html and '<p class="do">#15 ' in html
+priced = sum(1 for r in store.open_trades() if r["n_books"])
+assert f"Best Bet #1 of {priced}" in html and '<p class="do">#15 ' in html
+assert html.count("not ranked (no sportsbook price to compare)") == 15 - priced
 print("SLATE TESTS PASSED")
 shutil.rmtree(work, ignore_errors=True)
