@@ -19,6 +19,14 @@ KALSHI = "https://external-api.kalshi.com/trade-api/v2"
 ODDS = "https://api.the-odds-api.com/v4"
 
 DEFAULTS = {
+    # ---- what triggers a paper trade
+    #   "picks": back the sportsbook favorite on every matched game (see picks.py), fixed $ stake
+    #   "edge":  only when Kalshi is >= min_edge cheaper than the sportsbook consensus after fees
+    "mode": "picks",
+    "pick_stake_dollars": 10.0,
+    "pick_upset_rate": 0.25,         # chance of taking the underdog instead of the favorite
+    "pick_injury_override": True,    # strong injury news on the favorite -> take the underdog
+    "pick_min_books": 2,             # sportsbooks needed for a consensus in pick mode
     # ---- markets: Kalshi game-winner series -> The Odds API sport key (VERIFY with `series`)
     "series": {
         "KXNFLGAME": "americanfootball_nfl",
@@ -31,7 +39,7 @@ DEFAULTS = {
         "KXWTAMATCH": "tennis_wta_*",
     },
     "individual_series": ["KXATPMATCH", "KXWTAMATCH"],   # players, not teams (no nickname aliases)
-    "odds_spend_horizon_hours": 12,   # only spend an odds credit on a sport with a game ending within this
+    "odds_spend_horizon_hours": 36,   # only spend an odds credit on a sport with a game ending within this
     # ---- step 1: scan agent (all Kalshi markets)
     "scan_min_volume_24h": 500,
     "scan_max_hours": 72,
@@ -44,7 +52,7 @@ DEFAULTS = {
     "odds_monthly_credit_budget": 450,   # free plan is 500/month; keep a buffer
     "odds_credit_reserve": 25,
     "odds_max_credits_per_day": 15,  # ~450/30; stops early-month burn       # never go below this many remaining (per API header)
-    "odds_cache_min": 45,            # reuse odds this long before spending another credit
+    "odds_cache_min": 180,           # reuse odds this long before spending another credit
     "bookmakers": [],
     "min_books": 3,
     "max_book_std": 0.04,

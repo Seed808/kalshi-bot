@@ -1,4 +1,22 @@
-# Kalshi Sports Bot v2 — 5-step pipeline (paper trading + alerts)
+# TheEsness Kalshi picks (paper only)
+
+## Pick mode (default)
+
+The bot picks a side in every Kalshi game it can match to sportsbook odds, for fun. No price edge is needed.
+
+**The rule (`picks.py`, `choose_side`):** back the side the sportsbooks give the higher chance to win.
+
+- **Upset coin:** with `pick_upset_rate` (0.25), it takes the underdog instead. The coin is seeded by the game's ticker, so a game's pick never changes between runs.
+- **Injury override:** if recent ESPN news has `injury_veto_count` (2) or more injury mentions for the favorite, and more than for the underdog, it takes the underdog (`pick_injury_override`). This is keyword matching, so it can misfire on nicknames.
+- **Stake:** each pick is a `pick_stake_dollars` ($10) paper bet at the cheaper Kalshi route (YES on the team, or NO on the opponent).
+- **Caps that still apply:** `max_open_trades` (8), `max_trades_per_day` (10), the daily paper loss limit, and one pick per game.
+- **Gates that don't apply:** no edge, odds-age, "sportsbooks disagree" or minimum-size gates. Picks use the last consensus available, and only 2 books are needed (`pick_min_books`).
+- **Window:** games starting in the next 36h (`max_hours_ahead`). Odds are only bought for sports with a game ending in that window, reused for 3h (`odds_cache_min`), and capped at 15 credits a day, so it stays on the free plan.
+- **Learning:** the self-tuning step is off in pick mode. It exists to protect an edge, and would block whole sports after a few losing favorites.
+- **Telegram:** one "NEW PICKS" message per run with new picks, and one "RESULTS" message when picks settle.
+
+**Edge mode:** set `"mode": "edge"` in `config.json` to go back to the original edge-hunting pipeline described below.
+
 
 This bot follows the same five steps as the bot in the video. It **never places real orders**. Every trade is a paper trade logged to `kalshibot.db`.
 

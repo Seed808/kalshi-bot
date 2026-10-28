@@ -32,6 +32,10 @@ class Store:
         self.con = sqlite3.connect(path)
         self.con.row_factory = sqlite3.Row
         self.con.executescript(SCHEMA)
+        cols = {r[1] for r in self.con.execute("PRAGMA table_info(trades)")}
+        if "pick_type" not in cols:   # pick mode: favorite / upset / injury (NULL for edge-mode trades)
+            self.con.execute("ALTER TABLE trades ADD COLUMN pick_type TEXT")
+            self.con.commit()
 
     def q(self, sql, args=()):
         return self.con.execute(sql, args).fetchall()
@@ -63,6 +67,10 @@ class Store:
 
     def open_on_event(self, event_ticker):
         return bool(self.q("SELECT 1 FROM trades WHERE event_ticker=? AND status='open'", (event_ticker,)))
+
+    def open_trade_for_event(self, event_ticker):
+        r = self.q("SELECT * FROM trades WHERE event_ticker=? AND status='open'", (event_ticker,))
+        return r[0] if r else None
 
     def open_trades(self):
         return self.q("SELECT * FROM trades WHERE status='open'")

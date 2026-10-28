@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """
-Kalshi sports bot — 5-step pipeline, PAPER TRADING + ALERTS ONLY (never places real orders).
+Kalshi sports bot — PAPER TRADING + ALERTS ONLY (never places real orders).
+
+Default "picks" mode (config "mode": "picks"): for every matched game starting in the next 36h,
+back the side the sportsbooks favor (rule lives in picks.py), with a seeded ~25% upset coin and an
+injury-news override. Fixed-dollar paper stakes, same risk caps. The 5-step "edge" pipeline below
+still runs when "mode" is "edge".
 
   1 scan      all open Kalshi markets filtered by volume/time, flags big moves + wide spreads;
               sports game markets matched to de-vigged sportsbook consensus
@@ -38,6 +43,7 @@ import research
 import model
 import risk
 import postmortem
+import picks
 import site_builder as site
 
 
@@ -223,14 +229,30 @@ def cycle(cfg_path, store, paper, verbose):
     if not api_key:
         sys.exit("Set ODDS_API_KEY (free key at the-odds-api.com).")
 
+    picks_mode = cfg["mode"] == "picks"
+    if picks_mode:
+        cfg["min_books"] = cfg["pick_min_books"]
+
     # step 5 first: close the loop on anything that finished
     settle_all(cfg, store)
-    for r, flags, verdict in postmortem.run_postmortems(cfg, store):
-        alert(f"PAPER LOSS REVIEW\n{r['team']} lost ({r['matchup']}).\nWhy: {verdict}")
-    changes = postmortem.learn(cfg, store)
-    if changes:
-        alert("BOT ADJUSTED ITS SETTINGS\n" + "\n".join("- " + c for c in changes))
-        cfg = load_config(cfg_path)
+    if picks_mode:
+        # one message with every result, instead of a message per loss
+        done = store.q("SELECT * FROM trades WHERE status='settled' AND postmortem_done=0")
+        if done:
+            alert("RESULTS\n" + "\n".join(
+                f'{"Won" if r["result"] == r["side"] else "Lost"}: {r["team"]} ({r["matchup"]}) '
+                f'{"+" if (r["pnl"] or 0) >= 0 else "-"}${abs(r["pnl"] or 0):,.2f}' for r in done)
+                + "\nhttps://seed808.github.io/kalshi-bot/")
+        postmortem.run_postmortems(cfg, store)
+        # no self-tuning in pick mode: it exists to protect an edge, and would otherwise block
+        # whole sports after a few losing favorites
+    else:
+        for r, flags, verdict in postmortem.run_postmortems(cfg, store):
+            alert(f"PAPER LOSS REVIEW\n{r['team']} lost ({r['matchup']}).\nWhy: {verdict}")
+        changes = postmortem.learn(cfg, store)
+        if changes:
+            alert("BOT ADJUSTED ITS SETTINGS\n" + "\n".join("- " + c for c in changes))
+            cfg = load_config(cfg_path)
     model.maybe_retrain(cfg, store)
 
     # step 1a: whole-exchange anomaly scan
@@ -250,8 +272,17 @@ def cycle(cfg_path, store, paper, verbose):
         print(f"anomaly scan error: {e}")
 
     # step 1b: sports games
-    games, all_markets = scanner.sports_games(cfg, api_key, store, verbose)
+    skipped = []
+    games, all_markets = scanner.sports_games(cfg, api_key, store, verbose, skipped=skipped)
     update_clv(store, all_markets)
+
+    if picks_mode:
+        board = run_picks(games, cfg, store, paper, verbose, skipped)
+        try:
+            site.render(cfg, store, board, an, False, skipped)
+        except Exception as e:   # the website must never break the bot
+            print(f"site render error: {e}")
+        return
 
     # step 2: research only games near an edge; others use cache
     cands = [g for g in games if precandidate(g, cfg)]
@@ -301,6 +332,69 @@ def cycle(cfg_path, store, paper, verbose):
         site.render(cfg, store, board, an, predictor.active)
     except Exception as e:   # the website must never break the bot
         print(f"site render error: {e}")
+
+
+def run_picks(games, cfg, store, paper, verbose, skipped):
+    """PICK MODE: one pick per matched game (rule in picks.py), soonest games first."""
+    res = research.cached_research(games, cfg, store)
+    if cfg["pick_injury_override"] and games:
+        res.update(research.research_games(games, cfg, store))
+    series_idx = {s: i for i, s in enumerate(cfg["series"])}
+    board, new = [], []
+    for g in sorted(games, key=lambda g: g["start"]):
+        feats = {m["ticker"]: scanner.market_features(g, m, res, series_idx.get(g["series"], -1))
+                 for m in g["markets"]}
+        for m in g["markets"]:   # keep logging training data
+            store.upsert_snapshot(m["ticker"], g["event_ticker"], g["series"], g["start"],
+                                  feats[m["ticker"]], feats[m["ticker"]]["fair"])
+        sides = []
+        for team in g["mapping"].values():
+            route = picks.cheapest_route(g, team)
+            sides.append({"name": team, "fair": g["oe"]["fair"][team], "ask": route[2] if route else 0.0})
+        entry = {"series": g["series"], "event_ticker": g["event_ticker"], "matchup": g["matchup"],
+                 "start": g["start"].isoformat(), "books": g["oe"]["n_books"],
+                 "odds_age_min": g["oe"]["staleness_min"], "sides": sides, "pick": None, "why": None}
+        board.append(entry)
+
+        prior = store.open_trade_for_event(g["event_ticker"])
+        if prior:   # picked on an earlier run: show that pick, don't pick again
+            entry["pick"] = {"team": prior["team"], "type": prior["pick_type"] or "edge",
+                             "prob": prior["prob"], "price": prior["price"],
+                             "contracts": prior["contracts"], "status": "open"}
+            continue
+        p, why = picks.make_pick(g, res, cfg)
+        if not p:
+            entry["why"] = why
+            continue
+        entry["pick"] = {"team": p["team"], "type": p["pick_type"], "prob": p["prob"], "price": p["ask"],
+                         "contracts": None, "status": "new"}
+        if not paper:
+            print(picks.fmt_pick(p))
+            continue
+        n, block = risk.check_pick(p, cfg, store)
+        if block:
+            entry["pick"]["status"] = "blocked"
+            entry["why"] = block
+            if verbose:
+                print(f"  not opened {g['matchup']}: {block}")
+            continue
+        fee = order_fee(p["ask"], n, p["fee_mult"])
+        store.x("""INSERT INTO trades(ts,market_ticker,event_ticker,series,matchup,team,side,price,fee,
+                   contracts,prob,consensus,model_prob,ev,n_books,book_std,staleness_min,research,start_ts,
+                   pick_type) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                (now_utc().isoformat(), p["market"]["ticker"], p["event_ticker"], p["series"],
+                 p["matchup"], p["team"], p["side"], p["ask"], fee, n, p["prob"], p["consensus"],
+                 None, p["ev"], p["n_books"], p["book_std"], p["staleness"], json.dumps(p["research"]),
+                 p["start"].isoformat(), p["pick_type"]))
+        entry["pick"].update(status="open", contracts=n)
+        new.append((p, n))
+    if new:
+        alert(f"NEW PICKS ({len(new)})\n\n" + "\n\n".join(
+            f"{hst(p['start'])}\n{picks.fmt_pick(p, n)}" for p, n in new)
+            + "\n\nhttps://seed808.github.io/kalshi-bot/")
+    print(f"{hst(now_utc())} | pick mode | {len(games)} games matched, {len(new)} new pick(s), "
+          f"{store.open_count()} open, {len(skipped)} skipped")
+    return board
 
 
 def board_entry(g, feats, sig, why):

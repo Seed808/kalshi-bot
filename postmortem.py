@@ -53,6 +53,18 @@ def run_postmortems(cfg, store):
         if _won(r):
             store.x("UPDATE trades SET postmortem_done=1 WHERE id=?", (r["id"],))
             continue
+        if r["pick_type"]:   # pick mode: no edge to diagnose, just say what happened
+            if r["prob"] >= 0.5:
+                verdict = (f"{r['team']} was the favorite ({r['prob']:.0%} per sportsbooks) and lost. "
+                           f"Favorites at that price lose about {1 - r['prob']:.0%} of the time.")
+            else:
+                verdict = (f"Underdog pick ({r['prob']:.0%} per sportsbooks). Underdogs at that price "
+                           f"lose about {1 - r['prob']:.0%} of the time.")
+            store.x("INSERT INTO postmortems(trade_id,ts,flags,verdict) VALUES(?,?,?,?)",
+                    (r["id"], now_utc().isoformat(), json.dumps(["pick"]), verdict))
+            store.x("UPDATE trades SET postmortem_done=1 WHERE id=?", (r["id"],))
+            out.append((r, ["pick"], verdict))
+            continue
         flags, notes = [], []
         if _is_stale(r, cfg):
             flags.append("stale_odds")

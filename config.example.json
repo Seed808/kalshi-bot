@@ -1,4 +1,9 @@
 {
+  "mode": "picks",
+  "pick_stake_dollars": 10.0,
+  "pick_upset_rate": 0.25,
+  "pick_injury_override": true,
+  "pick_min_books": 2,
   "series": {
     "KXNFLGAME": "americanfootball_nfl",
     "KXNBAGAME": "basketball_nba",
@@ -22,8 +27,8 @@
   "odds_monthly_credit_budget": 450,
   "odds_credit_reserve": 25,
   "odds_max_credits_per_day": 15,
-  "odds_cache_min": 45,
-  "odds_spend_horizon_hours": 12,
+  "odds_cache_min": 180,
+  "odds_spend_horizon_hours": 36,
   "scan_min_volume_24h": 500,
   "scan_max_hours": 72,
   "scan_move_threshold": 0.1,

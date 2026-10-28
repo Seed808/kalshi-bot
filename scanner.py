@@ -233,10 +233,20 @@ def match_event(event_ticker, mk, odds_events, threshold):
     return best, best_map, best_gap
 
 
-def sports_games(cfg, api_key, store, verbose=False):
-    """Return (games, all_markets_by_ticker)."""
+def sports_games(cfg, api_key, store, verbose=False, skipped=None):
+    """Return (games, all_markets_by_ticker). If `skipped` is a list, Kalshi games in the pick
+    window that couldn't be used are appended to it as {series, names, ends, reason}."""
     now = now_utc()
     games, all_markets = [], {}
+    window_end = now + timedelta(hours=cfg["max_hours_ahead"] + 4)   # games end a few hours after start
+
+    def note_skip(series, mk, reason):
+        if skipped is None:
+            return
+        end = game_time_ref(mk)
+        if end and now < end <= window_end:
+            skipped.append({"series": series, "names": [m.get("yes_sub_title") or "" for m in mk],
+                            "ends": end.isoformat(), "reason": reason})
     for series, sport in cfg["series"].items():
         if series in cfg["blocked_series"]:
             if verbose:
@@ -282,6 +292,8 @@ def sports_games(cfg, api_key, store, verbose=False):
             odds_events.extend(evs)
             notes.append(f"{key.split('_', 2)[-1] if '*' in sport else ''}{':' if '*' in sport else ''}{note}")
         remaining = "; ".join(notes)
+        no_odds_reason = ("no sportsbook odds for this sport yet" if not odds_events
+                          else "not found at the sportsbooks (or too few books price it)")
         by_event = {}
         for m in ms:
             by_event.setdefault(m["event_ticker"], []).append(m)
@@ -293,6 +305,7 @@ def sports_games(cfg, api_key, store, verbose=False):
             oe, mapping, _gap = match_event(et, mk, odds_events, cfg["match_threshold"])
             if not oe:
                 unmatched += 1
+                note_skip(series, mk, no_odds_reason)
                 if verbose and unmatched <= 4:
                     end = game_time_ref(mk)
                     names = [m.get("yes_sub_title") for m in mk]
@@ -307,6 +320,8 @@ def sports_games(cfg, api_key, store, verbose=False):
         for oid, cl in claims.items():
             if len(cl) > 1:   # two Kalshi games claim one sportsbook game -> ambiguous, skip all
                 dup += len(cl)
+                for c in cl:
+                    note_skip(series, c[1], "couldn't tell which sportsbook game this is")
                 if verbose:
                     print(f"  ambiguous: {', '.join(c[0] for c in cl)} all match one odds game — skipped")
                 continue

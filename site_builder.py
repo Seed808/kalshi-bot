@@ -366,7 +366,170 @@ def anomalies_html(an):
             f'check them against. They\'re just worth a look.</p><ul class="anom">{"".join(items)}</ul></section>')
 
 
+# ================================================================ PICK MODE pages
+
+TYPE_TEXT = {"favorite": "Favorite", "upset": "Underdog pick (upset coin)",
+             "injury": "Underdog pick (injury news on the favorite)", "edge": "Edge play"}
+
+
+def opponent_of(matchup, team):
+    for sep in (" @ ", " vs "):
+        if sep in matchup:
+            a, b = matchup.split(sep, 1)
+            return b if a == team else a
+    return ""
+
+
+def open_picks_box(store, cfg):
+    rows = sorted(store.open_trades(), key=lambda r: r["start_ts"] or "")
+    now = now_utc()
+    if not rows:
+        return ('<section class="plays none"><h2>No open picks right now</h2><p>The bot picks every '
+                'matched game starting in the next 36 hours. New picks show up here after the next '
+                'hourly run.</p></section>')
+    cards = []
+    for r in rows:
+        opp = opponent_of(r["matchup"], r["team"])
+        started = parse_ts(r["start_ts"]) and parse_ts(r["start_ts"]) <= now
+        kind = r["pick_type"] or "edge"
+        cost = r["price"] * r["contracts"] + r["fee"]
+        cards.append(
+            f'<article class="play {"dog" if kind in ("upset", "injury") else "fav"}">'
+            f'<p class="do">{escape(r["team"])}{" to beat " + escape(opp) if opp else ""}</p>'
+            f'<p><span class="tag {"play" if kind == "favorite" else "dogtag"}">{TYPE_TEXT.get(kind, kind)}</span> '
+            f'Sportsbooks give {escape(r["team"])} {r["prob"] * 100:.0f}%.</p>'
+            f'<p class="when">{"Started" if started else "Starts"} {when(r["start_ts"])} HST'
+            f'{", waiting for the result" if started else ""}. Paper: {r["contracts"]} contracts at '
+            f'{cents(r["price"])} (${cost:,.2f}), pays ${r["contracts"]:,.2f} if they win.</p></article>')
+    n = len(rows)
+    return (f'<section class="plays"><h2>{n} open pick{"s" if n != 1 else ""}</h2>{"".join(cards)}'
+            f'<p class="fine">For fun only: paper bets, nothing real is bought.</p></section>')
+
+
+def picks_record_html(store, cfg):
+    allset = [r for r in store.settled_trades()]
+    out = ['<section><h2>Record</h2>']
+    if not allset:
+        out.append('<p class="note">No picks have finished yet. Results show up here about an hour '
+                   'after each game ends.</p></section>')
+        return "".join(out)
+    def rec(rows):
+        w = sum(1 for r in rows if r["result"] == r["side"])
+        return w, len(rows) - w
+    w, l = rec(allset)
+    pnl = sum(r["pnl"] or 0 for r in allset)
+    fav = [r for r in allset if (r["pick_type"] or "") == "favorite"]
+    dog = [r for r in allset if (r["pick_type"] or "") in ("upset", "injury")]
+    exp = sum(r["prob"] for r in allset)
+    out.append(f'<p class="stats"><span><b>{w}–{l}</b> overall</span>'
+               + (f'<span><b>{rec(fav)[0]}–{rec(fav)[1]}</b> favorites</span>' if fav else "")
+               + (f'<span><b>{rec(dog)[0]}–{rec(dog)[1]}</b> underdog picks</span>' if dog else "")
+               + f'<span><b class="{"up" if pnl >= 0 else "down"}">{"+" if pnl >= 0 else "−"}${abs(pnl):,.2f}</b> paper P&amp;L</span></p>'
+               f'<p class="note">Sportsbook odds said to expect about {exp:.1f} wins from these '
+               f'{len(allset)} picks.</p>')
+    out.append('<table><thead><tr><th>Game</th><th>Pick</th><th>Type</th><th>Result</th>'
+               '<th class="num">P&amp;L</th></tr></thead><tbody>')
+    for r in allset[:30]:
+        won = r["result"] == r["side"]
+        out.append(f'<tr><td>{escape(r["matchup"])}</td><td>{escape(r["team"])} '
+                   f'({r["prob"] * 100:.0f}%)</td><td>{TYPE_TEXT.get(r["pick_type"] or "edge", "")}</td>'
+                   f'<td>{"Won" if won else "Lost"}</td><td class="num {"up" if (r["pnl"] or 0) >= 0 else "down"}">'
+                   f'{"+" if (r["pnl"] or 0) >= 0 else "−"}${abs(r["pnl"] or 0):,.2f}</td></tr>')
+    out.append('</tbody></table></section>')
+    return "".join(out)
+
+
+def picks_board_html(board):
+    if not board:
+        return ""
+    out = ['<section><h2>Every game checked this run</h2><table class="board"><thead><tr><th>Time (HST)</th>'
+           '<th>Game</th><th>Pick</th><th class="num">Sportsbooks</th><th>Status</th></tr></thead><tbody>']
+    for b in sorted(board, key=lambda b: b["start"]):
+        pk = b["pick"]
+        if pk:
+            status = {"open": "Picked", "new": "Picked (not saved: preview run)",
+                      "blocked": f'Not opened: {escape(b["why"] or "")}'}.get(pk["status"], pk["status"])
+            pick = f'{escape(pk["team"])}<span class="via">{TYPE_TEXT.get(pk["type"], "")}</span>'
+            chance = f'{pk["prob"] * 100:.0f}%'
+        else:
+            status, pick, chance = f'Skipped: {escape(b["why"] or "")}', "—", ""
+        age = b.get("odds_age_min")
+        books = f'{b["books"]} books' + (f', odds {age / 60:.0f}h old' if age and age >= 90 else "")
+        out.append(f'<tr><td>{when(b["start"])}</td><td>{escape(b["matchup"])}<span class="via">'
+                   f'{escape(SPORT.get(b["series"], b["series"]))}, {books}</span></td>'
+                   f'<td>{pick}</td><td class="num">{chance}</td><td>{status}</td></tr>')
+    out.append('</tbody></table></section>')
+    return "".join(out)
+
+
+def skipped_html(skipped):
+    if not skipped:
+        return ""
+    rows = sorted(skipped, key=lambda x: x["ends"])
+    items = "".join(f'<li><b>{escape(" vs ".join(n for n in x["names"] if n))}</b> '
+                    f'<span class="via">{escape(SPORT.get(x["series"], x["series"]))}, ends about '
+                    f'{when(x["ends"])} HST</span>{escape(x["reason"][0].upper() + x["reason"][1:])}.</li>'
+                    for x in rows[:40])
+    more = f'<p class="note">And {len(rows) - 40} more.</p>' if len(rows) > 40 else ""
+    return (f'<section><h2>Games skipped</h2><p class="note">Kalshi games in the next 36 hours the bot '
+            f'couldn\'t pick, and why.</p><ul class="skips">{items}</ul>{more}</section>')
+
+
+def picks_howto(cfg):
+    dog = round(cfg["pick_upset_rate"] * 100)
+    return (f'<details class="howto"><summary>How the bot picks</summary><ul>'
+            f'<li>For every Kalshi game starting in the next 36 hours that it can match to sportsbook '
+            f'odds, it backs the side the sportsbooks give the better chance to win.</li>'
+            f'<li>About {dog} games in 100, a coin flip sends it to the underdog instead, so it isn\'t '
+            f'all favorites. ' + ('If recent news mentions injuries for the favorite, it also takes '
+            'the underdog.' if cfg["pick_injury_override"] else '') + '</li>'
+            f'<li>Each pick is a ${cfg["pick_stake_dollars"]:,.0f} paper bet at the Kalshi price. A contract '
+            f'pays $1 if your side wins. At most {cfg["max_open_trades"]} picks are open at once and '
+            f'{cfg["max_trades_per_day"]} a day.</li>'
+            f'<li>Favorites still lose often, and paying the favorite\'s price usually costs a little over '
+            f'time. This is for watching games, not a money-making system.</li></ul></details>')
+
+
+def render_picks(cfg, store, board, anomalies, skipped):
+    now = now_utc()
+    bankroll, _ = store.bankroll(cfg)
+    allset = store.settled_trades()
+    wins = sum(1 for r in allset if r["result"] == r["side"])
+    strip = (f'<dl class="strip"><div><dt>Record</dt><dd>{wins}–{len(allset) - wins}</dd></div>'
+             f'<div><dt>Open picks</dt><dd>{store.open_count()}</dd></div>'
+             f'<div><dt>Paper bankroll</dt><dd>${bankroll:,.0f}</dd></div>'
+             f'<div><dt>Games checked</dt><dd>{len(board)}</dd></div>'
+             f'<div><dt>Skipped</dt><dd>{len(skipped or [])}</dd></div></dl>')
+    return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TheEsness Kalshi picks</title>
+<meta name="description" content="Paper picks on Kalshi sports games: the sportsbook favorite, with the odd underdog.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>{CSS}</style></head><body><main>
+<header><h1>TheEsness Kalshi picks</h1>
+<p class="updated">Updated {escape(hst(now))}. Refreshes about every hour. Paper picks for fun.</p>{strip}</header>
+{open_picks_box(store, cfg)}
+{picks_howto(cfg)}
+{picks_record_html(store, cfg)}
+{picks_board_html(board)}
+{skipped_html(skipped)}
+{anomalies_html(anomalies)}
+<footer><p>Win chances are the average of several sportsbooks' moneylines with their built-in margin
+removed. Picks are paper bets only. No real orders are ever placed, and nothing here is betting advice.</p></footer>
+</main></body></html>"""
+
+
 CSS = """
+.play.dog .do{color:var(--kal)}
+.tag.dogtag{background:var(--kal);color:var(--card);font-weight:600}
+.board td{font-size:.95rem}.board .via{display:block}
+.skips{list-style:none;padding:0;margin:0}.skips li{padding:6px 0;border-bottom:1px solid var(--rule);max-width:none}
+.skips .via{display:block}
+.tag{white-space:normal}
+@media (max-width:560px){.board thead{display:none}.board tr{display:block;padding:8px 0;border-bottom:1px solid var(--rule)}
+.board td{display:block;border:0;padding:1px 0;text-align:left}.board td:first-child{color:var(--soft);font-size:.85rem}
+.board td.num{text-align:left}.board td.num:not(:empty)::before{content:"Sportsbooks give it "}.play .do{font-size:1.6rem}}
 
 .plays{margin-top:28px;padding:22px;background:var(--card);border:2px solid var(--rule);border-radius:6px}
 .plays h2{font-size:2.4rem;margin:0 0 10px}
@@ -460,9 +623,18 @@ table{font-size:.85rem}}
 """
 
 
-def render(cfg, store, board, anomalies, model_active):
+def render(cfg, store, board, anomalies, model_active, skipped=None):
     os.makedirs(OUT_DIR, exist_ok=True)
     now = now_utc()
+    if cfg.get("mode") == "picks":
+        with open(os.path.join(OUT_DIR, "index.html"), "w", encoding="utf-8") as f:
+            f.write(render_picks(cfg, store, board, anomalies, skipped))
+        with open(os.path.join(OUT_DIR, ".nojekyll"), "w") as f:
+            f.write("")
+        with open(os.path.join(OUT_DIR, "board.json"), "w") as f:
+            json.dump({"updated": now.isoformat(), "mode": "picks", "board": board,
+                       "skipped": skipped or []}, f, indent=1)
+        return
     bankroll, _ = store.bankroll(cfg)
     allset = store.settled_trades()
     wins = sum(1 for r in allset if r["result"] == r["side"])

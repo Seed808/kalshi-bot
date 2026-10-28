@@ -25,3 +25,24 @@ def check_and_size(sig, cfg, store):
     if n < 1:
         return 0, "size rounds to < 1 contract"
     return n, None
+
+
+def check_pick(pick, cfg, store):
+    """PICK MODE sizing: a fixed-dollar paper stake. Same safety caps as above, no Kelly, no edge."""
+    bankroll, exposure = store.bankroll(cfg)
+    if store.today_pnl() <= -cfg["daily_loss_limit_pct"] * cfg["bankroll"]:
+        return 0, "daily paper loss limit reached"
+    if store.trades_today() >= cfg["max_trades_per_day"]:
+        return 0, f"daily pick limit ({cfg['max_trades_per_day']}) reached"
+    if store.open_count() >= cfg["max_open_trades"]:
+        return 0, f"open-pick limit ({cfg['max_open_trades']}) reached"
+    if store.open_on_event(pick["event_ticker"]):
+        return 0, "already picked"
+    if bankroll <= 0:
+        return 0, "paper bankroll used up"
+    stake = min(cfg["pick_stake_dollars"], bankroll,
+                max(0.0, bankroll * cfg["max_open_exposure_pct"] - exposure))
+    n = int(stake // pick["cost"])
+    if n < 1:
+        return 0, "stake too small for one contract"
+    return n, None

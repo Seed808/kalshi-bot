@@ -77,6 +77,7 @@ def fake(url, params=None, headers=None, retries=3):
 
 cfg = common.load_config()
 cfg["series"] = {"KXATPMATCH": "tennis_atp_*", "KXWTAMATCH": "tennis_wta_*"}
+cfg["odds_spend_horizon_hours"] = 12   # this test checks the spend-horizon rule at 12h
 st = Store(cfg["db_path"])
 with mock.patch.object(scanner, "http_get", fake):
     keys = scanner.resolve_sport_keys("tennis_atp_*", "k", st)
