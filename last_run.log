@@ -1,6 +1,9 @@
-Scan: 10000 open markets, 158 pass volume/time filters, 2 flagged
+Settled 0 paper trade(s); labeled 2 training snapshot(s).
+Scan: 10000 open markets, 171 pass volume/time filters, 4 flagged
   KXITFWMATCH-26OCT28CHAPAN-CHA: spread 0.36 | vol24 866
+  KXTEMPCHIHS-26OCT2803-T55.99: spread 0.11 | vol24 603
   KXITFWDOUBLES-26OCT28BUSKUIFEHPER-FEHPER: spread 0.13 | vol24 520
+  KXITFWDOUBLES-26OCT28TINWILAIKVIS-AIKVIS: spread 0.45 | vol24 515
 [KXNCAABBGAME] no open markets
 [KXNCAASBGAME] no open markets
 [KXBOXINGFIGHT] no open markets
@@ -27,4 +30,23 @@ Scan: 10000 open markets, 158 pass volume/time filters, 2 flagged
 [KXNCAAWBGAME] 308 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 154 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXNWSLGAME] 24 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 8 | ambiguous 0 | odds: no sportsbook feed for this sport
 [KXUCLGAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
-Tue 10/27 08:07 PM HST | pick mode | 47 games matched, 0 new pick(s), 47 open, 2 skipped
+SLATE TRIMMED: removed 32 paper pick(s) before their games
+- 11: the upset coin picked the underdog, but it isn't a clear value bet
+- 8: under 55% win chance, too close to call
+- 13: slate trimmed to the best 15
+15 picks open.
+https://seed808.github.io/kalshi-bot/
+  not opened Nuno Borges vs Casper Ruud: daily pick limit (15) reached
+  not opened Los Angeles Lakers @ Los Angeles Clippers: daily pick limit (15) reached
+  not opened Holger Rune vs Hubert Hurkacz: daily pick limit (15) reached
+  not opened Orlando Magic @ Toronto Raptors: daily pick limit (15) reached
+  not opened New Jersey Devils @ Colorado Avalanche: daily pick limit (15) reached
+  not opened Philadelphia 76ers @ Indiana Pacers: daily pick limit (15) reached
+  not opened Jacksonville State Gamecocks @ New Mexico State Aggies: daily pick limit (15) reached
+  not opened Miami Heat @ Atlanta Hawks: daily pick limit (15) reached
+  not opened Golden State Warriors @ Minnesota Timberwolves: daily pick limit (15) reached
+  not opened Bologna vs Milan: daily pick limit (15) reached
+  not opened Kennesaw State Owls @ Middle Tennessee Blue Raiders: daily pick limit (15) reached
+  not opened New York City vs Atlanta: daily pick limit (15) reached
+  not opened Napoli vs Monza: daily pick limit (15) reached
+Tue 10/27 08:20 PM HST | pick mode | 47 games matched, 0 new pick(s), 15 open, 2 skipped
