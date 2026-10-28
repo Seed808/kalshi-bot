@@ -349,7 +349,16 @@ def cycle(cfg_path, store, paper, verbose):
 
 
 def run_picks(games, cfg, store, paper, verbose, skipped):
-    """PICK MODE: one pick per matched game (rule in picks.py), soonest games first."""
+    """PICK MODE: one pick per matched game (rule in picks.py); the slate rules decide which open."""
+    if paper:   # enforce the slate rules on picks already open (e.g. after the caps were lowered)
+        voided = picks.trim_slate(store, cfg, now_utc(), parse_ts)
+        if voided:
+            why = {}
+            for _r, w in voided:
+                why[w] = why.get(w, 0) + 1
+            alert(f"SLATE TRIMMED: removed {len(voided)} paper pick(s) before their games\n"
+                  + "\n".join(f"- {n}: {w}" for w, n in why.items())
+                  + f"\n{store.open_count()} picks open.\nhttps://seed808.github.io/kalshi-bot/")
     res = research.cached_research(games, cfg, store)
     if cfg["pick_injury_override"] and games:
         res.update(research.research_games(games, cfg, store))
@@ -381,14 +390,23 @@ def run_picks(games, cfg, store, paper, verbose, skipped):
         if not p:
             entry["why"] = why
             continue
+        no = picks.qualifies(p["prob"], p["cost"], p["source"] == "sportsbooks",
+                             p["pick_type"] in ("upset", "injury"), cfg)
+        if no:   # slate floor: under 55% unless a clear value underdog
+            entry["why"] = no
+            continue
         entry["pick"] = {"team": p["team"], "type": p["pick_type"], "prob": p["prob"], "price": p["ask"],
                          "contracts": None, "status": "new"}
-        cands.append((p, entry))
+        cands.append({"prob": p["prob"], "value": picks.value_per_dollar(p["prob"], p["cost"]),
+                      "is_dog": p["pick_type"] in ("upset", "injury"),
+                      "from_books": p["source"] == "sportsbooks", "pick": p, "entry": entry})
 
-    # Open the best picks first, so if a limit fills, the strongest ones are already in:
-    # sportsbook-backed before Kalshi-price-only, then the highest win chance.
-    cands.sort(key=lambda c: (c[0]["source"] != "sportsbooks", -c[0]["prob"]))
-    for p, entry in cands:
+    # Open in slate order: highest win chance first, with the underdog share of slots held for
+    # value underdogs. Anything past the caps is shown as "not opened".
+    open_dogs = sum(1 for r in store.open_trades() if (r["pick_type"] or "") in ("upset", "injury"))
+    room = cfg["max_open_trades"] - store.open_count()
+    for c in picks.slate_order(cands, room, open_dogs, cfg):
+        p, entry = c["pick"], c["entry"]
         if not paper:
             print(picks.fmt_pick(p))
             continue

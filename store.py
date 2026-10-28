@@ -35,7 +35,9 @@ class Store:
         cols = {r[1] for r in self.con.execute("PRAGMA table_info(trades)")}
         if "pick_type" not in cols:   # pick mode: favorite / upset / injury (NULL for edge-mode trades)
             self.con.execute("ALTER TABLE trades ADD COLUMN pick_type TEXT")
-            self.con.commit()
+        if "void_reason" not in cols:  # status 'void': pick removed from the slate before its game
+            self.con.execute("ALTER TABLE trades ADD COLUMN void_reason TEXT")
+        self.con.commit()
 
     def q(self, sql, args=()):
         return self.con.execute(sql, args).fetchall()
@@ -60,7 +62,8 @@ class Store:
 
     def trades_today(self):
         today = hst_date(now_utc())
-        return sum(1 for r in self.q("SELECT ts FROM trades") if hst_date(parse_ts(r["ts"])) == today)
+        return sum(1 for r in self.q("SELECT ts FROM trades WHERE status != 'void'")
+                   if hst_date(parse_ts(r["ts"])) == today)
 
     def open_count(self):
         return self.q("SELECT COUNT(*) c FROM trades WHERE status='open'")[0]["c"]

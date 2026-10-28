@@ -501,12 +501,16 @@ def picks_howto(cfg):
             f'the better chance to win. If no sportsbook lists the game, it uses Kalshi\'s own prices '
             f'instead, but only when they\'re tight enough to trust. Soccer picks are always a team to win, '
             f'never a tie.</li>'
-            f'<li>About {dog} games in 100, a coin flip sends it to the underdog instead, so it isn\'t '
-            f'all favorites. ' + ('If recent news mentions injuries for the favorite, it also takes '
-            'the underdog.' if cfg["pick_injury_override"] else '') + '</li>'
-            f'<li>Each pick is a ${cfg["pick_stake_dollars"]:,.0f} paper bet at the Kalshi price. A contract '
-            f'pays $1 if your side wins. At most {cfg["max_open_trades"]} picks are open at once and '
-            f'{cfg["max_trades_per_day"]} a day.</li>'
+            f'<li>About {dog} games in 100, a coin flip sends it to the underdog instead. ' +
+            ('If recent news mentions injuries for the favorite, it also takes the underdog. '
+             if cfg["pick_injury_override"] else '') + '</li>'
+            f'<li>A pick makes the slate only with at least a {cfg["pick_min_win_chance"] * 100:.0f}% win '
+            f'chance, or as a clear value underdog: priced by sportsbooks and returning at least '
+            f'{cfg["pick_value_underdog_min_return"] * 100:.0f}% more than it costs, on average.</li>'
+            f'<li>The slate holds up to {cfg["max_open_trades"]} picks, highest win chance first, with about '
+            f'a quarter of the spots kept for value underdogs. At most {cfg["max_trades_per_day"]} new picks '
+            f'a day. Each pick is a ${cfg["pick_stake_dollars"]:,.0f} paper bet at the Kalshi price; a '
+            f'contract pays $1 if your side wins.</li>'
             f'<li><b>Top Pick #</b> ranks open picks by win chance. <b>Best Bet #</b> ranks them by value: '
             f'win chance divided by what a contract costs, including Kalshi\'s fee. A 30% underdog at 25¢ '
             f'can be a better bet than an 80% favorite at 85¢.</li>'
@@ -522,8 +526,7 @@ def render_picks(cfg, store, board, anomalies, skipped):
     strip = (f'<dl class="strip"><div><dt>Record</dt><dd>{wins}–{len(allset) - wins}</dd></div>'
              f'<div><dt>Open picks</dt><dd>{store.open_count()}</dd></div>'
              f'<div><dt>Paper bankroll</dt><dd>${bankroll:,.0f}</dd></div>'
-             f'<div><dt>Games checked</dt><dd>{len(board)}</dd></div>'
-             f'<div><dt>Skipped</dt><dd>{len(skipped or [])}</dd></div></dl>')
+             f'</dl>')
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TheEsness Kalshi picks</title>
@@ -535,10 +538,6 @@ def render_picks(cfg, store, board, anomalies, skipped):
 <p class="updated">Updated {escape(hst(now))}. Refreshes about every hour. Paper picks for fun.</p>{strip}</header>
 {open_picks_box(store, cfg)}
 {picks_howto(cfg)}
-{picks_record_html(store, cfg)}
-{picks_board_html(board)}
-{skipped_html(skipped)}
-{anomalies_html(anomalies)}
 <footer><p>Win chances are the average of several sportsbooks' moneylines with their built-in margin
 removed. Picks are paper bets only. No real orders are ever placed, and nothing here is betting advice.</p></footer>
 </main></body></html>"""

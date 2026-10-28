@@ -102,3 +102,67 @@ def fmt_pick(p, n=None):
     if n:
         line += f', {n} contracts (${n * p["cost"]:,.2f}). Pays ${n:,.2f} if {p["team"]} wins.'
     return line
+
+
+# ================================================================ THE SLATE (which picks get in)
+#   1. Floor: a pick needs at least `pick_min_win_chance` (55%) to win, unless it's a CLEAR VALUE
+#      UNDERDOG: priced by sportsbooks and returning at least `pick_value_underdog_min_return` (8%)
+#      per dollar on average (win chance / cost per contract incl. fee - 1).
+#   2. Order: highest win chance first. Up to `pick_upset_rate` of the open slots (4 of 15) are
+#      held for value underdogs from the coin flip, so the slate isn't pure chalk.
+#   3. Caps: `max_open_trades` open and `max_trades_per_day` new picks a day (risk.check_pick).
+
+def value_per_dollar(prob, cost):
+    return prob / cost - 1 if cost > 0 else -1.0
+
+
+def qualifies(prob, cost, from_books, is_dog, cfg):
+    """Returns None if the pick may go on the slate, else a plain reason why not."""
+    if prob >= cfg["pick_min_win_chance"]:
+        return None
+    if is_dog and from_books and value_per_dollar(prob, cost) >= cfg["pick_value_underdog_min_return"]:
+        return None
+    if is_dog:
+        return "the upset coin picked the underdog, but it isn't a clear value bet"
+    return f'under {cfg["pick_min_win_chance"] * 100:.0f}% win chance, too close to call'
+
+
+def slate_order(items, room, open_dogs, cfg):
+    """items: dicts with prob, value, is_dog, from_books. Returns them in the order to open:
+    favorites by win chance, with up to the underdog share of slots held for value underdogs."""
+    favs = sorted([x for x in items if not x["is_dog"]], key=lambda x: (-x["prob"], not x["from_books"]))
+    dogs = sorted([x for x in items if x["is_dog"]], key=lambda x: -x["value"])
+    dog_slots = max(0, round(cfg["max_open_trades"] * cfg["pick_upset_rate"]) - open_dogs)
+    take_dogs = dogs[:min(dog_slots, max(0, room))]
+    take_favs = favs[:max(0, room - len(take_dogs))]
+    return take_favs + take_dogs + favs[len(take_favs):] + dogs[len(take_dogs):]
+
+
+def trade_item(r):
+    """An open trade row as a slate item."""
+    cost = r["price"] + (r["fee"] / r["contracts"] if r["contracts"] else 0)
+    is_dog = (r["pick_type"] or "") in ("upset", "injury")
+    return {"row": r, "prob": r["prob"], "cost": cost, "value": value_per_dollar(r["prob"], cost),
+            "is_dog": is_dog, "from_books": bool(r["n_books"])}
+
+
+def trim_slate(store, cfg, now, parse_ts):
+    """Void open picks (games not started yet) that break the slate rules or don't fit under the
+    open-pick cap. Voided picks don't count in the record or toward the daily limit."""
+    rows = store.open_trades()
+    started = [r for r in rows if parse_ts(r["start_ts"]) and parse_ts(r["start_ts"]) <= now]
+    started_ids = {r["id"] for r in started}
+    waiting = [trade_item(r) for r in rows if r["id"] not in started_ids]
+    voided = []
+    keep = []
+    for x in waiting:
+        why = qualifies(x["prob"], x["cost"], x["from_books"], x["is_dog"], cfg)
+        (voided.append((x["row"], why)) if why else keep.append(x))
+    room = cfg["max_open_trades"] - len(started)
+    open_dogs = sum(1 for r in started if (r["pick_type"] or "") in ("upset", "injury"))
+    ordered = slate_order(keep, room, open_dogs, cfg)
+    for x in ordered[max(0, room):]:
+        voided.append((x["row"], f'slate trimmed to the best {cfg["max_open_trades"]}'))
+    for r, why in voided:
+        store.x("UPDATE trades SET status='void', void_reason=? WHERE id=?", (why, r["id"]))
+    return voided

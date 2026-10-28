@@ -25,6 +25,8 @@ DEFAULTS = {
     "mode": "picks",
     "pick_stake_dollars": 10.0,
     "pick_upset_rate": 0.25,         # chance of taking the underdog instead of the favorite
+    "pick_min_win_chance": 0.55,     # slate floor: drop picks below this win chance...
+    "pick_value_underdog_min_return": 0.08,  # ...unless a sportsbook-priced underdog returns >= 8%/$
     "pick_injury_override": True,    # strong injury news on the favorite -> take the underdog
     "pick_min_books": 2,             # sportsbooks needed for a consensus in pick mode
     "pick_kalshi_fallback": True,    # no sportsbook line? use Kalshi's own prices to find the favorite
@@ -141,8 +143,8 @@ DEFAULTS = {
     "kelly_fraction": 0.25,
     "max_stake_pct": 0.05,
     "max_open_exposure_pct": 0.6,
-    "max_open_trades": 50,
-    "max_trades_per_day": 50,
+    "max_open_trades": 15,
+    "max_trades_per_day": 15,
     "daily_loss_limit_pct": 0.25,
     # ---- step 5: postmortem / learning
     "learn_window": 40,

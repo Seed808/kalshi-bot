@@ -80,9 +80,11 @@
   "kelly_fraction": 0.25,
   "max_stake_pct": 0.05,
   "max_open_exposure_pct": 0.6,
-  "max_open_trades": 50,
-  "max_trades_per_day": 50,
+  "max_open_trades": 15,
+  "max_trades_per_day": 15,
   "daily_loss_limit_pct": 0.25,
   "pick_kalshi_fallback": true,
-  "pick_kalshi_max_spread": 0.1
+  "pick_kalshi_max_spread": 0.1,
+  "pick_min_win_chance": 0.55,
+  "pick_value_underdog_min_return": 0.08
 }

@@ -20,6 +20,7 @@ from store import Store  # noqa: E402
 
 work = tempfile.mkdtemp()
 os.chdir(work)
+open("config.json", "w").write(json.dumps({"pick_min_win_chance": 0}))   # mechanics test: no floor
 os.environ["ODDS_API_KEY"] = "test"
 for k in ("TELEGRAM_BOT_TOKEN", "DISCORD_WEBHOOK_URL", "NTFY_TOPIC", "X_BEARER_TOKEN", "REDDIT_CLIENT_ID"):
     os.environ.pop(k, None)
@@ -158,7 +159,7 @@ assert "Kalshi prices give" in msg and "Sportsbooks give" in msg
 html = open("docs/index.html").read()
 for lab in ("Premier League", "MLS", "NCAA Hockey", "UFC", "NCAA Men&#x27;s Basketball"):
     assert f'<p class="sport">{lab}</p>' in html, lab
-assert "no sportsbook line: Kalshi prices" in html
+assert "Kalshi prices give" in html
 
 for p in patches:
     p.stop()
