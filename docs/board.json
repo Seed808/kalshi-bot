@@ -1,437 +1,35 @@
 {
- "updated": "2026-10-28T04:55:43.334355+00:00",
+ "updated": "2026-10-28T05:25:14.025664+00:00",
+ "mode": "picks",
  "board": [
   {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT28LALLAC",
-   "matchup": "Los Angeles Lakers @ Los Angeles Clippers",
-   "start": "2026-10-29T02:40:00+00:00",
-   "books": 4,
+   "series": "KXATPMATCH",
+   "event_ticker": "KXATPMATCH-26OCT28BORRUU",
+   "matchup": "Nuno Borges vs Casper Ruud",
+   "start": "2026-10-28T13:00:00+00:00",
+   "books": 8,
+   "odds_age_min": 202.09607549999998,
    "sides": [
     {
-     "name": "Los Angeles Lakers",
-     "bid": 0.63,
-     "ask": 0.65,
-     "route": "no on opponent",
-     "fair": 0.6399582211112175,
-     "ev": -0.025966778888782516
+     "name": "Casper Ruud",
+     "fair": 0.6546195863139603,
+     "ask": 0.66
     },
     {
-     "name": "Los Angeles Clippers",
-     "bid": 0.35,
-     "ask": 0.37,
-     "route": "no on opponent",
-     "fair": 0.3600417788887825,
-     "ev": -0.026275221111217495
+     "name": "Nuno Borges",
+     "fair": 0.3453804136860396,
+     "ask": 0.35
     }
    ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT28OKCDAL",
-   "matchup": "Oklahoma City Thunder @ Dallas Mavericks",
-   "start": "2026-10-29T01:40:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Oklahoma City Thunder",
-     "bid": 0.67,
-     "ask": 0.68,
-     "route": "yes",
-     "fair": 0.6666468359878477,
-     "ev": -0.028585164012152386
-    },
-    {
-     "name": "Dallas Mavericks",
-     "bid": 0.31,
-     "ask": 0.32,
-     "route": "yes",
-     "fair": 0.33335316401215226,
-     "ev": -0.0018788359878477712
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT28SASUTA",
-   "matchup": "San Antonio Spurs @ Utah Jazz",
-   "start": "2026-10-29T01:10:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Utah Jazz",
-     "bid": 0.15,
-     "ask": 0.16,
-     "route": "no on opponent",
-     "fair": 0.17757862572665462,
-     "ev": 0.008170625726654612
-    },
-    {
-     "name": "San Antonio Spurs",
-     "bid": 0.84,
-     "ask": 0.85,
-     "route": "no on opponent",
-     "fair": 0.8224213742733454,
-     "ev": -0.036503625726654554
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT28DENNOP",
-   "matchup": "Denver Nuggets @ New Orleans Pelicans",
-   "start": "2026-10-29T00:10:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "New Orleans Pelicans",
-     "bid": 0.34,
-     "ask": 0.35,
-     "route": "no on opponent",
-     "fair": 0.36134030231587594,
-     "ev": -0.004584697684124062
-    },
-    {
-     "name": "Denver Nuggets",
-     "bid": 0.65,
-     "ask": 0.66,
-     "route": "no on opponent",
-     "fair": 0.6386596976841241,
-     "ev": -0.03704830231587586
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT28GSWMIN",
-   "matchup": "Golden State Warriors @ Minnesota Timberwolves",
-   "start": "2026-10-29T00:10:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Minnesota Timberwolves",
-     "bid": 0.58,
-     "ask": 0.59,
-     "route": "no on opponent",
-     "fair": 0.5801039269794924,
-     "ev": -0.02682907302050752
-    },
-    {
-     "name": "Golden State Warriors",
-     "bid": 0.41,
-     "ask": 0.42,
-     "route": "no on opponent",
-     "fair": 0.4198960730205076,
-     "ev": -0.01715592697949242
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT28HOUMIL",
-   "matchup": "Houston Rockets @ Milwaukee Bucks",
-   "start": "2026-10-29T00:10:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Milwaukee Bucks",
-     "bid": 0.25,
-     "ask": 0.26,
-     "route": "no on opponent",
-     "fair": 0.26588855473852496,
-     "ev": -0.007579445261475026
-    },
-    {
-     "name": "Houston Rockets",
-     "bid": 0.74,
-     "ask": 0.75,
-     "route": "no on opponent",
-     "fair": 0.734111445261475,
-     "ev": -0.02901355473852507
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT28NYKCHI",
-   "matchup": "New York Knicks @ Chicago Bulls",
-   "start": "2026-10-29T00:10:00+00:00",
-   "books": 4,
-   "sides": [
-    {
-     "name": "New York Knicks",
-     "bid": 0.69,
-     "ask": 0.71,
-     "route": "no on opponent",
-     "fair": 0.692277814631571,
-     "ev": -0.032135185368428965
-    },
-    {
-     "name": "Chicago Bulls",
-     "bid": 0.29,
-     "ask": 0.3,
-     "route": "yes",
-     "fair": 0.307722185368429,
-     "ev": -0.006977814631570989
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT28ORLTOR",
-   "matchup": "Orlando Magic @ Toronto Raptors",
-   "start": "2026-10-28T23:40:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Toronto Raptors",
-     "bid": 0.63,
-     "ask": 0.64,
-     "route": "yes",
-     "fair": 0.6249128318363271,
-     "ev": -0.03121516816367298
-    },
-    {
-     "name": "Orlando Magic",
-     "bid": 0.35,
-     "ask": 0.36,
-     "route": "yes",
-     "fair": 0.37508716816367293,
-     "ev": -0.0010408318363270275
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT28PHIIND",
-   "matchup": "Philadelphia 76ers @ Indiana Pacers",
-   "start": "2026-10-28T23:10:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Philadelphia 76ers",
-     "bid": 0.62,
-     "ask": 0.62,
-     "route": "no on opponent",
-     "fair": 0.6128686697657402,
-     "ev": -0.023623330234259776
-    },
-    {
-     "name": "Indiana Pacers",
-     "bid": 0.38,
-     "ask": 0.38,
-     "route": "no on opponent",
-     "fair": 0.3871313302342599,
-     "ev": -0.009360669765740126
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT28CHADET",
-   "matchup": "Charlotte Hornets @ Detroit Pistons",
-   "start": "2026-10-28T23:10:00+00:00",
-   "books": 4,
-   "sides": [
-    {
-     "name": "Detroit Pistons",
-     "bid": 0.69,
-     "ask": 0.7,
-     "route": "no on opponent",
-     "fair": 0.7036105220393891,
-     "ev": -0.011089477960610883
-    },
-    {
-     "name": "Charlotte Hornets",
-     "bid": 0.3,
-     "ask": 0.31,
-     "route": "no on opponent",
-     "fair": 0.2963894779606109,
-     "ev": -0.02858352203938913
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT28WASCLE",
-   "matchup": "Washington Wizards @ Cleveland Cavaliers",
-   "start": "2026-10-28T23:10:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Washington Wizards",
-     "bid": 0.21,
-     "ask": 0.22,
-     "route": "no on opponent",
-     "fair": 0.23137382298739895,
-     "ev": -0.0006381770126010489
-    },
-    {
-     "name": "Cleveland Cavaliers",
-     "bid": 0.78,
-     "ask": 0.79,
-     "route": "no on opponent",
-     "fair": 0.768626177012601,
-     "ev": -0.03298682298739897
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNBAGAME",
-   "event_ticker": "KXNBAGAME-26OCT28MIAATL",
-   "matchup": "Miami Heat @ Atlanta Hawks",
-   "start": "2026-10-28T23:10:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Miami Heat",
-     "bid": 0.42,
-     "ask": 0.43,
-     "route": "no on opponent",
-     "fair": 0.4133257099809048,
-     "ev": -0.033831290019095184
-    },
-    {
-     "name": "Atlanta Hawks",
-     "bid": 0.57,
-     "ask": 0.58,
-     "route": "no on opponent",
-     "fair": 0.5866742900190952,
-     "ev": -0.010377709980904704
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26OCT28TORSEA",
-   "matchup": "Toronto Maple Leafs @ Seattle Kraken",
-   "start": "2026-10-29T02:10:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Toronto Maple Leafs",
-     "bid": 0.51,
-     "ask": 0.52,
-     "route": "yes",
-     "fair": 0.5193529474636297,
-     "ev": -0.01811905253637036
-    },
-    {
-     "name": "Seattle Kraken",
-     "bid": 0.47,
-     "ask": 0.48,
-     "route": "yes",
-     "fair": 0.4806470525363703,
-     "ev": -0.01682494746362967
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26OCT28NJCOL",
-   "matchup": "New Jersey Devils @ Colorado Avalanche",
-   "start": "2026-10-29T01:10:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "New Jersey Devils",
-     "bid": 0.37,
-     "ask": 0.38,
-     "route": "yes",
-     "fair": 0.383072699006465,
-     "ev": -0.013419300993535
-    },
-    {
-     "name": "Colorado Avalanche",
-     "bid": 0.61,
-     "ask": 0.62,
-     "route": "yes",
-     "fair": 0.616927300993535,
-     "ev": -0.01956469900646496
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26OCT28CGYEDM",
-   "matchup": "Calgary Flames @ Edmonton Oilers",
-   "start": "2026-10-29T00:40:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Edmonton Oilers",
-     "bid": 0.65,
-     "ask": 0.66,
-     "route": "yes",
-     "fair": 0.655064051732055,
-     "ev": -0.020643948267945023
-    },
-    {
-     "name": "Calgary Flames",
-     "bid": 0.33,
-     "ask": 0.34,
-     "route": "yes",
-     "fair": 0.34493594826794505,
-     "ev": -0.010772051732054977
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
-  },
-  {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26OCT28PHIWSH",
-   "matchup": "Philadelphia Flyers @ Washington Capitals",
-   "start": "2026-10-28T23:40:00+00:00",
-   "books": 9,
-   "sides": [
-    {
-     "name": "Washington Capitals",
-     "bid": 0.67,
-     "ask": 0.68,
-     "route": "no on opponent",
-     "fair": 0.6682795890545351,
-     "ev": -0.026952410945464966
-    },
-    {
-     "name": "Philadelphia Flyers",
-     "bid": 0.32,
-     "ask": 0.33,
-     "route": "no on opponent",
-     "fair": 0.3317204109454649,
-     "ev": -0.01375658905453514
-    }
-   ],
-   "why": "odds stale",
-   "signal": null
+   "pick": {
+    "team": "Casper Ruud",
+    "type": "favorite",
+    "prob": 0.6546195863139603,
+    "price": 0.66,
+    "contracts": 14,
+    "status": "open"
+   },
+   "why": null
   },
   {
    "series": "KXATPMATCH",
@@ -439,53 +37,463 @@
    "matchup": "Jakub Mensik vs Adrian Mannarino",
    "start": "2026-10-28T14:50:00+00:00",
    "books": 7,
+   "odds_age_min": 202.45443311666668,
    "sides": [
     {
      "name": "Jakub Mensik",
-     "bid": 0.8,
-     "ask": 0.81,
-     "route": "no on opponent",
      "fair": 0.7909245918316695,
-     "ev": -0.029848408168330565
+     "ask": 0.81
     },
     {
      "name": "Adrian Mannarino",
-     "bid": 0.19,
-     "ask": 0.2,
-     "route": "no on opponent",
      "fair": 0.20907540816833048,
-     "ev": -0.00212459183166952
+     "ask": 0.2
     }
    ],
-   "why": "odds stale",
-   "signal": null
+   "pick": {
+    "team": "Jakub Mensik",
+    "type": "favorite",
+    "prob": 0.7909245918316695,
+    "price": 0.81,
+    "contracts": 12,
+    "status": "open"
+   },
+   "why": null
   },
   {
-   "series": "KXATPMATCH",
-   "event_ticker": "KXATPMATCH-26OCT28BORRUU",
-   "matchup": "Nuno Borges vs Casper Ruud",
-   "start": "2026-10-28T13:00:00+00:00",
-   "books": 8,
+   "series": "KXNCAAFGAME",
+   "event_ticker": "KXNCAAFGAME-26OCT28KENNMTU",
+   "matchup": "Kennesaw State Owls @ Middle Tennessee Blue Raiders",
+   "start": "2026-10-28T23:00:00+00:00",
+   "books": 9,
+   "odds_age_min": 201.96850631666666,
    "sides": [
     {
-     "name": "Casper Ruud",
-     "bid": 0.65,
-     "ask": 0.66,
-     "route": "no on opponent",
-     "fair": 0.6546195863139603,
-     "ev": -0.021088413686039642
+     "name": "Middle Tennessee Blue Raiders",
+     "fair": 0.559133653839277,
+     "ask": 0.55
     },
     {
-     "name": "Nuno Borges",
-     "bid": 0.34,
-     "ask": 0.35,
-     "route": "no on opponent",
-     "fair": 0.3453804136860396,
-     "ev": -0.02054458631396039
+     "name": "Kennesaw State Owls",
+     "fair": 0.44086634616072296,
+     "ask": 0.46
     }
    ],
-   "why": "odds stale",
-   "signal": null
+   "pick": {
+    "team": "Middle Tennessee Blue Raiders",
+    "type": "favorite",
+    "prob": 0.559133653839277,
+    "price": 0.55,
+    "contracts": 17,
+    "status": "open"
+   },
+   "why": null
+  },
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT28PHIIND",
+   "matchup": "Philadelphia 76ers @ Indiana Pacers",
+   "start": "2026-10-28T23:10:00+00:00",
+   "books": 9,
+   "odds_age_min": 149.78190775,
+   "sides": [
+    {
+     "name": "Philadelphia 76ers",
+     "fair": 0.6128686697657402,
+     "ask": 0.63
+    },
+    {
+     "name": "Indiana Pacers",
+     "fair": 0.3871313302342599,
+     "ask": 0.38
+    }
+   ],
+   "pick": {
+    "team": "Philadelphia 76ers",
+    "type": "favorite",
+    "prob": 0.6128686697657402,
+    "price": 0.63,
+    "contracts": 15,
+    "status": "open"
+   },
+   "why": null
+  },
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT28CHADET",
+   "matchup": "Charlotte Hornets @ Detroit Pistons",
+   "start": "2026-10-28T23:10:00+00:00",
+   "books": 4,
+   "odds_age_min": 149.94857441666667,
+   "sides": [
+    {
+     "name": "Detroit Pistons",
+     "fair": 0.7036105220393891,
+     "ask": 0.69
+    },
+    {
+     "name": "Charlotte Hornets",
+     "fair": 0.2963894779606109,
+     "ask": 0.32
+    }
+   ],
+   "pick": {
+    "team": "Detroit Pistons",
+    "type": "favorite",
+    "prob": 0.7036105220393891,
+    "price": 0.69,
+    "contracts": 14,
+    "status": "open"
+   },
+   "why": null
+  },
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT28WASCLE",
+   "matchup": "Washington Wizards @ Cleveland Cavaliers",
+   "start": "2026-10-28T23:10:00+00:00",
+   "books": 9,
+   "odds_age_min": 149.78190775,
+   "sides": [
+    {
+     "name": "Washington Wizards",
+     "fair": 0.23137382298739895,
+     "ask": 0.22
+    },
+    {
+     "name": "Cleveland Cavaliers",
+     "fair": 0.768626177012601,
+     "ask": 0.79
+    }
+   ],
+   "pick": {
+    "team": "Cleveland Cavaliers",
+    "type": "favorite",
+    "prob": 0.768626177012601,
+    "price": 0.79,
+    "contracts": 12,
+    "status": "open"
+   },
+   "why": null
+  },
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT28MIAATL",
+   "matchup": "Miami Heat @ Atlanta Hawks",
+   "start": "2026-10-28T23:10:00+00:00",
+   "books": 9,
+   "odds_age_min": 149.78190775,
+   "sides": [
+    {
+     "name": "Miami Heat",
+     "fair": 0.4133257099809048,
+     "ask": 0.43
+    },
+    {
+     "name": "Atlanta Hawks",
+     "fair": 0.5866742900190952,
+     "ask": 0.58
+    }
+   ],
+   "pick": {
+    "team": "Atlanta Hawks",
+    "type": "favorite",
+    "prob": 0.5866742900190952,
+    "price": 0.58,
+    "contracts": 16,
+    "status": "open"
+   },
+   "why": null
+  },
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT28ORLTOR",
+   "matchup": "Orlando Magic @ Toronto Raptors",
+   "start": "2026-10-28T23:40:00+00:00",
+   "books": 9,
+   "odds_age_min": 149.78190775,
+   "sides": [
+    {
+     "name": "Toronto Raptors",
+     "fair": 0.6249128318363271,
+     "ask": 0.64
+    },
+    {
+     "name": "Orlando Magic",
+     "fair": 0.37508716816367293,
+     "ask": 0.36
+    }
+   ],
+   "pick": {
+    "team": "Toronto Raptors",
+    "type": "favorite",
+    "prob": 0.6249128318363271,
+    "price": 0.64,
+    "contracts": 15,
+    "status": "open"
+   },
+   "why": null
+  },
+  {
+   "series": "KXNHLGAME",
+   "event_ticker": "KXNHLGAME-26OCT28PHIWSH",
+   "matchup": "Philadelphia Flyers @ Washington Capitals",
+   "start": "2026-10-28T23:40:00+00:00",
+   "books": 9,
+   "odds_age_min": 150.06722415000002,
+   "sides": [
+    {
+     "name": "Washington Capitals",
+     "fair": 0.6682795890545351,
+     "ask": 0.68
+    },
+    {
+     "name": "Philadelphia Flyers",
+     "fair": 0.3317204109454649,
+     "ask": 0.33
+    }
+   ],
+   "pick": {
+    "team": "Washington Capitals",
+    "type": "favorite",
+    "prob": 0.6682795890545351,
+    "price": 0.68,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached"
+  },
+  {
+   "series": "KXNCAAFGAME",
+   "event_ticker": "KXNCAAFGAME-26OCT28JVSTNMSU",
+   "matchup": "Jacksonville State Gamecocks @ New Mexico State Aggies",
+   "start": "2026-10-29T00:00:00+00:00",
+   "books": 9,
+   "odds_age_min": 201.96850631666666,
+   "sides": [
+    {
+     "name": "New Mexico State Aggies",
+     "fair": 0.4097369156897091,
+     "ask": 0.41
+    },
+    {
+     "name": "Jacksonville State Gamecocks",
+     "fair": 0.590263084310291,
+     "ask": 0.59
+    }
+   ],
+   "pick": {
+    "team": "Jacksonville State Gamecocks",
+    "type": "favorite",
+    "prob": 0.590263084310291,
+    "price": 0.59,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached"
+  },
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT28DENNOP",
+   "matchup": "Denver Nuggets @ New Orleans Pelicans",
+   "start": "2026-10-29T00:10:00+00:00",
+   "books": 9,
+   "odds_age_min": 149.78190775,
+   "sides": [
+    {
+     "name": "New Orleans Pelicans",
+     "fair": 0.36134030231587594,
+     "ask": 0.35
+    },
+    {
+     "name": "Denver Nuggets",
+     "fair": 0.6386596976841241,
+     "ask": 0.65
+    }
+   ],
+   "pick": {
+    "team": "New Orleans Pelicans",
+    "type": "upset",
+    "prob": 0.36134030231587594,
+    "price": 0.35,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached"
+  },
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT28GSWMIN",
+   "matchup": "Golden State Warriors @ Minnesota Timberwolves",
+   "start": "2026-10-29T00:10:00+00:00",
+   "books": 9,
+   "odds_age_min": 149.78190775,
+   "sides": [
+    {
+     "name": "Minnesota Timberwolves",
+     "fair": 0.5801039269794924,
+     "ask": 0.59
+    },
+    {
+     "name": "Golden State Warriors",
+     "fair": 0.4198960730205076,
+     "ask": 0.42
+    }
+   ],
+   "pick": {
+    "team": "Minnesota Timberwolves",
+    "type": "favorite",
+    "prob": 0.5801039269794924,
+    "price": 0.59,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached"
+  },
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT28HOUMIL",
+   "matchup": "Houston Rockets @ Milwaukee Bucks",
+   "start": "2026-10-29T00:10:00+00:00",
+   "books": 9,
+   "odds_age_min": 149.78190775,
+   "sides": [
+    {
+     "name": "Milwaukee Bucks",
+     "fair": 0.26588855473852496,
+     "ask": 0.26
+    },
+    {
+     "name": "Houston Rockets",
+     "fair": 0.734111445261475,
+     "ask": 0.75
+    }
+   ],
+   "pick": {
+    "team": "Houston Rockets",
+    "type": "favorite",
+    "prob": 0.734111445261475,
+    "price": 0.75,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached"
+  },
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT28NYKCHI",
+   "matchup": "New York Knicks @ Chicago Bulls",
+   "start": "2026-10-29T00:10:00+00:00",
+   "books": 4,
+   "odds_age_min": 149.94857441666667,
+   "sides": [
+    {
+     "name": "New York Knicks",
+     "fair": 0.692277814631571,
+     "ask": 0.71
+    },
+    {
+     "name": "Chicago Bulls",
+     "fair": 0.307722185368429,
+     "ask": 0.3
+    }
+   ],
+   "pick": {
+    "team": "Chicago Bulls",
+    "type": "upset",
+    "prob": 0.307722185368429,
+    "price": 0.3,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached"
+  },
+  {
+   "series": "KXNHLGAME",
+   "event_ticker": "KXNHLGAME-26OCT28CGYEDM",
+   "matchup": "Calgary Flames @ Edmonton Oilers",
+   "start": "2026-10-29T00:40:00+00:00",
+   "books": 9,
+   "odds_age_min": 149.71722415000002,
+   "sides": [
+    {
+     "name": "Edmonton Oilers",
+     "fair": 0.655064051732055,
+     "ask": 0.66
+    },
+    {
+     "name": "Calgary Flames",
+     "fair": 0.34493594826794505,
+     "ask": 0.34
+    }
+   ],
+   "pick": {
+    "team": "Edmonton Oilers",
+    "type": "favorite",
+    "prob": 0.655064051732055,
+    "price": 0.66,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached"
+  },
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT28SASUTA",
+   "matchup": "San Antonio Spurs @ Utah Jazz",
+   "start": "2026-10-29T01:10:00+00:00",
+   "books": 9,
+   "odds_age_min": 149.78190775,
+   "sides": [
+    {
+     "name": "Utah Jazz",
+     "fair": 0.17757862572665462,
+     "ask": 0.16
+    },
+    {
+     "name": "San Antonio Spurs",
+     "fair": 0.8224213742733454,
+     "ask": 0.85
+    }
+   ],
+   "pick": {
+    "team": "San Antonio Spurs",
+    "type": "favorite",
+    "prob": 0.8224213742733454,
+    "price": 0.85,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached"
+  },
+  {
+   "series": "KXNHLGAME",
+   "event_ticker": "KXNHLGAME-26OCT28NJCOL",
+   "matchup": "New Jersey Devils @ Colorado Avalanche",
+   "start": "2026-10-29T01:10:00+00:00",
+   "books": 9,
+   "odds_age_min": 150.06722415000002,
+   "sides": [
+    {
+     "name": "New Jersey Devils",
+     "fair": 0.383072699006465,
+     "ask": 0.38
+    },
+    {
+     "name": "Colorado Avalanche",
+     "fair": 0.616927300993535,
+     "ask": 0.62
+    }
+   ],
+   "pick": {
+    "team": "Colorado Avalanche",
+    "type": "favorite",
+    "prob": 0.616927300993535,
+    "price": 0.62,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached"
   },
   {
    "series": "KXWTAMATCH",
@@ -493,26 +501,225 @@
    "matchup": "Naomi Osaka vs Mia Poh\u00e1nkov\u00e1",
    "start": "2026-10-29T01:30:00+00:00",
    "books": 6,
+   "odds_age_min": 202.13087678333335,
    "sides": [
     {
      "name": "Mia Poh\u00e1nkov\u00e1",
-     "bid": 0.21,
-     "ask": 0.21,
-     "route": "no on opponent",
      "fair": 0.24353814040094157,
-     "ev": 0.021925140400941567
+     "ask": 0.21
     },
     {
      "name": "Naomi Osaka",
-     "bid": 0.79,
-     "ask": 0.79,
-     "route": "no on opponent",
      "fair": 0.7564618595990584,
-     "ev": -0.04515114040094159
+     "ask": 0.79
     }
    ],
-   "why": "odds stale",
-   "signal": null
+   "pick": {
+    "team": "Naomi Osaka",
+    "type": "favorite",
+    "prob": 0.7564618595990584,
+    "price": 0.79,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached"
+  },
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT28OKCDAL",
+   "matchup": "Oklahoma City Thunder @ Dallas Mavericks",
+   "start": "2026-10-29T01:40:00+00:00",
+   "books": 9,
+   "odds_age_min": 149.78190775,
+   "sides": [
+    {
+     "name": "Oklahoma City Thunder",
+     "fair": 0.6666468359878477,
+     "ask": 0.68
+    },
+    {
+     "name": "Dallas Mavericks",
+     "fair": 0.33335316401215226,
+     "ask": 0.32
+    }
+   ],
+   "pick": {
+    "team": "Oklahoma City Thunder",
+    "type": "favorite",
+    "prob": 0.6666468359878477,
+    "price": 0.68,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached"
+  },
+  {
+   "series": "KXNHLGAME",
+   "event_ticker": "KXNHLGAME-26OCT28TORSEA",
+   "matchup": "Toronto Maple Leafs @ Seattle Kraken",
+   "start": "2026-10-29T02:10:00+00:00",
+   "books": 9,
+   "odds_age_min": 149.71722415000002,
+   "sides": [
+    {
+     "name": "Toronto Maple Leafs",
+     "fair": 0.5193529474636297,
+     "ask": 0.52
+    },
+    {
+     "name": "Seattle Kraken",
+     "fair": 0.4806470525363703,
+     "ask": 0.48
+    }
+   ],
+   "pick": {
+    "team": "Seattle Kraken",
+    "type": "upset",
+    "prob": 0.4806470525363703,
+    "price": 0.48,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached"
+  },
+  {
+   "series": "KXNBAGAME",
+   "event_ticker": "KXNBAGAME-26OCT28LALLAC",
+   "matchup": "Los Angeles Lakers @ Los Angeles Clippers",
+   "start": "2026-10-29T02:40:00+00:00",
+   "books": 4,
+   "odds_age_min": 149.94857441666667,
+   "sides": [
+    {
+     "name": "Los Angeles Lakers",
+     "fair": 0.6399582211112175,
+     "ask": 0.64
+    },
+    {
+     "name": "Los Angeles Clippers",
+     "fair": 0.3600417788887825,
+     "ask": 0.37
+    }
+   ],
+   "pick": {
+    "team": "Los Angeles Lakers",
+    "type": "favorite",
+    "prob": 0.6399582211112175,
+    "price": 0.64,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (8) reached"
+  }
+ ],
+ "skipped": [
+  {
+   "series": "KXMLBGAME",
+   "names": [
+    "Tampa Bay",
+    "Milwaukee"
+   ],
+   "ends": "2026-10-29T03:00:00+00:00",
+   "reason": "not found at the sportsbooks (or too few books price it)"
+  },
+  {
+   "series": "KXATPMATCH",
+   "names": [
+    "Flavio Cobolli",
+    "Matteo Berrettini"
+   ],
+   "ends": "2026-10-28T15:30:00+00:00",
+   "reason": "not found at the sportsbooks (or too few books price it)"
+  },
+  {
+   "series": "KXATPMATCH",
+   "names": [
+    "Jiri Lehecka",
+    "Daniel Altmaier"
+   ],
+   "ends": "2026-10-28T16:00:00+00:00",
+   "reason": "not found at the sportsbooks (or too few books price it)"
+  },
+  {
+   "series": "KXATPMATCH",
+   "names": [
+    "Holger Rune",
+    "Hubert Hurkacz"
+   ],
+   "ends": "2026-10-28T16:00:00+00:00",
+   "reason": "not found at the sportsbooks (or too few books price it)"
+  },
+  {
+   "series": "KXATPMATCH",
+   "names": [
+    "Learner Tien",
+    "Alex de Minaur"
+   ],
+   "ends": "2026-10-28T13:30:00+00:00",
+   "reason": "not found at the sportsbooks (or too few books price it)"
+  },
+  {
+   "series": "KXWTAMATCH",
+   "names": [
+    "Lilli Tagger",
+    "Magda Linette"
+   ],
+   "ends": "2026-10-29T08:00:00+00:00",
+   "reason": "not found at the sportsbooks (or too few books price it)"
+  },
+  {
+   "series": "KXWTAMATCH",
+   "names": [
+    "Maria Timofeeva",
+    "Xinran Sun"
+   ],
+   "ends": "2026-10-29T08:00:00+00:00",
+   "reason": "not found at the sportsbooks (or too few books price it)"
+  },
+  {
+   "series": "KXWTAMATCH",
+   "names": [
+    "Janice Tjen",
+    "Harriet Dart"
+   ],
+   "ends": "2026-10-28T08:00:00+00:00",
+   "reason": "not found at the sportsbooks (or too few books price it)"
+  },
+  {
+   "series": "KXWTAMATCH",
+   "names": [
+    "Dayana Yastremska",
+    "Han Shi"
+   ],
+   "ends": "2026-10-28T08:00:00+00:00",
+   "reason": "not found at the sportsbooks (or too few books price it)"
+  },
+  {
+   "series": "KXWTAMATCH",
+   "names": [
+    "Jil Teichmann",
+    "Zeynep Sonmez"
+   ],
+   "ends": "2026-10-28T08:00:00+00:00",
+   "reason": "not found at the sportsbooks (or too few books price it)"
+  },
+  {
+   "series": "KXWTAMATCH",
+   "names": [
+    "Kaitlin Quevedo",
+    "Anna Bondar"
+   ],
+   "ends": "2026-10-28T08:00:00+00:00",
+   "reason": "not found at the sportsbooks (or too few books price it)"
+  },
+  {
+   "series": "KXWTAMATCH",
+   "names": [
+    "Sinja Kraus",
+    "Paula Badosa"
+   ],
+   "ends": "2026-10-28T08:00:00+00:00",
+   "reason": "not found at the sportsbooks (or too few books price it)"
   }
  ]
 }
