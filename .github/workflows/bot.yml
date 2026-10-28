@@ -10,6 +10,10 @@ on:
         type: choice
         default: paper
         options: [paper, discover, test-alert, sample-alert]
+      query:
+        description: "discover only: comma-separated keywords, or h2h for every game/match/fight series"
+        type: string
+        default: "h2h"
 
 permissions:
   contents: write              # lets the run save its paper-trade history back to the repo
@@ -43,7 +47,8 @@ jobs:
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
           REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
           REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
-        run: python main.py ${{ github.event.inputs.command || 'paper' }} -v 2>&1 | tee last_run.log
+          QUERY: ${{ github.event.inputs.query || 'h2h' }}
+        run: python main.py ${{ github.event.inputs.command || 'paper' }} --q "$QUERY" -v 2>&1 | tee last_run.log
 
       - name: Report to run summary
         if: always()

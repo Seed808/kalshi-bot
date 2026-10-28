@@ -588,10 +588,16 @@ def main():
 
 def discover(q):
     """Find Kalshi series + Odds API sport keys for new sports. Uses NO odds credits."""
+    import re as _re
     kws = [k.strip().lower() for k in q.split(",") if k.strip()]
-    hit = lambda s: any(k in s.lower() for k in kws)
     series = http_get(f"{KALSHI}/series", {"category": "Sports"}).json().get("series", [])
-    found = [s for s in series if hit(f'{s.get("ticker", "")} {s.get("title", "")}')]
+    if kws == ["h2h"]:   # every head-to-head winner series: games, matches, fights, bouts
+        pat = _re.compile(r"(GAME|MATCH|FIGHT|BOUT)$")
+        found = [s for s in series if pat.search(s.get("ticker", ""))]
+        hit = lambda s: True
+    else:
+        hit = lambda s: any(k in s.lower() for k in kws)
+        found = [s for s in series if hit(f'{s.get("ticker", "")} {s.get("title", "")}')]
     print(f"== Kalshi Sports series matching {kws}: {len(found)}")
     for s in found:
         print(f'  {s.get("ticker"):<28} {s.get("title")}')
@@ -600,8 +606,10 @@ def discover(q):
         evs = {}
         for m in ms:
             evs.setdefault(m["event_ticker"], []).append(m)
-        print(f'\n== {s["ticker"]}: {len(ms)} open markets, {len(evs)} events; sample:')
-        for et, mk in list(evs.items())[:4]:
+        print(f'\n== {s["ticker"]} ({s.get("title")}): {len(ms)} open markets, {len(evs)} events; sample:')
+        if not ms:
+            continue
+        for et, mk in list(evs.items())[:(2 if kws == ["h2h"] else 4)]:
             print(f"  {et} ({len(mk)} mkts) title={mk[0].get('title')!r}")
             for m in mk[:3]:
                 print(f"    {m['ticker']} yes_sub={m.get('yes_sub_title')!r} "
@@ -612,9 +620,9 @@ def discover(q):
     key = os.environ.get("ODDS_API_KEY")
     if key:   # /v4/sports does not count against the Odds API quota
         sp = http_get(f"https://api.the-odds-api.com/v4/sports", {"apiKey": key}).json()
-        print(f"\n== Odds API sport keys matching {kws} (in season):")
+        print(f"\n== Odds API sport keys {'(all in season)' if kws == ['h2h'] else f'matching {kws}'}:")
         for s in sp:
-            if hit(f'{s.get("key")} {s.get("title")} {s.get("group")}'):
+            if kws == ["h2h"] or hit(f'{s.get("key")} {s.get("title")} {s.get("group")}'):
                 print(f'  {s.get("key"):<40} {s.get("title")} | active={s.get("active")} '
                       f'| outrights={s.get("has_outrights")}')
 
