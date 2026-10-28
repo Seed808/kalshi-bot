@@ -138,7 +138,12 @@ board = json.load(open("docs/board.json"))
 sk = board["skipped"]
 assert any("Portland" in x["names"] and "too thin" in x["reason"] for x in sk), sk
 html = open("docs/index.html").read()
-assert f"{len(GAMES)} open picks" in html and "Games skipped" in html and "Portland vs Memphis" in html
+assert "<h2>Top Picks</h2>" in html and "Games skipped" in html and "Portland vs Memphis" in html
+assert f"Best Bet #1 of {len(GAMES)}" in html and f"Best Bet #{len(GAMES)} of {len(GAMES)}" in html
+# cards run strongest first: Best Bet #1 is the highest win chance
+import re as _re
+card_probs = [int(x) for x in _re.findall(r"give [^<]*? (\d+)%\.</p>", html.split("<h2>Top Picks</h2>")[1].split("For fun only")[0])]
+assert card_probs == sorted(card_probs, reverse=True), card_probs
 assert '<p class="sport">NBA</p>' in html
 
 # ---- re-run: no duplicates, board shows the earlier picks

@@ -378,15 +378,21 @@ def opponent_of(matchup, team):
     return ""
 
 
+def rank_key(r):
+    """Best Bet order: highest win chance first; on a tie, sportsbook-backed before Kalshi-only."""
+    return (-r["prob"], 0 if r["n_books"] else 1, r["start_ts"] or "")
+
+
 def open_picks_box(store, cfg):
-    rows = sorted(store.open_trades(), key=lambda r: r["start_ts"] or "")
+    rows = sorted(store.open_trades(), key=rank_key)
     now = now_utc()
     if not rows:
         return ('<section class="plays none"><h2>No open picks right now</h2><p>The bot picks every '
                 'matched game starting in the next 36 hours. New picks show up here after the next '
                 'hourly run.</p></section>')
     cards = []
-    for r in rows:
+    n = len(rows)
+    for rank, r in enumerate(rows, 1):
         opp = opponent_of(r["matchup"], r["team"])
         started = parse_ts(r["start_ts"]) and parse_ts(r["start_ts"]) <= now
         kind = r["pick_type"] or "edge"
@@ -400,9 +406,10 @@ def open_picks_box(store, cfg):
             f'{r["prob"] * 100:.0f}%.</p>'
             f'<p class="when">{"Started" if started else "Starts"} {when(r["start_ts"])} HST'
             f'{", waiting for the result" if started else ""}. Paper: {r["contracts"]} contracts at '
-            f'{cents(r["price"])} (${cost:,.2f}), pays ${r["contracts"]:,.2f} if they win.</p></article>')
-    n = len(rows)
-    return (f'<section class="plays"><h2>{n} open pick{"s" if n != 1 else ""}</h2>{"".join(cards)}'
+            f'{cents(r["price"])} (${cost:,.2f}), pays ${r["contracts"]:,.2f} if they win.</p>'
+            f'<p class="rank">Best Bet #{rank} of {n}</p></article>')
+    return (f'<section class="plays"><h2>Top Picks</h2><p class="fine top">{n} open, strongest first: '
+            f'ranked by win chance.</p>{"".join(cards)}'
             f'<p class="fine">For fun only: paper bets, nothing real is bought.</p></section>')
 
 
@@ -526,6 +533,8 @@ removed. Picks are paper bets only. No real orders are ever placed, and nothing 
 
 CSS = """
 .play.dog .do{color:var(--kal)}
+.play .rank{margin-top:6px;font:700 1.05rem/1.2 "Saira Condensed",sans-serif;color:var(--ink)}
+.plays .fine.top{margin:-4px 0 6px}
 .sport{display:block;margin:0 0 2px;font:600 .8rem/1.2 "Source Sans 3",sans-serif;color:var(--soft);letter-spacing:.02em}
 .play .sport{font-size:.95rem;color:var(--ink)}
 .tag.dogtag{background:var(--kal);color:var(--card);font-weight:600}
