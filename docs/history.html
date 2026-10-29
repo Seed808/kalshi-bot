@@ -1,0 +1,208 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pick history</title>
+<meta name="description" content="Every finished TheEsness Kalshi paper pick, newest first, with final scores and outcomes.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+main.wide{max-width:1180px}
+.nav{display:flex;flex-wrap:wrap;gap:6px 20px;margin:0 0 14px}
+.reclink{color:inherit;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.histlink{margin:8px 0 0;font-weight:600}
+.table-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;background:var(--card);margin-top:10px}
+table.history{min-width:900px;font-size:.92rem}
+table.history th{position:sticky;top:0;background:var(--card);padding:8px 10px;white-space:nowrap}
+table.history td{padding:8px 10px}
+table.history tbody tr:nth-child(even){background:color-mix(in srgb,var(--card) 92%,var(--ink))}
+table.history .via{display:block;font-size:.8rem;color:var(--soft)}
+.nowrap{white-space:nowrap}
+.out{font-weight:700;white-space:nowrap}.out.won{color:var(--pine)}.out.lost{color:var(--cran)}
+.stats.small b{font-size:1.15rem}.stats.small{gap:4px 18px}
+.filters{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin:12px 0 0}
+.filters select{font:inherit;padding:4px 6px;border:1px solid var(--rule);border-radius:4px;background:var(--card);color:var(--ink)}
+.play.dog .do{color:var(--kal)}
+.play .rank{margin-top:6px;font:700 1.05rem/1.2 "Saira Condensed",sans-serif;color:var(--ink)}
+.plays .fine.top{margin:-4px 0 6px}
+.clock{margin:6px 0 0;color:var(--ink)}
+.stale{margin:8px 0 0;padding:8px 12px;border-radius:4px;background:var(--cran);color:var(--card);font-weight:600;max-width:70ch}
+.play .rank.muted{font:400 .9rem/1.3 "Source Sans 3",sans-serif;color:var(--soft)}
+.sport{display:block;margin:0 0 2px;font:600 .8rem/1.2 "Source Sans 3",sans-serif;color:var(--soft);letter-spacing:.02em}
+.play .sport{font-size:.95rem;color:var(--ink)}
+.tag.dogtag{background:var(--kal);color:var(--card);font-weight:600}
+.board td{font-size:.95rem}.board .via{display:block}
+.skips{list-style:none;padding:0;margin:0}.skips li{padding:6px 0;border-bottom:1px solid var(--rule);max-width:none}
+.skips .via{display:block}
+.tag{white-space:normal}
+@media (max-width:560px){.board thead{display:none}.board tr{display:block;padding:8px 0;border-bottom:1px solid var(--rule)}
+.board td{display:block;border:0;padding:1px 0;text-align:left}.board td:first-child{color:var(--soft);font-size:.85rem}
+.board td.num{text-align:left}.board td.num:not(:empty)::before{content:"Sportsbooks give it "}.play .do{font-size:1.6rem}}
+
+.plays{margin-top:28px;padding:22px;background:var(--card);border:2px solid var(--rule);border-radius:6px}
+.plays h2{font-size:2.4rem;margin:0 0 10px}
+.plays.none h2{color:var(--soft)}
+.plays p{margin:4px 0;max-width:62ch;font-size:1.1rem}
+.play{padding:14px 0;border-top:1px solid var(--rule)}.play:first-of-type{border-top:0;padding-top:4px}
+.play .do{font:700 2rem/1.15 "Saira Condensed",sans-serif;color:var(--pine);margin:0 0 6px}
+.play .do b{font-weight:700}
+.play .also{color:var(--soft);margin-top:-4px}
+.play .when{color:var(--soft);font-size:1rem}
+.passes{margin:6px 0 4px;padding-left:20px}.passes li{margin:4px 0;max-width:70ch}
+.plays .fine{color:var(--soft);font-size:.9rem;margin-top:10px}
+details.more{margin-top:28px}
+details.more>summary{cursor:pointer;font-weight:600;font-size:1.05rem;color:var(--kal)}
+
+.howto{margin:16px 0 0;border-top:1px solid var(--rule);padding-top:12px}
+.howto summary{cursor:pointer;font-weight:600}
+.howto ul{margin:8px 0 0}.howto li{max-width:70ch}
+.verdict{margin:2px 0 2px;font:700 1.35rem/1.15 "Saira Condensed",sans-serif}
+.game.play{border-color:var(--pine);border-width:2px}.game.play .verdict{color:var(--pine)}
+.game.skip .verdict{color:var(--soft)}
+.why{margin:0 0 8px;max-width:70ch}
+.eg{margin:0 0 10px;padding:8px 12px;background:var(--pine-tint);border-radius:4px;max-width:70ch}
+.sides{margin-top:4px}.sides th{font-size:.8rem;font-weight:600}.sides td{font-size:1rem}
+.sides td.num{font-family:"Saira Condensed",sans-serif;font-size:1.15rem}
+.via{display:block;color:var(--soft);font-size:.8rem}
+.game .books{margin:6px 0 0;color:var(--soft);font-size:.8rem}
+.role{font-size:.75rem;padding:0 6px;border-radius:8px;margin-left:4px;vertical-align:1px;background:var(--track);color:var(--soft)}.role.fav{color:var(--ink)}
+.klink{font:400 .9rem "Source Sans 3",sans-serif;margin-left:10px}
+:root{--paper:#eef2f6;--card:#f8fafc;--ink:#18222f;--soft:#5b6878;--rule:#cfd7e1;--pine:#0d7a63;
+--pine-tint:#cbe9df;--cran:#a33a57;--kal:#2f5bea;--track:#dde4ec}
+@media (prefers-color-scheme:dark){:root{--paper:#10161e;--card:#161e28;--ink:#e4eaf1;--soft:#9aa7b6;
+--rule:#2a3542;--pine:#3fbf9a;--pine-tint:#1d4a3e;--cran:#e07a95;--kal:#7d9bff;--track:#24303d}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.55 "Source Sans 3",system-ui,sans-serif}
+main{max-width:920px;margin:0 auto;padding:28px 16px 64px}
+h1,h2,h3,.num,.t,.stats b{font-family:"Saira Condensed","Arial Narrow",sans-serif;font-variant-numeric:tabular-nums}
+h1{font-size:2.6rem;line-height:1;margin:0 0 6px;font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.75rem;line-height:1.1;margin:0 0 6px;font-weight:700}
+h3{font-size:1.2rem;margin:26px 0 8px;font-weight:600;color:var(--soft)}
+section{margin-top:44px}
+.updated{color:var(--soft);margin:0}
+.strip{display:flex;flex-wrap:wrap;gap:8px 28px;margin:16px 0 0;padding:0}
+.strip div{display:flex;flex-direction:column}
+.strip dt{color:var(--soft);font-size:.85rem}
+.strip dd{margin:0;font:600 1.35rem/1.1 "Saira Condensed",sans-serif;font-variant-numeric:tabular-nums}
+.hero{margin-top:32px;padding:24px 22px 18px;background:var(--card);border-left:5px solid var(--rule);border-radius:4px}
+.hero.live{border-left-color:var(--pine)}
+.hero h2{font-size:2.3rem}
+.kicker{margin:0 0 4px;color:var(--pine);font-weight:600}
+.sub{margin:0 0 18px;max-width:62ch}
+.gap{position:relative;height:10px;background:var(--track);border-radius:5px;margin:6px 0}
+.hero .gap{height:16px;border-radius:8px}
+.gap .span{position:absolute;top:0;bottom:0;background:var(--soft);opacity:.35;border-radius:inherit}
+.gap.pos .span{background:var(--pine);opacity:1}
+.gap .mk{position:absolute;top:-3px;bottom:-3px;width:3px;margin-left:-1.5px;border-radius:2px}
+.hero .gap .mk{top:-5px;bottom:-5px;width:4px;margin-left:-2px}
+.mk.k{background:var(--kal)}.mk.s{background:var(--ink)}
+.legend{color:var(--soft);font-size:.85rem;margin:10px 0 0;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+.key{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.key.k{background:var(--kal);width:4px}.key.s{background:var(--ink);width:4px}.key.span-pos{background:var(--pine)}
+.note{color:var(--soft);margin:0 0 10px;max-width:68ch}
+.games{display:grid;gap:10px}
+.game{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:12px 14px}
+.game header{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:6px}
+.game .t{color:var(--soft);font-size:1.05rem}
+.game .m{font-weight:600}
+.books{margin-left:auto;color:var(--soft);font-size:.85rem}
+.tag{font-size:.8rem;padding:1px 8px;border-radius:10px;background:var(--track);color:var(--soft)}
+.tag.play{background:var(--pine);color:var(--card);font-weight:600}
+.cols,.side{display:grid;grid-template-columns:minmax(0,1fr) 56px 64px 64px;gap:2px 10px;align-items:center}
+.cols{color:var(--soft);font-size:.8rem}.cols span:not(:first-child){text-align:right}
+.side{padding:4px 0}.side .gap{grid-column:1/-1}
+.side .num{text-align:right;font-size:1.1rem}
+.who{overflow-wrap:anywhere}
+.up{color:var(--pine);font-weight:600}.down{color:var(--cran);font-weight:600}.flat{color:var(--soft)}
+.stats{display:flex;flex-wrap:wrap;gap:6px 26px;margin:0 0 8px}
+.stats b{font-size:1.5rem;font-weight:700;margin-right:4px}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th{text-align:left;font-weight:600;color:var(--soft);border-bottom:2px solid var(--rule);padding:6px 8px 6px 0}
+td{border-bottom:1px solid var(--rule);padding:7px 8px 7px 0;vertical-align:top}
+td.num,th.num{text-align:right}
+ul{padding-left:20px;margin:0}li{margin:4px 0}
+.anom{list-style:none;padding:0;display:grid;gap:10px}.anom li{margin:0;background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:10px 14px}.anom p{margin:2px 0;max-width:70ch}.anom .q{font-weight:600}.anom .opt{color:var(--soft)}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--rule);color:var(--soft);font-size:.9rem}
+footer p{max-width:70ch}
+a{color:var(--kal)}a:focus-visible{outline:3px solid var(--kal);outline-offset:2px}
+@media (max-width:560px){h1{font-size:2.1rem}.hero h2{font-size:1.85rem}
+.cols,.side{grid-template-columns:minmax(0,1fr) 46px 54px 56px}.books{margin-left:0;width:100%}
+table{font-size:.85rem}}
+</style></head><body><main class="wide">
+<p class="nav"><a href="index.html">Back to Top Picks</a><a href="history.csv" download>Download as spreadsheet (CSV)</a></p>
+<header><h1>Pick history</h1>
+<p class="clock">Now: <b id="now">Wed 10/28 07:10 PM HST</b></p>
+<p class="updated" data-updated="2026-10-29T05:10:21.850745+00:00">Updated Wed 10/28 07:10 PM HST<span id="ago"></span>. Finished picks, newest game first.</p>
+<p id="stale" class="stale" hidden></p></header>
+<section><p class="stats"><span><b>9–4</b> record</span><span><b>69%</b> won</span><span><b class="down">−$7.67</b> paper P&amp;L</span></p><p class="stats small"><span><b>0–1</b> Liga MX</span><span><b>2–1</b> MLS</span><span><b>4–1</b> NBA</span><span><b>2–0</b> NHL</span><span><b>1–0</b> Serie A</span><span><b>0–1</b> Tennis (ATP)</span></p><p class="note">Sportsbook and Kalshi odds said to expect about 9.2 wins from these 13 picks. Outcomes come from Kalshi's settlement; final scores from ESPN.</p><div class="filters"><label>Sport <select id="f-sport"><option value="">All</option><option>Liga MX</option><option>MLS</option><option>NBA</option><option>NHL</option><option>Serie A</option><option>Tennis (ATP)</option></select></label><label>Outcome <select id="f-out"><option value="">All</option><option value="won">Pick won</option><option value="lost">Pick lost</option></select></label><span id="f-count" class="via"></span></div><div class="table-wrap"><table class="history"><thead><tr><th>Date</th><th>Sport</th><th>Game</th><th>Pick</th><th class="num">Win chance</th><th class="num">Price</th><th>Final score</th><th>Outcome</th><th class="num">P&amp;L</th></tr></thead><tbody><tr data-sport="Liga MX" data-outcome="lost"><td class="nowrap">Wed 10/28<span class="via">6:00 PM HST</span></td><td>Liga MX</td><td>Tijuana vs America</td><td><b>America</b><span class="via">Favorite</span></td><td class="num">67%</td><td class="num">67¢</td><td>América 1, Tijuana 1 (FT)</td><td><span class="out lost">Pick lost</span></td><td class="num down">−$9.60</td></tr><tr data-sport="MLS" data-outcome="won"><td class="nowrap">Wed 10/28<span class="via">5:30 PM HST</span></td><td>MLS</td><td>Vancouver vs San Diego FC</td><td><b>Vancouver</b><span class="via">Favorite</span></td><td class="num">68%</td><td class="num">69¢</td><td>Vancouver 4, San Diego 1 (FT)</td><td><span class="out won">Pick won</span></td><td class="num up">+$4.13</td></tr><tr data-sport="NBA" data-outcome="lost"><td class="nowrap">Wed 10/28<span class="via">3:40 PM HST</span></td><td>NBA</td><td>Oklahoma City Thunder @ Dallas Mavericks</td><td><b>Oklahoma City Thunder</b><span class="via">Favorite</span></td><td class="num">67%</td><td class="num">68¢</td><td>Thunder 96, Mavericks 120 (Final)</td><td><span class="out lost">Pick lost</span></td><td class="num down">−$9.74</td></tr><tr data-sport="MLS" data-outcome="won"><td class="nowrap">Wed 10/28<span class="via">3:30 PM HST</span></td><td>MLS</td><td>Kansas City vs Minnesota</td><td><b>Minnesota</b><span class="via">Favorite</span></td><td class="num">67%</td><td class="num">68¢</td><td>Minnesota 3, Kansas City 1 (FT)</td><td><span class="out won">Pick won</span></td><td class="num up">+$4.26</td></tr><tr data-sport="NBA" data-outcome="won"><td class="nowrap">Wed 10/28<span class="via">3:10 PM HST</span></td><td>NBA</td><td>San Antonio Spurs @ Utah Jazz</td><td><b>San Antonio Spurs</b><span class="via">Favorite</span></td><td class="num">82%</td><td class="num">85¢</td><td>Spurs 117, Jazz 111 (Final/OT)</td><td><span class="out won">Pick won</span></td><td class="num up">+$1.55</td></tr><tr data-sport="NHL" data-outcome="won"><td class="nowrap">Wed 10/28<span class="via">2:40 PM HST</span></td><td>NHL</td><td>Calgary Flames @ Edmonton Oilers</td><td><b>Edmonton Oilers</b><span class="via">Favorite</span></td><td class="num">66%</td><td class="num">67¢</td><td>Oilers 4, Flames 0 (Final)</td><td><span class="out won">Pick won</span></td><td class="num up">+$4.40</td></tr><tr data-sport="MLS" data-outcome="lost"><td class="nowrap">Wed 10/28<span class="via">2:30 PM HST</span></td><td>MLS</td><td>Miami vs Cincinnati</td><td><b>Miami</b><span class="via">Favorite</span></td><td class="num">65%</td><td class="num">65¢</td><td>Miami 2, Cincinnati 2 (FT)</td><td><span class="out lost">Pick lost</span></td><td class="num down">−$9.99</td></tr><tr data-sport="NBA" data-outcome="won"><td class="nowrap">Wed 10/28<span class="via">2:10 PM HST</span></td><td>NBA</td><td>Houston Rockets @ Milwaukee Bucks</td><td><b>Houston Rockets</b><span class="via">Favorite</span></td><td class="num">73%</td><td class="num">75¢</td><td>Rockets 132, Bucks 100 (Final)</td><td><span class="out won">Pick won</span></td><td class="num up">+$3.07</td></tr><tr data-sport="NHL" data-outcome="won"><td class="nowrap">Wed 10/28<span class="via">1:40 PM HST</span></td><td>NHL</td><td>Philadelphia Flyers @ Washington Capitals</td><td><b>Washington Capitals</b><span class="via">Favorite</span></td><td class="num">67%</td><td class="num">68¢</td><td>Capitals 5, Flyers 2 (Final)</td><td><span class="out won">Pick won</span></td><td class="num up">+$4.26</td></tr><tr data-sport="NBA" data-outcome="won"><td class="nowrap">Wed 10/28<span class="via">1:10 PM HST</span></td><td>NBA</td><td>Washington Wizards @ Cleveland Cavaliers</td><td><b>Cleveland Cavaliers</b><span class="via">Favorite</span></td><td class="num">77%</td><td class="num">79¢</td><td>Cavaliers 121, Wizards 111 (Final)</td><td><span class="out won">Pick won</span></td><td class="num up">+$2.38</td></tr><tr data-sport="NBA" data-outcome="won"><td class="nowrap">Wed 10/28<span class="via">1:10 PM HST</span></td><td>NBA</td><td>Charlotte Hornets @ Detroit Pistons</td><td><b>Detroit Pistons</b><span class="via">Favorite</span></td><td class="num">70%</td><td class="num">69¢</td><td>Pistons 97, Hornets 89 (Final)</td><td><span class="out won">Pick won</span></td><td class="num up">+$4.13</td></tr><tr data-sport="Serie A" data-outcome="won"><td class="nowrap">Wed 10/28<span class="via">8:30 AM HST</span></td><td>Serie A</td><td>Venezia vs Inter</td><td><b>Inter</b><span class="via">Favorite</span></td><td class="num">72%</td><td class="num">73¢</td><td>Inter Milan 2, Venezia 0 (FT)</td><td><span class="out won">Pick won</span></td><td class="num up">+$3.33</td></tr><tr data-sport="Tennis (ATP)" data-outcome="lost"><td class="nowrap">Wed 10/28<span class="via">4:50 AM HST</span></td><td>Tennis (ATP)</td><td>Jakub Mensik vs Adrian Mannarino</td><td><b>Jakub Mensik</b><span class="via">Favorite</span></td><td class="num">79%</td><td class="num">81¢</td><td>J. Mensik 4-6, 5-7 (Final)</td><td><span class="out lost">Pick lost</span></td><td class="num down">−$9.85</td></tr></tbody></table></div></section>
+<footer><p>Paper picks only; no real orders are ever placed. Voided picks (removed from the slate before their games)
+aren't listed. Scores marked "not available" weren't found on ESPN.</p></footer>
+</main><script>
+/* Every time on this page is recomputed here from UTC timestamps and shown in Hawaii time
+   (Pacific/Honolulu), whatever timezone this device is set to. Runs every 30 seconds. */
+(function () {
+  var TZ = "Pacific/Honolulu";
+  var dayTime = new Intl.DateTimeFormat("en-US", {timeZone: TZ, weekday: "short", hour: "numeric", minute: "2-digit"});
+  var full = new Intl.DateTimeFormat("en-US", {timeZone: TZ, weekday: "short", month: "2-digit", day: "2-digit",
+                                               hour: "2-digit", minute: "2-digit", hour12: true});
+  function clockText(d) {
+    var p = {};
+    full.formatToParts(d).forEach(function (x) { p[x.type] = x.value; });
+    return p.weekday + " " + p.month + "/" + p.day + " " + p.hour + ":" + p.minute + " " + p.dayPeriod + " HST";
+  }
+  function hst(d) { return dayTime.format(d).replace(",", "") + " HST"; }
+  function span(mins) {
+    var m = Math.round(Math.abs(mins));
+    return m >= 60 ? Math.floor(m / 60) + "h " + (m % 60) + "m" : m + "m";
+  }
+  function phrase(d, est, tennis, now) {
+    var mins = (d - now) / 60000, t = hst(d);
+    if (mins > 0) {
+      if (tennis) return "Scheduled " + t + " (in " + span(mins) + "; tennis order of play can slip).";
+      if (est) return "Starts about " + t + " (in " + span(mins) + "; estimated from Kalshi).";
+      return "Starts " + t + " (in " + span(mins) + ").";
+    }
+    var lead = tennis ? "Scheduled for" : (est ? "Started about" : "Started");
+    return lead + " " + t + " (" + span(mins) + " ago), waiting for the result.";
+  }
+  function tick() {
+    var now = new Date();
+    document.getElementById("now").textContent = clockText(now);
+    var up = document.querySelector("[data-updated]"), upd = new Date(up.getAttribute("data-updated"));
+    var age = (now - upd) / 60000;
+    document.getElementById("ago").textContent = " (" + span(age) + " ago)";
+    var st = document.getElementById("stale");
+    if (age > 90) {
+      st.hidden = false;
+      st.textContent = "This page hasn't updated in " + span(age) + ". It normally refreshes every hour, "
+        + "so picks and results may be out of date. Reload the page to check.";
+    } else { st.hidden = true; }
+    document.querySelectorAll("[data-start]").forEach(function (el) {
+      var d = new Date(el.getAttribute("data-start"));
+      if (!isNaN(d)) el.textContent = phrase(d, el.dataset.est === "1", el.dataset.tennis === "1", now);
+    });
+  }
+  /* Pull in a newer build when one is published (skips the browser and CDN caches). */
+  function checkForUpdate() {
+    var mine = document.querySelector("[data-updated]").getAttribute("data-updated");
+    fetch("board.json?t=" + Date.now(), {cache: "no-store"}).then(function (r) { return r.json(); })
+      .then(function (j) { if (j.updated && j.updated !== mine) location.replace(location.pathname + "?r=" + Date.now()); })
+      .catch(function () {});
+  }
+  tick();
+  setInterval(tick, 30000);
+  setInterval(checkForUpdate, 5 * 60000);
+})();
+</script><script>
+(function () {
+  var s = document.getElementById("f-sport"), o = document.getElementById("f-out");
+  if (!s) return;
+  function apply() {
+    var shown = 0, won = 0;
+    document.querySelectorAll("table.history tbody tr").forEach(function (tr) {
+      var ok = (!s.value || tr.dataset.sport === s.value) && (!o.value || tr.dataset.outcome === o.value);
+      tr.hidden = !ok; if (ok) { shown++; if (tr.dataset.outcome === "won") won++; }
+    });
+    document.getElementById("f-count").textContent = shown + " picks: " + won + "–" + (shown - won);
+  }
+  s.onchange = apply; o.onchange = apply; apply();
+})();
+</script></body></html>
