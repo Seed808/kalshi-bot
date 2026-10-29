@@ -37,6 +37,9 @@ class Store:
             self.con.execute("ALTER TABLE trades ADD COLUMN pick_type TEXT")
         if "void_reason" not in cols:  # status 'void': pick removed from the slate before its game
             self.con.execute("ALTER TABLE trades ADD COLUMN void_reason TEXT")
+        if "score_text" not in cols:   # final score from ESPN, for the pick history page
+            self.con.execute("ALTER TABLE trades ADD COLUMN score_text TEXT")
+            self.con.execute("ALTER TABLE trades ADD COLUMN score_tries INTEGER DEFAULT 0")
         self.con.commit()
 
     def q(self, sql, args=()):

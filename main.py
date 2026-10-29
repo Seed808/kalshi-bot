@@ -44,6 +44,7 @@ import model
 import risk
 import postmortem
 import picks
+import scores
 import site_builder as site
 
 
@@ -249,6 +250,10 @@ def cycle(cfg_path, store, paper, verbose):
 
     # step 5 first: close the loop on anything that finished
     settle_all(cfg, store)
+    try:
+        scores.backfill(store, verbose)   # final scores for the pick history (ESPN, free)
+    except Exception as e:
+        print(f"score backfill error: {e}")
     if picks_mode:
         # one message with every result, instead of a message per loss
         done = store.q("SELECT * FROM trades WHERE status='settled' AND postmortem_done=0")

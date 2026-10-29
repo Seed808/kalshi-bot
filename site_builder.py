@@ -549,15 +549,185 @@ def picks_howto(cfg):
             f'time. This is for watching games, not a money-making system.</li></ul></details>')
 
 
+LIVE_JS = r'''<script>
+/* Every time on this page is recomputed here from UTC timestamps and shown in Hawaii time
+   (Pacific/Honolulu), whatever timezone this device is set to. Runs every 30 seconds. */
+(function () {
+  var TZ = "Pacific/Honolulu";
+  var dayTime = new Intl.DateTimeFormat("en-US", {timeZone: TZ, weekday: "short", hour: "numeric", minute: "2-digit"});
+  var full = new Intl.DateTimeFormat("en-US", {timeZone: TZ, weekday: "short", month: "2-digit", day: "2-digit",
+                                               hour: "2-digit", minute: "2-digit", hour12: true});
+  function clockText(d) {
+    var p = {};
+    full.formatToParts(d).forEach(function (x) { p[x.type] = x.value; });
+    return p.weekday + " " + p.month + "/" + p.day + " " + p.hour + ":" + p.minute + " " + p.dayPeriod + " HST";
+  }
+  function hst(d) { return dayTime.format(d).replace(",", "") + " HST"; }
+  function span(mins) {
+    var m = Math.round(Math.abs(mins));
+    return m >= 60 ? Math.floor(m / 60) + "h " + (m % 60) + "m" : m + "m";
+  }
+  function phrase(d, est, tennis, now) {
+    var mins = (d - now) / 60000, t = hst(d);
+    if (mins > 0) {
+      if (tennis) return "Scheduled " + t + " (in " + span(mins) + "; tennis order of play can slip).";
+      if (est) return "Starts about " + t + " (in " + span(mins) + "; estimated from Kalshi).";
+      return "Starts " + t + " (in " + span(mins) + ").";
+    }
+    var lead = tennis ? "Scheduled for" : (est ? "Started about" : "Started");
+    return lead + " " + t + " (" + span(mins) + " ago), waiting for the result.";
+  }
+  function tick() {
+    var now = new Date();
+    document.getElementById("now").textContent = clockText(now);
+    var up = document.querySelector("[data-updated]"), upd = new Date(up.getAttribute("data-updated"));
+    var age = (now - upd) / 60000;
+    document.getElementById("ago").textContent = " (" + span(age) + " ago)";
+    var st = document.getElementById("stale");
+    if (age > 90) {
+      st.hidden = false;
+      st.textContent = "This page hasn't updated in " + span(age) + ". It normally refreshes every hour, "
+        + "so picks and results may be out of date. Reload the page to check.";
+    } else { st.hidden = true; }
+    document.querySelectorAll("[data-start]").forEach(function (el) {
+      var d = new Date(el.getAttribute("data-start"));
+      if (!isNaN(d)) el.textContent = phrase(d, el.dataset.est === "1", el.dataset.tennis === "1", now);
+    });
+  }
+  /* Pull in a newer build when one is published (skips the browser and CDN caches). */
+  function checkForUpdate() {
+    var mine = document.querySelector("[data-updated]").getAttribute("data-updated");
+    fetch("board.json?t=" + Date.now(), {cache: "no-store"}).then(function (r) { return r.json(); })
+      .then(function (j) { if (j.updated && j.updated !== mine) location.replace(location.pathname + "?r=" + Date.now()); })
+      .catch(function () {});
+  }
+  tick();
+  setInterval(tick, 30000);
+  setInterval(checkForUpdate, 5 * 60000);
+})();
+</script>'''
+
+# ================================================================ PICK HISTORY page (history.html)
+
+def history_rows(store):
+    """Finished picks (not voided, not still in play), most recent game first."""
+    rows = store.q("SELECT * FROM trades WHERE status='settled' ORDER BY start_ts DESC, id DESC")
+    out = []
+    for r in rows:
+        won = r["result"] == r["side"]
+        d = parse_ts(r["start_ts"])
+        out.append({
+            "date": d.astimezone(HST).strftime("%a %m/%d") if d else "",
+            "time": d.astimezone(HST).strftime("%-I:%M %p") if d else "",
+            "sport": SPORT.get(r["series"], r["series"]),
+            "game": r["matchup"], "pick": r["team"],
+            "type": TYPE_TEXT.get(r["pick_type"] or "edge", ""),
+            "chance": r["prob"], "price": r["price"],
+            "score": r["score_text"] or "", "won": won, "pnl": r["pnl"] or 0.0,
+            "source": "Sportsbooks" if r["n_books"] else "Kalshi prices",
+        })
+    return out
+
+
+def write_history_csv(rows, path):
+    import csv
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["Date (HST)", "Time (HST)", "Sport", "Game", "Pick", "Pick type", "Win chance",
+                    "Kalshi price", "Final score", "Outcome", "Paper P&L", "Win chance from"])
+        for x in rows:
+            w.writerow([x["date"], x["time"], x["sport"], x["game"], x["pick"], x["type"],
+                        f'{x["chance"] * 100:.0f}%', f'{x["price"] * 100:.0f}c', x["score"] or "not available",
+                        "Pick won" if x["won"] else "Pick lost", f'{x["pnl"]:+.2f}', x["source"]])
+
+
+def render_history(cfg, store):
+    now = now_utc()
+    rows = history_rows(store)
+    write_history_csv(rows, os.path.join(OUT_DIR, "history.csv"))
+    n = len(rows)
+    wins = sum(1 for x in rows if x["won"])
+    pnl = sum(x["pnl"] for x in rows)
+    exp = sum(x["chance"] for x in rows)
+    sports = sorted({x["sport"] for x in rows})
+    body = []
+    for x in rows:
+        body.append(
+            f'<tr data-sport="{escape(x["sport"])}" data-outcome="{"won" if x["won"] else "lost"}">'
+            f'<td class="nowrap">{escape(x["date"])}<span class="via">{escape(x["time"])} HST</span></td>'
+            f'<td>{escape(x["sport"])}</td><td>{escape(x["game"])}</td>'
+            f'<td><b>{escape(x["pick"])}</b><span class="via">{escape(x["type"])}</span></td>'
+            f'<td class="num">{x["chance"] * 100:.0f}%</td><td class="num">{cents(x["price"])}</td>'
+            f'<td>{escape(x["score"]) if x["score"] else "<span class=via>not available</span>"}</td>'
+            f'<td><span class="out {"won" if x["won"] else "lost"}">{"Pick won" if x["won"] else "Pick lost"}</span></td>'
+            f'<td class="num {"up" if x["pnl"] >= 0 else "down"}">{"+" if x["pnl"] >= 0 else "−"}${abs(x["pnl"]):,.2f}</td></tr>')
+    by_sport = []
+    for sp in sports:
+        rs = [x for x in rows if x["sport"] == sp]
+        w = sum(1 for x in rs if x["won"])
+        by_sport.append(f'<span><b>{w}–{len(rs) - w}</b> {escape(sp)}</span>')
+    filters = ('<div class="filters"><label>Sport <select id="f-sport"><option value="">All</option>'
+               + "".join(f'<option>{escape(sp)}</option>' for sp in sports)
+               + '</select></label><label>Outcome <select id="f-out"><option value="">All</option>'
+                 '<option value="won">Pick won</option><option value="lost">Pick lost</option></select></label>'
+                 '<span id="f-count" class="via"></span></div>') if rows else ""
+    summary = (f'<p class="stats"><span><b>{wins}–{n - wins}</b> record</span>'
+               f'<span><b>{(wins / n if n else 0):.0%}</b> won</span>'
+               f'<span><b class="{"up" if pnl >= 0 else "down"}">{"+" if pnl >= 0 else "−"}${abs(pnl):,.2f}</b> paper P&amp;L</span></p>'
+               f'<p class="stats small">{"".join(by_sport)}</p>'
+               f'<p class="note">Sportsbook and Kalshi odds said to expect about {exp:.1f} wins from these {n} picks. '
+               f'Outcomes come from Kalshi\'s settlement; final scores from ESPN.</p>') if n else \
+              '<p class="note">No picks have finished yet. They show up here about an hour after each game ends.</p>'
+    table = (f'<div class="table-wrap"><table class="history"><thead><tr><th>Date</th><th>Sport</th>'
+             f'<th>Game</th><th>Pick</th><th class="num">Win chance</th><th class="num">Price</th>'
+             f'<th>Final score</th><th>Outcome</th><th class="num">P&amp;L</th></tr></thead><tbody>'
+             f'{"".join(body)}</tbody></table></div>') if rows else ""
+    filter_js = """<script>
+(function () {
+  var s = document.getElementById("f-sport"), o = document.getElementById("f-out");
+  if (!s) return;
+  function apply() {
+    var shown = 0, won = 0;
+    document.querySelectorAll("table.history tbody tr").forEach(function (tr) {
+      var ok = (!s.value || tr.dataset.sport === s.value) && (!o.value || tr.dataset.outcome === o.value);
+      tr.hidden = !ok; if (ok) { shown++; if (tr.dataset.outcome === "won") won++; }
+    });
+    document.getElementById("f-count").textContent = shown + " picks: " + won + "–" + (shown - won);
+  }
+  s.onchange = apply; o.onchange = apply; apply();
+})();
+</script>"""
+    doc = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pick history</title>
+<meta name="description" content="Every finished TheEsness Kalshi paper pick, newest first, with final scores and outcomes.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>{CSS}</style></head><body><main class="wide">
+<p class="nav"><a href="index.html">Back to Top Picks</a><a href="history.csv" download>Download as spreadsheet (CSV)</a></p>
+<header><h1>Pick history</h1>
+<p class="clock">Now: <b id="now">{escape(hst(now))}</b></p>
+<p class="updated" data-updated="{now.isoformat()}">Updated {escape(hst(now))}<span id="ago"></span>. Finished picks, newest game first.</p>
+<p id="stale" class="stale" hidden></p></header>
+<section>{summary}{filters}{table}</section>
+<footer><p>Paper picks only; no real orders are ever placed. Voided picks (removed from the slate before their games)
+aren't listed. Scores marked "not available" weren't found on ESPN.</p></footer>
+</main>{LIVE_JS}{filter_js}</body></html>"""
+    with open(os.path.join(OUT_DIR, "history.html"), "w", encoding="utf-8") as f:
+        f.write(doc)
+
+
+
 def render_picks(cfg, store, board, anomalies, skipped):
     now = now_utc()
     bankroll, _ = store.bankroll(cfg)
     allset = store.settled_trades()
     wins = sum(1 for r in allset if r["result"] == r["side"])
-    strip = (f'<dl class="strip"><div><dt>Record</dt><dd>{wins}–{len(allset) - wins}</dd></div>'
+    strip = (f'<dl class="strip"><div><dt>Record</dt><dd><a class="reclink" href="history.html" '
+             f'title="See every finished pick">{wins}–{len(allset) - wins}</a></dd></div>'
              f'<div><dt>Open picks</dt><dd>{store.open_count()}</dd></div>'
              f'<div><dt>Paper bankroll</dt><dd>${bankroll:,.0f}</dd></div>'
-             f'</dl>')
+             f'</dl><p class="histlink"><a href="history.html">See pick history</a></p>')
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TheEsness Kalshi picks</title>
@@ -574,67 +744,26 @@ def render_picks(cfg, store, board, anomalies, skipped):
 <footer><p>Win chances are the average of several sportsbooks' moneylines with their built-in margin
 removed. Picks are paper bets only. No real orders are ever placed, and nothing here is betting advice.</p></footer>
 </main>
-<script>
-/* Every time on this page is recomputed here from UTC timestamps and shown in Hawaii time
-   (Pacific/Honolulu), whatever timezone this device is set to. Runs every 30 seconds. */
-(function () {{
-  var TZ = "Pacific/Honolulu";
-  var dayTime = new Intl.DateTimeFormat("en-US", {{timeZone: TZ, weekday: "short", hour: "numeric", minute: "2-digit"}});
-  var full = new Intl.DateTimeFormat("en-US", {{timeZone: TZ, weekday: "short", month: "2-digit", day: "2-digit",
-                                               hour: "2-digit", minute: "2-digit", hour12: true}});
-  function clockText(d) {{
-    var p = {{}};
-    full.formatToParts(d).forEach(function (x) {{ p[x.type] = x.value; }});
-    return p.weekday + " " + p.month + "/" + p.day + " " + p.hour + ":" + p.minute + " " + p.dayPeriod + " HST";
-  }}
-  function hst(d) {{ return dayTime.format(d).replace(",", "") + " HST"; }}
-  function span(mins) {{
-    var m = Math.round(Math.abs(mins));
-    return m >= 60 ? Math.floor(m / 60) + "h " + (m % 60) + "m" : m + "m";
-  }}
-  function phrase(d, est, tennis, now) {{
-    var mins = (d - now) / 60000, t = hst(d);
-    if (mins > 0) {{
-      if (tennis) return "Scheduled " + t + " (in " + span(mins) + "; tennis order of play can slip).";
-      if (est) return "Starts about " + t + " (in " + span(mins) + "; estimated from Kalshi).";
-      return "Starts " + t + " (in " + span(mins) + ").";
-    }}
-    var lead = tennis ? "Scheduled for" : (est ? "Started about" : "Started");
-    return lead + " " + t + " (" + span(mins) + " ago), waiting for the result.";
-  }}
-  function tick() {{
-    var now = new Date();
-    document.getElementById("now").textContent = clockText(now);
-    var up = document.querySelector("[data-updated]"), upd = new Date(up.getAttribute("data-updated"));
-    var age = (now - upd) / 60000;
-    document.getElementById("ago").textContent = " (" + span(age) + " ago)";
-    var st = document.getElementById("stale");
-    if (age > 90) {{
-      st.hidden = false;
-      st.textContent = "This page hasn't updated in " + span(age) + ". It normally refreshes every hour, "
-        + "so picks and results may be out of date. Reload the page to check.";
-    }} else {{ st.hidden = true; }}
-    document.querySelectorAll("[data-start]").forEach(function (el) {{
-      var d = new Date(el.getAttribute("data-start"));
-      if (!isNaN(d)) el.textContent = phrase(d, el.dataset.est === "1", el.dataset.tennis === "1", now);
-    }});
-  }}
-  /* Pull in a newer build when one is published (skips the browser and CDN caches). */
-  function checkForUpdate() {{
-    var mine = document.querySelector("[data-updated]").getAttribute("data-updated");
-    fetch("board.json?t=" + Date.now(), {{cache: "no-store"}}).then(function (r) {{ return r.json(); }})
-      .then(function (j) {{ if (j.updated && j.updated !== mine) location.replace(location.pathname + "?r=" + Date.now()); }})
-      .catch(function () {{}});
-  }}
-  tick();
-  setInterval(tick, 30000);
-  setInterval(checkForUpdate, 5 * 60000);
-}})();
-</script>
+{LIVE_JS}
 </body></html>"""
 
 
 CSS = """
+main.wide{max-width:1180px}
+.nav{display:flex;flex-wrap:wrap;gap:6px 20px;margin:0 0 14px}
+.reclink{color:inherit;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.histlink{margin:8px 0 0;font-weight:600}
+.table-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;background:var(--card);margin-top:10px}
+table.history{min-width:900px;font-size:.92rem}
+table.history th{position:sticky;top:0;background:var(--card);padding:8px 10px;white-space:nowrap}
+table.history td{padding:8px 10px}
+table.history tbody tr:nth-child(even){background:color-mix(in srgb,var(--card) 92%,var(--ink))}
+table.history .via{display:block;font-size:.8rem;color:var(--soft)}
+.nowrap{white-space:nowrap}
+.out{font-weight:700;white-space:nowrap}.out.won{color:var(--pine)}.out.lost{color:var(--cran)}
+.stats.small b{font-size:1.15rem}.stats.small{gap:4px 18px}
+.filters{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin:12px 0 0}
+.filters select{font:inherit;padding:4px 6px;border:1px solid var(--rule);border-radius:4px;background:var(--card);color:var(--ink)}
 .play.dog .do{color:var(--kal)}
 .play .rank{margin-top:6px;font:700 1.05rem/1.2 "Saira Condensed",sans-serif;color:var(--ink)}
 .plays .fine.top{margin:-4px 0 6px}
@@ -750,6 +879,7 @@ def render(cfg, store, board, anomalies, model_active, skipped=None):
     if cfg.get("mode") == "picks":
         with open(os.path.join(OUT_DIR, "index.html"), "w", encoding="utf-8") as f:
             f.write(render_picks(cfg, store, board, anomalies, skipped))
+        render_history(cfg, store)
         with open(os.path.join(OUT_DIR, ".nojekyll"), "w") as f:
             f.write("")
         with open(os.path.join(OUT_DIR, "board.json"), "w") as f:

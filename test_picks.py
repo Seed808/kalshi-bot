@@ -15,7 +15,7 @@ from unittest import mock
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-import common, scanner, research, picks, main  # noqa: E402
+import common, scanner, research, picks, main, scores  # noqa: E402
 from store import Store  # noqa: E402
 
 work = tempfile.mkdtemp()
@@ -108,7 +108,8 @@ patches = [mock.patch.object(scanner, "http_get", fake_get), mock.patch.object(m
            mock.patch.object(research, "fetch_rss", lambda urls, lb: NEWS if urls else []),
            mock.patch.object(research, "fetch_reddit", lambda subs, lb: []),
            mock.patch.object(research, "fetch_x", lambda team, cfg: []),
-           mock.patch.object(main, "alert", lambda t: alerts.append(t))]
+           mock.patch.object(main, "alert", lambda t: alerts.append(t)),
+           mock.patch.object(scores, "http_get", lambda *a, **k: R({"events": []}))]
 for p in patches:
     p.start()
 
