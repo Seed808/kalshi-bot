@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T08:11:01.725713+00:00",
+ "updated": "2026-10-29T09:02:28.411174+00:00",
  "mode": "picks",
  "board": [
   {
@@ -12,12 +12,12 @@
    "sides": [
     {
      "name": "Jan-Lennard Struff",
-     "fair": 0.2437810945273632,
+     "fair": 0.245,
      "ask": 0.25
     },
     {
      "name": "Novak Djokovic",
-     "fair": 0.7562189054726369,
+     "fair": 0.755,
      "ask": 0.76
     }
    ],
@@ -43,12 +43,12 @@
    "sides": [
     {
      "name": "Alex Michelsen",
-     "fair": 0.3366834170854271,
+     "fair": 0.335,
      "ask": 0.34
     },
     {
      "name": "Arthur Fils",
-     "fair": 0.6633165829145728,
+     "fair": 0.665,
      "ask": 0.67
     }
    ],
@@ -94,7 +94,7 @@
    "matchup": "Valentin Vacherot vs Rafael Jodar",
    "start": "2026-10-29T11:00:00+00:00",
    "books": 8,
-   "odds_age_min": 422.6034633666667,
+   "odds_age_min": 474.0483940666667,
    "sides": [
     {
      "name": "Valentin Vacherot",
@@ -173,7 +173,7 @@
    "matchup": "Cameron Norrie vs Daniil Medvedev",
    "start": "2026-10-29T12:30:00+00:00",
    "books": 7,
-   "odds_age_min": 423.07014330000004,
+   "odds_age_min": 474.51507821666667,
    "sides": [
     {
      "name": "Cameron Norrie",
@@ -204,7 +204,7 @@
    "matchup": "Tommy Paul vs Luciano Darderi",
    "start": "2026-10-29T12:30:00+00:00",
    "books": 7,
-   "odds_age_min": 423.07014330000004,
+   "odds_age_min": 474.51507821666667,
    "sides": [
     {
      "name": "Tommy Paul",
@@ -235,7 +235,7 @@
    "matchup": "Nikoloz Basilashvili vs Carlos Alcaraz",
    "start": "2026-10-29T14:00:00+00:00",
    "books": 5,
-   "odds_age_min": 423.07014330000004,
+   "odds_age_min": 474.51507821666667,
    "sides": [
     {
      "name": "Nikoloz Basilashvili",
@@ -266,7 +266,7 @@
    "matchup": "Taylor Fritz vs Denis Shapovalov",
    "start": "2026-10-29T14:10:00+00:00",
    "books": 4,
-   "odds_age_min": 422.84513003333336,
+   "odds_age_min": 474.29006073333335,
    "sides": [
     {
      "name": "Denis Shapovalov",
@@ -297,7 +297,7 @@
    "matchup": "Golden State Valkyries @ Atlanta Dream",
    "start": "2026-10-29T16:30:00+00:00",
    "books": 8,
-   "odds_age_min": 422.00820378333333,
+   "odds_age_min": 473.4540610833334,
    "sides": [
     {
      "name": "Golden State Valkyries",
@@ -321,7 +321,7 @@
    "matchup": "Lecce @ Frosinone",
    "start": "2026-10-29T17:30:00+00:00",
    "books": 8,
-   "odds_age_min": 422.86230695,
+   "odds_age_min": 474.3073203833334,
    "sides": [
     {
      "name": "Lecce",
@@ -352,12 +352,12 @@
    "matchup": "Atalanta BC @ Fiorentina",
    "start": "2026-10-29T19:45:00+00:00",
    "books": 8,
-   "odds_age_min": 422.86230695,
+   "odds_age_min": 474.3073203833334,
    "sides": [
     {
      "name": "Fiorentina",
      "fair": 0.4257514270395949,
-     "ask": 0.43
+     "ask": 0.42
     },
     {
      "name": "Atalanta BC",
@@ -371,12 +371,74 @@
    "three_way": true
   },
   {
+   "series": "KXNCAAFGAME",
+   "event_ticker": "KXNCAAFGAME-26OCT29SCSTMORG",
+   "matchup": "South Carolina St. vs Morgan St.",
+   "start": "2026-10-29T23:00:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "South Carolina St.",
+     "fair": 0.6717948717948717,
+     "ask": 0.68
+    },
+    {
+     "name": "Morgan St.",
+     "fair": 0.3282051282051282,
+     "ask": 0.34
+    }
+   ],
+   "pick": {
+    "team": "South Carolina St.",
+    "type": "favorite",
+    "prob": 0.6717948717948717,
+    "price": 0.68,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "open-pick limit (15) reached",
+   "source": "kalshi",
+   "three_way": false
+  },
+  {
+   "series": "KXNCAAWVMATCH",
+   "event_ticker": "KXNCAAWVMATCH-26OCT291900OSUPSU",
+   "matchup": "Penn State vs Ohio State",
+   "start": "2026-10-29T23:00:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Penn State",
+     "fair": 0.91,
+     "ask": 0.95
+    },
+    {
+     "name": "Ohio State",
+     "fair": 0.09000000000000002,
+     "ask": 0.13
+    }
+   ],
+   "pick": {
+    "team": "Penn State",
+    "type": "favorite",
+    "prob": 0.9195979899497487,
+    "price": 0.95,
+    "contracts": 10,
+    "status": "open"
+   },
+   "why": null,
+   "source": "kalshi",
+   "three_way": false
+  },
+  {
    "series": "KXNHLGAME",
    "event_ticker": "KXNHLGAME-26OCT29CBJCAR",
    "matchup": "Columbus Blue Jackets @ Carolina Hurricanes",
    "start": "2026-10-29T23:10:00+00:00",
    "books": 9,
-   "odds_age_min": 221.80673756666664,
+   "odds_age_min": 273.25239461666666,
    "sides": [
     {
      "name": "Columbus Blue Jackets",
@@ -407,7 +469,7 @@
    "matchup": "Utah Mammoth @ Pittsburgh Penguins",
    "start": "2026-10-29T23:10:00+00:00",
    "books": 9,
-   "odds_age_min": 221.80673756666664,
+   "odds_age_min": 273.25239461666666,
    "sides": [
     {
      "name": "Utah Mammoth",
@@ -431,7 +493,7 @@
    "matchup": "Winnipeg Jets @ Tampa Bay Lightning",
    "start": "2026-10-29T23:10:00+00:00",
    "books": 9,
-   "odds_age_min": 221.80673756666664,
+   "odds_age_min": 273.25239461666666,
    "sides": [
     {
      "name": "Winnipeg Jets",
@@ -462,7 +524,7 @@
    "matchup": "Troy Trojans @ James Madison Dukes",
    "start": "2026-10-29T23:30:00+00:00",
    "books": 9,
-   "odds_age_min": 422.4711654833333,
+   "odds_age_min": 473.9162540666667,
    "sides": [
     {
      "name": "Troy Trojans",
@@ -493,7 +555,7 @@
    "matchup": "Florida Atlantic Owls @ North Texas Mean Green",
    "start": "2026-10-29T23:30:00+00:00",
    "books": 9,
-   "odds_age_min": 422.4711654833333,
+   "odds_age_min": 473.9162540666667,
    "sides": [
     {
      "name": "North Texas Mean Green",
@@ -524,7 +586,7 @@
    "matchup": "Chicago Blackhawks @ Detroit Red Wings",
    "start": "2026-10-29T23:40:00+00:00",
    "books": 9,
-   "odds_age_min": 221.80673756666664,
+   "odds_age_min": 273.25239461666666,
    "sides": [
     {
      "name": "Detroit Red Wings",
@@ -555,24 +617,24 @@
    "matchup": "Sacramento Kings @ New Orleans Pelicans",
    "start": "2026-10-30T00:10:00+00:00",
    "books": 8,
-   "odds_age_min": 221.4478955,
+   "odds_age_min": 272.89349599999997,
    "sides": [
     {
      "name": "Sacramento Kings",
      "fair": 0.3402234060037517,
-     "ask": 0.34
+     "ask": 0.33
     },
     {
      "name": "New Orleans Pelicans",
      "fair": 0.6597765939962482,
-     "ask": 0.67
+     "ask": 0.68
     }
    ],
    "pick": {
     "team": "New Orleans Pelicans",
     "type": "favorite",
     "prob": 0.6597765939962482,
-    "price": 0.67,
+    "price": 0.68,
     "contracts": null,
     "status": "blocked"
    },
@@ -586,12 +648,12 @@
    "matchup": "Cleveland Cavaliers @ Atlanta Hawks",
    "start": "2026-10-30T00:10:00+00:00",
    "books": 8,
-   "odds_age_min": 221.4478955,
+   "odds_age_min": 272.89349599999997,
    "sides": [
     {
      "name": "Cleveland Cavaliers",
      "fair": 0.49604594719313505,
-     "ask": 0.5
+     "ask": 0.49
     },
     {
      "name": "Atlanta Hawks",
@@ -610,7 +672,7 @@
    "matchup": "Washington Capitals @ Nashville Predators",
    "start": "2026-10-30T00:10:00+00:00",
    "books": 8,
-   "odds_age_min": 221.80673756666664,
+   "odds_age_min": 273.25239461666666,
    "sides": [
     {
      "name": "Washington Capitals",
@@ -620,7 +682,7 @@
     {
      "name": "Nashville Predators",
      "fair": 0.5000084243955459,
-     "ask": 0.51
+     "ask": 0.5
     }
    ],
    "pick": null,
@@ -634,17 +696,17 @@
    "matchup": "Boston Bruins @ St Louis Blues",
    "start": "2026-10-30T00:10:00+00:00",
    "books": 9,
-   "odds_age_min": 221.80673756666664,
+   "odds_age_min": 273.25239461666666,
    "sides": [
     {
      "name": "St Louis Blues",
      "fair": 0.5104629812406393,
-     "ask": 0.52
+     "ask": 0.51
     },
     {
      "name": "Boston Bruins",
      "fair": 0.48953701875936084,
-     "ask": 0.5
+     "ask": 0.49
     }
    ],
    "pick": null,
@@ -658,12 +720,12 @@
    "matchup": "Montr\u00e9al Canadiens @ Dallas Stars",
    "start": "2026-10-30T00:10:00+00:00",
    "books": 9,
-   "odds_age_min": 221.80673756666664,
+   "odds_age_min": 273.25239461666666,
    "sides": [
     {
      "name": "Montr\u00e9al Canadiens",
      "fair": 0.4053236353996615,
-     "ask": 0.41
+     "ask": 0.4
     },
     {
      "name": "Dallas Stars",
@@ -689,12 +751,12 @@
    "matchup": "New York Islanders @ Minnesota Wild",
    "start": "2026-10-30T00:10:00+00:00",
    "books": 9,
-   "odds_age_min": 221.80673756666664,
+   "odds_age_min": 273.25239461666666,
    "sides": [
     {
      "name": "New York Islanders",
      "fair": 0.37066461630370023,
-     "ask": 0.38
+     "ask": 0.37
     },
     {
      "name": "Minnesota Wild",
@@ -720,7 +782,7 @@
    "matchup": "Carolina Panthers @ Green Bay Packers",
    "start": "2026-10-30T00:15:00+00:00",
    "books": 9,
-   "odds_age_min": 422.85867815,
+   "odds_age_min": 474.3045999166667,
    "sides": [
     {
      "name": "Green Bay Packers",
@@ -751,7 +813,7 @@
    "matchup": "Memphis Grizzlies @ Portland Trail Blazers",
    "start": "2026-10-30T02:10:00+00:00",
    "books": 9,
-   "odds_age_min": 221.4562288333333,
+   "odds_age_min": 272.9018293333333,
    "sides": [
     {
      "name": "Portland Trail Blazers",
@@ -775,7 +837,7 @@
    "matchup": "Vancouver Canucks @ San Jose Sharks",
    "start": "2026-10-30T02:10:00+00:00",
    "books": 9,
-   "odds_age_min": 221.80673756666664,
+   "odds_age_min": 273.25239461666666,
    "sides": [
     {
      "name": "Vancouver Canucks",
@@ -806,7 +868,7 @@
    "matchup": "Buffalo Sabres @ Anaheim Ducks",
    "start": "2026-10-30T02:10:00+00:00",
    "books": 9,
-   "odds_age_min": 221.80673756666664,
+   "odds_age_min": 273.25239461666666,
    "sides": [
     {
      "name": "Buffalo Sabres",
@@ -830,7 +892,7 @@
    "matchup": "Ottawa Senators @ Los Angeles Kings",
    "start": "2026-10-30T02:10:00+00:00",
    "books": 9,
-   "odds_age_min": 221.80673756666664,
+   "odds_age_min": 273.25239461666666,
    "sides": [
     {
      "name": "Ottawa Senators",
@@ -840,7 +902,7 @@
     {
      "name": "Los Angeles Kings",
      "fair": 0.4942363266713374,
-     "ask": 0.5
+     "ask": 0.49
     }
    ],
    "pick": null,
@@ -854,7 +916,7 @@
    "matchup": "Kamilla Rakhimova vs Maya Joint",
    "start": "2026-10-30T04:00:00+00:00",
    "books": 7,
-   "odds_age_min": 221.475938,
+   "odds_age_min": 272.92197806666667,
    "sides": [
     {
      "name": "Kamilla Rakhimova",
@@ -878,7 +940,7 @@
    "matchup": "Alexandra Eala vs Diana Shnaider",
    "start": "2026-10-30T04:00:00+00:00",
    "books": 7,
-   "odds_age_min": 221.475938,
+   "odds_age_min": 272.92197806666667,
    "sides": [
     {
      "name": "Diana Shnaider",
@@ -907,7 +969,7 @@
     {
      "name": "Harriet Dart",
      "fair": 0.2623762376237624,
-     "ask": 0.27
+     "ask": 0.26
     },
     {
      "name": "Paula Badosa",
@@ -930,20 +992,75 @@
    "sides": [
     {
      "name": "PSG",
-     "fair": 0.7881773399014778,
+     "fair": 0.8040201005025126,
      "ask": 0.81
     },
     {
      "name": "Le Havre",
-     "fair": 0.07881773399014777,
-     "ask": 0.09
+     "fair": 0.07537688442211056,
+     "ask": 0.08
     }
    ],
    "pick": {
     "team": "PSG",
     "type": "favorite",
-    "prob": 0.7881773399014778,
+    "prob": 0.8040201005025126,
     "price": 0.81,
+    "contracts": 12,
+    "status": "open"
+   },
+   "why": null,
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXBUNDESLIGAGAME",
+   "event_ticker": "KXBUNDESLIGAGAME-26OCT30SVEM05",
+   "matchup": "Elversberg vs Mainz",
+   "start": "2026-10-30T20:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Elversberg",
+     "fair": 0.3015075376884422,
+     "ask": 0.31
+    },
+    {
+     "name": "Mainz",
+     "fair": 0.45226130653266333,
+     "ask": 0.46
+    }
+   ],
+   "pick": null,
+   "why": "the upset coin picked the underdog, but it isn't a clear value bet",
+   "source": "kalshi",
+   "three_way": true
+  },
+  {
+   "series": "KXLALIGAGAME",
+   "event_ticker": "KXLALIGAGAME-26OCT30VILESP",
+   "matchup": "Villarreal vs Espanyol",
+   "start": "2026-10-30T21:00:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Villarreal",
+     "fair": 0.6884422110552764,
+     "ask": 0.69
+    },
+    {
+     "name": "Espanyol",
+     "fair": 0.13065326633165827,
+     "ask": 0.14
+    }
+   ],
+   "pick": {
+    "team": "Villarreal",
+    "type": "favorite",
+    "prob": 0.6884422110552764,
+    "price": 0.69,
     "contracts": null,
     "status": "blocked"
    },
@@ -953,15 +1070,6 @@
   }
  ],
  "skipped": [
-  {
-   "series": "KXNCAAFGAME",
-   "names": [
-    "South Carolina St.",
-    "Morgan St."
-   ],
-   "ends": "2026-10-30T02:00:00+00:00",
-   "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
-  },
   {
    "series": "KXNCAAHGAME",
    "names": [
@@ -1005,15 +1113,6 @@
     "Cincinnati"
    ],
    "ends": "2026-10-30T04:00:00+00:00",
-   "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
-  },
-  {
-   "series": "KXNCAAWVMATCH",
-   "names": [
-    "Penn State",
-    "Ohio State"
-   ],
-   "ends": "2026-10-30T02:00:00+00:00",
    "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
   },
   {
