@@ -31,6 +31,31 @@ def when(iso):
     return d.astimezone(HST).strftime("%a %-I:%M %p") if d else ""
 
 
+TENNIS = ("KXATPMATCH", "KXWTAMATCH")
+
+
+def span_text(minutes):
+    m = int(round(abs(minutes)))
+    return f"{m // 60}h {m % 60}m" if m >= 60 else f"{m}m"
+
+
+def start_phrase(start_iso, now, estimated, tennis):
+    """Same wording the page's JavaScript produces live; always HST."""
+    d = parse_ts(start_iso)
+    if not d:
+        return ""
+    t = when(start_iso) + " HST"
+    mins = (d - now).total_seconds() / 60
+    if mins > 0:
+        if tennis:
+            return f"Scheduled {t} (in {span_text(mins)}; tennis order of play can slip)."
+        if estimated:
+            return f"Starts about {t} (in {span_text(mins)}; estimated from Kalshi)."
+        return f"Starts {t} (in {span_text(mins)})."
+    lead = "Scheduled for" if tennis else ("Started about" if estimated else "Started")
+    return f"{lead} {t} ({span_text(mins)} ago), waiting for the result."
+
+
 def other_side(b, x):
     return next((s for s in b["sides"] if s is not x), x)
 
@@ -415,8 +440,10 @@ def open_picks_box(store, cfg):
             f'<p><span class="tag {"play" if kind == "favorite" else "dogtag"}">{TYPE_TEXT.get(kind, kind)}</span> '
             f'{"Kalshi prices give" if not r["n_books"] else "Sportsbooks give"} {escape(r["team"])} '
             f'{r["prob"] * 100:.0f}%.</p>'
-            f'<p class="when">{"Started" if started else "Starts"} {when(r["start_ts"])} HST'
-            f'{", waiting for the result" if started else ""}. Paper: {r["contracts"]} contracts at '
+            f'<p class="when"><span class="start" data-start="{escape(r["start_ts"] or "")}" '
+            f'data-est="{0 if r["n_books"] else 1}" data-tennis="{1 if r["series"] in TENNIS else 0}">'
+            f'{start_phrase(r["start_ts"], now, not r["n_books"], r["series"] in TENNIS)}</span> '
+            f'Paper: {r["contracts"]} contracts at '
             f'{cents(r["price"])} (${cost:,.2f}), pays ${r["contracts"]:,.2f} if they win.</p>'
             + (f'<p class="rank">Best Bet #{best_bet[r["id"]]} of {len(priced)}</p></article>' if r["id"] in best_bet
                else '<p class="rank muted">Best Bet: not ranked (no sportsbook price to compare)</p></article>'))
@@ -539,18 +566,80 @@ def render_picks(cfg, store, board, anomalies, skipped):
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <style>{CSS}</style></head><body><main>
 <header><h1>TheEsness Kalshi picks</h1>
-<p class="updated">Updated {escape(hst(now))}. Refreshes about every hour. Paper picks for fun.</p>{strip}</header>
+<p class="clock">Now: <b id="now">{escape(hst(now))}</b></p>
+<p class="updated" data-updated="{now.isoformat()}">Updated {escape(hst(now))}<span id="ago"></span>. Refreshes about every hour. Paper picks for fun.</p>
+<p id="stale" class="stale" hidden></p>{strip}</header>
 {open_picks_box(store, cfg)}
 {picks_howto(cfg)}
 <footer><p>Win chances are the average of several sportsbooks' moneylines with their built-in margin
 removed. Picks are paper bets only. No real orders are ever placed, and nothing here is betting advice.</p></footer>
-</main></body></html>"""
+</main>
+<script>
+/* Every time on this page is recomputed here from UTC timestamps and shown in Hawaii time
+   (Pacific/Honolulu), whatever timezone this device is set to. Runs every 30 seconds. */
+(function () {{
+  var TZ = "Pacific/Honolulu";
+  var dayTime = new Intl.DateTimeFormat("en-US", {{timeZone: TZ, weekday: "short", hour: "numeric", minute: "2-digit"}});
+  var full = new Intl.DateTimeFormat("en-US", {{timeZone: TZ, weekday: "short", month: "2-digit", day: "2-digit",
+                                               hour: "2-digit", minute: "2-digit", hour12: true}});
+  function clockText(d) {{
+    var p = {{}};
+    full.formatToParts(d).forEach(function (x) {{ p[x.type] = x.value; }});
+    return p.weekday + " " + p.month + "/" + p.day + " " + p.hour + ":" + p.minute + " " + p.dayPeriod + " HST";
+  }}
+  function hst(d) {{ return dayTime.format(d).replace(",", "") + " HST"; }}
+  function span(mins) {{
+    var m = Math.round(Math.abs(mins));
+    return m >= 60 ? Math.floor(m / 60) + "h " + (m % 60) + "m" : m + "m";
+  }}
+  function phrase(d, est, tennis, now) {{
+    var mins = (d - now) / 60000, t = hst(d);
+    if (mins > 0) {{
+      if (tennis) return "Scheduled " + t + " (in " + span(mins) + "; tennis order of play can slip).";
+      if (est) return "Starts about " + t + " (in " + span(mins) + "; estimated from Kalshi).";
+      return "Starts " + t + " (in " + span(mins) + ").";
+    }}
+    var lead = tennis ? "Scheduled for" : (est ? "Started about" : "Started");
+    return lead + " " + t + " (" + span(mins) + " ago), waiting for the result.";
+  }}
+  function tick() {{
+    var now = new Date();
+    document.getElementById("now").textContent = clockText(now);
+    var up = document.querySelector("[data-updated]"), upd = new Date(up.getAttribute("data-updated"));
+    var age = (now - upd) / 60000;
+    document.getElementById("ago").textContent = " (" + span(age) + " ago)";
+    var st = document.getElementById("stale");
+    if (age > 90) {{
+      st.hidden = false;
+      st.textContent = "This page hasn't updated in " + span(age) + ". It normally refreshes every hour, "
+        + "so picks and results may be out of date. Reload the page to check.";
+    }} else {{ st.hidden = true; }}
+    document.querySelectorAll("[data-start]").forEach(function (el) {{
+      var d = new Date(el.getAttribute("data-start"));
+      if (!isNaN(d)) el.textContent = phrase(d, el.dataset.est === "1", el.dataset.tennis === "1", now);
+    }});
+  }}
+  /* Pull in a newer build when one is published (skips the browser and CDN caches). */
+  function checkForUpdate() {{
+    var mine = document.querySelector("[data-updated]").getAttribute("data-updated");
+    fetch("board.json?t=" + Date.now(), {{cache: "no-store"}}).then(function (r) {{ return r.json(); }})
+      .then(function (j) {{ if (j.updated && j.updated !== mine) location.replace(location.pathname + "?r=" + Date.now()); }})
+      .catch(function () {{}});
+  }}
+  tick();
+  setInterval(tick, 30000);
+  setInterval(checkForUpdate, 5 * 60000);
+}})();
+</script>
+</body></html>"""
 
 
 CSS = """
 .play.dog .do{color:var(--kal)}
 .play .rank{margin-top:6px;font:700 1.05rem/1.2 "Saira Condensed",sans-serif;color:var(--ink)}
 .plays .fine.top{margin:-4px 0 6px}
+.clock{margin:6px 0 0;color:var(--ink)}
+.stale{margin:8px 0 0;padding:8px 12px;border-radius:4px;background:var(--cran);color:var(--card);font-weight:600;max-width:70ch}
 .play .rank.muted{font:400 .9rem/1.3 "Source Sans 3",sans-serif;color:var(--soft)}
 .sport{display:block;margin:0 0 2px;font:600 .8rem/1.2 "Source Sans 3",sans-serif;color:var(--soft);letter-spacing:.02em}
 .play .sport{font-size:.95rem;color:var(--ink)}

@@ -251,6 +251,16 @@ def install_redaction():
 
 
 _SESSION = requests.Session()
+CLOCK = {"skew_s": None}   # server time minus this machine's time, from the last HTTP Date header
+
+
+def _note_server_clock(r):
+    from email.utils import parsedate_to_datetime
+    try:
+        server = parsedate_to_datetime(r.headers["Date"])
+        CLOCK["skew_s"] = (server - now_utc()).total_seconds()
+    except Exception:
+        pass
 
 
 def http_get(url, params=None, headers=None, retries=3):
@@ -261,6 +271,7 @@ def http_get(url, params=None, headers=None, retries=3):
                 time.sleep(2 * (i + 1))
                 continue
             r.raise_for_status()
+            _note_server_clock(r)
             return r
         except requests.RequestException:
             if i == retries - 1:

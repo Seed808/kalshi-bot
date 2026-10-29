@@ -290,6 +290,18 @@ def cycle(cfg_path, store, paper, verbose):
     games, all_markets = scanner.sports_games(cfg, api_key, store, verbose, skipped=skipped)
     update_clv(store, all_markets)
 
+    # clock check: every time shown is computed from this machine's clock, so compare it with
+    # Kalshi's server clock (HTTP Date header). Times are always converted to Pacific/Honolulu.
+    import common as _c
+    skew = _c.CLOCK["skew_s"]
+    if skew is None:
+        print("Clock check: no server time seen this run")
+    elif abs(skew) > 120:
+        alert(f"CLOCK WARNING: this machine's clock is {skew:+.0f}s off Kalshi's server clock. "
+              f"Start times and 'updated' times may be off by that much.")
+    else:
+        print(f"Clock check: OK, within {abs(skew):.0f}s of Kalshi's server clock")
+
     if picks_mode:
         board = run_picks(games, cfg, store, paper, verbose, skipped)
         try:
@@ -430,11 +442,19 @@ def run_picks(games, cfg, store, paper, verbose, skipped):
     new.sort(key=lambda pn: pn[0]["start"])
     if new:
         alert(f"NEW PICKS ({len(new)})\n\n" + "\n\n".join(
-            f"{hst(p['start'])}\n{picks.fmt_pick(p, n)}" for p, n in new)
+            f"{hst(p['start'])}{start_note(p)}\n{picks.fmt_pick(p, n)}" for p, n in new)
             + "\n\nhttps://seed808.github.io/kalshi-bot/")
     print(f"{hst(now_utc())} | pick mode | {len(games)} games matched, {len(new)} new pick(s), "
           f"{store.open_count()} open, {len(skipped)} skipped")
     return board
+
+
+def start_note(p):
+    if p["series"] in ("KXATPMATCH", "KXWTAMATCH"):
+        return " (scheduled; tennis order of play can slip)"
+    if p.get("source") != "sportsbooks":
+        return " (estimated from Kalshi)"
+    return ""
 
 
 def board_entry(g, feats, sig, why):
