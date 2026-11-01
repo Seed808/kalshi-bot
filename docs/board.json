@@ -1,210 +1,7 @@
 {
- "updated": "2026-11-01T20:47:13.886680+00:00",
+ "updated": "2026-11-01T21:45:57.973466+00:00",
  "mode": "picks",
  "board": [
-  {
-   "series": "KXNCAAWVMATCH",
-   "event_ticker": "KXNCAAWVMATCH-26NOV011600IOWAORE",
-   "matchup": "Oregon vs Iowa",
-   "start": "2026-11-01T21:00:00+00:00",
-   "books": 0,
-   "odds_age_min": null,
-   "sides": [
-    {
-     "name": "Oregon",
-     "fair": 0.9154228855721392,
-     "ask": 0.93
-    },
-    {
-     "name": "Iowa",
-     "fair": 0.08457711442786069,
-     "ask": 0.09
-    }
-   ],
-   "pick": {
-    "team": "Oregon",
-    "type": "favorite",
-    "prob": 0.9154228855721392,
-    "price": 0.93,
-    "contracts": null,
-    "status": "blocked"
-   },
-   "why": "open-pick limit (15) reached",
-   "source": "kalshi",
-   "three_way": false
-  },
-  {
-   "series": "KXNCAAWVMATCH",
-   "event_ticker": "KXNCAAWVMATCH-26NOV011600MINNUSC",
-   "matchup": "Southern California vs Minnesota",
-   "start": "2026-11-01T21:00:00+00:00",
-   "books": 0,
-   "odds_age_min": null,
-   "sides": [
-    {
-     "name": "Southern California",
-     "fair": 0.225,
-     "ask": 0.23
-    },
-    {
-     "name": "Minnesota",
-     "fair": 0.775,
-     "ask": 0.78
-    }
-   ],
-   "pick": {
-    "team": "Minnesota",
-    "type": "favorite",
-    "prob": 0.775,
-    "price": 0.78,
-    "contracts": null,
-    "status": "blocked"
-   },
-   "why": "open-pick limit (15) reached",
-   "source": "kalshi",
-   "three_way": false
-  },
-  {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26NOV01UTAPHI",
-   "matchup": "Utah Mammoth @ Philadelphia Flyers",
-   "start": "2026-11-01T21:00:00+00:00",
-   "books": 8,
-   "odds_age_min": 1167.9945546666668,
-   "sides": [
-    {
-     "name": "Utah Mammoth",
-     "fair": 0.5947492899223465,
-     "ask": 0.62
-    },
-    {
-     "name": "Philadelphia Flyers",
-     "fair": 0.40525071007765345,
-     "ask": 0.39
-    }
-   ],
-   "pick": {
-    "team": "Utah Mammoth",
-    "type": "favorite",
-    "prob": 0.5947492899223465,
-    "price": 0.62,
-    "contracts": null,
-    "status": "blocked"
-   },
-   "why": "open-pick limit (15) reached",
-   "source": "sportsbooks",
-   "three_way": false
-  },
-  {
-   "series": "KXNFLGAME",
-   "event_ticker": "KXNFLGAME-26NOV01LACLAR",
-   "matchup": "Los Angeles Chargers @ Los Angeles Rams",
-   "start": "2026-11-01T21:05:00+00:00",
-   "books": 9,
-   "odds_age_min": 4056.3276202166667,
-   "sides": [
-    {
-     "name": "Los Angeles Rams",
-     "fair": 0.7150161569952678,
-     "ask": 0.74
-    },
-    {
-     "name": "Los Angeles Chargers",
-     "fair": 0.2849838430047322,
-     "ask": 0.27
-    }
-   ],
-   "pick": {
-    "team": "Los Angeles Rams",
-    "type": "favorite",
-    "prob": 0.7150161569952678,
-    "price": 0.74,
-    "contracts": null,
-    "status": "blocked"
-   },
-   "why": "open-pick limit (15) reached",
-   "source": "sportsbooks",
-   "three_way": false
-  },
-  {
-   "series": "KXNFLGAME",
-   "event_ticker": "KXNFLGAME-26NOV01NEMIA",
-   "matchup": "New England Patriots @ Miami Dolphins",
-   "start": "2026-11-01T21:25:00+00:00",
-   "books": 9,
-   "odds_age_min": 4056.3276202166667,
-   "sides": [
-    {
-     "name": "New England Patriots",
-     "fair": 0.7352910236518944,
-     "ask": 0.76
-    },
-    {
-     "name": "Miami Dolphins",
-     "fair": 0.26470897634810575,
-     "ask": 0.24
-    }
-   ],
-   "pick": {
-    "team": "New England Patriots",
-    "type": "favorite",
-    "prob": 0.7352910236518944,
-    "price": 0.76,
-    "contracts": null,
-    "status": "blocked"
-   },
-   "why": "open-pick limit (15) reached",
-   "source": "sportsbooks",
-   "three_way": false
-  },
-  {
-   "series": "KXNFLGAME",
-   "event_ticker": "KXNFLGAME-26NOV01KCDEN",
-   "matchup": "Kansas City Chiefs @ Denver Broncos",
-   "start": "2026-11-01T21:25:00+00:00",
-   "books": 8,
-   "odds_age_min": 4056.7192868833336,
-   "sides": [
-    {
-     "name": "Kansas City Chiefs",
-     "fair": 0.5212971392188507,
-     "ask": 0.5
-    },
-    {
-     "name": "Denver Broncos",
-     "fair": 0.4787028607811493,
-     "ask": 0.51
-    }
-   ],
-   "pick": null,
-   "why": "under 55% win chance, too close to call",
-   "source": "sportsbooks",
-   "three_way": false
-  },
-  {
-   "series": "KXMLSGAME",
-   "event_ticker": "KXMLSGAME-26NOV01ATLTOR",
-   "matchup": "Toronto FC @ Atlanta United FC",
-   "start": "2026-11-01T21:30:00+00:00",
-   "books": 9,
-   "odds_age_min": 1168.3541081,
-   "sides": [
-    {
-     "name": "Toronto FC",
-     "fair": 0.32820987916964844,
-     "ask": 0.32
-    },
-    {
-     "name": "Atlanta United FC",
-     "fair": 0.4308332276515212,
-     "ask": 0.46
-    }
-   ],
-   "pick": null,
-   "why": "under 55% win chance, too close to call",
-   "source": "sportsbooks",
-   "three_way": true
-  },
   {
    "series": "KXNCAAWVMATCH",
    "event_ticker": "KXNCAAWVMATCH-26NOV011700MSSTALA",
@@ -256,7 +53,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -270,13 +67,13 @@
    "sides": [
     {
      "name": "Indiana",
-     "fair": 0.615,
-     "ask": 0.62
+     "fair": 0.5879396984924623,
+     "ask": 0.59
     },
     {
      "name": "Brooklyn",
-     "fair": 0.385,
-     "ask": 0.39
+     "fair": 0.4120603015075377,
+     "ask": 0.42
     }
    ],
    "pick": null,
@@ -294,24 +91,24 @@
    "sides": [
     {
      "name": "New York RB",
-     "fair": 0.14720812182741116,
-     "ask": 0.15
+     "fair": 0.1323529411764706,
+     "ask": 0.14
     },
     {
      "name": "Nashville",
-     "fair": 0.6649746192893401,
-     "ask": 0.66
+     "fair": 0.7058823529411764,
+     "ask": 0.73
     }
    ],
    "pick": {
     "team": "Nashville",
     "type": "favorite",
-    "prob": 0.6649746192893401,
-    "price": 0.66,
+    "prob": 0.7058823529411764,
+    "price": 0.73,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": true
   },
@@ -321,7 +118,7 @@
    "matchup": "Edmonton Oilers @ New York Rangers",
    "start": "2026-11-01T23:00:00+00:00",
    "books": 8,
-   "odds_age_min": 1167.9862213333333,
+   "odds_age_min": 1226.7319898833334,
    "sides": [
     {
      "name": "New York Rangers",
@@ -349,17 +146,24 @@
    "sides": [
     {
      "name": "San Diego Wave FC",
-     "fair": 0.5024875621890548,
-     "ask": 0.51
+     "fair": 0.5721393034825869,
+     "ask": 0.58
     },
     {
      "name": "Bay FC",
-     "fair": 0.263681592039801,
-     "ask": 0.27
+     "fair": 0.20398009950248755,
+     "ask": 0.21
     }
    ],
-   "pick": null,
-   "why": "under 55% win chance, too close to call",
+   "pick": {
+    "team": "San Diego Wave FC",
+    "type": "favorite",
+    "prob": 0.5721393034825869,
+    "price": 0.58,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": true
   },
@@ -373,24 +177,24 @@
    "sides": [
     {
      "name": "Utah Royals",
-     "fair": 0.17412935323383086,
-     "ask": 0.18
+     "fair": 0.13432835820895525,
+     "ask": 0.14
     },
     {
      "name": "Gotham",
-     "fair": 0.5522388059701494,
-     "ask": 0.56
+     "fair": 0.6318407960199006,
+     "ask": 0.64
     }
    ],
    "pick": {
     "team": "Gotham",
     "type": "favorite",
-    "prob": 0.5522388059701494,
-    "price": 0.56,
+    "prob": 0.6318407960199006,
+    "price": 0.64,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": true
   },
@@ -404,13 +208,13 @@
    "sides": [
     {
      "name": "Portland Thorns",
-     "fair": 0.45728643216080406,
-     "ask": 0.46
+     "fair": 0.4773869346733668,
+     "ask": 0.48
     },
     {
      "name": "Houston",
-     "fair": 0.2964824120603015,
-     "ask": 0.3
+     "fair": 0.2864321608040201,
+     "ask": 0.29
     }
    ],
    "pick": null,
@@ -428,24 +232,24 @@
    "sides": [
     {
      "name": "Boston Legacy FC",
-     "fair": 0.19306930693069307,
-     "ask": 0.2
+     "fair": 0.22167487684729067,
+     "ask": 0.23
     },
     {
      "name": "Angel City FC",
-     "fair": 0.5594059405940593,
+     "fair": 0.5566502463054187,
      "ask": 0.57
     }
    ],
    "pick": {
     "team": "Angel City FC",
     "type": "favorite",
-    "prob": 0.5594059405940593,
+    "prob": 0.5566502463054187,
     "price": 0.57,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": true
   },
@@ -459,24 +263,24 @@
    "sides": [
     {
      "name": "Racing Louisville",
-     "fair": 0.2139303482587065,
-     "ask": 0.22
+     "fair": 0.19024390243902436,
+     "ask": 0.2
     },
     {
      "name": "Kansas City",
-     "fair": 0.582089552238806,
-     "ask": 0.59
+     "fair": 0.6195121951219511,
+     "ask": 0.64
     }
    ],
    "pick": {
     "team": "Kansas City",
     "type": "favorite",
-    "prob": 0.582089552238806,
-    "price": 0.59,
+    "prob": 0.6195121951219511,
+    "price": 0.64,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": true
   },
@@ -490,13 +294,13 @@
    "sides": [
     {
      "name": "North Carolina Courage",
-     "fair": 0.3869346733668342,
+     "fair": 0.3811881188118812,
      "ask": 0.39
     },
     {
      "name": "Denver Summit FC",
-     "fair": 0.35678391959798994,
-     "ask": 0.36
+     "fair": 0.3712871287128713,
+     "ask": 0.38
     }
    ],
    "pick": null,
@@ -514,17 +318,24 @@
    "sides": [
     {
      "name": "Seattle Reign",
-     "fair": 0.5396039603960396,
-     "ask": 0.55
+     "fair": 0.5990099009900991,
+     "ask": 0.61
     },
     {
      "name": "Orlando",
-     "fair": 0.21287128712871287,
-     "ask": 0.22
+     "fair": 0.16831683168316833,
+     "ask": 0.18
     }
    ],
-   "pick": null,
-   "why": "under 55% win chance, too close to call",
+   "pick": {
+    "team": "Seattle Reign",
+    "type": "favorite",
+    "prob": 0.5990099009900991,
+    "price": 0.61,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": true
   },
@@ -538,13 +349,13 @@
    "sides": [
     {
      "name": "Washington",
-     "fair": 0.88,
-     "ask": 0.89
+     "fair": 0.890547263681592,
+     "ask": 0.9
     },
     {
      "name": "Chicago",
-     "fair": 0.045,
-     "ask": 0.05
+     "fair": 0.03482587064676617,
+     "ask": 0.04
     }
    ],
    "pick": {
@@ -565,7 +376,7 @@
    "matchup": "Necaxa @ Santos Laguna",
    "start": "2026-11-01T23:00:00+00:00",
    "books": 7,
-   "odds_age_min": 1168.2732011666667,
+   "odds_age_min": 1227.0168906,
    "sides": [
     {
      "name": "Santos Laguna",
@@ -575,7 +386,7 @@
     {
      "name": "Necaxa",
      "fair": 0.24556664839420891,
-     "ask": 0.24
+     "ask": 0.25
     }
    ],
    "pick": null,
@@ -589,7 +400,7 @@
    "matchup": "Inter Miami CF @ New England Revolution",
    "start": "2026-11-02T00:00:00+00:00",
    "books": 9,
-   "odds_age_min": 1168.3541081,
+   "odds_age_min": 1227.0994933666666,
    "sides": [
     {
      "name": "New England Revolution",
@@ -613,7 +424,7 @@
    "matchup": "Ottawa Senators @ Anaheim Ducks",
    "start": "2026-11-02T01:00:00+00:00",
    "books": 8,
-   "odds_age_min": 1167.9862213333333,
+   "odds_age_min": 1226.7319898833334,
    "sides": [
     {
      "name": "Ottawa Senators",
@@ -637,7 +448,7 @@
    "matchup": "Le\u00f3n @ Cruz Azul",
    "start": "2026-11-02T01:10:00+00:00",
    "books": 7,
-   "odds_age_min": 1168.2732011666667,
+   "odds_age_min": 1227.0168906,
    "sides": [
     {
      "name": "Le\u00f3n",
@@ -658,7 +469,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "sportsbooks",
    "three_way": true
   },
@@ -668,7 +479,7 @@
    "matchup": "Philadelphia Eagles @ Washington Commanders",
    "start": "2026-11-02T01:20:00+00:00",
    "books": 9,
-   "odds_age_min": 4056.3276202166667,
+   "odds_age_min": 4115.0823806,
    "sides": [
     {
      "name": "Washington Commanders",
@@ -689,7 +500,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "sportsbooks",
    "three_way": false
   },
@@ -727,24 +538,24 @@
    "sides": [
     {
      "name": "Toronto",
-     "fair": 0.425,
-     "ask": 0.43
+     "fair": 0.415,
+     "ask": 0.42
     },
     {
      "name": "Los Angeles L",
-     "fair": 0.575,
-     "ask": 0.58
+     "fair": 0.585,
+     "ask": 0.59
     }
    ],
    "pick": {
     "team": "Los Angeles L",
     "type": "favorite",
-    "prob": 0.575,
-    "price": 0.58,
+    "prob": 0.585,
+    "price": 0.59,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -775,7 +586,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -789,17 +600,24 @@
    "sides": [
     {
      "name": "Alexandra Shubladze",
-     "fair": 0.45177664974619286,
+     "fair": 0.44723618090452255,
      "ask": 0.47
     },
     {
      "name": "Liudmila Samsonova",
-     "fair": 0.5482233502538072,
-     "ask": 0.56
+     "fair": 0.5527638190954774,
+     "ask": 0.57
     }
    ],
-   "pick": null,
-   "why": "under 55% win chance, too close to call",
+   "pick": {
+    "team": "Liudmila Samsonova",
+    "type": "favorite",
+    "prob": 0.5527638190954774,
+    "price": 0.57,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -813,13 +631,13 @@
    "sides": [
     {
      "name": "Tatiana Prozorova",
-     "fair": 0.5226130653266332,
-     "ask": 0.53
+     "fair": 0.5376884422110553,
+     "ask": 0.54
     },
     {
      "name": "Claire Liu",
-     "fair": 0.4773869346733668,
-     "ask": 0.48
+     "fair": 0.46231155778894467,
+     "ask": 0.47
     }
    ],
    "pick": null,
@@ -837,13 +655,13 @@
    "sides": [
     {
      "name": "Katie Volynets",
-     "fair": 0.4494949494949495,
+     "fair": 0.44,
      "ask": 0.45
     },
     {
      "name": "Aliaksandra Sasnovich",
-     "fair": 0.5505050505050505,
-     "ask": 0.55
+     "fair": 0.56,
+     "ask": 0.57
     }
    ],
    "pick": null,
@@ -861,24 +679,24 @@
    "sides": [
     {
      "name": "Maria Sakkari",
-     "fair": 0.7889447236180904,
-     "ask": 0.79
+     "fair": 0.79,
+     "ask": 0.8
     },
     {
      "name": "Carol Young Suh Lee",
-     "fair": 0.21105527638190955,
+     "fair": 0.21000000000000002,
      "ask": 0.22
     }
    ],
    "pick": {
     "team": "Maria Sakkari",
     "type": "favorite",
-    "prob": 0.7889447236180904,
-    "price": 0.79,
+    "prob": 0.79,
+    "price": 0.8,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -892,24 +710,24 @@
    "sides": [
     {
      "name": "Tereza Valentova",
-     "fair": 0.7788944723618091,
-     "ask": 0.78
+     "fair": 0.785,
+     "ask": 0.79
     },
     {
      "name": "Himeno Sakatsume",
-     "fair": 0.22110552763819097,
-     "ask": 0.23
+     "fair": 0.215,
+     "ask": 0.22
     }
    ],
    "pick": {
     "team": "Tereza Valentova",
     "type": "favorite",
-    "prob": 0.7788944723618091,
-    "price": 0.78,
+    "prob": 0.785,
+    "price": 0.79,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -971,24 +789,24 @@
    "sides": [
     {
      "name": "Sofia Kenin",
-     "fair": 0.275,
+     "fair": 0.2786069651741294,
      "ask": 0.29
     },
     {
      "name": "Leylah Fernandez",
-     "fair": 0.725,
+     "fair": 0.7213930348258707,
      "ask": 0.74
     }
    ],
    "pick": {
     "team": "Leylah Fernandez",
     "type": "favorite",
-    "prob": 0.725,
+    "prob": 0.7213930348258707,
     "price": 0.74,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1043,7 +861,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1074,7 +892,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1088,24 +906,24 @@
    "sides": [
     {
      "name": "Maya Joint",
-     "fair": 0.7376237623762376,
+     "fair": 0.735,
      "ask": 0.74
     },
     {
      "name": "Maddison Inglis",
-     "fair": 0.2623762376237624,
-     "ask": 0.26
+     "fair": 0.265,
+     "ask": 0.27
     }
    ],
    "pick": {
     "team": "Maya Joint",
     "type": "favorite",
-    "prob": 0.7376237623762376,
+    "prob": 0.735,
     "price": 0.74,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1136,7 +954,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1150,13 +968,13 @@
    "sides": [
     {
      "name": "Antonia Ruzic",
-     "fair": 0.47938144329896903,
-     "ask": 0.47
+     "fair": 0.5,
+     "ask": 0.5
     },
     {
      "name": "Alina Charaeva",
-     "fair": 0.520618556701031,
-     "ask": 0.51
+     "fair": 0.5,
+     "ask": 0.5
     }
    ],
    "pick": null,
@@ -1191,7 +1009,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1205,24 +1023,24 @@
    "sides": [
     {
      "name": "Minnesota",
-     "fair": 0.20398009950248755,
-     "ask": 0.21
+     "fair": 0.19597989949748745,
+     "ask": 0.2
     },
     {
      "name": "Los Angeles F",
-     "fair": 0.5820895522388059,
+     "fair": 0.5879396984924623,
      "ask": 0.59
     }
    ],
    "pick": {
     "team": "Los Angeles F",
     "type": "favorite",
-    "prob": 0.5820895522388059,
+    "prob": 0.5879396984924623,
     "price": 0.59,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": true
   },
@@ -1232,7 +1050,7 @@
    "matchup": "Houston Dynamo @ Portland Timbers",
    "start": "2026-11-02T02:45:00+00:00",
    "books": 9,
-   "odds_age_min": 1168.3541081,
+   "odds_age_min": 1227.0994933666666,
    "sides": [
     {
      "name": "Portland Timbers",
@@ -1242,7 +1060,7 @@
     {
      "name": "Houston Dynamo",
      "fair": 0.23563441940598354,
-     "ask": 0.23
+     "ask": 0.22
     }
    ],
    "pick": null,
@@ -1256,7 +1074,7 @@
    "matchup": "High Point Panthers @ Liberty Flames",
    "start": "2026-11-02T05:00:00+00:00",
    "books": 5,
-   "odds_age_min": 1168.0422431666666,
+   "odds_age_min": 1226.7843071166667,
    "sides": [
     {
      "name": "Liberty Flames",
@@ -1277,7 +1095,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "sportsbooks",
    "three_way": false
   },
@@ -1308,7 +1126,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1339,7 +1157,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1353,24 +1171,24 @@
    "sides": [
     {
      "name": "Jeline Vandromme",
-     "fair": 0.785,
-     "ask": 0.79
+     "fair": 0.7761194029850745,
+     "ask": 0.78
     },
     {
      "name": "Kyoka Okamura",
-     "fair": 0.215,
-     "ask": 0.22
+     "fair": 0.22388059701492535,
+     "ask": 0.23
     }
    ],
    "pick": {
     "team": "Jeline Vandromme",
     "type": "favorite",
-    "prob": 0.785,
-    "price": 0.79,
+    "prob": 0.7761194029850745,
+    "price": 0.78,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1401,7 +1219,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1439,13 +1257,13 @@
    "sides": [
     {
      "name": "Janice Tjen",
-     "fair": 0.935960591133005,
-     "ask": 0.94
+     "fair": 0.9554455445544554,
+     "ask": 0.96
     },
     {
      "name": "Katherine Hui",
-     "fair": 0.06403940886699508,
-     "ask": 0.06
+     "fair": 0.04455445544554455,
+     "ask": 0.04
     }
    ],
    "pick": {
@@ -1494,24 +1312,17 @@
    "sides": [
     {
      "name": "Oksana Selekhmeteva",
-     "fair": 0.44827586206896547,
+     "fair": 0.4504950495049505,
      "ask": 0.45
     },
     {
      "name": "Teodora Kostovic",
-     "fair": 0.5517241379310345,
+     "fair": 0.5495049504950495,
      "ask": 0.55
     }
    ],
-   "pick": {
-    "team": "Teodora Kostovic",
-    "type": "favorite",
-    "prob": 0.5517241379310345,
-    "price": 0.55,
-    "contracts": null,
-    "status": "blocked"
-   },
-   "why": "open-pick limit (15) reached",
+   "pick": null,
+   "why": "under 55% win chance, too close to call",
    "source": "kalshi",
    "three_way": false
   },
@@ -1525,13 +1336,13 @@
    "sides": [
     {
      "name": "Panna Udvardy",
-     "fair": 0.2864321608040201,
+     "fair": 0.2878787878787879,
      "ask": 0.29
     },
     {
      "name": "Robin Montgomery",
-     "fair": 0.7135678391959799,
-     "ask": 0.72
+     "fair": 0.712121212121212,
+     "ask": 0.71
     }
    ],
    "pick": null,
@@ -1566,7 +1377,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1621,7 +1432,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1652,7 +1463,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1683,7 +1494,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1714,7 +1525,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1728,13 +1539,13 @@
    "sides": [
     {
      "name": "Rinky Hijikata",
-     "fair": 0.5,
-     "ask": 0.5
+     "fair": 0.5223880597014926,
+     "ask": 0.53
     },
     {
      "name": "Luciano Darderi",
-     "fair": 0.5,
-     "ask": 0.51
+     "fair": 0.4776119402985075,
+     "ask": 0.48
     }
    ],
    "pick": null,
@@ -1769,7 +1580,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1783,24 +1594,24 @@
    "sides": [
     {
      "name": "Mei Yamaguchi",
-     "fair": 0.6134020618556701,
-     "ask": 0.63
+     "fair": 0.6173469387755102,
+     "ask": 0.62
     },
     {
      "name": "Zhibek Kulambayeva",
-     "fair": 0.3865979381443299,
+     "fair": 0.3826530612244898,
      "ask": 0.39
     }
    ],
    "pick": {
     "team": "Mei Yamaguchi",
     "type": "favorite",
-    "prob": 0.6134020618556701,
-    "price": 0.63,
+    "prob": 0.6173469387755102,
+    "price": 0.62,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1814,24 +1625,24 @@
    "sides": [
     {
      "name": "Merrimack",
-     "fair": 0.6069651741293532,
+     "fair": 0.6089108910891089,
      "ask": 0.61
     },
     {
      "name": "Appalachian St.",
-     "fair": 0.3930348258706468,
+     "fair": 0.3910891089108911,
      "ask": 0.4
     }
    ],
    "pick": {
     "team": "Merrimack",
     "type": "favorite",
-    "prob": 0.6069651741293532,
+    "prob": 0.6089108910891089,
     "price": 0.61,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1862,7 +1673,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1900,12 +1711,12 @@
    "sides": [
     {
      "name": "Winthrop",
-     "fair": 0.4676616915422886,
-     "ask": 0.48
+     "fair": 0.47,
+     "ask": 0.49
     },
     {
      "name": "Queens University",
-     "fair": 0.5323383084577116,
+     "fair": 0.53,
      "ask": 0.55
     }
    ],
@@ -1941,7 +1752,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1955,12 +1766,12 @@
    "sides": [
     {
      "name": "Hofstra",
-     "fair": 0.08080808080808081,
+     "fair": 0.08542713567839197,
      "ask": 0.1
     },
     {
      "name": "Georgia Tech",
-     "fair": 0.9191919191919192,
+     "fair": 0.9145728643216081,
      "ask": 0.92
     }
    ],
@@ -1979,12 +1790,12 @@
    "sides": [
     {
      "name": "Alex Molcan",
-     "fair": 0.5323383084577116,
-     "ask": 0.54
+     "fair": 0.542713567839196,
+     "ask": 0.55
     },
     {
      "name": "Titouan Droguet",
-     "fair": 0.4676616915422886,
+     "fair": 0.457286432160804,
      "ask": 0.47
     }
    ],
@@ -2020,7 +1831,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2034,13 +1845,13 @@
    "sides": [
     {
      "name": "Old Dominion",
-     "fair": 0.4228855721393035,
-     "ask": 0.45
+     "fair": 0.445,
+     "ask": 0.48
     },
     {
      "name": "Central Michigan",
-     "fair": 0.5771144278606966,
-     "ask": 0.6
+     "fair": 0.555,
+     "ask": 0.59
     }
    ],
    "pick": null,
@@ -2058,13 +1869,13 @@
    "sides": [
     {
      "name": "Western Michigan",
-     "fair": 0.2989690721649485,
+     "fair": 0.2994923857868021,
      "ask": 0.32
     },
     {
      "name": "Coastal Carolina",
-     "fair": 0.7010309278350515,
-     "ask": 0.69
+     "fair": 0.700507614213198,
+     "ask": 0.71
     }
    ],
    "pick": null,
@@ -2082,24 +1893,24 @@
    "sides": [
     {
      "name": "Tennessee Tech",
-     "fair": 0.14427860696517417,
-     "ask": 0.16
+     "fair": 0.135678391959799,
+     "ask": 0.15
     },
     {
      "name": "Butler",
-     "fair": 0.855721393034826,
-     "ask": 0.87
+     "fair": 0.864321608040201,
+     "ask": 0.88
     }
    ],
    "pick": {
     "team": "Butler",
     "type": "favorite",
-    "prob": 0.855721393034826,
-    "price": 0.87,
+    "prob": 0.864321608040201,
+    "price": 0.88,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2168,24 +1979,24 @@
    "sides": [
     {
      "name": "South Carolina",
-     "fair": 0.9154228855721392,
-     "ask": 0.93
+     "fair": 0.8725490196078431,
+     "ask": 0.88
     },
     {
      "name": "Maryland",
-     "fair": 0.08457711442786069,
-     "ask": 0.09
+     "fair": 0.12745098039215685,
+     "ask": 0.12
     }
    ],
    "pick": {
     "team": "South Carolina",
     "type": "favorite",
-    "prob": 0.9154228855721392,
-    "price": 0.93,
+    "prob": 0.8725490196078431,
+    "price": 0.88,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2221,30 +2032,6 @@
    "three_way": false
   },
   {
-   "series": "KXSERIEAGAME",
-   "event_ticker": "KXSERIEAGAME-26NOV02SASFIO",
-   "matchup": "Fiorentina @ Sassuolo",
-   "start": "2026-11-02T17:30:00+00:00",
-   "books": 8,
-   "odds_age_min": 1167.7883670333335,
-   "sides": [
-    {
-     "name": "Sassuolo",
-     "fair": 0.3349736499413269,
-     "ask": 0.34
-    },
-    {
-     "name": "Fiorentina",
-     "fair": 0.4060767492151649,
-     "ask": 0.41
-    }
-   ],
-   "pick": null,
-   "why": "under 55% win chance, too close to call",
-   "source": "sportsbooks",
-   "three_way": true
-  },
-  {
    "series": "KXNCAAWBGAME",
    "event_ticker": "KXNCAAWBGAME-26NOV02STANARIZ",
    "matchup": "Stanford vs Arizona",
@@ -2271,9 +2058,33 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
+  },
+  {
+   "series": "KXSERIEAGAME",
+   "event_ticker": "KXSERIEAGAME-26NOV02SASFIO",
+   "matchup": "Fiorentina @ Sassuolo",
+   "start": "2026-11-02T17:30:00+00:00",
+   "books": 8,
+   "odds_age_min": 1226.5440704166667,
+   "sides": [
+    {
+     "name": "Sassuolo",
+     "fair": 0.3349736499413269,
+     "ask": 0.34
+    },
+    {
+     "name": "Fiorentina",
+     "fair": 0.4060767492151649,
+     "ask": 0.41
+    }
+   ],
+   "pick": null,
+   "why": "under 55% win chance, too close to call",
+   "source": "sportsbooks",
+   "three_way": true
   },
   {
    "series": "KXNCAAWBGAME",
@@ -2285,13 +2096,13 @@
    "sides": [
     {
      "name": "Houston",
-     "fair": 0.9447236180904522,
+     "fair": 0.945,
      "ask": 0.95
     },
     {
      "name": "Hampton",
-     "fair": 0.05527638190954775,
-     "ask": 0.07
+     "fair": 0.05500000000000001,
+     "ask": 0.06
     }
    ],
    "pick": {
@@ -2333,7 +2144,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2347,17 +2158,24 @@
    "sides": [
     {
      "name": "UTEP",
-     "fair": 0.5477386934673366,
+     "fair": 0.5505050505050505,
      "ask": 0.55
     },
     {
      "name": "Northern Kentucky",
-     "fair": 0.4522613065326633,
+     "fair": 0.4494949494949495,
      "ask": 0.46
     }
    ],
-   "pick": null,
-   "why": "under 55% win chance, too close to call",
+   "pick": {
+    "team": "UTEP",
+    "type": "favorite",
+    "prob": 0.5505050505050505,
+    "price": 0.55,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2417,6 +2235,37 @@
    "three_way": false
   },
   {
+   "series": "KXNCAAWBGAME",
+   "event_ticker": "KXNCAAWBGAME-26NOV02OKLAUNC",
+   "matchup": "North Carolina vs Oklahoma",
+   "start": "2026-11-02T19:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "North Carolina",
+     "fair": 0.5612244897959184,
+     "ask": 0.6
+    },
+    {
+     "name": "Oklahoma",
+     "fair": 0.4387755102040816,
+     "ask": 0.47
+    }
+   ],
+   "pick": {
+    "team": "North Carolina",
+    "type": "favorite",
+    "prob": 0.5612244897959184,
+    "price": 0.6,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "daily pick limit (15) reached",
+   "source": "kalshi",
+   "three_way": false
+  },
+  {
    "series": "KXNCAAMBGAME",
    "event_ticker": "KXNCAAMBGAME-26NOV02UTSASJSU",
    "matchup": "UTSA vs San Jose St.",
@@ -2426,24 +2275,24 @@
    "sides": [
     {
      "name": "UTSA",
-     "fair": 0.24242424242424243,
+     "fair": 0.23737373737373738,
      "ask": 0.25
     },
     {
      "name": "San Jose St.",
-     "fair": 0.7575757575757576,
-     "ask": 0.76
+     "fair": 0.7626262626262627,
+     "ask": 0.77
     }
    ],
    "pick": {
     "team": "San Jose St.",
     "type": "favorite",
-    "prob": 0.7575757575757576,
-    "price": 0.76,
+    "prob": 0.7626262626262627,
+    "price": 0.77,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2453,7 +2302,7 @@
    "matchup": "Everton @ Newcastle United",
    "start": "2026-11-02T20:00:00+00:00",
    "books": 9,
-   "odds_age_min": 2617.5460822333334,
+   "odds_age_min": 2676.286134783333,
    "sides": [
     {
      "name": "Newcastle United",
@@ -2498,7 +2347,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": true
   },
@@ -2536,12 +2385,12 @@
    "sides": [
     {
      "name": "UMBC",
-     "fair": 0.059701492537313446,
+     "fair": 0.055,
      "ask": 0.06
     },
     {
      "name": "George Mason",
-     "fair": 0.9402985074626866,
+     "fair": 0.945,
      "ask": 0.95
     }
    ],
@@ -2567,12 +2416,12 @@
    "sides": [
     {
      "name": "USC",
-     "fair": 0.9285714285714286,
+     "fair": 0.9238578680203046,
      "ask": 0.92
     },
     {
      "name": "UNLV",
-     "fair": 0.07142857142857144,
+     "fair": 0.07614213197969542,
      "ask": 0.09
     }
    ],
@@ -2598,24 +2447,24 @@
    "sides": [
     {
      "name": "UAB",
-     "fair": 0.393939393939394,
+     "fair": 0.3919597989949749,
      "ask": 0.4
     },
     {
      "name": "McNeese",
-     "fair": 0.6060606060606061,
+     "fair": 0.6080402010050251,
      "ask": 0.61
     }
    ],
    "pick": {
     "team": "McNeese",
     "type": "favorite",
-    "prob": 0.6060606060606061,
+    "prob": 0.6080402010050251,
     "price": 0.61,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2677,7 +2526,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2691,24 +2540,24 @@
    "sides": [
     {
      "name": "Penn St.",
-     "fair": 0.8275862068965517,
+     "fair": 0.8267326732673267,
      "ask": 0.85
     },
     {
      "name": "Cleveland St.",
-     "fair": 0.17241379310344823,
+     "fair": 0.17326732673267325,
      "ask": 0.19
     }
    ],
    "pick": {
     "team": "Penn St.",
     "type": "favorite",
-    "prob": 0.8275862068965517,
+    "prob": 0.8267326732673267,
     "price": 0.85,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2770,7 +2619,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2801,7 +2650,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2815,24 +2664,24 @@
    "sides": [
     {
      "name": "Pepperdine",
-     "fair": 0.5757575757575758,
-     "ask": 0.58
+     "fair": 0.5939086294416244,
+     "ask": 0.6
     },
     {
      "name": "Cornell",
-     "fair": 0.42424242424242425,
-     "ask": 0.43
+     "fair": 0.4060913705583757,
+     "ask": 0.41
     }
    ],
    "pick": {
     "team": "Pepperdine",
     "type": "favorite",
-    "prob": 0.5757575757575758,
-    "price": 0.58,
+    "prob": 0.5939086294416244,
+    "price": 0.6,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2846,24 +2695,24 @@
    "sides": [
     {
      "name": "Georgia St.",
-     "fair": 0.6169154228855722,
+     "fair": 0.6188118811881188,
      "ask": 0.62
     },
     {
      "name": "Bowling Green",
-     "fair": 0.3830845771144279,
+     "fair": 0.3811881188118812,
      "ask": 0.39
     }
    ],
    "pick": {
     "team": "Georgia St.",
     "type": "favorite",
-    "prob": 0.6169154228855722,
+    "prob": 0.6188118811881188,
     "price": 0.62,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2877,24 +2726,24 @@
    "sides": [
     {
      "name": "Miami (FL)",
-     "fair": 0.3316582914572864,
+     "fair": 0.335,
      "ask": 0.34
     },
     {
      "name": "Florida",
-     "fair": 0.6683417085427136,
+     "fair": 0.665,
      "ask": 0.67
     }
    ],
    "pick": {
     "team": "Florida",
     "type": "favorite",
-    "prob": 0.6683417085427136,
+    "prob": 0.665,
     "price": 0.67,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2904,7 +2753,7 @@
    "matchup": "Memphis Tigers @ Iowa State Cyclones",
    "start": "2026-11-02T23:00:00+00:00",
    "books": 5,
-   "odds_age_min": 1168.0422431666666,
+   "odds_age_min": 1226.7843071166667,
    "sides": [
     {
      "name": "Memphis Tigers",
@@ -2925,7 +2774,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "sportsbooks",
    "three_way": false
   },
@@ -2956,7 +2805,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -2970,24 +2819,24 @@
    "sides": [
     {
      "name": "South Alabama",
-     "fair": 0.43349753694581283,
+     "fair": 0.43283582089552236,
      "ask": 0.44
     },
     {
      "name": "Akron",
-     "fair": 0.5665024630541872,
+     "fair": 0.5671641791044776,
      "ask": 0.58
     }
    ],
    "pick": {
     "team": "Akron",
     "type": "favorite",
-    "prob": 0.5665024630541872,
+    "prob": 0.5671641791044776,
     "price": 0.58,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3018,7 +2867,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3073,7 +2922,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3087,13 +2936,13 @@
    "sides": [
     {
      "name": "Monmouth",
-     "fair": 0.5024875621890548,
+     "fair": 0.5,
      "ask": 0.53
     },
     {
      "name": "Binghamton",
-     "fair": 0.49751243781094534,
-     "ask": 0.52
+     "fair": 0.5,
+     "ask": 0.53
     }
    ],
    "pick": null,
@@ -3128,7 +2977,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3142,24 +2991,24 @@
    "sides": [
     {
      "name": "Marshall",
-     "fair": 0.37810945273631846,
+     "fair": 0.375,
      "ask": 0.4
     },
     {
      "name": "UMass",
-     "fair": 0.6218905472636816,
-     "ask": 0.64
+     "fair": 0.625,
+     "ask": 0.65
     }
    ],
    "pick": {
     "team": "UMass",
     "type": "favorite",
-    "prob": 0.6218905472636816,
-    "price": 0.64,
+    "prob": 0.625,
+    "price": 0.65,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3190,7 +3039,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3204,24 +3053,24 @@
    "sides": [
     {
      "name": "Georgia St.",
-     "fair": 0.3768844221105528,
-     "ask": 0.39
+     "fair": 0.38383838383838387,
+     "ask": 0.4
     },
     {
      "name": "Buffalo",
-     "fair": 0.6231155778894473,
+     "fair": 0.6161616161616161,
      "ask": 0.63
     }
    ],
    "pick": {
     "team": "Buffalo",
     "type": "favorite",
-    "prob": 0.6231155778894473,
+    "prob": 0.6161616161616161,
     "price": 0.63,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3235,12 +3084,12 @@
    "sides": [
     {
      "name": "Siena",
-     "fair": 0.5128205128205129,
+     "fair": 0.5051546391752577,
      "ask": 0.52
     },
     {
      "name": "Brown",
-     "fair": 0.48717948717948717,
+     "fair": 0.4948453608247423,
      "ask": 0.51
     }
    ],
@@ -3276,7 +3125,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3314,12 +3163,12 @@
    "sides": [
     {
      "name": "Temple",
-     "fair": 0.9396984924623115,
+     "fair": 0.935,
      "ask": 0.94
     },
     {
      "name": "Central Connecticut St.",
-     "fair": 0.06030150753768844,
+     "fair": 0.065,
      "ask": 0.07
     }
    ],
@@ -3355,7 +3204,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3386,7 +3235,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3400,12 +3249,12 @@
    "sides": [
     {
      "name": "Dartmouth",
-     "fair": 0.5714285714285714,
-     "ask": 0.57
+     "fair": 0.5757575757575758,
+     "ask": 0.58
     },
     {
      "name": "Boston University",
-     "fair": 0.42857142857142855,
+     "fair": 0.42424242424242425,
      "ask": 0.44
     }
    ],
@@ -3472,13 +3321,13 @@
    "sides": [
     {
      "name": "Oklahoma City",
-     "fair": 0.39215686274509803,
-     "ask": 0.39
+     "fair": 0.3564356435643564,
+     "ask": 0.36
     },
     {
      "name": "Cleveland",
-     "fair": 0.6078431372549019,
-     "ask": 0.61
+     "fair": 0.6435643564356436,
+     "ask": 0.65
     }
    ],
    "pick": null,
@@ -3496,12 +3345,12 @@
    "sides": [
     {
      "name": "Vegas",
-     "fair": 0.505,
-     "ask": 0.51
+     "fair": 0.5,
+     "ask": 0.5
     },
     {
      "name": "Boston",
-     "fair": 0.495,
+     "fair": 0.5,
      "ask": 0.5
     }
    ],
@@ -3561,7 +3410,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3575,24 +3424,24 @@
    "sides": [
     {
      "name": "LIU",
-     "fair": 0.1717171717171717,
-     "ask": 0.18
+     "fair": 0.16666666666666669,
+     "ask": 0.17
     },
     {
      "name": "Florida Atlantic",
-     "fair": 0.8282828282828284,
+     "fair": 0.8333333333333333,
      "ask": 0.83
     }
    ],
    "pick": {
     "team": "Florida Atlantic",
     "type": "favorite",
-    "prob": 0.8282828282828284,
+    "prob": 0.8333333333333333,
     "price": 0.83,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3606,13 +3455,13 @@
    "sides": [
     {
      "name": "Yale",
-     "fair": 0.6919191919191919,
-     "ask": 0.69
+     "fair": 0.6969696969696969,
+     "ask": 0.7
     },
     {
      "name": "Howard",
-     "fair": 0.30808080808080807,
-     "ask": 0.32
+     "fair": 0.30303030303030304,
+     "ask": 0.31
     }
    ],
    "pick": null,
@@ -3661,12 +3510,12 @@
    "sides": [
     {
      "name": "Northeastern",
-     "fair": 0.49,
-     "ask": 0.5
+     "fair": 0.48223350253807107,
+     "ask": 0.49
     },
     {
      "name": "Boston University",
-     "fair": 0.51,
+     "fair": 0.5177664974619289,
      "ask": 0.52
     }
    ],
@@ -3702,7 +3551,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3716,13 +3565,13 @@
    "sides": [
     {
      "name": "Vermont",
-     "fair": 0.47474747474747475,
+     "fair": 0.47,
      "ask": 0.49
     },
     {
      "name": "Iona",
-     "fair": 0.5252525252525253,
-     "ask": 0.54
+     "fair": 0.53,
+     "ask": 0.55
     }
    ],
    "pick": null,
@@ -3757,7 +3606,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3788,7 +3637,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3819,7 +3668,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3833,24 +3682,24 @@
    "sides": [
     {
      "name": "Georgia Southern",
-     "fair": 0.44670050761421315,
+     "fair": 0.4422110552763819,
      "ask": 0.45
     },
     {
      "name": "Ball St.",
-     "fair": 0.5532994923857868,
-     "ask": 0.55
+     "fair": 0.5577889447236181,
+     "ask": 0.56
     }
    ],
    "pick": {
     "team": "Ball St.",
     "type": "favorite",
-    "prob": 0.5532994923857868,
-    "price": 0.55,
+    "prob": 0.5577889447236181,
+    "price": 0.56,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3881,7 +3730,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3895,24 +3744,24 @@
    "sides": [
     {
      "name": "Wright St.",
-     "fair": 0.8426395939086294,
-     "ask": 0.84
+     "fair": 0.8442211055276382,
+     "ask": 0.85
     },
     {
      "name": "Air Force",
-     "fair": 0.15736040609137056,
+     "fair": 0.15577889447236182,
      "ask": 0.16
     }
    ],
    "pick": {
     "team": "Wright St.",
     "type": "favorite",
-    "prob": 0.8426395939086294,
-    "price": 0.84,
+    "prob": 0.8442211055276382,
+    "price": 0.85,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3943,7 +3792,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -3957,24 +3806,24 @@
    "sides": [
     {
      "name": "New Hampshire",
-     "fair": 0.21105527638190955,
-     "ask": 0.22
+     "fair": 0.20202020202020204,
+     "ask": 0.21
     },
     {
      "name": "Brown",
-     "fair": 0.7889447236180904,
+     "fair": 0.797979797979798,
      "ask": 0.8
     }
    ],
    "pick": {
     "team": "Brown",
     "type": "favorite",
-    "prob": 0.7889447236180904,
+    "prob": 0.797979797979798,
     "price": 0.8,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4005,7 +3854,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4019,12 +3868,12 @@
    "sides": [
     {
      "name": "Miami (OH)",
-     "fair": 0.5025380710659898,
-     "ask": 0.51
+     "fair": 0.5051020408163265,
+     "ask": 0.52
     },
     {
      "name": "James Madison",
-     "fair": 0.49746192893401014,
+     "fair": 0.49489795918367346,
      "ask": 0.5
     }
    ],
@@ -4060,7 +3909,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4098,12 +3947,12 @@
    "sides": [
     {
      "name": "Eastern Michigan",
-     "fair": 0.5025380710659898,
+     "fair": 0.5050505050505051,
      "ask": 0.51
     },
     {
      "name": "Coastal Carolina",
-     "fair": 0.49746192893401014,
+     "fair": 0.494949494949495,
      "ask": 0.5
     }
    ],
@@ -4163,7 +4012,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4201,12 +4050,12 @@
    "sides": [
     {
      "name": "Western Michigan",
-     "fair": 0.5050505050505051,
+     "fair": 0.507537688442211,
      "ask": 0.52
     },
     {
      "name": "Old Dominion",
-     "fair": 0.494949494949495,
+     "fair": 0.4924623115577889,
      "ask": 0.5
     }
    ],
@@ -4225,13 +4074,13 @@
    "sides": [
     {
      "name": "Youngstown St.",
-     "fair": 0.16751269035532992,
+     "fair": 0.1658291457286432,
      "ask": 0.18
     },
     {
      "name": "St. Bonaventure",
-     "fair": 0.83248730964467,
-     "ask": 0.83
+     "fair": 0.8341708542713568,
+     "ask": 0.84
     }
    ],
    "pick": null,
@@ -4249,12 +4098,12 @@
    "sides": [
     {
      "name": "UNC Asheville",
-     "fair": 0.11111111111111112,
+     "fair": 0.11499999999999999,
      "ask": 0.12
     },
     {
      "name": "Richmond",
-     "fair": 0.888888888888889,
+     "fair": 0.885,
      "ask": 0.89
     }
    ],
@@ -4369,7 +4218,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4400,7 +4249,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4414,24 +4263,24 @@
    "sides": [
     {
      "name": "Miami (OH)",
-     "fair": 0.365,
-     "ask": 0.4
+     "fair": 0.36453201970443344,
+     "ask": 0.38
     },
     {
      "name": "James Madison",
-     "fair": 0.635,
-     "ask": 0.67
+     "fair": 0.6354679802955664,
+     "ask": 0.66
     }
    ],
    "pick": {
     "team": "James Madison",
     "type": "favorite",
-    "prob": 0.635,
-    "price": 0.67,
+    "prob": 0.6354679802955664,
+    "price": 0.66,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4486,7 +4335,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4517,7 +4366,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4548,7 +4397,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4562,24 +4411,24 @@
    "sides": [
     {
      "name": "Temple",
-     "fair": 0.2828282828282829,
+     "fair": 0.2864321608040201,
      "ask": 0.3
     },
     {
      "name": "George Mason",
-     "fair": 0.7171717171717171,
+     "fair": 0.7135678391959799,
      "ask": 0.72
     }
    ],
    "pick": {
     "team": "George Mason",
     "type": "favorite",
-    "prob": 0.7171717171717171,
+    "prob": 0.7135678391959799,
     "price": 0.72,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4593,24 +4442,24 @@
    "sides": [
     {
      "name": "Southern Indiana",
-     "fair": 0.33333333333333337,
+     "fair": 0.3299492385786802,
      "ask": 0.34
     },
     {
      "name": "Murray St.",
-     "fair": 0.6666666666666667,
+     "fair": 0.6700507614213198,
      "ask": 0.68
     }
    ],
    "pick": {
     "team": "Murray St.",
     "type": "favorite",
-    "prob": 0.6666666666666667,
+    "prob": 0.6700507614213198,
     "price": 0.68,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4648,24 +4497,24 @@
    "sides": [
     {
      "name": "Miami (FL)",
-     "fair": 0.9343434343434344,
+     "fair": 0.9390862944162436,
      "ask": 0.94
     },
     {
      "name": "Florida Atlantic",
-     "fair": 0.06565656565656566,
+     "fair": 0.060913705583756333,
      "ask": 0.08
     }
    ],
    "pick": {
     "team": "Miami (FL)",
     "type": "favorite",
-    "prob": 0.9343434343434344,
+    "prob": 0.9390862944162436,
     "price": 0.94,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4710,12 +4559,12 @@
    "sides": [
     {
      "name": "Northeastern",
-     "fair": 0.5148514851485149,
+     "fair": 0.5174129353233832,
      "ask": 0.53
     },
     {
      "name": "University at Albany",
-     "fair": 0.48514851485148514,
+     "fair": 0.48258706467661694,
      "ask": 0.49
     }
    ],
@@ -4772,10 +4621,10 @@
     "type": "favorite",
     "prob": 0.985,
     "price": 0.99,
-    "contracts": null,
-    "status": "blocked"
+    "contracts": 10,
+    "status": "open"
    },
-   "why": "open-pick limit (15) reached",
+   "why": null,
    "source": "kalshi",
    "three_way": false
   },
@@ -4813,24 +4662,24 @@
    "sides": [
     {
      "name": "Northern Illinois",
-     "fair": 0.698019801980198,
+     "fair": 0.702020202020202,
      "ask": 0.72
     },
     {
      "name": "Indiana St.",
-     "fair": 0.301980198019802,
-     "ask": 0.31
+     "fair": 0.297979797979798,
+     "ask": 0.33
     }
    ],
    "pick": {
     "team": "Northern Illinois",
     "type": "favorite",
-    "prob": 0.698019801980198,
+    "prob": 0.702020202020202,
     "price": 0.72,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4844,24 +4693,24 @@
    "sides": [
     {
      "name": "Navy",
-     "fair": 0.8615384615384615,
-     "ask": 0.86
+     "fair": 0.8477157360406091,
+     "ask": 0.85
     },
     {
      "name": "Mount St. Mary's",
-     "fair": 0.13846153846153847,
-     "ask": 0.16
+     "fair": 0.15228426395939088,
+     "ask": 0.17
     }
    ],
    "pick": {
     "team": "Navy",
     "type": "favorite",
-    "prob": 0.8615384615384615,
-    "price": 0.86,
+    "prob": 0.8477157360406091,
+    "price": 0.85,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4875,24 +4724,24 @@
    "sides": [
     {
      "name": "Georgia Southern",
-     "fair": 0.6963350785340314,
+     "fair": 0.7,
      "ask": 0.67
     },
     {
      "name": "Bowling Green",
-     "fair": 0.3036649214659686,
+     "fair": 0.3,
      "ask": 0.31
     }
    ],
    "pick": {
     "team": "Georgia Southern",
     "type": "favorite",
-    "prob": 0.6963350785340314,
+    "prob": 0.7,
     "price": 0.67,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4923,7 +4772,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -4937,12 +4786,12 @@
    "sides": [
     {
      "name": "Washington",
-     "fair": 0.475,
+     "fair": 0.4776119402985075,
      "ask": 0.48
     },
     {
      "name": "Orlando",
-     "fair": 0.525,
+     "fair": 0.5223880597014926,
      "ask": 0.53
     }
    ],
@@ -4961,24 +4810,24 @@
    "sides": [
     {
      "name": "New York",
-     "fair": 0.84,
-     "ask": 0.85
+     "fair": 0.8316831683168316,
+     "ask": 0.84
     },
     {
      "name": "Brooklyn",
-     "fair": 0.16,
+     "fair": 0.1683168316831683,
      "ask": 0.17
     }
    ],
    "pick": {
     "team": "New York",
     "type": "favorite",
-    "prob": 0.84,
-    "price": 0.85,
+    "prob": 0.8316831683168316,
+    "price": 0.84,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5016,12 +4865,12 @@
    "sides": [
     {
      "name": "Detroit",
-     "fair": 0.63,
+     "fair": 0.6318407960199006,
      "ask": 0.64
     },
     {
      "name": "Charlotte",
-     "fair": 0.37,
+     "fair": 0.36815920398009955,
      "ask": 0.38
     }
    ],
@@ -5057,7 +4906,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5071,13 +4920,13 @@
    "sides": [
     {
      "name": "Southeast Missouri St.",
-     "fair": 0.45999999999999996,
-     "ask": 0.47
+     "fair": 0.4676616915422886,
+     "ask": 0.48
     },
     {
      "name": "Lipscomb",
-     "fair": 0.54,
-     "ask": 0.55
+     "fair": 0.5323383084577116,
+     "ask": 0.54
     }
    ],
    "pick": null,
@@ -5095,12 +4944,12 @@
    "sides": [
     {
      "name": "Western Kentucky",
-     "fair": 0.949748743718593,
-     "ask": 0.95
+     "fair": 0.95,
+     "ask": 0.96
     },
     {
      "name": "Morehead St.",
-     "fair": 0.05025125628140704,
+     "fair": 0.05,
      "ask": 0.06
     }
    ],
@@ -5136,7 +4985,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5167,7 +5016,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5181,24 +5030,24 @@
    "sides": [
     {
      "name": "Louisiana Tech",
-     "fair": 0.31,
+     "fair": 0.30653266331658297,
      "ask": 0.32
     },
     {
      "name": "Kent St.",
-     "fair": 0.69,
-     "ask": 0.7
+     "fair": 0.6934673366834171,
+     "ask": 0.71
     }
    ],
    "pick": {
     "team": "Kent St.",
     "type": "favorite",
-    "prob": 0.69,
-    "price": 0.7,
+    "prob": 0.6934673366834171,
+    "price": 0.71,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5212,24 +5061,24 @@
    "sides": [
     {
      "name": "Louisiana-Monroe",
-     "fair": 0.41293532338308464,
-     "ask": 0.42
+     "fair": 0.42,
+     "ask": 0.43
     },
     {
      "name": "Central Michigan",
-     "fair": 0.5870646766169154,
-     "ask": 0.6
+     "fair": 0.58,
+     "ask": 0.59
     }
    ],
    "pick": {
     "team": "Central Michigan",
     "type": "favorite",
-    "prob": 0.5870646766169154,
-    "price": 0.6,
+    "prob": 0.58,
+    "price": 0.59,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5284,7 +5133,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5298,24 +5147,24 @@
    "sides": [
     {
      "name": "Navy",
-     "fair": 0.09595959595959597,
-     "ask": 0.1
+     "fair": 0.08457711442786067,
+     "ask": 0.09
     },
     {
      "name": "George Washington",
-     "fair": 0.9040404040404041,
-     "ask": 0.9
+     "fair": 0.9154228855721392,
+     "ask": 0.92
     }
    ],
    "pick": {
     "team": "George Washington",
     "type": "favorite",
-    "prob": 0.9040404040404041,
-    "price": 0.9,
+    "prob": 0.9154228855721392,
+    "price": 0.92,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5346,7 +5195,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5360,24 +5209,24 @@
    "sides": [
     {
      "name": "Mercyhurst",
-     "fair": 0.025,
-     "ask": 0.03
+     "fair": 0.015151515151515152,
+     "ask": 0.02
     },
     {
      "name": "Marquette",
-     "fair": 0.975,
+     "fair": 0.9848484848484849,
      "ask": 0.98
     }
    ],
    "pick": {
     "team": "Marquette",
     "type": "favorite",
-    "prob": 0.975,
+    "prob": 0.9848484848484849,
     "price": 0.98,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5387,7 +5236,7 @@
    "matchup": "Purdue Boilermakers @ Gonzaga Bulldogs",
    "start": "2026-11-03T00:30:00+00:00",
    "books": 5,
-   "odds_age_min": 1168.0422431666666,
+   "odds_age_min": 1226.7843071166667,
    "sides": [
     {
      "name": "Purdue Boilermakers",
@@ -5408,7 +5257,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "sportsbooks",
    "three_way": false
   },
@@ -5436,10 +5285,10 @@
     "type": "favorite",
     "prob": 0.985,
     "price": 0.99,
-    "contracts": null,
-    "status": "blocked"
+    "contracts": 10,
+    "status": "open"
    },
-   "why": "open-pick limit (15) reached",
+   "why": null,
    "source": "kalshi",
    "three_way": false
   },
@@ -5470,7 +5319,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5501,7 +5350,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5532,7 +5381,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5587,7 +5436,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5618,7 +5467,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5649,7 +5498,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5704,7 +5553,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5718,12 +5567,12 @@
    "sides": [
     {
      "name": "Sacramento",
-     "fair": 0.19095477386934673,
+     "fair": 0.195,
      "ask": 0.2
     },
     {
      "name": "Dallas",
-     "fair": 0.8090452261306532,
+     "fair": 0.805,
      "ask": 0.81
     }
    ],
@@ -5742,24 +5591,24 @@
    "sides": [
     {
      "name": "Colorado",
-     "fair": 0.685,
-     "ask": 0.69
+     "fair": 0.6782178217821783,
+     "ask": 0.68
     },
     {
      "name": "Chicago",
-     "fair": 0.315,
+     "fair": 0.3217821782178218,
      "ask": 0.32
     }
    ],
    "pick": {
     "team": "Colorado",
     "type": "favorite",
-    "prob": 0.685,
-    "price": 0.69,
+    "prob": 0.6782178217821783,
+    "price": 0.68,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5790,7 +5639,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5804,13 +5653,13 @@
    "sides": [
     {
      "name": "Texas St.",
-     "fair": 0.815,
-     "ask": 0.82
+     "fair": 0.8040201005025125,
+     "ask": 0.81
     },
     {
      "name": "Texas A&M-Corpus Christi",
-     "fair": 0.185,
-     "ask": 0.19
+     "fair": 0.19597989949748743,
+     "ask": 0.2
     }
    ],
    "pick": null,
@@ -5869,7 +5718,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5900,7 +5749,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5914,24 +5763,24 @@
    "sides": [
     {
      "name": "Furman",
-     "fair": 0.6432160804020101,
-     "ask": 0.65
+     "fair": 0.6482412060301508,
+     "ask": 0.67
     },
     {
      "name": "Bethune-Cookman",
-     "fair": 0.35678391959798994,
+     "fair": 0.3517587939698492,
      "ask": 0.37
     }
    ],
    "pick": {
     "team": "Furman",
     "type": "favorite",
-    "prob": 0.6432160804020101,
-    "price": 0.65,
+    "prob": 0.6482412060301508,
+    "price": 0.67,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5962,7 +5811,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -5976,13 +5825,13 @@
    "sides": [
     {
      "name": "Siena",
-     "fair": 0.45177664974619286,
-     "ask": 0.46
+     "fair": 0.49748743718592964,
+     "ask": 0.51
     },
     {
      "name": "Bryant",
-     "fair": 0.5482233502538071,
-     "ask": 0.55
+     "fair": 0.5025125628140703,
+     "ask": 0.52
     }
    ],
    "pick": null,
@@ -6017,7 +5866,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6031,24 +5880,24 @@
    "sides": [
     {
      "name": "Toledo",
-     "fair": 0.4088669950738916,
+     "fair": 0.4068627450980392,
      "ask": 0.41
     },
     {
      "name": "Arkansas St.",
-     "fair": 0.5911330049261084,
+     "fair": 0.5931372549019608,
      "ask": 0.59
     }
    ],
    "pick": {
     "team": "Arkansas St.",
     "type": "favorite",
-    "prob": 0.5911330049261084,
+    "prob": 0.5931372549019608,
     "price": 0.59,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6103,7 +5952,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6134,7 +5983,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6189,7 +6038,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6199,7 +6048,7 @@
    "matchup": "Ohio State Buckeyes @ BYU Cougars",
    "start": "2026-11-03T01:00:00+00:00",
    "books": 5,
-   "odds_age_min": 1168.0422431666666,
+   "odds_age_min": 1226.7843071166667,
    "sides": [
     {
      "name": "Ohio State Buckeyes",
@@ -6209,7 +6058,7 @@
     {
      "name": "BYU Cougars",
      "fair": 0.5647211703343643,
-     "ask": 0.61
+     "ask": 0.6
     }
    ],
    "pick": null,
@@ -6252,7 +6101,7 @@
     {
      "name": "South Dakota St.",
      "fair": 0.7738693467336684,
-     "ask": 0.78
+     "ask": 0.79
     },
     {
      "name": "Creighton",
@@ -6275,24 +6124,24 @@
    "sides": [
     {
      "name": "San Diego",
-     "fair": 0.7239583333333333,
+     "fair": 0.6984924623115578,
      "ask": 0.7
     },
     {
      "name": "New Mexico St.",
-     "fair": 0.2760416666666667,
-     "ask": 0.3
+     "fair": 0.30150753768844224,
+     "ask": 0.31
     }
    ],
    "pick": {
     "team": "San Diego",
     "type": "favorite",
-    "prob": 0.7239583333333333,
+    "prob": 0.6984924623115578,
     "price": 0.7,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6302,7 +6151,7 @@
    "matchup": "Chicago Bears @ Seattle Seahawks",
    "start": "2026-11-03T01:20:00+00:00",
    "books": 9,
-   "odds_age_min": 4056.3276202166667,
+   "odds_age_min": 4115.0823806,
    "sides": [
     {
      "name": "Seattle Seahawks",
@@ -6323,7 +6172,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "sportsbooks",
    "three_way": false
   },
@@ -6361,12 +6210,12 @@
    "sides": [
     {
      "name": "Houston",
-     "fair": 0.6089108910891089,
-     "ask": 0.61
+     "fair": 0.615,
+     "ask": 0.62
     },
     {
      "name": "Boston",
-     "fair": 0.3910891089108911,
+     "fair": 0.385,
      "ask": 0.39
     }
    ],
@@ -6385,24 +6234,24 @@
    "sides": [
     {
      "name": "Oral Roberts",
-     "fair": 0.21105527638190955,
+     "fair": 0.21212121212121215,
      "ask": 0.22
     },
     {
      "name": "Central Arkansas",
-     "fair": 0.7889447236180904,
-     "ask": 0.8
+     "fair": 0.787878787878788,
+     "ask": 0.79
     }
    ],
    "pick": {
     "team": "Central Arkansas",
     "type": "favorite",
-    "prob": 0.7889447236180904,
-    "price": 0.8,
+    "prob": 0.787878787878788,
+    "price": 0.79,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6433,7 +6282,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6471,13 +6320,13 @@
    "sides": [
     {
      "name": "Wyoming",
-     "fair": 0.14,
+     "fair": 0.13636363636363638,
      "ask": 0.16
     },
     {
      "name": "Santa Clara",
-     "fair": 0.86,
-     "ask": 0.88
+     "fair": 0.8636363636363636,
+     "ask": 0.89
     }
    ],
    "pick": null,
@@ -6512,7 +6361,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6550,24 +6399,24 @@
    "sides": [
     {
      "name": "Washington St.",
-     "fair": 0.5829145728643216,
+     "fair": 0.5800000000000001,
      "ask": 0.6
     },
     {
      "name": "Davidson",
-     "fair": 0.41708542713567837,
-     "ask": 0.43
+     "fair": 0.42000000000000004,
+     "ask": 0.44
     }
    ],
    "pick": {
     "team": "Washington St.",
     "type": "favorite",
-    "prob": 0.5829145728643216,
+    "prob": 0.5800000000000001,
     "price": 0.6,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6598,7 +6447,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6629,7 +6478,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6660,7 +6509,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6691,7 +6540,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6722,7 +6571,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6736,24 +6585,24 @@
    "sides": [
     {
      "name": "North Dakota St.",
-     "fair": 0.3939393939393939,
-     "ask": 0.43
+     "fair": 0.3930348258706468,
+     "ask": 0.42
     },
     {
      "name": "Gonzaga",
-     "fair": 0.6060606060606061,
+     "fair": 0.6069651741293532,
      "ask": 0.64
     }
    ],
    "pick": {
     "team": "Gonzaga",
     "type": "favorite",
-    "prob": 0.6060606060606061,
+    "prob": 0.6069651741293532,
     "price": 0.64,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6784,7 +6633,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6815,7 +6664,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6846,7 +6695,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6901,7 +6750,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6932,7 +6781,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -6987,7 +6836,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -7001,24 +6850,24 @@
    "sides": [
     {
      "name": "Phoenix",
-     "fair": 0.39603960396039606,
-     "ask": 0.41
+     "fair": 0.3940886699507389,
+     "ask": 0.39
     },
     {
      "name": "Golden State",
-     "fair": 0.6039603960396039,
+     "fair": 0.605911330049261,
      "ask": 0.61
     }
    ],
    "pick": {
     "team": "Golden State",
     "type": "favorite",
-    "prob": 0.6039603960396039,
+    "prob": 0.605911330049261,
     "price": 0.61,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -7049,7 +6898,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -7063,24 +6912,24 @@
    "sides": [
     {
      "name": "San Francisco",
-     "fair": 0.785,
+     "fair": 0.805,
      "ask": 0.81
     },
     {
      "name": "Radford",
-     "fair": 0.215,
-     "ask": 0.24
+     "fair": 0.195,
+     "ask": 0.2
     }
    ],
    "pick": {
     "team": "San Francisco",
     "type": "favorite",
-    "prob": 0.785,
+    "prob": 0.805,
     "price": 0.81,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -7094,24 +6943,24 @@
    "sides": [
     {
      "name": "Montana St.",
-     "fair": 0.125,
-     "ask": 0.13
+     "fair": 0.13,
+     "ask": 0.14
     },
     {
      "name": "Colorado St.",
-     "fair": 0.875,
+     "fair": 0.87,
      "ask": 0.88
     }
    ],
    "pick": {
     "team": "Colorado St.",
     "type": "favorite",
-    "prob": 0.875,
+    "prob": 0.87,
     "price": 0.88,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -7142,7 +6991,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -7156,24 +7005,24 @@
    "sides": [
     {
      "name": "Robert Morris",
-     "fair": 0.11499999999999999,
+     "fair": 0.11557788944723617,
      "ask": 0.12
     },
     {
      "name": "Nevada",
-     "fair": 0.885,
+     "fair": 0.8844221105527639,
      "ask": 0.89
     }
    ],
    "pick": {
     "team": "Nevada",
     "type": "favorite",
-    "prob": 0.885,
+    "prob": 0.8844221105527639,
     "price": 0.89,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -7204,7 +7053,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -7218,24 +7067,24 @@
    "sides": [
     {
      "name": "Stanford",
-     "fair": 0.9141414141414141,
-     "ask": 0.92
+     "fair": 0.9045226130653267,
+     "ask": 0.91
     },
     {
      "name": "Eastern Washington",
-     "fair": 0.08585858585858587,
+     "fair": 0.09547738693467336,
      "ask": 0.1
     }
    ],
    "pick": {
     "team": "Stanford",
     "type": "favorite",
-    "prob": 0.9141414141414141,
-    "price": 0.92,
+    "prob": 0.9045226130653267,
+    "price": 0.91,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -7266,7 +7115,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -7297,7 +7146,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -7311,24 +7160,24 @@
    "sides": [
     {
      "name": "Washington",
-     "fair": 0.9289340101522842,
+     "fair": 0.9296482412060301,
      "ask": 0.93
     },
     {
      "name": "Colgate",
-     "fair": 0.07106598984771574,
+     "fair": 0.07035175879396985,
      "ask": 0.08
     }
    ],
    "pick": {
     "team": "Washington",
     "type": "favorite",
-    "prob": 0.9289340101522842,
+    "prob": 0.9296482412060301,
     "price": 0.93,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -7338,7 +7187,7 @@
    "matchup": "UCLA Bruins @ Arizona Wildcats",
    "start": "2026-11-03T03:00:00+00:00",
    "books": 5,
-   "odds_age_min": 1168.0422431666666,
+   "odds_age_min": 1226.7843071166667,
    "sides": [
     {
      "name": "UCLA Bruins",
@@ -7348,18 +7197,18 @@
     {
      "name": "Arizona Wildcats",
      "fair": 0.6384100814084738,
-     "ask": 0.67
+     "ask": 0.66
     }
    ],
    "pick": {
     "team": "Arizona Wildcats",
     "type": "favorite",
     "prob": 0.6384100814084738,
-    "price": 0.67,
+    "price": 0.66,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "sportsbooks",
    "three_way": false
   },
@@ -7373,24 +7222,24 @@
    "sides": [
     {
      "name": "Portland St.",
-     "fair": 0.18041237113402062,
-     "ask": 0.22
+     "fair": 0.17948717948717946,
+     "ask": 0.21
     },
     {
      "name": "Pepperdine",
-     "fair": 0.8195876288659795,
+     "fair": 0.8205128205128205,
      "ask": 0.81
     }
    ],
    "pick": {
     "team": "Pepperdine",
     "type": "favorite",
-    "prob": 0.8195876288659795,
+    "prob": 0.8205128205128205,
     "price": 0.81,
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -7404,13 +7253,13 @@
    "sides": [
     {
      "name": "Nevada",
-     "fair": 0.18877551020408162,
-     "ask": 0.22
+     "fair": 0.19387755102040816,
+     "ask": 0.23
     },
     {
      "name": "Loyola Marymount",
-     "fair": 0.8112244897959183,
-     "ask": 0.84
+     "fair": 0.8061224489795918,
+     "ask": 0.83
     }
    ],
    "pick": null,
@@ -7469,7 +7318,7 @@
     "contracts": null,
     "status": "blocked"
    },
-   "why": "open-pick limit (15) reached",
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -7483,24 +7332,17 @@
    "sides": [
     {
      "name": "Seattle",
-     "fair": 0.44999999999999996,
+     "fair": 0.45499999999999996,
      "ask": 0.47
     },
     {
      "name": "Hawai'i",
-     "fair": 0.55,
-     "ask": 0.57
+     "fair": 0.545,
+     "ask": 0.56
     }
    ],
-   "pick": {
-    "team": "Hawai'i",
-    "type": "favorite",
-    "prob": 0.55,
-    "price": 0.57,
-    "contracts": null,
-    "status": "blocked"
-   },
-   "why": "open-pick limit (15) reached",
+   "pick": null,
+   "why": "under 55% win chance, too close to call",
    "source": "kalshi",
    "three_way": false
   }
@@ -8078,15 +7920,6 @@
    "names": [
     "UCLA",
     "Lehigh"
-   ],
-   "ends": "2026-11-02T22:30:00+00:00",
-   "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
-  },
-  {
-   "series": "KXNCAAWBGAME",
-   "names": [
-    "North Carolina",
-    "Oklahoma"
    ],
    "ends": "2026-11-02T22:30:00+00:00",
    "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
