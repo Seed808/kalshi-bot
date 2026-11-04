@@ -1,23 +1,23 @@
-Scan: 10000 open markets, 52 pass volume/time filters, 6 flagged
-  KXITFWDOUBLES-26NOV04PRIVAKDRUZUC-DRUZUC: spread 0.51 | vol24 2117
-  KXITFDOUBLES-26NOV04ARTSNIBELHUD-ARTSNI: spread 0.39 | vol24 1355
-  KXITFDOUBLES-26NOV04CPINOVJACKOZ-JACKOZ: spread 0.82 | vol24 1293
-  KXTEMPCHIHS-26NOV0403-T64.99: spread 0.18 | vol24 845
-  KXDOTA2GAME-26NOV040200DBRB-DB: spread 0.13 | vol24 762
-  KXTEMPLAXHS-26NOV0403-T61.99: spread 0.15 | vol24 552
+Scan: 10000 open markets, 38 pass volume/time filters, 6 flagged
+  KXDOTA2GAME-26NOV040200DBRB-DB: spread 0.10 | vol24 2218
+  KXITFWDOUBLES-26NOV04PRIVAKDRUZUC-DRUZUC: spread 0.48 | vol24 2117
+  KXITFDOUBLES-26NOV04ARTSNIBELHUD-ARTSNI: spread 0.29 | vol24 1355
+  KXITFDOUBLES-26NOV04CPINOVJACKOZ-JACKOZ: spread 0.81 | vol24 1293
+  KXDOTA2GAME-26NOV040200DBRB-RB: spread 0.10 | vol24 1260
+  KXDOTA2MAP-26NOV040200DBRB-2-RB: spread 0.17 | vol24 706
 [KXWNBAGAME] no open markets
 [KXMLBGAME] no open markets
 [KXNCAABBGAME] no open markets
 [KXNCAASBGAME] no open markets
 [KXBOXINGFIGHT] no open markets
+[KXATPMATCH] 28 mkts | 14 odds events | matched 5 | kalshi-only 3 | unmatched 5 | ambiguous 0 | odds: paris_masters:fresh, 1 credit(s), 442 left
 [KXWTAMATCH] 28 mkts | 0 odds events | matched 0 | kalshi-only 10 | unmatched 4 | ambiguous 0 | odds: tennis_wta_* isn't in season at the sportsbooks
-[KXATPMATCH] 28 mkts | 14 odds events | matched 5 | kalshi-only 6 | unmatched 2 | ambiguous 0 | odds: paris_masters:cached 140m
-[KXNCAAWBGAME] 318 mkts | 0 odds events | matched 0 | kalshi-only 9 | unmatched 150 | ambiguous 0 | odds: basketball_wncaab isn't in season at the sportsbooks
-[KXUCLGAME] 27 mkts | 9 odds events | matched 7 | kalshi-only 2 | unmatched 0 | ambiguous 0 | odds: cached 140m
+[KXNCAAWBGAME] 318 mkts | 0 odds events | matched 0 | kalshi-only 11 | unmatched 148 | ambiguous 0 | odds: basketball_wncaab isn't in season at the sportsbooks
+[KXUCLGAME] 27 mkts | 9 odds events | matched 7 | kalshi-only 2 | unmatched 0 | ambiguous 0 | odds: fresh, 1 credit(s), 441 left
 [KXNCAAWVMATCH] 16 mkts | 0 odds events | matched 0 | kalshi-only 3 | unmatched 5 | ambiguous 0 | odds: no sportsbook feed for this sport
-[KXNBAGAME] 64 mkts | 14 odds events | matched 14 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: cached 140m
-[KXNCAAMBGAME] 320 mkts | 10 odds events | matched 6 | kalshi-only 3 | unmatched 151 | ambiguous 0 | odds: cached 140m
-[KXNHLGAME] 92 mkts | 4 odds events | matched 4 | kalshi-only 0 | unmatched 42 | ambiguous 0 | odds: cached 140m
+[KXNBAGAME] 64 mkts | 14 odds events | matched 14 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: fresh, 1 credit(s), 440 left
+[KXNCAAMBGAME] 320 mkts | 10 odds events | matched 6 | kalshi-only 3 | unmatched 151 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
+[KXNHLGAME] 92 mkts | 4 odds events | matched 4 | kalshi-only 0 | unmatched 42 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
 [KXNCAAHGAME] 6 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 3 | ambiguous 0 | odds: no sportsbook feed for this sport
 [KXNCAAFGAME] 508 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 254 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXNFLGAME] 58 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 29 | ambiguous 0 | odds: no games ending within 36h, no odds bought
@@ -31,21 +31,18 @@ Scan: 10000 open markets, 52 pass volume/time filters, 6 flagged
 [KXNWSLGAME] 12 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 4 | ambiguous 0 | odds: no sportsbook feed for this sport
 [KXCFLGAME] 4 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 2 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXMLSGAME] 45 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 15 | ambiguous 0 | odds: no games ending within 36h, no odds bought
-Clock check: OK, within 0s of Kalshi's server clock
+Clock check: OK, within 1s of Kalshi's server clock
   not opened Purdue vs Ohio State: daily pick limit (15) reached
   not opened Oregon St. vs California Baptist: daily pick limit (15) reached
   not opened North Dakota St Bison @ Saint Mary's Gaels: daily pick limit (15) reached
   not opened Anastasia Zakharova vs Vaishnavi Adkar: daily pick limit (15) reached
-  not opened Alex Michelsen vs Carlos Alcaraz: daily pick limit (15) reached
-  not opened Tomas Martin Etcheverry vs Alex de Minaur: daily pick limit (15) reached
   not opened Texas St. vs LIU: daily pick limit (15) reached
   not opened Chicago Bulls @ New York Knicks: daily pick limit (15) reached
   not opened Los Angeles Lakers @ Sacramento Kings: daily pick limit (15) reached
   not opened Dallas Mavericks @ San Antonio Spurs: daily pick limit (15) reached
-  not opened Alex Molcan vs Taylor Fritz: daily pick limit (15) reached
-  not opened Real Madrid @ AEK Athens: daily pick limit (15) reached
   not opened Rinky Hijikata vs Novak Djokovic: daily pick limit (15) reached
   not opened Slavia Prague vs Arsenal: daily pick limit (15) reached
+  not opened Real Madrid @ AEK Athens: daily pick limit (15) reached
   not opened Tommy Paul vs Daniel Merida Aguilar: daily pick limit (15) reached
   not opened Longwood Lancers @ Saint Joseph's Hawks: daily pick limit (15) reached
   not opened Syracuse vs Boston College: daily pick limit (15) reached
@@ -53,26 +50,26 @@ Clock check: OK, within 0s of Kalshi's server clock
   not opened Queens University Royals @ Loyola Marymount Lions: daily pick limit (15) reached
   not opened Viking vs Sabah Masazir: daily pick limit (15) reached
   not opened Chicago Blackhawks @ Florida Panthers: daily pick limit (15) reached
-  not opened Thiago Agustin Tirante vs Jan-Lennard Struff: daily pick limit (15) reached
-  not opened Karen Khachanov vs Nuno Borges: daily pick limit (15) reached
-  not opened Utah Jazz @ New Orleans Pelicans: daily pick limit (15) reached
   not opened Liverpool @ Fenerbahce: daily pick limit (15) reached
-  not opened Alexandra Shubladze vs Elena Pridankina: daily pick limit (15) reached
+  not opened Thiago Agustin Tirante vs Jan-Lennard Struff: daily pick limit (15) reached
+  not opened Utah Jazz @ New Orleans Pelicans: daily pick limit (15) reached
   not opened Maria Sakkari vs Maya Joint: daily pick limit (15) reached
+  not opened Alexandra Shubladze vs Elena Pridankina: daily pick limit (15) reached
   not opened Toronto Raptors @ Denver Nuggets: daily pick limit (15) reached
-  not opened Tomas Machac vs Arthur Fils: daily pick limit (15) reached
   not opened Manchester City @ RB Leipzig: daily pick limit (15) reached
+  not opened Tomas Machac vs Arthur Fils: daily pick limit (15) reached
   not opened LSU vs Arkansas: daily pick limit (15) reached
   not opened Charlotte Hornets @ Brooklyn Nets: daily pick limit (15) reached
   not opened Moyuka Uchijima vs Magda Linette: daily pick limit (15) reached
+  not opened Lindenwood vs Denver: daily pick limit (15) reached
   not opened San Jose Sharks @ Los Angeles Kings: daily pick limit (15) reached
   not opened Oksana Selekhmeteva vs Polina Kudermetova: daily pick limit (15) reached
   not opened Jeline Vandromme vs Robin Montgomery: daily pick limit (15) reached
-  not opened Quentin Halys vs Frances Tiafoe: daily pick limit (15) reached
   not opened Portland Trail Blazers @ Phoenix Suns: daily pick limit (15) reached
+  not opened Quentin Halys vs Frances Tiafoe: daily pick limit (15) reached
   not opened Northern Kentucky Norse @ South Dakota Coyotes: daily pick limit (15) reached
   not opened Calgary Flames @ Seattle Kraken: daily pick limit (15) reached
+  not opened Real Betis @ Borussia Dortmund: daily pick limit (15) reached
   not opened Mattia Bellucci vs Arthur Rinderknech: daily pick limit (15) reached
   not opened Cleveland Cavaliers @ Oklahoma City Thunder: daily pick limit (15) reached
-  not opened Real Betis @ Borussia Dortmund: daily pick limit (15) reached
-Tue 11/03 09:28 PM HST | pick mode | 69 games matched, 0 new pick(s), 9 open, 16 skipped
+Tue 11/03 11:06 PM HST | pick mode | 68 games matched, 0 new pick(s), 9 open, 18 skipped
