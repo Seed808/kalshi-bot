@@ -9,7 +9,7 @@ on:
         description: "paper = normal cycle; discover = find new sports (no credits); test-alert = send a test message"
         type: choice
         default: paper
-        options: [paper, discover, test-alert, sample-alert]
+        options: [paper, discover, test-alert, sample-alert, inspect]
       query:
         description: "discover only: comma-separated keywords, or h2h for every game/match/fight series"
         type: string

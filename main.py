@@ -539,7 +539,7 @@ def main():
     install_redaction()
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("cmd", choices=["series", "anomalies", "scan", "paper", "run", "settle", "train",
-                                    "report", "postmortem", "discover", "test-alert", "sample-alert"])
+                                    "report", "postmortem", "discover", "test-alert", "sample-alert", "inspect"])
     ap.add_argument("--q", default="tennis,atp,wta", help="discover: comma-separated keywords")
     ap.add_argument("--interval", type=int, default=1800)
     ap.add_argument("--config", default="config.json")
@@ -587,6 +587,12 @@ def main():
         show_postmortems(store)
     elif a.cmd == "discover":
         discover(a.q)
+    elif a.cmd == "inspect":   # print raw Kalshi market fields for comma-separated tickers
+        for m in scanner.markets_by_tickers([t.strip() for t in a.q.split(",") if t.strip()]):
+            print(json.dumps({k: m.get(k) for k in ("ticker", "status", "result", "close_time",
+                  "expected_expiration_time", "latest_expiration_time", "settlement_ts", "yes_bid_dollars",
+                  "yes_ask_dollars", "last_price_dollars", "volume_fp", "can_close_early")}, indent=1))
+            print("rules:", (m.get("rules_primary") or "")[:300])
     elif a.cmd == "sample-alert":
         start = now_utc() + timedelta(hours=6)
         fake = {"market": {"ticker": "KXMLBGAME-SAMPLE-MIL", "yes_sub_title": "Milwaukee"},
