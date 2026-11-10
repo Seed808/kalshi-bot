@@ -591,7 +591,8 @@ def main():
         for m in scanner.markets_by_tickers([t.strip() for t in a.q.split(",") if t.strip()]):
             print(json.dumps({k: m.get(k) for k in ("ticker", "status", "result", "close_time",
                   "expected_expiration_time", "latest_expiration_time", "settlement_ts", "yes_bid_dollars",
-                  "yes_ask_dollars", "last_price_dollars", "volume_fp", "can_close_early")}, indent=1))
+                  "yes_ask_dollars", "last_price_dollars", "volume_fp", "can_close_early", "settlement_value_dollars",
+                  "expiration_value", "early_close_condition")}, indent=1))
             print("rules:", (m.get("rules_primary") or "")[:300])
     elif a.cmd == "sample-alert":
         start = now_utc() + timedelta(hours=6)
