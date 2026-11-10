@@ -161,7 +161,7 @@ def backfill(store, verbose=False):
             if hit:
                 break
         text, done = (format_score(*hit, r["series"]) if hit else (None, None))
-        if hit and (hit[0].get("winner") or hit[1].get("winner")):
+        if hit and r["result"] in ("yes", "no") and (hit[0].get("winner") or hit[1].get("winner")):
             # safety: ESPN's winner must agree with Kalshi's settlement, or this is the wrong game
             if bool(hit[0].get("winner")) != (r["result"] == r["side"]):
                 print(f"  ESPN winner disagrees with Kalshi for {r['matchup']}: score not used")

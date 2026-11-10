@@ -15,11 +15,11 @@ and logged.
 """
 import json
 
-from common import now_utc, load_overrides, save_overrides
+from common import now_utc, load_overrides, save_overrides, outcome
 
 
 def _won(r):
-    return r["result"] == r["side"]
+    return outcome(r) == "won"
 
 
 def _stats(rows):
@@ -50,7 +50,7 @@ def run_postmortems(cfg, store):
     out = []
     history = store.settled_trades()
     for r in store.q("SELECT * FROM trades WHERE status='settled' AND postmortem_done=0"):
-        if _won(r):
+        if outcome(r) != "lost":   # wins and partial (scalar) settlements need no postmortem
             store.x("UPDATE trades SET postmortem_done=1 WHERE id=?", (r["id"],))
             continue
         if r["pick_type"]:   # pick mode: no edge to diagnose, just say what happened

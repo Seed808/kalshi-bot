@@ -35,7 +35,7 @@ import time
 
 import requests
 
-from common import (KALSHI, install_redaction, load_config, now_utc, hst, fnum, fee_per_contract, order_fee,
+from common import (KALSHI, install_redaction, load_config, outcome, now_utc, hst, fnum, fee_per_contract, order_fee,
                     http_get, parse_ts)
 from store import Store
 import scanner
@@ -108,13 +108,22 @@ def settle_all(cfg, store):
         for t in opens:
             m = ms.get(t["market_ticker"], {})
             res = m.get("result")
-            if res not in ("yes", "no"):
+            value = None
+            if res in ("yes", "no"):
+                payout = 1.0 if res == t["side"] else 0.0
+            elif res == "scalar" and m.get("settlement_value_dollars") not in (None, ""):
+                value = fnum(m.get("settlement_value_dollars"))   # what one YES contract paid
+                payout = value if t["side"] == "yes" else 1 - value
+            else:
+                st = parse_ts(t["start_ts"])
+                if (m.get("status") in ("finalized", "settled") and res) or \
+                        (st and now_utc() - st > timedelta(hours=12)):
+                    print(f"  overdue {t['market_ticker']}: status={m.get('status')!r} result={res!r}")
                 continue
-            won = res == t["side"]
-            pnl = (t["contracts"] if won else 0) - t["contracts"] * t["price"] - t["fee"]
+            pnl = t["contracts"] * payout - t["contracts"] * t["price"] - t["fee"]
             clv = (t["last_seen_price"] - t["price"]) if t["last_seen_price"] is not None else None
-            store.x("UPDATE trades SET status='settled', result=?, pnl=?, clv=?, settled_ts=? WHERE id=?",
-                    (res, round(pnl, 4), clv, now_utc().isoformat(), t["id"]))
+            store.x("UPDATE trades SET status='settled', result=?, settle_value=?, pnl=?, clv=?, settled_ts=? "
+                    "WHERE id=?", (res, value, round(pnl, 4), clv, now_utc().isoformat(), t["id"]))
             settled += 1
     tickers = store.unlabeled_snapshot_tickers()
     labeled = 0
@@ -259,7 +268,7 @@ def cycle(cfg_path, store, paper, verbose):
         done = store.q("SELECT * FROM trades WHERE status='settled' AND postmortem_done=0")
         if done:
             alert("RESULTS\n" + "\n".join(
-                f'{"Won" if r["result"] == r["side"] else "Lost"}: {r["team"]} ({r["matchup"]}) '
+                f'{RESULT_WORD[outcome(r)](r)}: {r["team"]} ({r["matchup"]}) '
                 f'{"+" if (r["pnl"] or 0) >= 0 else "-"}${abs(r["pnl"] or 0):,.2f}' for r in done)
                 + "\nhttps://seed808.github.io/kalshi-bot/")
         postmortem.run_postmortems(cfg, store)
@@ -454,6 +463,10 @@ def run_picks(games, cfg, store, paper, verbose, skipped):
     return board
 
 
+RESULT_WORD = {"won": lambda r: "Won", "lost": lambda r: "Lost",
+               "partial": lambda r: f'Settled at {(r["settle_value"] if r["side"] == "yes" else 1 - r["settle_value"]) * 100:.0f}c'}
+
+
 def start_note(p):
     if p["series"] in ("KXATPMATCH", "KXWTAMATCH"):
         return " (scheduled; tennis order of play can slip)"
@@ -505,13 +518,13 @@ def report(cfg, store):
         clvs = [r["clv"] for r in rows if r["clv"] is not None]
         print(f"Settled {st['n']} | win rate {st['actual']:.1%} vs model-expected {st['expected']:.1%} "
               f"| ROI {st['roi']:.1%}" + (f" | avg CLV {sum(clvs)/len(clvs):+.3f}" if clvs else ""))
-        brier = sum((r["prob"] - (1 if r["result"] == r["side"] else 0)) ** 2 for r in rows) / len(rows)
+        brier = sum((r["prob"] - (1 if outcome(r) == "won" else 0)) ** 2 for r in rows) / len(rows)
         print(f"Brier {brier:.4f}")
         print("Calibration (prob bucket -> actual):")
         for lo in [0.0, 0.2, 0.4, 0.6, 0.8]:
             b = [r for r in rows if lo <= r["prob"] < lo + 0.2]
             if b:
-                w = sum(1 for r in b if r["result"] == r["side"])
+                w = sum(1 for r in b if outcome(r) == "won")
                 print(f"  {lo:.1f}-{lo + 0.2:.1f}: n={len(b)} actual {w / len(b):.1%}")
         if len(rows) < 100:
             print("Note: under 100 settled trades — results are mostly noise.")

@@ -191,6 +191,15 @@ def save_overrides(cfg, ov):
         json.dump(ov, f, indent=2)
 
 
+def outcome(r):
+    """'won', 'lost', or 'partial' for a settled pick. Kalshi usually settles a game market yes/no,
+    but sometimes 'scalar': each YES contract pays settlement_value (e.g. $0.98) instead of $1/$0.
+    Those are 'partial': not counted as a win or a loss."""
+    if r["result"] == "scalar":
+        return "partial"
+    return "won" if r["result"] == r["side"] else "lost"
+
+
 def now_utc():
     return datetime.now(timezone.utc)
 

@@ -8,7 +8,7 @@ import os
 from datetime import timedelta
 from html import escape
 
-from common import now_utc, parse_ts, hst, HST, DEFAULTS
+from common import now_utc, parse_ts, hst, HST, DEFAULTS, outcome
 
 SPORT = DEFAULTS["sport_labels"]
 OUT_DIR = "docs"
@@ -24,6 +24,14 @@ def pct(x):
 
 def signed_cents(x):
     return f"{'+' if x >= 0 else '−'}{abs(x) * 100:.1f}¢"
+
+
+def outcome_text(r):
+    oc = outcome(r)
+    if oc == "partial" and r["settle_value"] is not None:
+        paid = r["settle_value"] if r["side"] == "yes" else 1 - r["settle_value"]
+        return f"Settled at {paid * 100:.0f}¢"
+    return {"won": "Won", "lost": "Lost"}.get(oc, "Settled")
 
 
 def when(iso):
@@ -53,6 +61,8 @@ def start_phrase(start_iso, now, estimated, tennis):
             return f"Starts about {t} (in {span_text(mins)}; estimated from Kalshi)."
         return f"Starts {t} (in {span_text(mins)})."
     lead = "Scheduled for" if tennis else ("Started about" if estimated else "Started")
+    if mins < -12 * 60:
+        return f"{lead} {t} ({span_text(mins)} ago). Result overdue: Kalshi hasn't settled this yet."
     return f"{lead} {t} ({span_text(mins)} ago), waiting for the result."
 
 
@@ -295,7 +305,7 @@ def trades_html(store, cfg):
     out = ['<section><h2>Paper trades</h2>']
     allset = store.settled_trades()
     if allset:
-        wins = sum(1 for r in allset if r["result"] == r["side"])
+        wins = sum(1 for r in allset if outcome(r) == "won")
         cost = sum(r["price"] * r["contracts"] + r["fee"] for r in allset)
         pnl = sum(r["pnl"] or 0 for r in allset)
         exp = sum(r["prob"] for r in allset) / len(allset)
@@ -323,9 +333,8 @@ def trades_html(store, cfg):
         out.append('<h3>Settled</h3><table><thead><tr><th>Game</th><th>Pick</th><th class="num">Price</th>'
                    '<th>Result</th><th class="num">P&amp;L</th></tr></thead><tbody>')
         for r in settled:
-            won = r["result"] == r["side"]
             out.append(f'<tr><td>{escape(r["matchup"])}</td><td>{escape(r["team"])}</td>'
-                       f'<td class="num">{cents(r["price"])}</td><td>{"Won" if won else "Lost"}</td>'
+                       f'<td class="num">{cents(r["price"])}</td><td>{outcome_text(r)}</td>'
                        f'<td class="num {"up" if (r["pnl"] or 0) >= 0 else "down"}">'
                        f'{"+" if (r["pnl"] or 0) >= 0 else "−"}${abs(r["pnl"] or 0):,.2f}</td></tr>')
         out.append('</tbody></table>')
@@ -462,8 +471,7 @@ def picks_record_html(store, cfg):
                    'after each game ends.</p></section>')
         return "".join(out)
     def rec(rows):
-        w = sum(1 for r in rows if r["result"] == r["side"])
-        return w, len(rows) - w
+        return (sum(1 for r in rows if outcome(r) == "won"), sum(1 for r in rows if outcome(r) == "lost"))
     w, l = rec(allset)
     pnl = sum(r["pnl"] or 0 for r in allset)
     fav = [r for r in allset if (r["pick_type"] or "") == "favorite"]
@@ -478,11 +486,10 @@ def picks_record_html(store, cfg):
     out.append('<table class="board"><thead><tr><th>Sport</th><th>Game</th><th>Pick</th><th>Type</th>'
                '<th>Result</th><th class="num">P&amp;L</th></tr></thead><tbody>')
     for r in allset[:30]:
-        won = r["result"] == r["side"]
         out.append(f'<tr><td>{escape(SPORT.get(r["series"], r["series"]))}</td>'
                    f'<td>{escape(r["matchup"])}</td><td>{escape(r["team"])} '
                    f'({r["prob"] * 100:.0f}%)</td><td>{TYPE_TEXT.get(r["pick_type"] or "edge", "")}</td>'
-                   f'<td>{"Won" if won else "Lost"}</td><td class="num {"up" if (r["pnl"] or 0) >= 0 else "down"}">'
+                   f'<td>{outcome_text(r)}</td><td class="num {"up" if (r["pnl"] or 0) >= 0 else "down"}">'
                    f'{"+" if (r["pnl"] or 0) >= 0 else "−"}${abs(r["pnl"] or 0):,.2f}</td></tr>')
     out.append('</tbody></table></section>')
     return "".join(out)
@@ -575,6 +582,7 @@ LIVE_JS = r'''<script>
       return "Starts " + t + " (in " + span(mins) + ").";
     }
     var lead = tennis ? "Scheduled for" : (est ? "Started about" : "Started");
+    if (mins < -12 * 60) return lead + " " + t + " (" + span(mins) + " ago). Result overdue: Kalshi hasn't settled this yet.";
     return lead + " " + t + " (" + span(mins) + " ago), waiting for the result.";
   }
   function tick() {
@@ -614,7 +622,11 @@ def history_rows(store):
     rows = store.q("SELECT * FROM trades WHERE status='settled' ORDER BY start_ts DESC, id DESC")
     out = []
     for r in rows:
-        won = r["result"] == r["side"]
+        oc = outcome(r)
+        won = oc == "won"
+        paid = None
+        if oc == "partial" and r["settle_value"] is not None:
+            paid = r["settle_value"] if r["side"] == "yes" else 1 - r["settle_value"]
         d = parse_ts(r["start_ts"])
         out.append({
             "date": d.astimezone(HST).strftime("%a %m/%d") if d else "",
@@ -623,10 +635,16 @@ def history_rows(store):
             "game": r["matchup"], "pick": r["team"],
             "type": TYPE_TEXT.get(r["pick_type"] or "edge", ""),
             "chance": r["prob"], "price": r["price"],
-            "score": r["score_text"] or "", "won": won, "pnl": r["pnl"] or 0.0,
+            "score": r["score_text"] or "", "won": won, "outcome": oc, "paid": paid, "pnl": r["pnl"] or 0.0,
             "source": "Sportsbooks" if r["n_books"] else "Kalshi prices",
         })
     return out
+
+
+def OUT_LABEL(x):
+    if x["outcome"] == "partial":
+        return f'Settled at {x["paid"] * 100:.0f}¢' if x.get("paid") is not None else "Partial settlement"
+    return "Pick won" if x["outcome"] == "won" else "Pick lost"
 
 
 def write_history_csv(rows, path):
@@ -638,7 +656,7 @@ def write_history_csv(rows, path):
         for x in rows:
             w.writerow([x["date"], x["time"], x["sport"], x["game"], x["pick"], x["type"],
                         f'{x["chance"] * 100:.0f}%', f'{x["price"] * 100:.0f}c', x["score"] or "not available",
-                        "Pick won" if x["won"] else "Pick lost", f'{x["pnl"]:+.2f}', x["source"]])
+                        OUT_LABEL(x), f'{x["pnl"]:+.2f}', x["source"]])
 
 
 def render_history(cfg, store):
@@ -646,35 +664,43 @@ def render_history(cfg, store):
     rows = history_rows(store)
     write_history_csv(rows, os.path.join(OUT_DIR, "history.csv"))
     n = len(rows)
-    wins = sum(1 for x in rows if x["won"])
+    wins = sum(1 for x in rows if x["outcome"] == "won")
+    losses = sum(1 for x in rows if x["outcome"] == "lost")
+    partial = n - wins - losses
     pnl = sum(x["pnl"] for x in rows)
     exp = sum(x["chance"] for x in rows)
     sports = sorted({x["sport"] for x in rows})
     body = []
     for x in rows:
         body.append(
-            f'<tr data-sport="{escape(x["sport"])}" data-outcome="{"won" if x["won"] else "lost"}">'
+            f'<tr data-sport="{escape(x["sport"])}" data-outcome="{x["outcome"]}">'
             f'<td class="nowrap">{escape(x["date"])}<span class="via">{escape(x["time"])} HST</span></td>'
             f'<td>{escape(x["sport"])}</td><td>{escape(x["game"])}</td>'
             f'<td><b>{escape(x["pick"])}</b><span class="via">{escape(x["type"])}</span></td>'
             f'<td class="num">{x["chance"] * 100:.0f}%</td><td class="num">{cents(x["price"])}</td>'
             f'<td>{escape(x["score"]) if x["score"] else "<span class=via>not available</span>"}</td>'
-            f'<td><span class="out {"won" if x["won"] else "lost"}">{"Pick won" if x["won"] else "Pick lost"}</span></td>'
+            f'<td><span class="out {x["outcome"]}">{OUT_LABEL(x)}</span></td>'
             f'<td class="num {"up" if x["pnl"] >= 0 else "down"}">{"+" if x["pnl"] >= 0 else "−"}${abs(x["pnl"]):,.2f}</td></tr>')
     by_sport = []
     for sp in sports:
         rs = [x for x in rows if x["sport"] == sp]
-        w = sum(1 for x in rs if x["won"])
-        by_sport.append(f'<span><b>{w}–{len(rs) - w}</b> {escape(sp)}</span>')
+        w = sum(1 for x in rs if x["outcome"] == "won")
+        l = sum(1 for x in rs if x["outcome"] == "lost")
+        by_sport.append(f'<span><b>{w}–{l}</b> {escape(sp)}</span>')
     filters = ('<div class="filters"><label>Sport <select id="f-sport"><option value="">All</option>'
                + "".join(f'<option>{escape(sp)}</option>' for sp in sports)
                + '</select></label><label>Outcome <select id="f-out"><option value="">All</option>'
-                 '<option value="won">Pick won</option><option value="lost">Pick lost</option></select></label>'
+                 '<option value="won">Pick won</option><option value="lost">Pick lost</option>'
+                 + ('<option value="partial">Partial settlement</option>' if partial else '') + '</select></label>'
                  '<span id="f-count" class="via"></span></div>') if rows else ""
-    summary = (f'<p class="stats"><span><b>{wins}–{n - wins}</b> record</span>'
-               f'<span><b>{(wins / n if n else 0):.0%}</b> won</span>'
+    decided = wins + losses
+    summary = (f'<p class="stats"><span><b>{wins}–{losses}</b> record</span>'
+               f'<span><b>{(wins / decided if decided else 0):.0%}</b> won</span>'
                f'<span><b class="{"up" if pnl >= 0 else "down"}">{"+" if pnl >= 0 else "−"}${abs(pnl):,.2f}</b> paper P&amp;L</span></p>'
                f'<p class="stats small">{"".join(by_sport)}</p>'
+               + (f'<p class="note">{partial} pick{"s" if partial != 1 else ""} Kalshi settled at a partial '
+                  f'payout instead of a clean win or loss. They count toward P&amp;L but not the record.</p>'
+                  if partial else '') +
                f'<p class="note">Sportsbook and Kalshi odds said to expect about {exp:.1f} wins from these {n} picks. '
                f'Outcomes come from Kalshi\'s settlement; final scores from ESPN.</p>') if n else \
               '<p class="note">No picks have finished yet. They show up here about an hour after each game ends.</p>'
@@ -687,12 +713,12 @@ def render_history(cfg, store):
   var s = document.getElementById("f-sport"), o = document.getElementById("f-out");
   if (!s) return;
   function apply() {
-    var shown = 0, won = 0;
+    var shown = 0, won = 0, lost = 0;
     document.querySelectorAll("table.history tbody tr").forEach(function (tr) {
       var ok = (!s.value || tr.dataset.sport === s.value) && (!o.value || tr.dataset.outcome === o.value);
-      tr.hidden = !ok; if (ok) { shown++; if (tr.dataset.outcome === "won") won++; }
+      tr.hidden = !ok; if (ok) { shown++; if (tr.dataset.outcome === "won") won++; if (tr.dataset.outcome === "lost") lost++; }
     });
-    document.getElementById("f-count").textContent = shown + " picks: " + won + "–" + (shown - won);
+    document.getElementById("f-count").textContent = shown + " picks: " + won + "–" + lost;
   }
   s.onchange = apply; o.onchange = apply; apply();
 })();
@@ -722,9 +748,10 @@ def render_picks(cfg, store, board, anomalies, skipped):
     now = now_utc()
     bankroll, _ = store.bankroll(cfg)
     allset = store.settled_trades()
-    wins = sum(1 for r in allset if r["result"] == r["side"])
+    wins = sum(1 for r in allset if outcome(r) == "won")
+    losses = sum(1 for r in allset if outcome(r) == "lost")
     strip = (f'<dl class="strip"><div><dt>Record</dt><dd><a class="reclink" href="history.html" '
-             f'title="See every finished pick">{wins}–{len(allset) - wins}</a></dd></div>'
+             f'title="See every finished pick">{wins}–{losses}</a></dd></div>'
              f'<div><dt>Open picks</dt><dd>{store.open_count()}</dd></div>'
              f'<div><dt>Paper bankroll</dt><dd>${bankroll:,.0f}</dd></div>'
              f'</dl><p class="histlink"><a href="history.html">See pick history</a></p>')
@@ -760,7 +787,7 @@ table.history td{padding:8px 10px}
 table.history tbody tr:nth-child(even){background:color-mix(in srgb,var(--card) 92%,var(--ink))}
 table.history .via{display:block;font-size:.8rem;color:var(--soft)}
 .nowrap{white-space:nowrap}
-.out{font-weight:700;white-space:nowrap}.out.won{color:var(--pine)}.out.lost{color:var(--cran)}
+.out{font-weight:700;white-space:nowrap}.out.won{color:var(--pine)}.out.lost{color:var(--cran)}.out.partial{color:var(--soft)}
 .stats.small b{font-size:1.15rem}.stats.small{gap:4px 18px}
 .filters{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin:12px 0 0}
 .filters select{font:inherit;padding:4px 6px;border:1px solid var(--rule);border-radius:4px;background:var(--card);color:var(--ink)}
@@ -888,7 +915,7 @@ def render(cfg, store, board, anomalies, model_active, skipped=None):
         return
     bankroll, _ = store.bankroll(cfg)
     allset = store.settled_trades()
-    wins = sum(1 for r in allset if r["result"] == r["side"])
+    wins = sum(1 for r in allset if outcome(r) == "won")
     credits = store.get_meta("odds_remaining")
     strip = (f'<dl class="strip"><div><dt>Paper bankroll</dt><dd>${bankroll:,.0f}</dd></div>'
              f'<div><dt>Record</dt><dd>{wins}–{len(allset) - wins}</dd></div>'
