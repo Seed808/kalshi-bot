@@ -10,7 +10,10 @@
  "yes_ask_dollars": "1.0000",
  "last_price_dollars": "0.9800",
  "volume_fp": "67116.92",
- "can_close_early": true
+ "can_close_early": true,
+ "settlement_value_dollars": "0.9800",
+ "expiration_value": "",
+ "early_close_condition": "This market will close and expire after a winner is declared."
 }
 rules: If Jacksonville wins the Paine vs Jacksonville men's college basketball game originally scheduled for Nov 2, 2026, then the market resolves to Yes.
 {
@@ -25,36 +28,9 @@ rules: If Jacksonville wins the Paine vs Jacksonville men's college basketball g
  "yes_ask_dollars": "1.0000",
  "last_price_dollars": "0.9700",
  "volume_fp": "45870.23",
- "can_close_early": true
+ "can_close_early": true,
+ "settlement_value_dollars": "0.9500",
+ "expiration_value": "",
+ "early_close_condition": "This market will close and expire after a winner is declared."
 }
 rules: If Duke wins the Duke vs North Texas women's college basketball game originally scheduled for Nov 8, 2026, then the market resolves to Yes.
-{
- "ticker": "KXNCAAWBGAME-26NOV08DUKEUNT-UNT",
- "status": "finalized",
- "result": "scalar",
- "close_time": "2026-11-08T21:16:44Z",
- "expected_expiration_time": "2026-11-08T22:00:00Z",
- "latest_expiration_time": "2026-11-10T19:00:00Z",
- "settlement_ts": "2026-11-08T21:17:32.106067Z",
- "yes_bid_dollars": "0.0000",
- "yes_ask_dollars": "1.0000",
- "last_price_dollars": "0.0700",
- "volume_fp": "42317.57",
- "can_close_early": true
-}
-rules: If North Texas wins the Duke vs North Texas women's college basketball game originally scheduled for Nov 8, 2026, then the market resolves to Yes.
-{
- "ticker": "KXNCAAMBGAME-26NOV02PCJAC-PC",
- "status": "finalized",
- "result": "scalar",
- "close_time": "2026-11-02T00:04:58Z",
- "expected_expiration_time": "2026-11-03T03:00:00Z",
- "latest_expiration_time": "2026-11-05T00:00:00Z",
- "settlement_ts": "2026-11-02T00:05:43.50083Z",
- "yes_bid_dollars": "0.0000",
- "yes_ask_dollars": "1.0000",
- "last_price_dollars": "0.0200",
- "volume_fp": "67768.68",
- "can_close_early": true
-}
-rules: If Paine wins the Paine vs Jacksonville men's college basketball game originally scheduled for Nov 2, 2026, then the market resolves to Yes.
