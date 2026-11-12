@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T05:12:39.016727+00:00",
+ "updated": "2026-11-12T06:15:02.126383+00:00",
  "mode": "picks",
  "board": [
   {
@@ -12,20 +12,20 @@
    "sides": [
     {
      "name": "Alejandro Tabilo",
-     "fair": 0.22999999999999998,
-     "ask": 0.24
+     "fair": 0.23267326732673266,
+     "ask": 0.23
     },
     {
      "name": "Alex Michelsen",
-     "fair": 0.77,
-     "ask": 0.78
+     "fair": 0.7673267326732673,
+     "ask": 0.77
     }
    ],
    "pick": {
     "team": "Alex Michelsen",
     "type": "favorite",
-    "prob": 0.77,
-    "price": 0.78,
+    "prob": 0.7673267326732673,
+    "price": 0.77,
     "contracts": null,
     "status": "blocked"
    },
@@ -43,13 +43,13 @@
    "sides": [
     {
      "name": "Thiago Agustin Tirante",
-     "fair": 0.46969696969696967,
+     "fair": 0.4676616915422886,
      "ask": 0.47
     },
     {
      "name": "Aleksandr Shevchenko",
-     "fair": 0.5303030303030303,
-     "ask": 0.53
+     "fair": 0.5323383084577116,
+     "ask": 0.54
     }
    ],
    "pick": null,
@@ -67,13 +67,13 @@
    "sides": [
     {
      "name": "Northern Kentucky",
-     "fair": 0.4924623115577889,
-     "ask": 0.51
+     "fair": 0.4742268041237113,
+     "ask": 0.49
     },
     {
      "name": "Chattanooga",
-     "fair": 0.507537688442211,
-     "ask": 0.53
+     "fair": 0.5257731958762887,
+     "ask": 0.55
     }
    ],
    "pick": null,
@@ -91,19 +91,19 @@
    "sides": [
     {
      "name": "Wake Forest",
-     "fair": 0.9494949494949495,
+     "fair": 0.9402985074626866,
      "ask": 0.95
     },
     {
      "name": "UNC Wilmington",
-     "fair": 0.05050505050505051,
+     "fair": 0.059701492537313446,
      "ask": 0.06
     }
    ],
    "pick": {
     "team": "Wake Forest",
     "type": "favorite",
-    "prob": 0.9494949494949495,
+    "prob": 0.9402985074626866,
     "price": 0.95,
     "contracts": null,
     "status": "blocked"
@@ -113,17 +113,48 @@
    "three_way": false
   },
   {
+   "series": "KXNCAAWBGAME",
+   "event_ticker": "KXNCAAWBGAME-26NOV12MOREMURR",
+   "matchup": "Murray St. vs Morehead St.",
+   "start": "2026-11-12T17:00:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Murray St.",
+     "fair": 0.9747474747474747,
+     "ask": 0.97
+    },
+    {
+     "name": "Morehead St.",
+     "fair": 0.025252525252525256,
+     "ask": 0.03
+    }
+   ],
+   "pick": {
+    "team": "Murray St.",
+    "type": "favorite",
+    "prob": 0.9746192893401014,
+    "price": 0.97,
+    "contracts": 10,
+    "status": "open"
+   },
+   "why": null,
+   "source": "kalshi",
+   "three_way": false
+  },
+  {
    "series": "KXNHLGAME",
    "event_ticker": "KXNHLGAME-26NOV12CARSEA",
    "matchup": "Carolina Hurricanes @ Seattle Kraken",
    "start": "2026-11-12T17:00:00+00:00",
    "books": 9,
-   "odds_age_min": 0.5876859499999999,
+   "odds_age_min": 63.0151086,
    "sides": [
     {
      "name": "Seattle Kraken",
      "fair": 0.28260243654455536,
-     "ask": 0.28
+     "ask": 0.27
     },
     {
      "name": "Carolina Hurricanes",
@@ -144,37 +175,6 @@
    "three_way": false
   },
   {
-   "series": "KXNCAAWBGAME",
-   "event_ticker": "KXNCAAWBGAME-26NOV12MOREMURR",
-   "matchup": "Murray St. vs Morehead St.",
-   "start": "2026-11-12T17:00:00+00:00",
-   "books": 0,
-   "odds_age_min": null,
-   "sides": [
-    {
-     "name": "Murray St.",
-     "fair": 0.9698492462311558,
-     "ask": 0.97
-    },
-    {
-     "name": "Morehead St.",
-     "fair": 0.03015075376884422,
-     "ask": 0.04
-    }
-   ],
-   "pick": {
-    "team": "Murray St.",
-    "type": "favorite",
-    "prob": 0.9746192893401014,
-    "price": 0.97,
-    "contracts": 10,
-    "status": "open"
-   },
-   "why": null,
-   "source": "kalshi",
-   "three_way": false
-  },
-  {
    "series": "KXATPMATCH",
    "event_ticker": "KXATPMATCH-26NOV12FRIRUN",
    "matchup": "Holger Rune vs Taylor Fritz",
@@ -184,20 +184,20 @@
    "sides": [
     {
      "name": "Holger Rune",
-     "fair": 0.34848484848484845,
+     "fair": 0.345,
      "ask": 0.35
     },
     {
      "name": "Taylor Fritz",
-     "fair": 0.6515151515151515,
-     "ask": 0.65
+     "fair": 0.655,
+     "ask": 0.66
     }
    ],
    "pick": {
     "team": "Taylor Fritz",
     "type": "favorite",
-    "prob": 0.6515151515151515,
-    "price": 0.65,
+    "prob": 0.655,
+    "price": 0.66,
     "contracts": null,
     "status": "blocked"
    },
@@ -323,6 +323,30 @@
    "three_way": false
   },
   {
+   "series": "KXNCAAWVMATCH",
+   "event_ticker": "KXNCAAWVMATCH-26NOV121400WASHUCLA",
+   "matchup": "Washington vs UCLA",
+   "start": "2026-11-12T19:00:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Washington",
+     "fair": 0.49751243781094534,
+     "ask": 0.52
+    },
+    {
+     "name": "UCLA",
+     "fair": 0.5024875621890548,
+     "ask": 0.53
+    }
+   ],
+   "pick": null,
+   "why": "under 55% win chance, too close to call",
+   "source": "kalshi",
+   "three_way": false
+  },
+  {
    "series": "KXNCAAMBGAME",
    "event_ticker": "KXNCAAMBGAME-26NOV12UMKCGMU",
    "matchup": "Kansas City vs George Mason",
@@ -359,7 +383,7 @@
    "matchup": "Marta Kostyuk vs Coco Gauff",
    "start": "2026-11-12T20:00:00+00:00",
    "books": 7,
-   "odds_age_min": 0.37984961666666667,
+   "odds_age_min": 62.782722033333336,
    "sides": [
     {
      "name": "Marta Kostyuk",
@@ -394,13 +418,13 @@
    "sides": [
     {
      "name": "Holy Cross",
-     "fair": 0.5463917525773196,
-     "ask": 0.58
+     "fair": 0.47715736040609136,
+     "ask": 0.51
     },
     {
      "name": "Brown",
-     "fair": 0.4536082474226804,
-     "ask": 0.48
+     "fair": 0.5228426395939086,
+     "ask": 0.54
     }
    ],
    "pick": null,
@@ -414,7 +438,7 @@
    "matchup": "Jessica Pegula vs Linda Noskova",
    "start": "2026-11-12T21:30:00+00:00",
    "books": 7,
-   "odds_age_min": 0.37984961666666667,
+   "odds_age_min": 62.782722033333336,
    "sides": [
     {
      "name": "Jessica Pegula",
@@ -442,13 +466,13 @@
    "sides": [
     {
      "name": "Johnson & Wales (RI)",
-     "fair": 0.06930693069306931,
-     "ask": 0.08
+     "fair": 0.054726368159203995,
+     "ask": 0.06
     },
     {
      "name": "Boston University",
-     "fair": 0.9306930693069306,
-     "ask": 0.95
+     "fair": 0.945273631840796,
+     "ask": 0.96
     }
    ],
    "pick": null,
@@ -462,7 +486,7 @@
    "matchup": "Morgan St Bears @ UMBC Retrievers",
    "start": "2026-11-12T23:00:00+00:00",
    "books": 4,
-   "odds_age_min": 0.33237475,
+   "odds_age_min": 62.746786916666665,
    "sides": [
     {
      "name": "UMBC Retrievers",
@@ -472,7 +496,7 @@
     {
      "name": "Morgan St Bears",
      "fair": 0.29504473135767484,
-     "ask": 0.29
+     "ask": 0.28
     }
    ],
    "pick": {
@@ -493,24 +517,24 @@
    "matchup": "Coppin St Eagles @ Bradley Braves",
    "start": "2026-11-12T23:00:00+00:00",
    "books": 5,
-   "odds_age_min": 0.33237475,
+   "odds_age_min": 62.746786916666665,
    "sides": [
     {
      "name": "Coppin St Eagles",
      "fair": 0.20722589370958944,
-     "ask": 0.22
+     "ask": 0.2
     },
     {
      "name": "Bradley Braves",
      "fair": 0.7927741062904106,
-     "ask": 0.78
+     "ask": 0.81
     }
    ],
    "pick": {
     "team": "Bradley Braves",
     "type": "favorite",
     "prob": 0.7927741062904106,
-    "price": 0.78,
+    "price": 0.81,
     "contracts": null,
     "status": "blocked"
    },
@@ -528,12 +552,12 @@
    "sides": [
     {
      "name": "Southern Illinois",
-     "fair": 0.09137055837563451,
-     "ask": 0.1
+     "fair": 0.10050251256281408,
+     "ask": 0.11
     },
     {
      "name": "Eastern Kentucky",
-     "fair": 0.9086294416243655,
+     "fair": 0.8994974874371859,
      "ask": 0.9
     }
    ],
@@ -552,13 +576,13 @@
    "sides": [
     {
      "name": "Penn",
-     "fair": 0.9390862944162436,
+     "fair": 0.9292929292929293,
      "ask": 0.95
     },
     {
      "name": "Longwood",
-     "fair": 0.060913705583756333,
-     "ask": 0.08
+     "fair": 0.07070707070707072,
+     "ask": 0.09
     }
    ],
    "pick": null,
@@ -576,13 +600,13 @@
    "sides": [
     {
      "name": "Virginia Tech",
-     "fair": 0.9646464646464646,
+     "fair": 0.9502487562189056,
      "ask": 0.96
     },
     {
      "name": "VCU",
-     "fair": 0.03535353535353536,
-     "ask": 0.04
+     "fair": 0.04975124378109454,
+     "ask": 0.05
     }
    ],
    "pick": {
@@ -607,19 +631,19 @@
    "sides": [
     {
      "name": "Richmond",
-     "fair": 0.8272251308900523,
+     "fair": 0.8219895287958114,
      "ask": 0.81
     },
     {
      "name": "Old Dominion",
-     "fair": 0.17277486910994763,
-     "ask": 0.17
+     "fair": 0.17801047120418845,
+     "ask": 0.18
     }
    ],
    "pick": {
     "team": "Richmond",
     "type": "favorite",
-    "prob": 0.8272251308900523,
+    "prob": 0.8219895287958114,
     "price": 0.81,
     "contracts": null,
     "status": "blocked"
@@ -669,20 +693,20 @@
    "sides": [
     {
      "name": "Sacramento St.",
-     "fair": 0.7474226804123711,
-     "ask": 0.76
+     "fair": 0.7282051282051282,
+     "ask": 0.74
     },
     {
      "name": "Buffalo",
-     "fair": 0.25257731958762886,
-     "ask": 0.27
+     "fair": 0.27179487179487183,
+     "ask": 0.29
     }
    ],
    "pick": {
     "team": "Sacramento St.",
     "type": "favorite",
-    "prob": 0.7474226804123711,
-    "price": 0.76,
+    "prob": 0.7282051282051282,
+    "price": 0.74,
     "contracts": null,
     "status": "blocked"
    },
@@ -700,12 +724,12 @@
    "sides": [
     {
      "name": "South Florida",
-     "fair": 0.15736040609137053,
-     "ask": 0.16
+     "fair": 0.1641025641025641,
+     "ask": 0.17
     },
     {
      "name": "Florida",
-     "fair": 0.8426395939086294,
+     "fair": 0.8358974358974358,
      "ask": 0.85
     }
    ],
@@ -720,12 +744,12 @@
    "matchup": "Tennessee Tech Golden Eagles @ Indiana Hoosiers",
    "start": "2026-11-12T23:30:00+00:00",
    "books": 2,
-   "odds_age_min": 0.17404141666666667,
+   "odds_age_min": 62.58845358333333,
    "sides": [
     {
      "name": "Tennessee Tech Golden Eagles",
      "fair": 0.032295823587938324,
-     "ask": 0.02
+     "ask": 0.03
     },
     {
      "name": "Indiana Hoosiers",
@@ -751,7 +775,7 @@
    "matchup": "Mercyhurst Lakers @ Penn State Nittany Lions",
    "start": "2026-11-12T23:30:00+00:00",
    "books": 4,
-   "odds_age_min": 0.39070808333333334,
+   "odds_age_min": 62.80512025,
    "sides": [
     {
      "name": "Penn State Nittany Lions",
@@ -786,12 +810,12 @@
    "sides": [
     {
      "name": "Western Carolina",
-     "fair": 0.517948717948718,
+     "fair": 0.5154639175257733,
      "ask": 0.53
     },
     {
      "name": "UNC Asheville",
-     "fair": 0.48205128205128206,
+     "fair": 0.4845360824742268,
      "ask": 0.48
     }
    ],
@@ -810,13 +834,13 @@
    "sides": [
     {
      "name": "Ohio St.",
-     "fair": 0.1708542713567839,
-     "ask": 0.18
+     "fair": 0.13,
+     "ask": 0.14
     },
     {
      "name": "UConn",
-     "fair": 0.8291457286432161,
-     "ask": 0.84
+     "fair": 0.87,
+     "ask": 0.88
     }
    ],
    "pick": null,
@@ -865,190 +889,25 @@
    "sides": [
     {
      "name": "North Carolina",
-     "fair": 0.8272251308900523,
+     "fair": 0.8214285714285714,
      "ask": 0.84
     },
     {
      "name": "Duke",
-     "fair": 0.1727748691099476,
-     "ask": 0.21
+     "fair": 0.17857142857142858,
+     "ask": 0.22
     }
    ],
    "pick": {
     "team": "North Carolina",
     "type": "favorite",
-    "prob": 0.8272251308900523,
+    "prob": 0.8214285714285714,
     "price": 0.84,
     "contracts": null,
     "status": "blocked"
    },
    "why": "daily pick limit (15) reached",
    "source": "kalshi",
-   "three_way": false
-  },
-  {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26NOV12DETFLA",
-   "matchup": "Detroit Red Wings @ Florida Panthers",
-   "start": "2026-11-13T00:00:00+00:00",
-   "books": 9,
-   "odds_age_min": 0.5876859499999999,
-   "sides": [
-    {
-     "name": "Florida Panthers",
-     "fair": 0.606468034101338,
-     "ask": 0.61
-    },
-    {
-     "name": "Detroit Red Wings",
-     "fair": 0.393531965898662,
-     "ask": 0.39
-    }
-   ],
-   "pick": {
-    "team": "Florida Panthers",
-    "type": "favorite",
-    "prob": 0.606468034101338,
-    "price": 0.61,
-    "contracts": null,
-    "status": "blocked"
-   },
-   "why": "daily pick limit (15) reached",
-   "source": "sportsbooks",
-   "three_way": false
-  },
-  {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26NOV12COLOTT",
-   "matchup": "Colorado Avalanche @ Ottawa Senators",
-   "start": "2026-11-13T00:00:00+00:00",
-   "books": 9,
-   "odds_age_min": 0.5876859499999999,
-   "sides": [
-    {
-     "name": "Ottawa Senators",
-     "fair": 0.47873023908340584,
-     "ask": 0.48
-    },
-    {
-     "name": "Colorado Avalanche",
-     "fair": 0.5212697609165942,
-     "ask": 0.53
-    }
-   ],
-   "pick": null,
-   "why": "under 55% win chance, too close to call",
-   "source": "sportsbooks",
-   "three_way": false
-  },
-  {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26NOV12TBCBJ",
-   "matchup": "Tampa Bay Lightning @ Columbus Blue Jackets",
-   "start": "2026-11-13T00:00:00+00:00",
-   "books": 9,
-   "odds_age_min": 0.5876859499999999,
-   "sides": [
-    {
-     "name": "Tampa Bay Lightning",
-     "fair": 0.5185143642064273,
-     "ask": 0.53
-    },
-    {
-     "name": "Columbus Blue Jackets",
-     "fair": 0.4814856357935726,
-     "ask": 0.48
-    }
-   ],
-   "pick": null,
-   "why": "under 55% win chance, too close to call",
-   "source": "sportsbooks",
-   "three_way": false
-  },
-  {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26NOV12WSHNJ",
-   "matchup": "Washington Capitals @ New Jersey Devils",
-   "start": "2026-11-13T00:00:00+00:00",
-   "books": 9,
-   "odds_age_min": 0.5876859499999999,
-   "sides": [
-    {
-     "name": "Washington Capitals",
-     "fair": 0.4255450232100737,
-     "ask": 0.42
-    },
-    {
-     "name": "New Jersey Devils",
-     "fair": 0.5744549767899263,
-     "ask": 0.58
-    }
-   ],
-   "pick": {
-    "team": "New Jersey Devils",
-    "type": "favorite",
-    "prob": 0.5744549767899263,
-    "price": 0.58,
-    "contracts": null,
-    "status": "blocked"
-   },
-   "why": "daily pick limit (15) reached",
-   "source": "sportsbooks",
-   "three_way": false
-  },
-  {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26NOV12MINTOR",
-   "matchup": "Minnesota Wild @ Toronto Maple Leafs",
-   "start": "2026-11-13T00:00:00+00:00",
-   "books": 9,
-   "odds_age_min": 0.5876859499999999,
-   "sides": [
-    {
-     "name": "Toronto Maple Leafs",
-     "fair": 0.3945954873313401,
-     "ask": 0.39
-    },
-    {
-     "name": "Minnesota Wild",
-     "fair": 0.60540451266866,
-     "ask": 0.62
-    }
-   ],
-   "pick": {
-    "team": "Minnesota Wild",
-    "type": "favorite",
-    "prob": 0.60540451266866,
-    "price": 0.62,
-    "contracts": null,
-    "status": "blocked"
-   },
-   "why": "daily pick limit (15) reached",
-   "source": "sportsbooks",
-   "three_way": false
-  },
-  {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26NOV12MTLBOS",
-   "matchup": "Montr\u00e9al Canadiens @ Boston Bruins",
-   "start": "2026-11-13T00:00:00+00:00",
-   "books": 9,
-   "odds_age_min": 0.5876859499999999,
-   "sides": [
-    {
-     "name": "Montr\u00e9al Canadiens",
-     "fair": 0.471458650258287,
-     "ask": 0.46
-    },
-    {
-     "name": "Boston Bruins",
-     "fair": 0.5285413497417131,
-     "ask": 0.54
-    }
-   ],
-   "pick": null,
-   "why": "the upset coin picked the underdog, but it isn't a clear value bet",
-   "source": "sportsbooks",
    "three_way": false
   },
   {
@@ -1150,7 +1009,7 @@
    "matchup": "Stetson Hatters @ Howard Bison",
    "start": "2026-11-13T00:00:00+00:00",
    "books": 5,
-   "odds_age_min": 0.33237475,
+   "odds_age_min": 62.746786916666665,
    "sides": [
     {
      "name": "Stetson Hatters",
@@ -1181,7 +1040,7 @@
    "matchup": "Monmouth Hawks @ Quinnipiac Bobcats",
    "start": "2026-11-13T00:00:00+00:00",
    "books": 5,
-   "odds_age_min": 0.33237475,
+   "odds_age_min": 62.746786916666665,
    "sides": [
     {
      "name": "Quinnipiac Bobcats",
@@ -1205,7 +1064,7 @@
    "matchup": "Mercer Bears @ West Virginia Mountaineers",
    "start": "2026-11-13T00:00:00+00:00",
    "books": 2,
-   "odds_age_min": 0.17404141666666667,
+   "odds_age_min": 62.58845358333333,
    "sides": [
     {
      "name": "West Virginia Mountaineers",
@@ -1236,7 +1095,7 @@
    "matchup": "Southern Utah Thunderbirds @ High Point Panthers",
    "start": "2026-11-13T00:00:00+00:00",
    "books": 4,
-   "odds_age_min": 0.39070808333333334,
+   "odds_age_min": 62.80512025,
    "sides": [
     {
      "name": "Southern Utah Thunderbirds",
@@ -1267,7 +1126,7 @@
    "matchup": "Niagara Purple Eagles @ Bowling Green Falcons",
    "start": "2026-11-13T00:00:00+00:00",
    "books": 5,
-   "odds_age_min": 0.33237475,
+   "odds_age_min": 62.746786916666665,
    "sides": [
     {
      "name": "Niagara Purple Eagles",
@@ -1277,14 +1136,14 @@
     {
      "name": "Bowling Green Falcons",
      "fair": 0.8994356117341791,
-     "ask": 0.93
+     "ask": 0.92
     }
    ],
    "pick": {
     "team": "Bowling Green Falcons",
     "type": "favorite",
     "prob": 0.8994356117341791,
-    "price": 0.93,
+    "price": 0.92,
     "contracts": null,
     "status": "blocked"
    },
@@ -1298,7 +1157,7 @@
    "matchup": "Canisius Golden Griffins @ Brown Bears",
    "start": "2026-11-13T00:00:00+00:00",
    "books": 5,
-   "odds_age_min": 0.33237475,
+   "odds_age_min": 62.746786916666665,
    "sides": [
     {
      "name": "Canisius Golden Griffins",
@@ -1329,7 +1188,7 @@
    "matchup": "Central Connecticut St Blue Devils @ Sacred Heart Pioneers",
    "start": "2026-11-13T00:00:00+00:00",
    "books": 5,
-   "odds_age_min": 0.33237475,
+   "odds_age_min": 62.746786916666665,
    "sides": [
     {
      "name": "Sacred Heart Pioneers",
@@ -1353,7 +1212,7 @@
    "matchup": "Maryland-Eastern Shore Hawks @ Rhode Island Rams",
    "start": "2026-11-13T00:00:00+00:00",
    "books": 3,
-   "odds_age_min": 0.33237475,
+   "odds_age_min": 62.746786916666665,
    "sides": [
     {
      "name": "Rhode Island Rams",
@@ -1466,32 +1325,32 @@
   },
   {
    "series": "KXNCAAWBGAME",
-   "event_ticker": "KXNCAAWBGAME-26NOV12URIWAG",
-   "matchup": "Wagner vs Rhode Island",
+   "event_ticker": "KXNCAAWBGAME-26NOV12RIDCCSU",
+   "matchup": "Rider vs Central Connecticut St.",
    "start": "2026-11-13T00:00:00+00:00",
    "books": 0,
    "odds_age_min": null,
    "sides": [
     {
-     "name": "Wagner",
-     "fair": 0.015151515151515152,
-     "ask": 0.02
+     "name": "Rider",
+     "fair": 0.8638743455497382,
+     "ask": 0.85
     },
     {
-     "name": "Rhode Island",
-     "fair": 0.9848484848484849,
-     "ask": 0.98
+     "name": "Central Connecticut St.",
+     "fair": 0.13612565445026178,
+     "ask": 0.16
     }
    ],
    "pick": {
-    "team": "Rhode Island",
+    "team": "Rider",
     "type": "favorite",
-    "prob": 0.9794871794871794,
-    "price": 0.97,
-    "contracts": 10,
-    "status": "open"
+    "prob": 0.8638743455497382,
+    "price": 0.85,
+    "contracts": null,
+    "status": "blocked"
    },
-   "why": null,
+   "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
   },
@@ -1559,37 +1418,6 @@
   },
   {
    "series": "KXNCAAWBGAME",
-   "event_ticker": "KXNCAAWBGAME-26NOV12FAIRHALL",
-   "matchup": "Seton Hall vs Fairfield",
-   "start": "2026-11-13T00:00:00+00:00",
-   "books": 0,
-   "odds_age_min": null,
-   "sides": [
-    {
-     "name": "Seton Hall",
-     "fair": 0.4175257731958763,
-     "ask": 0.45
-    },
-    {
-     "name": "Fairfield",
-     "fair": 0.5824742268041236,
-     "ask": 0.61
-    }
-   ],
-   "pick": {
-    "team": "Fairfield",
-    "type": "favorite",
-    "prob": 0.5824742268041236,
-    "price": 0.61,
-    "contracts": null,
-    "status": "blocked"
-   },
-   "why": "daily pick limit (15) reached",
-   "source": "kalshi",
-   "three_way": false
-  },
-  {
-   "series": "KXNCAAWBGAME",
    "event_ticker": "KXNCAAWBGAME-26NOV12UNDMILW",
    "matchup": "North Dakota vs Milwaukee",
    "start": "2026-11-13T00:00:00+00:00",
@@ -1598,20 +1426,20 @@
    "sides": [
     {
      "name": "North Dakota",
-     "fair": 0.2760416666666667,
-     "ask": 0.29
+     "fair": 0.2789473684210526,
+     "ask": 0.3
     },
     {
      "name": "Milwaukee",
-     "fair": 0.7239583333333334,
-     "ask": 0.74
+     "fair": 0.7210526315789474,
+     "ask": 0.73
     }
    ],
    "pick": {
     "team": "Milwaukee",
     "type": "favorite",
-    "prob": 0.7239583333333334,
-    "price": 0.74,
+    "prob": 0.7210526315789474,
+    "price": 0.73,
     "contracts": null,
     "status": "blocked"
    },
@@ -1682,12 +1510,208 @@
    "three_way": false
   },
   {
+   "series": "KXNHLGAME",
+   "event_ticker": "KXNHLGAME-26NOV12DETFLA",
+   "matchup": "Detroit Red Wings @ Florida Panthers",
+   "start": "2026-11-13T00:00:00+00:00",
+   "books": 9,
+   "odds_age_min": 63.0151086,
+   "sides": [
+    {
+     "name": "Florida Panthers",
+     "fair": 0.606468034101338,
+     "ask": 0.61
+    },
+    {
+     "name": "Detroit Red Wings",
+     "fair": 0.393531965898662,
+     "ask": 0.39
+    }
+   ],
+   "pick": {
+    "team": "Florida Panthers",
+    "type": "favorite",
+    "prob": 0.606468034101338,
+    "price": 0.61,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "daily pick limit (15) reached",
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
+   "series": "KXNHLGAME",
+   "event_ticker": "KXNHLGAME-26NOV12COLOTT",
+   "matchup": "Colorado Avalanche @ Ottawa Senators",
+   "start": "2026-11-13T00:00:00+00:00",
+   "books": 9,
+   "odds_age_min": 63.0151086,
+   "sides": [
+    {
+     "name": "Ottawa Senators",
+     "fair": 0.47873023908340584,
+     "ask": 0.48
+    },
+    {
+     "name": "Colorado Avalanche",
+     "fair": 0.5212697609165942,
+     "ask": 0.53
+    }
+   ],
+   "pick": null,
+   "why": "under 55% win chance, too close to call",
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
+   "series": "KXNHLGAME",
+   "event_ticker": "KXNHLGAME-26NOV12TBCBJ",
+   "matchup": "Tampa Bay Lightning @ Columbus Blue Jackets",
+   "start": "2026-11-13T00:00:00+00:00",
+   "books": 9,
+   "odds_age_min": 63.0151086,
+   "sides": [
+    {
+     "name": "Tampa Bay Lightning",
+     "fair": 0.5185143642064273,
+     "ask": 0.54
+    },
+    {
+     "name": "Columbus Blue Jackets",
+     "fair": 0.4814856357935726,
+     "ask": 0.47
+    }
+   ],
+   "pick": null,
+   "why": "under 55% win chance, too close to call",
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
+   "series": "KXNHLGAME",
+   "event_ticker": "KXNHLGAME-26NOV12WSHNJ",
+   "matchup": "Washington Capitals @ New Jersey Devils",
+   "start": "2026-11-13T00:00:00+00:00",
+   "books": 9,
+   "odds_age_min": 63.0151086,
+   "sides": [
+    {
+     "name": "Washington Capitals",
+     "fair": 0.4255450232100737,
+     "ask": 0.42
+    },
+    {
+     "name": "New Jersey Devils",
+     "fair": 0.5744549767899263,
+     "ask": 0.58
+    }
+   ],
+   "pick": {
+    "team": "New Jersey Devils",
+    "type": "favorite",
+    "prob": 0.5744549767899263,
+    "price": 0.58,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "daily pick limit (15) reached",
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
+   "series": "KXNHLGAME",
+   "event_ticker": "KXNHLGAME-26NOV12MINTOR",
+   "matchup": "Minnesota Wild @ Toronto Maple Leafs",
+   "start": "2026-11-13T00:00:00+00:00",
+   "books": 9,
+   "odds_age_min": 63.0151086,
+   "sides": [
+    {
+     "name": "Toronto Maple Leafs",
+     "fair": 0.3945954873313401,
+     "ask": 0.39
+    },
+    {
+     "name": "Minnesota Wild",
+     "fair": 0.60540451266866,
+     "ask": 0.62
+    }
+   ],
+   "pick": {
+    "team": "Minnesota Wild",
+    "type": "favorite",
+    "prob": 0.60540451266866,
+    "price": 0.62,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "daily pick limit (15) reached",
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
+   "series": "KXNHLGAME",
+   "event_ticker": "KXNHLGAME-26NOV12MTLBOS",
+   "matchup": "Montr\u00e9al Canadiens @ Boston Bruins",
+   "start": "2026-11-13T00:00:00+00:00",
+   "books": 9,
+   "odds_age_min": 63.0151086,
+   "sides": [
+    {
+     "name": "Montr\u00e9al Canadiens",
+     "fair": 0.471458650258287,
+     "ask": 0.46
+    },
+    {
+     "name": "Boston Bruins",
+     "fair": 0.5285413497417131,
+     "ask": 0.54
+    }
+   ],
+   "pick": null,
+   "why": "the upset coin picked the underdog, but it isn't a clear value bet",
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
+   "series": "KXNCAAHGAME",
+   "event_ticker": "KXNCAAHGAME-26NOV12MSUND",
+   "matchup": "Notre Dame vs Michigan State",
+   "start": "2026-11-13T00:00:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Notre Dame",
+     "fair": 0.2562814070351759,
+     "ask": 0.3
+    },
+    {
+     "name": "Michigan State",
+     "fair": 0.7437185929648241,
+     "ask": 0.78
+    }
+   ],
+   "pick": {
+    "team": "Michigan State",
+    "type": "favorite",
+    "prob": 0.7437185929648241,
+    "price": 0.78,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "daily pick limit (15) reached",
+   "source": "kalshi",
+   "three_way": false
+  },
+  {
    "series": "KXNBAGAME",
    "event_ticker": "KXNBAGAME-26NOV12TORPHI",
    "matchup": "Toronto Raptors @ Philadelphia 76ers",
    "start": "2026-11-13T00:10:00+00:00",
    "books": 7,
-   "odds_age_min": 0.6099328833333334,
+   "odds_age_min": 63.033168133333334,
    "sides": [
     {
      "name": "Toronto Raptors",
@@ -1711,7 +1735,7 @@
    "matchup": "Detroit Pistons @ Washington Wizards",
    "start": "2026-11-13T00:10:00+00:00",
    "books": 8,
-   "odds_age_min": 0.43493288333333335,
+   "odds_age_min": 62.858168133333336,
    "sides": [
     {
      "name": "Washington Wizards",
@@ -1861,74 +1885,12 @@
    "three_way": false
   },
   {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26NOV12BUFCHI",
-   "matchup": "Buffalo Sabres @ Chicago Blackhawks",
-   "start": "2026-11-13T01:00:00+00:00",
-   "books": 9,
-   "odds_age_min": 0.5876859499999999,
-   "sides": [
-    {
-     "name": "Chicago Blackhawks",
-     "fair": 0.4216719550876731,
-     "ask": 0.42
-    },
-    {
-     "name": "Buffalo Sabres",
-     "fair": 0.5783280449123269,
-     "ask": 0.58
-    }
-   ],
-   "pick": {
-    "team": "Buffalo Sabres",
-    "type": "favorite",
-    "prob": 0.5783280449123269,
-    "price": 0.58,
-    "contracts": null,
-    "status": "blocked"
-   },
-   "why": "daily pick limit (15) reached",
-   "source": "sportsbooks",
-   "three_way": false
-  },
-  {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26NOV12WPGDAL",
-   "matchup": "Winnipeg Jets @ Dallas Stars",
-   "start": "2026-11-13T01:00:00+00:00",
-   "books": 9,
-   "odds_age_min": 0.5876859499999999,
-   "sides": [
-    {
-     "name": "Winnipeg Jets",
-     "fair": 0.388272637264322,
-     "ask": 0.37
-    },
-    {
-     "name": "Dallas Stars",
-     "fair": 0.611727362735678,
-     "ask": 0.62
-    }
-   ],
-   "pick": {
-    "team": "Dallas Stars",
-    "type": "favorite",
-    "prob": 0.611727362735678,
-    "price": 0.62,
-    "contracts": null,
-    "status": "blocked"
-   },
-   "why": "daily pick limit (15) reached",
-   "source": "sportsbooks",
-   "three_way": false
-  },
-  {
    "series": "KXNCAAMBGAME",
    "event_ticker": "KXNCAAMBGAME-26NOV12LMUUSA",
    "matchup": "Loyola Marymount Lions @ South Alabama Jaguars",
    "start": "2026-11-13T01:00:00+00:00",
    "books": 5,
-   "odds_age_min": 0.33237475,
+   "odds_age_min": 62.746786916666665,
    "sides": [
     {
      "name": "South Alabama Jaguars",
@@ -1938,7 +1900,7 @@
     {
      "name": "Loyola Marymount Lions",
      "fair": 0.5165962606284202,
-     "ask": 0.5
+     "ask": 0.51
     }
    ],
    "pick": null,
@@ -1952,12 +1914,12 @@
    "matchup": "West Florida Argonauts @ Alabama A&M Bulldogs",
    "start": "2026-11-13T01:00:00+00:00",
    "books": 4,
-   "odds_age_min": 0.39070808333333334,
+   "odds_age_min": 62.80512025,
    "sides": [
     {
      "name": "West Florida Argonauts",
      "fair": 0.2569858079126633,
-     "ask": 0.26
+     "ask": 0.27
     },
     {
      "name": "Alabama A&M Bulldogs",
@@ -1983,7 +1945,7 @@
    "matchup": "Southern Jaguars @ Minnesota Golden Gophers",
    "start": "2026-11-13T01:00:00+00:00",
    "books": 2,
-   "odds_age_min": 0.17404141666666667,
+   "odds_age_min": 62.58845358333333,
    "sides": [
     {
      "name": "Southern Jaguars",
@@ -2014,24 +1976,24 @@
    "matchup": "Richmond Spiders @ Southern Illinois Salukis",
    "start": "2026-11-13T01:00:00+00:00",
    "books": 5,
-   "odds_age_min": 0.33237475,
+   "odds_age_min": 62.746786916666665,
    "sides": [
     {
      "name": "Southern Illinois Salukis",
      "fair": 0.3972815224953309,
-     "ask": 0.37
+     "ask": 0.39
     },
     {
      "name": "Richmond Spiders",
      "fair": 0.6027184775046692,
-     "ask": 0.64
+     "ask": 0.62
     }
    ],
    "pick": {
     "team": "Richmond Spiders",
     "type": "favorite",
     "prob": 0.6027184775046692,
-    "price": 0.64,
+    "price": 0.62,
     "contracts": null,
     "status": "blocked"
    },
@@ -2045,7 +2007,7 @@
    "matchup": "Oklahoma St Cowboys @ Texas A&M Aggies",
    "start": "2026-11-13T01:00:00+00:00",
    "books": 5,
-   "odds_age_min": 0.33237475,
+   "odds_age_min": 62.746786916666665,
    "sides": [
     {
      "name": "Texas A&M Aggies",
@@ -2126,12 +2088,74 @@
    "three_way": false
   },
   {
+   "series": "KXNHLGAME",
+   "event_ticker": "KXNHLGAME-26NOV12BUFCHI",
+   "matchup": "Buffalo Sabres @ Chicago Blackhawks",
+   "start": "2026-11-13T01:00:00+00:00",
+   "books": 9,
+   "odds_age_min": 63.0151086,
+   "sides": [
+    {
+     "name": "Chicago Blackhawks",
+     "fair": 0.4216719550876731,
+     "ask": 0.42
+    },
+    {
+     "name": "Buffalo Sabres",
+     "fair": 0.5783280449123269,
+     "ask": 0.58
+    }
+   ],
+   "pick": {
+    "team": "Buffalo Sabres",
+    "type": "favorite",
+    "prob": 0.5783280449123269,
+    "price": 0.58,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "daily pick limit (15) reached",
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
+   "series": "KXNHLGAME",
+   "event_ticker": "KXNHLGAME-26NOV12WPGDAL",
+   "matchup": "Winnipeg Jets @ Dallas Stars",
+   "start": "2026-11-13T01:00:00+00:00",
+   "books": 9,
+   "odds_age_min": 63.0151086,
+   "sides": [
+    {
+     "name": "Winnipeg Jets",
+     "fair": 0.388272637264322,
+     "ask": 0.38
+    },
+    {
+     "name": "Dallas Stars",
+     "fair": 0.611727362735678,
+     "ask": 0.63
+    }
+   ],
+   "pick": {
+    "team": "Dallas Stars",
+    "type": "favorite",
+    "prob": 0.611727362735678,
+    "price": 0.63,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "daily pick limit (15) reached",
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
    "series": "KXNCAAFGAME",
    "event_ticker": "KXNCAAFGAME-26NOV12MEMUSF",
    "matchup": "Memphis Tigers @ South Florida Bulls",
    "start": "2026-11-13T01:00:00+00:00",
    "books": 9,
-   "odds_age_min": 0.8868954,
+   "odds_age_min": 63.28407731666667,
    "sides": [
     {
      "name": "South Florida Bulls",
@@ -2155,7 +2179,7 @@
    "matchup": "Dallas Mavericks @ Minnesota Timberwolves",
    "start": "2026-11-13T01:10:00+00:00",
    "books": 9,
-   "odds_age_min": 0.6099328833333334,
+   "odds_age_min": 63.033168133333334,
    "sides": [
     {
      "name": "Minnesota Timberwolves",
@@ -2179,7 +2203,7 @@
    "matchup": "Washington Commanders @ New York Giants",
    "start": "2026-11-13T01:15:00+00:00",
    "books": 9,
-   "odds_age_min": 0.2785822,
+   "odds_age_min": 62.66969151666667,
    "sides": [
     {
      "name": "Washington Commanders",
@@ -2205,36 +2229,12 @@
    "three_way": false
   },
   {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26NOV12STLUTA",
-   "matchup": "St Louis Blues @ Utah Mammoth",
-   "start": "2026-11-13T02:00:00+00:00",
-   "books": 9,
-   "odds_age_min": 0.5876859499999999,
-   "sides": [
-    {
-     "name": "Utah Mammoth",
-     "fair": 0.5409050312699626,
-     "ask": 0.55
-    },
-    {
-     "name": "St Louis Blues",
-     "fair": 0.45909496873003747,
-     "ask": 0.46
-    }
-   ],
-   "pick": null,
-   "why": "the upset coin picked the underdog, but it isn't a clear value bet",
-   "source": "sportsbooks",
-   "three_way": false
-  },
-  {
    "series": "KXNCAAMBGAME",
    "event_ticker": "KXNCAAMBGAME-26NOV12NMSUUTEP",
    "matchup": "New Mexico St Aggies @ UTEP Miners",
    "start": "2026-11-13T02:00:00+00:00",
    "books": 5,
-   "odds_age_min": 0.33237475,
+   "odds_age_min": 62.746786916666665,
    "sides": [
     {
      "name": "UTEP Miners",
@@ -2265,7 +2265,7 @@
    "matchup": "Montana St Bobcats @ BYU Cougars",
    "start": "2026-11-13T02:00:00+00:00",
    "books": 3,
-   "odds_age_min": 0.33237475,
+   "odds_age_min": 62.746786916666665,
    "sides": [
     {
      "name": "Montana St Bobcats",
@@ -2287,6 +2287,30 @@
     "status": "blocked"
    },
    "why": "daily pick limit (15) reached",
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
+   "series": "KXNHLGAME",
+   "event_ticker": "KXNHLGAME-26NOV12STLUTA",
+   "matchup": "St Louis Blues @ Utah Mammoth",
+   "start": "2026-11-13T02:00:00+00:00",
+   "books": 9,
+   "odds_age_min": 63.0151086,
+   "sides": [
+    {
+     "name": "Utah Mammoth",
+     "fair": 0.5409050312699626,
+     "ask": 0.55
+    },
+    {
+     "name": "St Louis Blues",
+     "fair": 0.45909496873003747,
+     "ask": 0.46
+    }
+   ],
+   "pick": null,
+   "why": "the upset coin picked the underdog, but it isn't a clear value bet",
    "source": "sportsbooks",
    "three_way": false
   },
@@ -2358,7 +2382,7 @@
    "matchup": "Charlotte Hornets @ Phoenix Suns",
    "start": "2026-11-13T02:10:00+00:00",
    "books": 9,
-   "odds_age_min": 0.6099328833333334,
+   "odds_age_min": 63.033168133333334,
    "sides": [
     {
      "name": "Phoenix Suns",
@@ -2384,36 +2408,12 @@
    "three_way": false
   },
   {
-   "series": "KXNHLGAME",
-   "event_ticker": "KXNHLGAME-26NOV12NYILA",
-   "matchup": "New York Islanders @ Los Angeles Kings",
-   "start": "2026-11-13T03:00:00+00:00",
-   "books": 9,
-   "odds_age_min": 0.5876859499999999,
-   "sides": [
-    {
-     "name": "New York Islanders",
-     "fair": 0.4702574424967953,
-     "ask": 0.47
-    },
-    {
-     "name": "Los Angeles Kings",
-     "fair": 0.5297425575032048,
-     "ask": 0.54
-    }
-   ],
-   "pick": null,
-   "why": "under 55% win chance, too close to call",
-   "source": "sportsbooks",
-   "three_way": false
-  },
-  {
    "series": "KXNCAAMBGAME",
    "event_ticker": "KXNCAAMBGAME-26NOV12UCRVSJSU",
    "matchup": "UC Riverside Highlanders @ San Jos\u00e9 St Spartans",
    "start": "2026-11-13T03:00:00+00:00",
    "books": 5,
-   "odds_age_min": 0.33237475,
+   "odds_age_min": 62.746786916666665,
    "sides": [
     {
      "name": "UC Riverside Highlanders",
@@ -2435,6 +2435,30 @@
     "status": "blocked"
    },
    "why": "daily pick limit (15) reached",
+   "source": "sportsbooks",
+   "three_way": false
+  },
+  {
+   "series": "KXNHLGAME",
+   "event_ticker": "KXNHLGAME-26NOV12NYILA",
+   "matchup": "New York Islanders @ Los Angeles Kings",
+   "start": "2026-11-13T03:00:00+00:00",
+   "books": 9,
+   "odds_age_min": 63.0151086,
+   "sides": [
+    {
+     "name": "New York Islanders",
+     "fair": 0.4702574424967953,
+     "ask": 0.46
+    },
+    {
+     "name": "Los Angeles Kings",
+     "fair": 0.5297425575032048,
+     "ask": 0.54
+    }
+   ],
+   "pick": null,
+   "why": "under 55% win chance, too close to call",
    "source": "sportsbooks",
    "three_way": false
   },
@@ -2479,12 +2503,12 @@
    "sides": [
     {
      "name": "Delaware St.",
-     "fair": 0.10362694300518135,
-     "ask": 0.14
+     "fair": 0.11979166666666666,
+     "ask": 0.15
     },
     {
      "name": "American",
-     "fair": 0.8963730569948186,
+     "fair": 0.8802083333333334,
      "ask": 0.89
     }
    ],
@@ -2547,9 +2571,49 @@
    "why": "daily pick limit (15) reached",
    "source": "kalshi",
    "three_way": false
+  },
+  {
+   "series": "KXNCAAWBGAME",
+   "event_ticker": "KXNCAAWBGAME-26NOV13AMCCTXST",
+   "matchup": "Texas St. vs Texas A&M-Corpus Christi",
+   "start": "2026-11-13T17:30:00+00:00",
+   "books": 0,
+   "odds_age_min": null,
+   "sides": [
+    {
+     "name": "Texas St.",
+     "fair": 0.9447236180904522,
+     "ask": 0.95
+    },
+    {
+     "name": "Texas A&M-Corpus Christi",
+     "fair": 0.05527638190954775,
+     "ask": 0.07
+    }
+   ],
+   "pick": {
+    "team": "Texas St.",
+    "type": "favorite",
+    "prob": 0.9447236180904522,
+    "price": 0.95,
+    "contracts": null,
+    "status": "blocked"
+   },
+   "why": "daily pick limit (15) reached",
+   "source": "kalshi",
+   "three_way": false
   }
  ],
  "skipped": [
+  {
+   "series": "KXNCAAWBGAME",
+   "names": [
+    "Utah St.",
+    "Bethune-Cookman"
+   ],
+   "ends": "2026-11-13T21:00:00+00:00",
+   "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
+  },
   {
    "series": "KXNCAAWBGAME",
    "names": [
@@ -2634,8 +2698,8 @@
   {
    "series": "KXNCAAWBGAME",
    "names": [
-    "Villanova",
-    "Merrimack"
+    "Wagner",
+    "Rhode Island"
    ],
    "ends": "2026-11-13T03:00:00+00:00",
    "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
@@ -2643,8 +2707,8 @@
   {
    "series": "KXNCAAWBGAME",
    "names": [
-    "Rider",
-    "Central Connecticut St."
+    "Villanova",
+    "Merrimack"
    ],
    "ends": "2026-11-13T03:00:00+00:00",
    "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
@@ -2663,6 +2727,15 @@
    "names": [
     "Norfolk St.",
     "Duke"
+   ],
+   "ends": "2026-11-13T03:00:00+00:00",
+   "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
+  },
+  {
+   "series": "KXNCAAWBGAME",
+   "names": [
+    "Seton Hall",
+    "Fairfield"
    ],
    "ends": "2026-11-13T03:00:00+00:00",
    "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
@@ -2740,30 +2813,12 @@
    "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
   },
   {
-   "series": "KXNCAAWVMATCH",
-   "names": [
-    "Washington",
-    "UCLA"
-   ],
-   "ends": "2026-11-12T22:00:00+00:00",
-   "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
-  },
-  {
    "series": "KXNCAAHGAME",
    "names": [
     "Bentley",
     "Air Force"
    ],
    "ends": "2026-11-13T05:05:00+00:00",
-   "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
-  },
-  {
-   "series": "KXNCAAHGAME",
-   "names": [
-    "Notre Dame",
-    "Michigan State"
-   ],
-   "ends": "2026-11-13T03:00:00+00:00",
    "reason": "no sportsbook line, and Kalshi's prices are too thin to tell who's favored"
   }
  ]
