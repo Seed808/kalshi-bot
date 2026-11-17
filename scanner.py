@@ -110,6 +110,10 @@ def fetch_odds_raw(sport_key, cfg, api_key, store):
     cached = store.get_odds_cache(sport_key)
     if cached and cached[0] < cfg["odds_cache_min"]:
         return cached[1], f"cached {cached[0]:.0f}m"
+    empty_at = parse_ts(store.get_meta(f"empty:{sport_key}") or "")
+    if empty_at and now_utc() - empty_at < timedelta(hours=cfg["odds_empty_skip_hours"]):
+        # last fresh pull had no usable games: don't spend another credit on it yet
+        return (cached[1] if cached else None), "no usable games last time, not re-bought yet"
     ok, why = odds_budget_ok(cfg, store)
     if not ok:
         return (cached[1] if cached else None), why
@@ -150,6 +154,7 @@ def resolve_sport_keys(pattern, api_key, store):
 
 def odds_consensus(sport_key, cfg, api_key, store):
     raw, note = fetch_odds_raw(sport_key, cfg, api_key, store)
+    fresh = note.startswith("fresh")
     if raw is None:
         return [], note
     now = now_utc()
@@ -196,6 +201,8 @@ def odds_consensus(sport_key, cfg, api_key, store):
             ev["book_std"] = statistics.pstdev([p[0] for p in probs])
             ev["staleness_min"] = statistics.median(stale) if stale else None
             events.append(ev)
+    if fresh:   # remember feeds that come back with nothing usable (e.g. too few books)
+        store.set_meta(f"empty:{sport_key}", "" if events else now_utc().isoformat())
     return events, note
 
 

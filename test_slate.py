@@ -26,6 +26,11 @@ assert Q(0.40, 0.35, True, True) is None                         # +14% per doll
 assert "isn't a clear value bet" in Q(0.40, 0.39, True, True)    # +2.6%: not enough
 assert "isn't a clear value bet" in Q(0.40, 0.35, False, True)   # Kalshi-only: no outside price to judge value
 assert Q(0.58, 0.70, False, True) is None                        # underdog pick that's still >= 55% is fine
+# price cap and underdog floor
+assert "priced 95¢" in picks.qualifies(0.97, 0.96, True, False, cfg, price=0.95)
+assert picks.qualifies(0.88, 0.89, True, False, cfg, price=0.88) is None
+assert "long shot" in Q(0.05, 0.02, True, True)                  # +150% "value" but a 5% long shot
+assert Q(0.20, 0.15, True, True) is None                         # 20% underdog at 15c: clear value
 
 # ---- order: favorites by win chance, 4 of 15 slots held for value underdogs (best value first)
 favs = [{"prob": 0.56 + i / 100, "value": -0.02, "is_dog": False, "from_books": True, "id": f"F{i}"} for i in range(20)]

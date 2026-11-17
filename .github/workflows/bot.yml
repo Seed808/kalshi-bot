@@ -2,7 +2,13 @@ name: kalshi-bot
 
 on:
   schedule:
-    - cron: "17 * * * *"      # hourly at :17 (UTC). Hourly keeps a private repo inside 2,000 free minutes/month.
+    # GitHub runs scheduled workflows on a best-effort basis and drops some under load (since
+    # Nov 13 only ~4 of 24 hourly triggers fired). Several triggers per hour make an hourly run
+    # far more likely. Extra runs are cheap: under a minute, free on a public repo, odds cached 3h.
+    - cron: "7 * * * *"
+    - cron: "23 * * * *"
+    - cron: "41 * * * *"
+    - cron: "53 * * * *"
   workflow_dispatch:           # "Run workflow" button for manual runs
     inputs:
       command:

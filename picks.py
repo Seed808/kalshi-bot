@@ -116,10 +116,17 @@ def value_per_dollar(prob, cost):
     return prob / cost - 1 if cost > 0 else -1.0
 
 
-def qualifies(prob, cost, from_books, is_dog, cfg):
-    """Returns None if the pick may go on the slate, else a plain reason why not."""
+def qualifies(prob, cost, from_books, is_dog, cfg, price=None):
+    """Returns None if the pick may go on the slate, else a plain reason why not.
+    Price cap: a contract over `pick_max_price` (90¢) risks $10 to win under about $1.
+    Underdog floor: below `pick_underdog_min_chance` (15%) a pick is a lottery ticket; in this
+    bot's first 269 picks, underdogs under 10% went 0-23 (-$230) while 10%+ underdogs made money."""
+    if price is not None and price > cfg["pick_max_price"]:
+        return f'priced {price * 100:.0f}¢: risks ${cfg["pick_stake_dollars"]:,.0f} to win too little'
     if prob >= cfg["pick_min_win_chance"]:
         return None
+    if is_dog and prob < cfg["pick_underdog_min_chance"]:
+        return f'underdog under {cfg["pick_underdog_min_chance"] * 100:.0f}%: a long shot, not a pick'
     if is_dog and from_books and value_per_dollar(prob, cost) >= cfg["pick_value_underdog_min_return"]:
         return None
     if is_dog:
@@ -156,7 +163,7 @@ def trim_slate(store, cfg, now, parse_ts):
     voided = []
     keep = []
     for x in waiting:
-        why = qualifies(x["prob"], x["cost"], x["from_books"], x["is_dog"], cfg)
+        why = qualifies(x["prob"], x["cost"], x["from_books"], x["is_dog"], cfg, price=x["row"]["price"])
         (voided.append((x["row"], why)) if why else keep.append(x))
     room = cfg["max_open_trades"] - len(started)
     open_dogs = sum(1 for r in started if (r["pick_type"] or "") in ("upset", "injury"))

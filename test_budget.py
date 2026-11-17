@@ -7,7 +7,7 @@ os.chdir(tempfile.mkdtemp())
 import common, scanner, research
 from store import Store
 
-cfg = common.load_config(); cfg["odds_cache_min"] = 0  # force a fetch attempt every call
+cfg = common.load_config(); cfg["odds_cache_min"] = 0; cfg["odds_empty_skip_hours"] = 0  # test the daily cap, not the empty-feed skip  # force a fetch attempt every call
 st = Store(cfg["db_path"])
 calls = {"n": 0}
 now = common.now_utc()
@@ -24,8 +24,8 @@ month, today = st.odds_credits_used(common.now_utc())
 nxt = (now.replace(day=28) + timedelta(days=4)).replace(day=1)
 days_left = (nxt.date() - now.date()).days
 print(f"attempts 200 -> real calls {calls['n']}, credits today {today:.0f}, "
-      f"allowance ~{min(450/days_left,15):.1f}/day ({days_left} days left in month)")
-assert calls["n"] <= min(450 / days_left, 15) + 1
+      f"allowance ~{min(450/days_left,cfg['odds_max_credits_per_day']):.1f}/day ({days_left} days left in month)")
+assert calls["n"] <= min(450 / days_left, cfg['odds_max_credits_per_day']) + 1
 ok, why = scanner.odds_budget_ok(cfg, st); assert not ok; print("then blocked:", why)
 # reserve: API says only 20 left -> no calls at all
 st2 = Store(os.path.join(tempfile.mkdtemp(), "b.db")); st2.set_meta("odds_remaining", 20)
@@ -38,4 +38,12 @@ with mock.patch.object(research, "fetch_rss", lambda u, l: []), mock.patch.objec
     g = {"series": "KXNBAGAME", "mapping": {"a": "Team A", "b": "Team B"}}
     research.research_games([g], cfg, st)
 print("X never called with default config")
+# empty-feed skip: a sport whose odds came back with no usable games isn't re-bought for 24h
+cfg3 = common.load_config(); cfg3["odds_cache_min"] = 0
+st3 = Store(os.path.join(tempfile.mkdtemp(), "c.db")); calls["n"] = 0
+with mock.patch.object(scanner, "http_get", fake):
+    for _ in range(10):
+        evs, note = scanner.odds_consensus("basketball_wncaab", cfg3, "k", st3)
+assert calls["n"] == 1 and evs == [] and "not re-bought" in note, (calls, note)
+print("empty-feed skip OK:", note)
 print("BUDGET TESTS PASSED")

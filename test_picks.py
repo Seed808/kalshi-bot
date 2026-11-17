@@ -21,7 +21,7 @@ from store import Store  # noqa: E402
 work = tempfile.mkdtemp()
 os.chdir(work)
 # this test covers pick mechanics on any game, so the slate floor/caps are relaxed (test_slate.py covers them)
-open("config.json", "w").write(json.dumps({"pick_min_win_chance": 0, "max_open_trades": 50, "max_trades_per_day": 50}))
+open("config.json", "w").write(json.dumps({"pick_min_win_chance": 0, "pick_max_price": 1, "pick_underdog_min_chance": 0, "max_open_trades": 50, "max_trades_per_day": 50}))
 os.environ["ODDS_API_KEY"] = "test"
 for k in ("X_BEARER_TOKEN", "REDDIT_CLIENT_ID", "TELEGRAM_BOT_TOKEN", "DISCORD_WEBHOOK_URL", "NTFY_TOPIC"):
     os.environ.pop(k, None)
@@ -173,7 +173,7 @@ assert not os.path.exists("learned_overrides.json"), "pick mode must not self-tu
 assert len(store.settled_trades()) == len(GAMES)
 
 # ---- caps still apply: fresh db with max 2 open picks
-open("config.json", "w").write(json.dumps({"max_open_trades": 2, "db_path": "capped.db", "pick_min_win_chance": 0}))
+open("config.json", "w").write(json.dumps({"max_open_trades": 2, "db_path": "capped.db", "pick_min_win_chance": 0, "pick_max_price": 1, "pick_underdog_min_chance": 0}))
 RESULTS.clear()
 store2 = Store("capped.db")
 main.cycle("config.json", store2, paper=True, verbose=False)

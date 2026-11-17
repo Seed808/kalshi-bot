@@ -19,7 +19,7 @@
   "max_odds_staleness_min": 30,
   "odds_monthly_credit_budget": 450,
   "odds_credit_reserve": 25,
-  "odds_max_credits_per_day": 15,
+  "odds_max_credits_per_day": 20,
   "odds_cache_min": 180,
   "odds_spend_horizon_hours": 36,
   "scan_min_volume_24h": 500,
@@ -86,5 +86,8 @@
   "pick_kalshi_fallback": true,
   "pick_kalshi_max_spread": 0.1,
   "pick_min_win_chance": 0.55,
-  "pick_value_underdog_min_return": 0.08
+  "pick_value_underdog_min_return": 0.08,
+  "pick_underdog_min_chance": 0.15,
+  "pick_max_price": 0.9,
+  "odds_empty_skip_hours": 24
 }

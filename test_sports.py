@@ -20,7 +20,7 @@ from store import Store  # noqa: E402
 
 work = tempfile.mkdtemp()
 os.chdir(work)
-open("config.json", "w").write(json.dumps({"pick_min_win_chance": 0}))   # mechanics test: no floor
+open("config.json", "w").write(json.dumps({"pick_min_win_chance": 0, "pick_max_price": 1, "pick_underdog_min_chance": 0}))   # mechanics test: no floor
 os.environ["ODDS_API_KEY"] = "test"
 for k in ("TELEGRAM_BOT_TOKEN", "DISCORD_WEBHOOK_URL", "NTFY_TOPIC", "X_BEARER_TOKEN", "REDDIT_CLIENT_ID"):
     os.environ.pop(k, None)

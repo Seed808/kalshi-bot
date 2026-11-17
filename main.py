@@ -417,7 +417,7 @@ def run_picks(games, cfg, store, paper, verbose, skipped):
             entry["why"] = why
             continue
         no = picks.qualifies(p["prob"], p["cost"], p["source"] == "sportsbooks",
-                             p["pick_type"] in ("upset", "injury"), cfg)
+                             p["pick_type"] in ("upset", "injury"), cfg, price=p["ask"])
         if no:   # slate floor: under 55% unless a clear value underdog
             entry["why"] = no
             continue

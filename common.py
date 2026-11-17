@@ -27,6 +27,9 @@ DEFAULTS = {
     "pick_upset_rate": 0.25,         # chance of taking the underdog instead of the favorite
     "pick_min_win_chance": 0.55,     # slate floor: drop picks below this win chance...
     "pick_value_underdog_min_return": 0.08,  # ...unless a sportsbook-priced underdog returns >= 8%/$
+    "pick_underdog_min_chance": 0.15,  # never take an underdog below this win chance
+    "pick_max_price": 0.90,          # never pay more than this per contract (too little to win)
+    "odds_empty_skip_hours": 24,     # a feed that returned no usable games isn't re-bought for this long
     "pick_injury_override": True,    # strong injury news on the favorite -> take the underdog
     "pick_min_books": 2,             # sportsbooks needed for a consensus in pick mode
     "pick_kalshi_fallback": True,    # no sportsbook line? use Kalshi's own prices to find the favorite
@@ -99,7 +102,7 @@ DEFAULTS = {
     "odds_regions": "us",            # 1 region x 1 market (h2h) = 1 credit per sport call
     "odds_monthly_credit_budget": 450,   # free plan is 500/month; keep a buffer
     "odds_credit_reserve": 25,
-    "odds_max_credits_per_day": 15,  # ~450/30; stops early-month burn       # never go below this many remaining (per API header)
+    "odds_max_credits_per_day": 20,  # ~450/30; stops early-month burn       # never go below this many remaining (per API header)
     "odds_cache_min": 180,           # reuse odds this long before spending another credit
     "bookmakers": [],
     "min_books": 3,
