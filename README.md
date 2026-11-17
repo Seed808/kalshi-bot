@@ -10,11 +10,13 @@ The bot picks a side in every Kalshi game it can match to sportsbook odds, for f
 - **Injury override:** if recent ESPN news has `injury_veto_count` (2) or more injury mentions for the favorite, and more than for the underdog, it takes the underdog (`pick_injury_override`). This is keyword matching, so it can misfire on nicknames.
 - **Stake:** each pick is a `pick_stake_dollars` ($10) paper bet at the cheaper Kalshi route (YES on the team, or NO on the opponent).
 - **Slate rules:** a pick needs at least a 55% win chance (`pick_min_win_chance`) unless it's a clear value underdog. That means priced by sportsbooks and returning at least 8% per dollar on average (`pick_value_underdog_min_return`; value = win chance ÷ cost incl. fee − 1). If the coin picks an underdog that isn't value, that game is dropped.
+- **No long shots:** an underdog needs at least a 15% win chance (`pick_underdog_min_chance`). In the first 269 picks, underdogs under 10% went 0-23.
+- **No near-sure things:** a pick priced over 90¢ is skipped (`pick_max_price`). At 95¢+ a $10 stake wins about $0.20–$0.50, so one loss wipes out 20+ wins.
 - **Caps:** 15 open (`max_open_trades`) and 15 new picks a day (`max_trades_per_day`), plus a 25% daily paper-loss stop and one pick per game. Picks open highest win chance first, with about a quarter of the slots (4 of 15) held for value underdogs.
 - **Trimming:** each run voids open picks whose games haven't started if they break these rules or don't fit under the cap. Voided picks don't count in the record or toward the daily limit.
 - **Site:** shows only the active slate.
 - **Gates that don't apply:** no edge, odds-age, "sportsbooks disagree" or minimum-size gates. Picks use the last consensus available, and only 2 books are needed (`pick_min_books`).
-- **Window:** games starting in the next 36h (`max_hours_ahead`). Odds are only bought for sports with a game ending in that window, reused for 3h (`odds_cache_min`), and capped at 15 credits a day, so it stays on the free plan.
+- **Window:** games starting in the next 36h (`max_hours_ahead`). Odds are only bought for sports with a game ending in that window, reused for 3h (`odds_cache_min`), and capped at 20 credits a day (and 450 a month), so it stays on the free plan. A sport whose feed came back empty is not asked again for 24h (`odds_empty_skip_hours`).
 - **Learning:** the self-tuning step is off in pick mode. It exists to protect an edge, and would block whole sports after a few losing favorites.
 - **Telegram:** one "NEW PICKS" message per run with new picks, and one "RESULTS" message when picks settle.
 
@@ -54,7 +56,7 @@ One-time setup (repo must be public on GitHub Free): **Settings → Pages → Bu
 
 ## Running on GitHub Actions (no computer needed)
 
-`.github/workflows/bot.yml` runs one full cycle **every hour** in GitHub's cloud and saves `kalshibot.db` (paper trades, training data) back to the repo after each run.
+`.github/workflows/bot.yml` runs one full cycle **about every hour** in GitHub's cloud (4 triggers an hour at :07, :23, :41, :53, because GitHub drops some scheduled runs) and saves `kalshibot.db` (paper trades, training data) back to the repo after each run.
 
 1. **Add secrets.** Go to repo → Settings → Secrets and variables → Actions → New repository secret.
    - `ODDS_API_KEY` (required, free plan)
@@ -64,7 +66,7 @@ One-time setup (repo must be public on GitHub Free): **Settings → Pages → Bu
 3. **Test it.** Go to Actions → kalshi-bot → **Run workflow**. Open the run and check the summary for the report.
 4. **Change settings** by editing `config.json` in the repo. The next run picks it up.
 
-Hourly fits a private repo's 2,000 free Actions minutes/month. Each run is capped at 10 minutes. Don't make it more frequent unless the repo is public, which would expose your paper-trade history.
+The repo is public, so Actions minutes are free. Each run takes about 1 minute and is capped at 10. Extra runs don't cost odds credits: odds are cached for 3h.
 
 ## Setup (running on your own computer instead)
 
@@ -103,7 +105,7 @@ Everything the bot uses by default is free: Kalshi market data, ESPN RSS, the Od
 
 - **Monthly budget:** `odds_monthly_credit_budget` = 450, leaving a 50-credit buffer.
 - **Reserve:** it also reads the API's own remaining-credits counter and stops at `odds_credit_reserve` (25).
-- **Daily pacing:** at most `odds_max_credits_per_day` (15), spread over the rest of the month.
+- **Daily pacing:** at most `odds_max_credits_per_day` (20), spread over the rest of the month.
 - **Cache:** reuses odds for `odds_cache_min` (45 min) instead of re-buying them.
 - **Skips idle sports:** spends no credit on a sport with no games in the time window.
 
@@ -119,7 +121,7 @@ Everything the bot uses by default is free: Kalshi market data, ESPN RSS, the Od
 - **Matching:** player names are matched with accents removed.
 - **Research:** uses full player names only, so siblings (e.g. the Cerundolos) aren't mixed up.
 - **Retirements:** Kalshi resolves to the match winner "after a ball has been played". Sportsbooks may void a bet on retirement, so mid-match retirements can make the consensus a slightly imperfect estimate.
-- **Credits:** each active tournament costs 1 Odds API credit per refresh. Odds are only bought for a sport with a game or match **ending within `odds_spend_horizon_hours` (12h)**, which keeps every sport inside the free 500/month.
+- **Credits:** each active tournament costs 1 Odds API credit per refresh. Odds are only bought for a sport with a game or match **ending within `odds_spend_horizon_hours` (36h)**, which keeps every sport inside the free 500/month.
 
 To find series/keys for any other sport (costs no odds credits): **Actions → kalshi-bot → Run workflow → command: discover**, then read `last_run.log`. The default keywords are tennis; locally, `python main.py discover --q golf,pga`.
 
