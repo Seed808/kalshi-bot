@@ -1,11 +1,9 @@
   overdue KXNCAAMBGAME-26NOV15PEPPORE-ORE: status='closed' result=''
   overdue KXATPMATCH-26NOV17ALCCOB-ALC: status='active' result=''
-Scan: 10000 open markets, 68 pass volume/time filters, 5 flagged
-  KXNCAAWBSPREAD-26NOV17TXSOOKLA-OKLA84: spread 0.21 | vol24 4631
-  KXNCAAWBTOTAL-26NOV17GCSCU-160: spread 0.12 | vol24 1577
-  KXGOLDH-26NOV1723-T3789.99: spread 0.12 | vol24 1234
-  KXGOLDH-26NOV1723-T3791.99: spread 0.23 | vol24 699
-  KXNCAAWBSPREAD-26NOV17TXSOOKLA-OKLA89: spread 0.24 | vol24 556
+Settled 0 paper trade(s); labeled 22 training snapshot(s).
+Scan: 10000 open markets, 38 pass volume/time filters, 2 flagged
+  KXNCAAMBTOTAL-26NOV17MSUTENN-117: spread 0.11 | vol24 14655
+  KXNCAAWBTOTAL-26NOV17GCSCU-160: spread 0.13 | vol24 1604
 [KXCFLGAME] no open markets
 [KXWNBAGAME] no open markets
 [KXMLBGAME] no open markets
@@ -13,12 +11,12 @@ Scan: 10000 open markets, 68 pass volume/time filters, 5 flagged
 [KXNCAASBGAME] no open markets
 [KXBOXINGFIGHT] no open markets
 [KXWTAMATCH] no open markets
-[KXNCAAMBGAME] 384 mkts | 43 odds events | matched 35 | kalshi-only 15 | unmatched 139 | ambiguous 0 | odds: cached 2m
-[KXNCAAWBGAME] 390 mkts | 0 odds events | matched 0 | kalshi-only 28 | unmatched 167 | ambiguous 0 | odds: no usable games last time, not re-bought yet
-[KXNCAAWVMATCH] 8 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 4 | ambiguous 0 | odds: no sportsbook feed for this sport
-[KXNHLGAME] 88 mkts | 6 odds events | matched 3 | kalshi-only 0 | unmatched 39 | ambiguous 0 | odds: cached 2m
-[KXNBAGAME] 70 mkts | 12 odds events | matched 11 | kalshi-only 2 | unmatched 21 | ambiguous 0 | odds: cached 2m
-[KXNCAAFGAME] 376 mkts | 63 odds events | matched 0 | kalshi-only 2 | unmatched 139 | ambiguous 0 | odds: cached 2m
+[KXNCAAMBGAME] 384 mkts | 43 odds events | matched 34 | kalshi-only 16 | unmatched 138 | ambiguous 0 | odds: cached 19m
+[KXNCAAWBGAME] 388 mkts | 0 odds events | matched 0 | kalshi-only 30 | unmatched 164 | ambiguous 0 | odds: no usable games last time, not re-bought yet
+[KXNHLGAME] 88 mkts | 6 odds events | matched 3 | kalshi-only 0 | unmatched 39 | ambiguous 0 | odds: cached 19m
+[KXNBAGAME] 70 mkts | 12 odds events | matched 10 | kalshi-only 2 | unmatched 21 | ambiguous 0 | odds: cached 19m
+[KXNCAAWVMATCH] 6 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 3 | ambiguous 0 | odds: no sportsbook feed for this sport
+[KXNCAAFGAME] 376 mkts | 63 odds events | matched 0 | kalshi-only 2 | unmatched 139 | ambiguous 0 | odds: cached 19m
 [KXNCAAHGAME] 10 mkts | 0 odds events | matched 0 | kalshi-only 1 | unmatched 4 | ambiguous 0 | odds: no sportsbook feed for this sport
 [KXMLSGAME] 24 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 8 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXNFLGAME] 58 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 29 | ambiguous 0 | odds: no games ending within 36h, no odds bought
@@ -33,6 +31,7 @@ Scan: 10000 open markets, 68 pass volume/time filters, 5 flagged
 [KXUCLGAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXATPMATCH] 12 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 6 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 Clock check: OK, within 1s of Kalshi's server clock
+  not opened San Jose St. vs California Baptist: open-pick limit (15) reached
   not opened St. John's vs Oklahoma St.: open-pick limit (15) reached
   not opened Morgan St Bears @ North Carolina A&T Aggies: open-pick limit (15) reached
   not opened VMI Keydets @ Longwood Lancers: open-pick limit (15) reached
@@ -43,11 +42,11 @@ Clock check: OK, within 1s of Kalshi's server clock
   not opened Howard Bison @ Duquesne Dukes: open-pick limit (15) reached
   not opened Fresno St Bulldogs @ San José St Spartans: open-pick limit (15) reached
   not opened Furman Paladins @ Radford Highlanders: open-pick limit (15) reached
+  not opened Bucknell vs University at Albany: open-pick limit (15) reached
   not opened Golden State Warriors @ Dallas Mavericks: open-pick limit (15) reached
   not opened Brown Bears @ Holy Cross Crusaders: open-pick limit (15) reached
   not opened Boston Univ. Terriers @ Merrimack Warriors: open-pick limit (15) reached
   not opened NJIT vs FDU: open-pick limit (15) reached
-  not opened Bucknell vs University at Albany: open-pick limit (15) reached
   not opened Memphis Grizzlies @ Cleveland Cavaliers: open-pick limit (15) reached
   not opened James Madison Dukes @ Towson Tigers: open-pick limit (15) reached
   not opened UMass vs Akron: open-pick limit (15) reached
@@ -55,14 +54,14 @@ Clock check: OK, within 1s of Kalshi's server clock
   not opened Montréal Canadiens @ New Jersey Devils: open-pick limit (15) reached
   not opened UConn Huskies @ Arizona Wildcats: open-pick limit (15) reached
   not opened Wofford Terriers @ Charleston Southern Buccaneers: open-pick limit (15) reached
+  not opened Utah Tech vs Cal State Bakersfield: open-pick limit (15) reached
   not opened Tennessee Tech Golden Eagles @ UNC Asheville Bulldogs: open-pick limit (15) reached
   not opened Mercer Bears @ Presbyterian Blue Hose: open-pick limit (15) reached
-  not opened Rutgers Scarlet Knights @ Notre Dame Fighting Irish: open-pick limit (15) reached
-  not opened Georgia vs Georgia Tech: open-pick limit (15) reached
-  not opened Chicago Bulls @ Brooklyn Nets: open-pick limit (15) reached
   not opened Syracuse vs Harvard: open-pick limit (15) reached
+  not opened Rutgers Scarlet Knights @ Notre Dame Fighting Irish: open-pick limit (15) reached
+  not opened Chicago Bulls @ Brooklyn Nets: open-pick limit (15) reached
   not opened Binghamton Bearcats @ Lafayette Leopards: open-pick limit (15) reached
   not opened UNC Greensboro Spartans @ Gardner-Webb Bulldogs: open-pick limit (15) reached
   not opened Boston Celtics @ Denver Nuggets: open-pick limit (15) reached
   not opened Vermont Catamounts @ Yale Bulldogs: open-pick limit (15) reached
-Tue 11/17 05:55 PM HST | pick mode | 97 games matched, 0 new pick(s), 15 open, 44 skipped
+Tue 11/17 06:13 PM HST | pick mode | 98 games matched, 0 new pick(s), 15 open, 46 skipped
