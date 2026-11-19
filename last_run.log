@@ -1,16 +1,28 @@
   overdue KXATPMATCH-26NOV17ALCCOB-ALC: status='active' result=''
-Settled 0 paper trade(s); labeled 2 training snapshot(s).
-  no ESPN score yet: Pepperdine vs Oregon (KXNCAAMBGAME, 2026-11-15T22:00:00+00:00)
-  ESPN winner disagrees with Kalshi for Washington St. vs Washington: score not used
-  no ESPN score yet: Washington St. vs Washington (KXNCAAWBGAME, 2026-11-18T03:30:00+00:00)
-Scores: 0 of 2 found on ESPN
-Trained on 2550 samples | model logloss 0.5199 vs consensus 0.5149 -> inactive (using consensus)
-Scan: 10000 open markets, 82 pass volume/time filters, 5 flagged
-  KXNCAAMBWINMARGIN-26NOV18HOUFLA-FLA1TO5: spread 0.34 | vol24 5618
-  KXNBA2DPROT-26NOV18GSWDAL-DALCFLAGG32: spread 0.30 | vol24 743
-  KXROMLNBMGAME-26NOV201100STEDIB-DIB: spread 0.17 | vol24 733
-  KXNCAAMBWINMARGIN-26NOV18HOUFLA-HOU1TO5: spread 0.26 | vol24 658
-  KXNCAAWBTOTAL-26NOV18UNHYALE-106: spread 0.14 | vol24 514
+Settled 8 paper trade(s); labeled 12 training snapshot(s).
+  no ESPN score yet: UNC Wilmington vs LIU (KXNCAAMBGAME, 2026-11-19T00:00:00+00:00)
+Scores: 7 of 8 found on ESPN
+RESULTS
+Won: South Florida (South Florida vs Binghamton) +$1.13
+Won: La Salle (La Salle vs Coppin St.) +$1.03
+Won: Eastern Michigan Eagles (Detroit Mercy Titans @ Eastern Michigan Eagles) +$1.34
+Won: Abilene Christian (Northwestern vs Abilene Christian) +$1.76
+Lost: UNC Wilmington (UNC Wilmington vs LIU) -$9.97
+Won: Marshall (Wright St. vs Marshall) +$1.13
+Won: Iona (New Haven vs Iona) +$1.44
+Lost: UMass Lowell (UMass Lowell vs Central Connecticut St.) -$9.77
+https://seed808.github.io/kalshi-bot/
+Scan: 10000 open markets, 156 pass volume/time filters, 33 flagged
+  KXNCAAMBTOTAL-26NOV18SDAKNEB-130: spread 0.18 | vol24 14879
+  KXNBAPRA-26NOV18UTALAL-UTAMBAMBA44-20: spread 0.25 | vol24 9323
+  KXNBA3PT-26NOV18MILMIA-MILNAMENT15-1: spread 0.64 | vol24 8826
+  KXNBAPTS-26NOV18UTALAL-UTAMBAMBA44-10: spread 0.18 | vol24 7269
+  KXNBATOTAL-26NOV18MILMIA-267: spread 0.17 | vol24 4150
+  KXNBABLK-26NOV18MILMIA-MIABADEBAYO13-1: spread 0.43 | vol24 3399
+  KXNBAPTS-26NOV18WASTOR-TORJBATTLE77-20: spread 0.43 | vol24 3202
+  KXNCAAMBTOTAL-26NOV18KUWVU-182: spread 0.34 | vol24 3132
+  KXNBATOTAL-26NOV18WASTOR-198: spread 0.20 | vol24 2288
+  KXNCAAMBTOTAL-26NOV18SDAKNEB-125: spread 0.17 | vol24 1963
 [KXCFLGAME] no open markets
 [KXWNBAGAME] no open markets
 [KXMLBGAME] no open markets
@@ -18,87 +30,84 @@ Scan: 10000 open markets, 82 pass volume/time filters, 5 flagged
 [KXNCAASBGAME] no open markets
 [KXBOXINGFIGHT] no open markets
 [KXWTAMATCH] no open markets
-[KXNCAAFGAME] 376 mkts | 63 odds events | matched 1 | kalshi-only 1 | unmatched 140 | ambiguous 0 | odds: cached 33m
-[KXNCAAWBGAME] 468 mkts | 5 odds events | matched 5 | kalshi-only 48 | unmatched 181 | ambiguous 0 | odds: cached 33m
-[KXNCAAMBGAME] 416 mkts | 52 odds events | matched 45 | kalshi-only 27 | unmatched 135 | ambiguous 0 | odds: cached 33m
-[KXNBAGAME] 68 mkts | 12 odds events | matched 12 | kalshi-only 4 | unmatched 18 | ambiguous 0 | odds: cached 33m
-[KXNCAAHGAME] 10 mkts | 0 odds events | matched 0 | kalshi-only 3 | unmatched 2 | ambiguous 0 | odds: no sportsbook feed for this sport
-[KXNHLGAME] 84 mkts | 15 odds events | matched 15 | kalshi-only 0 | unmatched 27 | ambiguous 0 | odds: cached 33m
-[KXNCAAWVMATCH] 6 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 3 | ambiguous 0 | odds: no sportsbook feed for this sport
-[KXMLSGAME] 24 mkts | 8 odds events | matched 2 | kalshi-only 0 | unmatched 1 | ambiguous 0 | odds: cached 33m
-[KXNFLGAME] 58 mkts | 29 odds events | matched 1 | kalshi-only 0 | unmatched 1 | ambiguous 0 | odds: cached 33m
+[KXNBAGAME] 80 mkts | 7 odds events | matched 3 | kalshi-only 3 | unmatched 30 | ambiguous 0 | odds: fresh, 1 credit(s), 230 left
+[KXNCAAMBGAME] 380 mkts | 35 odds events | matched 18 | kalshi-only 9 | unmatched 152 | ambiguous 0 | odds: fresh, 1 credit(s), 229 left
+[KXNHLGAME] 106 mkts | 15 odds events | matched 13 | kalshi-only 0 | unmatched 38 | ambiguous 0 | odds: fresh, 1 credit(s), 228 left
+[KXNCAAWBGAME] 384 mkts | 0 odds events | matched 0 | kalshi-only 20 | unmatched 172 | ambiguous 0 | odds: fresh, 1 credit(s), 227 left
+[KXNCAAFGAME] 376 mkts | 72 odds events | matched 1 | kalshi-only 1 | unmatched 132 | ambiguous 0 | odds: fresh, 1 credit(s), 226 left
+[KXNCAAHGAME] 52 mkts | 0 odds events | matched 0 | kalshi-only 3 | unmatched 23 | ambiguous 0 | odds: no sportsbook feed for this sport
+[KXNCAAWVMATCH] 22 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 11 | ambiguous 0 | odds: no sportsbook feed for this sport
+[KXMLSGAME] 24 mkts | 8 odds events | matched 2 | kalshi-only 0 | unmatched 1 | ambiguous 0 | odds: fresh, 1 credit(s), 225 left
+[KXNFLGAME] 58 mkts | 29 odds events | matched 1 | kalshi-only 0 | unmatched 1 | ambiguous 0 | odds: fresh, 1 credit(s), 224 left
 [KXBUNDESLIGAGAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXLIGUE1GAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXLALIGAGAME] 66 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 22 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXLIGAMXGAME] 27 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 9 | ambiguous 0 | odds: no games ending within 36h, no odds bought
-[KXEPLGAME] 84 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 28 | ambiguous 0 | odds: no games ending within 36h, no odds bought
+[KXEPLGAME] 87 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 29 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXSERIEAGAME] 60 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 20 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXUFCFIGHT] 22 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 11 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXNWSLGAME] 3 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 1 | ambiguous 0 | odds: no sportsbook feed for this sport
 [KXUCLGAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXATPMATCH] 8 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 4 | ambiguous 0 | odds: no games ending within 36h, no odds bought
-Clock check: OK, within 0s of Kalshi's server clock
-  not opened East Texas A&M vs California: open-pick limit (15) reached
-  not opened San Antonio vs Los Angeles C: open-pick limit (15) reached
-  not opened Montana St. vs High Point: open-pick limit (15) reached
-  not opened Nicholls St. vs Alcorn St.: open-pick limit (15) reached
-  not opened Southern Miss vs McNeese: open-pick limit (15) reached
-  not opened Portland vs Milwaukee: open-pick limit (15) reached
-  not opened Northern Iowa vs Iowa St.: open-pick limit (15) reached
-  not opened St. Bonaventure vs Buffalo: open-pick limit (15) reached
+Clock check: OK, within 1s of Kalshi's server clock
   not opened North Carolina vs Texas Tech: open-pick limit (15) reached
-  not opened Saint Louis vs Missouri St.: open-pick limit (15) reached
-  not opened UC Irvine vs Idaho St.: open-pick limit (15) reached
-  not opened Kansas Jayhawks @ Minnesota Golden Gophers: open-pick limit (15) reached
-  not opened Ole Miss Rebels @ Ohio State Buckeyes: open-pick limit (15) reached
-  not opened Princeton vs George Mason: open-pick limit (15) reached
-  not opened Toledo vs Robert Morris: open-pick limit (15) reached
   not opened Southeastern Louisiana vs Nicholls St.: open-pick limit (15) reached
-  not opened Wofford vs Charlotte: open-pick limit (15) reached
-  not opened Kansas Jayhawks @ West Virginia Mountaineers: open-pick limit (15) reached
-  not opened St. John's Red Storm @ Oklahoma St Cowgirls: open-pick limit (15) reached
-  not opened Morgan St Bears @ North Carolina A&T Aggies: open-pick limit (15) reached
-  not opened VMI Keydets @ Longwood Lancers: open-pick limit (15) reached
-  not opened Houston Rockets @ Indiana Pacers: open-pick limit (15) reached
+  not opened Robert Morris Colonials @ Toledo Rockets: open-pick limit (15) reached
   not opened St. Thomas vs Southeast Missouri St.: open-pick limit (15) reached
-  not opened Vermont Catamounts @ Yale Bulldogs: open-pick limit (15) reached
-  not opened Penn vs Saint Joseph's: open-pick limit (15) reached
-  not opened Brown Bears @ Holy Cross Crusaders: open-pick limit (15) reached
-  not opened Mercyhurst vs Cornell: open-pick limit (15) reached
-  not opened Fresno St Bulldogs @ San José St Spartans: open-pick limit (15) reached
   not opened Montréal Canadiens @ Carolina Hurricanes: open-pick limit (15) reached
-  not opened Florida Gulf Coast Eagles @ Florida Atlantic Owls: open-pick limit (15) reached
-  not opened Atlanta Hawks @ Oklahoma City Thunder: open-pick limit (15) reached
-  not opened Houston Christian vs Georgia Southern: open-pick limit (15) reached
-  not opened Wisconsin vs Seton Hall: open-pick limit (15) reached
-  not opened Howard Bison @ Duquesne Dukes: open-pick limit (15) reached
+  not opened Wake Forest vs Appalachian St.: open-pick limit (15) reached
   not opened Minnesota Wild @ Calgary Flames: open-pick limit (15) reached
-  not opened UAB vs Alabama A&M: open-pick limit (15) reached
-  not opened Utah Tech vs Cal State Bakersfield: open-pick limit (15) reached
-  not opened NJIT vs FDU: open-pick limit (15) reached
-  not opened Memphis Grizzlies @ Cleveland Cavaliers: open-pick limit (15) reached
-  not opened Georgia vs Georgia Tech: open-pick limit (15) reached
-  not opened Boston College Eagles @ Harvard Crimson: open-pick limit (15) reached
-  not opened Golden State Warriors @ Dallas Mavericks: open-pick limit (15) reached
-  not opened Furman Paladins @ Radford Highlanders: open-pick limit (15) reached
-  not opened Detroit Pistons @ New Orleans Pelicans: open-pick limit (15) reached
-  not opened Binghamton Bearcats @ Lafayette Leopards: open-pick limit (15) reached
-  not opened Vancouver Canucks @ Seattle Kraken: open-pick limit (15) reached
-  not opened Philadelphia Flyers @ Ottawa Senators: open-pick limit (15) reached
+  not opened Wisconsin Badgers @ Seton Hall Pirates: open-pick limit (15) reached
   not opened Memphis vs Golden State: open-pick limit (15) reached
-  not opened Chattanooga Mocs @ Winthrop Eagles: open-pick limit (15) reached
-  not opened Boston Univ. Terriers @ Merrimack Warriors: open-pick limit (15) reached
-  not opened Montréal Canadiens @ New Jersey Devils: open-pick limit (15) reached
-  not opened James Madison Dukes @ Towson Tigers: open-pick limit (15) reached
-  not opened Tennessee Tech Golden Eagles @ UNC Asheville Bulldogs: open-pick limit (15) reached
-  not opened UConn Huskies @ Arizona Wildcats: open-pick limit (15) reached
-  not opened Southern Utah vs Air Force: open-pick limit (15) reached
+  not opened Houston Christian vs Georgia Southern: open-pick limit (15) reached
+  not opened Philadelphia Flyers @ Ottawa Senators: open-pick limit (15) reached
+  not opened Vancouver Canucks @ Seattle Kraken: open-pick limit (15) reached
+  not opened Oregon St Beavers @ Oregon Ducks: open-pick limit (15) reached
   not opened Anaheim Ducks @ Colorado Avalanche: open-pick limit (15) reached
   not opened Rice Owls @ Temple Owls: open-pick limit (15) reached
-  not opened UNC Greensboro Spartans @ Gardner-Webb Bulldogs: open-pick limit (15) reached
   not opened Edmonton Oilers @ Tampa Bay Lightning: open-pick limit (15) reached
-  not opened Boston Celtics @ Denver Nuggets: open-pick limit (15) reached
-  not opened Chicago Bulls @ Brooklyn Nets: open-pick limit (15) reached
   not opened Buffalo Sabres @ Washington Capitals: open-pick limit (15) reached
-  not opened Oregon St. vs Oregon: open-pick limit (15) reached
-Wed 11/18 12:10 PM HST | pick mode | 164 games matched, 0 new pick(s), 15 open, 54 skipped
+NEW PICKS (8)
+
+Thu 11/19 01:00 PM HST (estimated from Kalshi)
+[NCAA Women's Basketball] Florida to beat Florida Atlantic
+Favorite. Kalshi prices give Florida 90%.
+Paper: buy YES on "Florida" at 90¢, 11 contracts ($9.97). Pays $11.00 if Florida wins.
+
+Thu 11/19 01:00 PM HST (estimated from Kalshi)
+[NCAA Women's Basketball] Quinnipiac to beat Colgate
+Favorite. Kalshi prices give Quinnipiac 89%.
+Paper: buy NO on "Colgate" (same as backing Quinnipiac) at 90¢, 11 contracts ($9.97). Pays $11.00 if Quinnipiac wins.
+
+Thu 11/19 01:00 PM HST (estimated from Kalshi)
+[NCAA Women's Basketball] Virginia to beat James Madison
+Favorite. Kalshi prices give Virginia 86%.
+Paper: buy NO on "James Madison" (same as backing Virginia) at 87¢, 11 contracts ($9.66). Pays $11.00 if Virginia wins.
+
+Thu 11/19 01:30 PM HST (estimated from Kalshi)
+[NCAA Women's Basketball] UCF to beat Stetson
+Favorite. Kalshi prices give UCF 91%.
+Paper: buy YES on "UCF" at 90¢, 11 contracts ($9.97). Pays $11.00 if UCF wins.
+
+Thu 11/19 02:00 PM HST (estimated from Kalshi)
+[NCAA Men's Basketball] High Point to beat Montana St.
+Favorite. Kalshi prices give High Point 86%.
+Paper: buy YES on "High Point" at 86¢, 11 contracts ($9.55). Pays $11.00 if High Point wins.
+
+Thu 11/19 02:00 PM HST
+[NCAA Men's Basketball] St. Bonaventure Bonnies to beat Buffalo Bulls
+Favorite. Sportsbooks give St. Bonaventure Bonnies 81%.
+Paper: buy NO on "Buffalo" (same as backing St. Bonaventure Bonnies) at 83¢, 11 contracts ($9.24). Pays $11.00 if St. Bonaventure Bonnies wins.
+
+Thu 11/19 03:00 PM HST (estimated from Kalshi)
+[NBA] Portland to beat Milwaukee
+Favorite. Kalshi prices give Portland 83%.
+Paper: buy YES on "Portland" at 83¢, 11 contracts ($9.24). Pays $11.00 if Portland wins.
+
+Thu 11/19 05:00 PM HST (estimated from Kalshi)
+[NCAA Men's Basketball] California to beat East Texas A&M
+Favorite. Kalshi prices give California 89%.
+Paper: buy YES on "California" at 89¢, 11 contracts ($9.87). Pays $11.00 if California wins.
+
+https://seed808.github.io/kalshi-bot/
+Wed 11/18 04:49 PM HST | pick mode | 74 games matched, 8 new pick(s), 15 open, 31 skipped
