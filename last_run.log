@@ -1,17 +1,23 @@
   overdue KXATPMATCH-26NOV17ALCCOB-ALC: status='active' result=''
+Settled 2 paper trade(s); labeled 46 training snapshot(s).
   no ESPN score yet: UNC Wilmington vs LIU (KXNCAAMBGAME, 2026-11-19T00:00:00+00:00)
-Scores: 0 of 1 found on ESPN
-Scan: 10000 open markets, 149 pass volume/time filters, 32 flagged
-  KXNCAAFTEAMTOTAL-26NOV18AKRMASS-MASS42: spread 0.18 | vol24 17008
-  KXNCAAFTEAMTOTAL-26NOV18AKRMASS-MASS46: spread 0.16 | vol24 10480
-  KXNBA3PT-26NOV18MILMIA-MILNAMENT15-1: spread 0.84 | vol24 8826
-  KXNBATOTAL-26NOV18MILMIA-267: spread 0.21 | vol24 4150
-  KXNBABLK-26NOV18MILMIA-MIABADEBAYO13-1: spread 0.48 | vol24 3399
-  KXNBAPTS-26NOV18WASTOR-TORJBATTLE77-20: spread 0.20 | vol24 3202
-  KXNCAAMBTOTAL-26NOV18KUWVU-182: spread 0.24 | vol24 3132
-  KXNBATOTAL-26NOV18WASTOR-198: spread 0.15 | vol24 2288
-  KXNCAAFTOTAL-26NOV18CMUBUFF-72: spread 0.25 | vol24 2260
-  KXNCAAMBTOTAL-26NOV18SDAKNEB-125: spread 0.16 | vol24 1963
+Scores: 2 of 3 found on ESPN
+RESULTS
+Won: UTSA (UTSA vs Florida A&M) +$1.03
+Lost: Bradley (Purdue Fort Wayne vs Bradley) -$9.55
+https://seed808.github.io/kalshi-bot/
+Trained on 2608 samples | model logloss 0.5158 vs consensus 0.5132 -> inactive (using consensus)
+Scan: 10000 open markets, 120 pass volume/time filters, 23 flagged
+  KXNCAAMBTOTAL-26NOV18SDAKNEB-130: spread 0.25 | vol24 15673
+  KXNBAPTS-26NOV18UTALAL-UTAMBAMBA44-10: spread 0.17 | vol24 13394
+  KXNCAAFTEAMTOTAL-26NOV18CMUBUFF-BUFF46: spread 0.15 | vol24 10282
+  KXNCAAMBTOTAL-26NOV18SDAKNEB-125: spread 0.24 | vol24 7356
+  KXNCAAFTEAMTOTAL-26NOV18CMUBUFF-BUFF42: spread 0.36 | vol24 6171
+  KXNBAPTS-26NOV18DETNOP-NOPDQUEEN22-10: spread 0.42 | vol24 5433
+  KXNBAPTS-26NOV18DETNOP-NOPJPOOLE3-20: spread 0.42 | vol24 2589
+  KXNBAPTS-26NOV18GSWDAL-DALZRISACHER10-5: spread 0.23 | vol24 2495
+  KXNBA2D-26NOV18UTALAL-LALWKESSLER14: spread 0.33 | vol24 2311
+  KXDOTA2GAME-26NOV182300XCTNRYV-XCTN: spread 0.14 | vol24 1848
 [KXCFLGAME] no open markets
 [KXWNBAGAME] no open markets
 [KXMLBGAME] no open markets
@@ -19,15 +25,15 @@ Scan: 10000 open markets, 149 pass volume/time filters, 32 flagged
 [KXNCAASBGAME] no open markets
 [KXBOXINGFIGHT] no open markets
 [KXWTAMATCH] no open markets
-[KXNBAGAME] 78 mkts | 7 odds events | matched 3 | kalshi-only 3 | unmatched 29 | ambiguous 0 | odds: cached 2m
-[KXNCAAMBGAME] 380 mkts | 35 odds events | matched 18 | kalshi-only 9 | unmatched 152 | ambiguous 0 | odds: cached 2m
-[KXNHLGAME] 106 mkts | 15 odds events | matched 13 | kalshi-only 0 | unmatched 38 | ambiguous 0 | odds: cached 2m
-[KXNCAAWBGAME] 384 mkts | 0 odds events | matched 0 | kalshi-only 21 | unmatched 171 | ambiguous 0 | odds: cached 2m
-[KXNCAAFGAME] 376 mkts | 72 odds events | matched 1 | kalshi-only 1 | unmatched 132 | ambiguous 0 | odds: cached 2m
+[KXNBAGAME] 78 mkts | 7 odds events | matched 1 | kalshi-only 3 | unmatched 30 | ambiguous 0 | odds: cached 29m
+[KXNCAAMBGAME] 364 mkts | 35 odds events | matched 13 | kalshi-only 9 | unmatched 146 | ambiguous 0 | odds: cached 29m
+[KXNCAAWBGAME] 380 mkts | 0 odds events | matched 0 | kalshi-only 26 | unmatched 164 | ambiguous 0 | odds: cached 29m
+[KXNHLGAME] 102 mkts | 15 odds events | matched 12 | kalshi-only 0 | unmatched 38 | ambiguous 0 | odds: cached 29m
+[KXNCAAFGAME] 376 mkts | 72 odds events | matched 1 | kalshi-only 1 | unmatched 132 | ambiguous 0 | odds: cached 29m
 [KXNCAAHGAME] 52 mkts | 0 odds events | matched 0 | kalshi-only 3 | unmatched 23 | ambiguous 0 | odds: no sportsbook feed for this sport
-[KXNCAAWVMATCH] 22 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 11 | ambiguous 0 | odds: no sportsbook feed for this sport
-[KXMLSGAME] 24 mkts | 8 odds events | matched 2 | kalshi-only 0 | unmatched 1 | ambiguous 0 | odds: cached 2m
-[KXNFLGAME] 58 mkts | 29 odds events | matched 1 | kalshi-only 0 | unmatched 1 | ambiguous 0 | odds: cached 2m
+[KXNCAAWVMATCH] 26 mkts | 0 odds events | matched 0 | kalshi-only 1 | unmatched 12 | ambiguous 0 | odds: no sportsbook feed for this sport
+[KXMLSGAME] 24 mkts | 8 odds events | matched 2 | kalshi-only 0 | unmatched 1 | ambiguous 0 | odds: cached 29m
+[KXNFLGAME] 58 mkts | 29 odds events | matched 1 | kalshi-only 0 | unmatched 1 | ambiguous 0 | odds: cached 29m
 [KXBUNDESLIGAGAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXLIGUE1GAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXLALIGAGAME] 66 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 22 | ambiguous 0 | odds: no games ending within 36h, no odds bought
@@ -38,22 +44,38 @@ Scan: 10000 open markets, 149 pass volume/time filters, 32 flagged
 [KXNWSLGAME] 3 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 1 | ambiguous 0 | odds: no sportsbook feed for this sport
 [KXUCLGAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXATPMATCH] 8 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 4 | ambiguous 0 | odds: no games ending within 36h, no odds bought
-Clock check: OK, within 0s of Kalshi's server clock
-  not opened North Carolina vs Texas Tech: open-pick limit (15) reached
+Clock check: OK, within 1s of Kalshi's server clock
   not opened Southeastern Louisiana vs Nicholls St.: open-pick limit (15) reached
+  not opened North Carolina vs Texas Tech: open-pick limit (15) reached
   not opened Robert Morris Colonials @ Toledo Rockets: open-pick limit (15) reached
   not opened St. Thomas vs Southeast Missouri St.: open-pick limit (15) reached
   not opened Montréal Canadiens @ Carolina Hurricanes: open-pick limit (15) reached
+  not opened UAB vs Alabama A&M: open-pick limit (15) reached
   not opened Wake Forest vs Appalachian St.: open-pick limit (15) reached
   not opened Minnesota Wild @ Calgary Flames: open-pick limit (15) reached
-  not opened Wisconsin Badgers @ Seton Hall Pirates: open-pick limit (15) reached
   not opened Memphis vs Golden State: open-pick limit (15) reached
+  not opened Wisconsin Badgers @ Seton Hall Pirates: open-pick limit (15) reached
+  not opened William & Mary vs Old Dominion: open-pick limit (15) reached
   not opened Houston Christian vs Georgia Southern: open-pick limit (15) reached
   not opened Philadelphia Flyers @ Ottawa Senators: open-pick limit (15) reached
   not opened Vancouver Canucks @ Seattle Kraken: open-pick limit (15) reached
   not opened Oregon St Beavers @ Oregon Ducks: open-pick limit (15) reached
+  not opened Weber St. vs Cal State Fullerton: open-pick limit (15) reached
   not opened Anaheim Ducks @ Colorado Avalanche: open-pick limit (15) reached
   not opened Rice Owls @ Temple Owls: open-pick limit (15) reached
   not opened Edmonton Oilers @ Tampa Bay Lightning: open-pick limit (15) reached
   not opened Buffalo Sabres @ Washington Capitals: open-pick limit (15) reached
-Wed 11/18 04:51 PM HST | pick mode | 75 games matched, 0 new pick(s), 15 open, 30 skipped
+NEW PICKS (2)
+
+Thu 11/19 02:00 PM HST (estimated from Kalshi)
+[NCAA Women's Basketball] Brown to beat Merrimack
+Favorite. Kalshi prices give Brown 89%.
+Paper: buy YES on "Brown" at 90¢, 11 contracts ($9.97). Pays $11.00 if Brown wins.
+
+Thu 11/19 02:00 PM HST (estimated from Kalshi)
+[NCAA Women's Volleyball] Kansas State to beat Texas Tech
+Favorite. Kalshi prices give Kansas State 84%.
+Paper: buy YES on "Kansas State" at 83¢, 11 contracts ($9.24). Pays $11.00 if Kansas State wins.
+
+https://seed808.github.io/kalshi-bot/
+Wed 11/18 05:18 PM HST | pick mode | 73 games matched, 2 new pick(s), 15 open, 24 skipped
