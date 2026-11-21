@@ -1,27 +1,9 @@
-Settled 7 paper trade(s); labeled 94 training snapshot(s).
   no ESPN score yet: Southeastern Louisiana vs Kennesaw St. (KXNCAAMBGAME, 2026-11-21T00:00:00+00:00)
-Scores: 7 of 8 found on ESPN
-RESULTS
-Won: Los Angeles Lakers (Sacramento Kings @ Los Angeles Lakers) +$1.34
-Won: Oregon Ducks (Oregon Ducks @ Michigan State Spartans) +$1.03
-Won: Arizona St. (Santa Clara vs Arizona St.) +$1.44
-Lost: Boise State Broncos (Sam Houston St Bearkats @ Boise State Broncos) -$9.66
-Lost: Duke Blue Devils (Clemson Tigers @ Duke Blue Devils) -$9.24
-Won: Oklahoma City (Oklahoma City vs New Orleans) +$2.03
-Won: North Dakota (North Dakota vs St. Cloud State) +$1.55
-https://seed808.github.io/kalshi-bot/
-Trained on 2892 samples | model logloss 0.5198 vs consensus 0.5167 -> inactive (using consensus)
-Scan: 10000 open markets, 131 pass volume/time filters, 14 flagged
-  KXNBLSPREAD-26NOV210130ILLATAS-TAS7: spread 0.18 | vol24 9909
-  KXNBLTOTAL-26NOV210130ILLATAS-190: spread 0.31 | vol24 9247
-  KXNCAAFTOTAL-26NOV21ARPBTXSO-47: spread 0.15 | vol24 6968
-  KXISLGAME-26NOV221305BHEHAP-HAP: spread 0.13 | vol24 3674
-  KXNBLTOTAL-26NOV210130ILLATAS-185: spread 0.20 | vol24 2940
-  KXNBLSPREAD-26NOV210130ILLATAS-TAS3: spread 0.29 | vol24 2658
-  KXNBLTOTAL-26NOV210130ILLATAS-200: spread 0.24 | vol24 1531
-  KXINXU-26NOV23H1600-T6949.9999: spread 0.16 | vol24 1175
-  KXNBAWINMARGIN-26NOV21MILPHI-PHI1TO5: spread 0.11 | vol24 882
-  KXBLEAGUEONEGAME-26NOV210105ALPAOM-AOM: spread 0.13 | vol24 862
+Scores: 0 of 1 found on ESPN
+Scan: 10000 open markets, 113 pass volume/time filters, 3 flagged
+  KXNCAAFTOTAL-26NOV21ARPBTXSO-47: spread 0.17 | vol24 7393
+  KXISLGAME-26NOV221305BHEHAP-HAP: spread 0.22 | vol24 3783
+  KXNBLSPREAD-26NOV210330NZBMEL-MEL11: spread 0.12 | vol24 970
 [KXCFLGAME] no open markets
 [KXWNBAGAME] no open markets
 [KXMLBGAME] no open markets
@@ -29,17 +11,17 @@ Scan: 10000 open markets, 131 pass volume/time filters, 14 flagged
 [KXNCAASBGAME] no open markets
 [KXBOXINGFIGHT] no open markets
 [KXWTAMATCH] 22 mkts | 0 odds events | matched 0 | kalshi-only 10 | unmatched 1 | ambiguous 0 | odds: tennis_wta_* isn't in season at the sportsbooks
-[KXEPLGAME] 108 mkts | 20 odds events | matched 9 | kalshi-only 0 | unmatched 16 | ambiguous 0 | odds: fresh, 1 credit(s), 185 left
-[KXLALIGAGAME] 78 mkts | 19 odds events | matched 6 | kalshi-only 1 | unmatched 8 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
+[KXEPLGAME] 108 mkts | 20 odds events | matched 9 | kalshi-only 0 | unmatched 16 | ambiguous 0 | odds: cached 60m
+[KXLALIGAGAME] 78 mkts | 19 odds events | matched 7 | kalshi-only 1 | unmatched 8 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
 [KXATPMATCH] 4 mkts | 2 odds events | matched 2 | kalshi-only 0 | unmatched 0 | ambiguous 0 | odds: finals:daily odds allowance reached (15/15.0)
 [KXSERIEAGAME] 72 mkts | 20 odds events | matched 8 | kalshi-only 1 | unmatched 5 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
 [KXBUNDESLIGAGAME] 72 mkts | 17 odds events | matched 7 | kalshi-only 1 | unmatched 8 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
-[KXNCAAMBGAME] 394 mkts | 60 odds events | matched 23 | kalshi-only 40 | unmatched 134 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
+[KXNCAAMBGAME] 394 mkts | 60 odds events | matched 23 | kalshi-only 44 | unmatched 130 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
 [KXLIGUE1GAME] 69 mkts | 17 odds events | matched 5 | kalshi-only 3 | unmatched 10 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
 [KXNCAAFGAME] 354 mkts | 69 odds events | matched 41 | kalshi-only 72 | unmatched 57 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
-[KXNCAAWBGAME] 370 mkts | 0 odds events | matched 0 | kalshi-only 51 | unmatched 134 | ambiguous 0 | odds: basketball_wncaab isn't in season at the sportsbooks
+[KXNCAAWBGAME] 370 mkts | 0 odds events | matched 0 | kalshi-only 58 | unmatched 127 | ambiguous 0 | odds: basketball_wncaab isn't in season at the sportsbooks
 [KXUFCFIGHT] 24 mkts | 20 odds events | matched 11 | kalshi-only 1 | unmatched 0 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
-[KXNBAGAME] 60 mkts | 13 odds events | matched 4 | kalshi-only 2 | unmatched 24 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
+[KXNBAGAME] 60 mkts | 13 odds events | matched 4 | kalshi-only 3 | unmatched 23 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
 [KXNHLGAME] 112 mkts | 14 odds events | matched 14 | kalshi-only 1 | unmatched 41 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
 [KXMLSGAME] 21 mkts | 8 odds events | matched 3 | kalshi-only 0 | unmatched 1 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
 [KXNCAAHGAME] 38 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 19 | ambiguous 0 | odds: no sportsbook feed for this sport
@@ -49,33 +31,34 @@ Scan: 10000 open markets, 131 pass volume/time filters, 14 flagged
 [KXNFLGAME] 56 mkts | 0 odds events | matched 0 | kalshi-only 7 | unmatched 21 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXUCLGAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 Clock check: OK, within 0s of Kalshi's server clock
+  not opened Weber St. vs Colorado St.: daily pick limit (15) reached
   not opened North Dakota vs Southern Illinois: daily pick limit (15) reached
   not opened Georgia vs South Carolina: daily pick limit (15) reached
-  not opened McNeese vs Lamar: daily pick limit (15) reached
   not opened Sacramento vs Boston: daily pick limit (15) reached
+  not opened McNeese vs Lamar: daily pick limit (15) reached
   not opened Louisiana Tech vs Arkansas St.: daily pick limit (15) reached
   not opened New Orleans vs Chicago: daily pick limit (15) reached
   not opened Northern Colorado vs Northern Arizona: daily pick limit (15) reached
   not opened Milwaukee Bucks @ Philadelphia 76ers: daily pick limit (15) reached
   not opened Georgia vs Louisiana Tech: daily pick limit (15) reached
   not opened Louisiana-Monroe vs Appalachian St.: daily pick limit (15) reached
+  not opened Niagara vs Le Moyne: daily pick limit (15) reached
   not opened Gardner-Webb vs Tennessee St.: daily pick limit (15) reached
   not opened Hawai'i vs Gonzaga: daily pick limit (15) reached
-  not opened Niagara vs Le Moyne: daily pick limit (15) reached
   not opened Presbyterian vs Dayton: daily pick limit (15) reached
   not opened Western Carolina vs The Citadel: daily pick limit (15) reached
   not opened Old Dominion Monarchs @ UConn Huskies: daily pick limit (15) reached
   not opened Washington State Cougars @ Texas State Bobcats: daily pick limit (15) reached
   not opened Vanderbilt Commodores @ Florida Gators: daily pick limit (15) reached
+  not opened San Jose St. vs Long Beach St.: daily pick limit (15) reached
   not opened Marist vs Davidson: daily pick limit (15) reached
   not opened UC Davis vs Cal Poly: daily pick limit (15) reached
   not opened Bradley Braves @ Pacific Tigers: daily pick limit (15) reached
+  not opened Roma vs Parma Calcio: daily pick limit (15) reached
   not opened Villarreal @ Barcelona: daily pick limit (15) reached
-  not opened San Jose St. vs Long Beach St.: daily pick limit (15) reached
   not opened Western Illinois vs Loyola Chicago: daily pick limit (15) reached
   not opened Texas vs Ohio St.: daily pick limit (15) reached
   not opened Penn vs Maine: daily pick limit (15) reached
-  not opened Roma vs Parma Calcio: daily pick limit (15) reached
   not opened NC State Wolfpack @ Florida State Seminoles: daily pick limit (15) reached
   not opened Ann Li vs Anna Bondar: daily pick limit (15) reached
   not opened Valparaiso vs St. Thomas: daily pick limit (15) reached
@@ -89,9 +72,9 @@ Clock check: OK, within 0s of Kalshi's server clock
   not opened Iowa Hawkeyes @ Illinois Fighting Illini: daily pick limit (15) reached
   not opened Tennessee Tech vs Presbyterian: daily pick limit (15) reached
   not opened Northern Arizona Lumberjacks @ Cal Poly Mustangs: daily pick limit (15) reached
-  not opened Stonehill vs Northeastern: daily pick limit (15) reached
   not opened Denver Pioneers @ Eastern Michigan Eagles: daily pick limit (15) reached
   not opened Holy Cross vs Fordham: daily pick limit (15) reached
+  not opened Stonehill vs Northeastern: daily pick limit (15) reached
   not opened Cagliari @ Como: daily pick limit (15) reached
   not opened Portland St. vs Eastern Washington: daily pick limit (15) reached
   not opened Jared Cannonier vs Ikram Aliskerov: daily pick limit (15) reached
@@ -99,77 +82,80 @@ Clock check: OK, within 0s of Kalshi's server clock
   not opened Tennessee-Martin vs Southeast Missouri St.: daily pick limit (15) reached
   not opened Montana St. vs Montana: daily pick limit (15) reached
   not opened Kansas St. vs Arizona: daily pick limit (15) reached
+  not opened San Diego vs UC Irvine: daily pick limit (15) reached
+  not opened Stony Brook vs Duquesne: daily pick limit (15) reached
   not opened Sacred Heart vs Detroit Mercy: daily pick limit (15) reached
   not opened Minnesota Wild @ Vancouver Canucks: daily pick limit (15) reached
+  not opened Siena vs Mercyhurst: daily pick limit (15) reached
   not opened Texas A&M vs Oklahoma: daily pick limit (15) reached
   not opened Houston Cougars @ West Virginia Mountaineers: daily pick limit (15) reached
   not opened Angers @ Paris FC: daily pick limit (15) reached
-  not opened Stony Brook vs Duquesne: daily pick limit (15) reached
+  not opened Northeastern vs Bryant: daily pick limit (15) reached
   not opened Air Force Falcons @ UTSA Roadrunners: daily pick limit (15) reached
+  not opened Troy vs Nicholls St.: daily pick limit (15) reached
   not opened Western Kentucky vs George Washington: daily pick limit (15) reached
   not opened Western Illinois vs Mercyhurst: daily pick limit (15) reached
   not opened Fordham Rams @ Portland Pilots: daily pick limit (15) reached
   not opened Western Illinois vs Lindenwood: daily pick limit (15) reached
   not opened Venezia @ Juventus: daily pick limit (15) reached
-  not opened Northeastern vs Bryant: daily pick limit (15) reached
-  not opened Siena vs Mercyhurst: daily pick limit (15) reached
+  not opened William & Mary vs Richmond: daily pick limit (15) reached
   not opened Tampa Bay vs Detroit: daily pick limit (15) reached
   not opened Western Illinois vs Canisius: daily pick limit (15) reached
   not opened North Texas Mean Green @ Tulane Green Wave: daily pick limit (15) reached
   not opened Fulham @ Manchester City: daily pick limit (15) reached
-  not opened William & Mary vs Richmond: daily pick limit (15) reached
   not opened Alik Lorenz vs Diyar Nurgozhay: daily pick limit (15) reached
   not opened UMBC vs Brown: daily pick limit (15) reached
   not opened Cornell Big Red @ Morgan St Bears: daily pick limit (15) reached
   not opened Lecce @ Lazio: daily pick limit (15) reached
+  not opened Kajsa Rinaldo Persson vs Martyna Kubka: daily pick limit (15) reached
   not opened Jake Matthews vs Tahir Abdullayev: daily pick limit (15) reached
   not opened Diane Parry vs Storm Hunter: daily pick limit (15) reached
   not opened Nevada vs Hawai'i: daily pick limit (15) reached
-  not opened Kajsa Rinaldo Persson vs Martyna Kubka: daily pick limit (15) reached
   not opened UNLV Rebels @ San Jose State Spartans: daily pick limit (15) reached
   not opened Yale vs Harvard: daily pick limit (15) reached
+  not opened Southern Utah vs Eastern Washington: daily pick limit (15) reached
   not opened Merrimack vs UMass Lowell: daily pick limit (15) reached
   not opened Cornell vs Columbia: daily pick limit (15) reached
-  not opened Wofford vs Winthrop: daily pick limit (15) reached
   not opened Mercer vs East Tennessee St.: daily pick limit (15) reached
+  not opened Wofford vs Winthrop: daily pick limit (15) reached
   not opened Auxerre @ AS Monaco: daily pick limit (15) reached
   not opened Wisconsin Badgers @ Purdue Boilermakers: daily pick limit (15) reached
   not opened East Carolina Pirates @ Army Black Knights: daily pick limit (15) reached
-  not opened PSG vs Nice: daily pick limit (15) reached
-  not opened James Madison vs George Mason: daily pick limit (15) reached
   not opened BYU Cougars @ Kansas Jayhawks: daily pick limit (15) reached
   not opened UTSA vs UAB: daily pick limit (15) reached
   not opened Texas Southern vs Arkansas-Pine Bluff: daily pick limit (15) reached
   not opened Northern Illinois Huskies @ Bowling Green Falcons: daily pick limit (15) reached
   not opened Navy Midshipmen @ Rider Broncs: daily pick limit (15) reached
+  not opened PSG vs Nice: daily pick limit (15) reached
   not opened Siena Saints @ Bucknell Bison: daily pick limit (15) reached
   not opened Pittsburgh vs Philadelphia: daily pick limit (15) reached
-  not opened Wyoming vs Duquesne: daily pick limit (15) reached
-  not opened Los Angeles Clippers @ Dallas Mavericks: daily pick limit (15) reached
+  not opened James Madison vs George Mason: daily pick limit (15) reached
   not opened Kentucky vs Missouri: daily pick limit (15) reached
-  not opened San Diego vs Fordham: daily pick limit (15) reached
+  not opened Los Angeles Clippers @ Dallas Mavericks: daily pick limit (15) reached
   not opened Le Mans FC @ Marseille: daily pick limit (15) reached
   not opened Tarleton St. vs Nicholls St.: daily pick limit (15) reached
-  not opened Norfolk St. vs Howard: daily pick limit (15) reached
-  not opened Texas Tech Red Raiders @ Baylor Bears: daily pick limit (15) reached
   not opened Princeton vs Penn: daily pick limit (15) reached
+  not opened Norfolk St. vs Howard: daily pick limit (15) reached
+  not opened Wyoming vs Duquesne: daily pick limit (15) reached
+  not opened Texas Tech Red Raiders @ Baylor Bears: daily pick limit (15) reached
   not opened UNLV vs Cincinnati: daily pick limit (15) reached
+  not opened Iona vs Bucknell: daily pick limit (15) reached
   not opened Torino @ Napoli: daily pick limit (15) reached
   not opened Shamil Gaziev vs Tallison Teixeira: daily pick limit (15) reached
   not opened RB Leipzig @ Union Berlin: daily pick limit (15) reached
+  not opened San Diego vs Fordham: daily pick limit (15) reached
   not opened Brighton and Hove Albion @ Hull City: daily pick limit (15) reached
   not opened Valparaiso vs Troy: daily pick limit (15) reached
   not opened Stony Brook Seawolves @ Saint Peter's Peacocks: daily pick limit (15) reached
   not opened Daniel Hooker vs Brian Ortega: daily pick limit (15) reached
   not opened Kyoji Horiguchi vs Asu Almabayev: daily pick limit (15) reached
+  not opened Jackson St. vs Alcorn St.: daily pick limit (15) reached
   not opened Edmonton Oilers @ Carolina Hurricanes: daily pick limit (15) reached
   not opened Ipswich Town @ Tottenham Hotspur: daily pick limit (15) reached
-  not opened UCLA Bruins @ Michigan Wolverines: daily pick limit (15) reached
-  not opened Jackson St. vs Alcorn St.: daily pick limit (15) reached
-  not opened Vermont vs Brown: daily pick limit (15) reached
-  not opened Xavier vs Ohio: daily pick limit (15) reached
   not opened Dortmund vs M´gladbach: daily pick limit (15) reached
-  not opened Northwestern vs Dayton: daily pick limit (15) reached
+  not opened UCLA Bruins @ Michigan Wolverines: daily pick limit (15) reached
+  not opened Xavier vs Ohio: daily pick limit (15) reached
+  not opened Vermont vs Brown: daily pick limit (15) reached
   not opened UC Irvine Anteaters @ San Diego Toreros: daily pick limit (15) reached
   not opened Dom Mar Fan vs Nikolas Motta: daily pick limit (15) reached
   not opened Arsenal @ Newcastle United: daily pick limit (15) reached
@@ -178,24 +164,26 @@ Clock check: OK, within 0s of Kalshi's server clock
   not opened Los Angeles Kings @ Ottawa Senators: daily pick limit (15) reached
   not opened Southern Miss vs Nicholls St.: daily pick limit (15) reached
   not opened Ohio State Buckeyes @ Nebraska Cornhuskers: daily pick limit (15) reached
-  not opened UTSA vs North Dakota St.: daily pick limit (15) reached
+  not opened Northwestern vs Dayton: daily pick limit (15) reached
   not opened Michigan Wolverines @ Villanova Wildcats: daily pick limit (15) reached
   not opened Inter Milan @ Atalanta BC: daily pick limit (15) reached
   not opened Drake Bulldogs @ Missouri St Bears: daily pick limit (15) reached
   not opened UT Rio Grande Valley vs Austin Peay: daily pick limit (15) reached
   not opened Columbus Crew SC @ Inter Miami CF: daily pick limit (15) reached
+  not opened UT Rio Grande Valley vs Houston Christian: daily pick limit (15) reached
   not opened Towson vs American: daily pick limit (15) reached
   not opened Anaheim Ducks @ Utah Mammoth: daily pick limit (15) reached
+  not opened UTSA vs North Dakota St.: daily pick limit (15) reached
   not opened New Mexico vs New Mexico St.: daily pick limit (15) reached
-  not opened UT Rio Grande Valley vs Houston Christian: daily pick limit (15) reached
-  not opened New York R vs Carolina: daily pick limit (15) reached
   not opened Delaware Blue Hens @ New Mexico State Aggies: daily pick limit (15) reached
+  not opened New York R vs Carolina: daily pick limit (15) reached
   not opened South Florida Bulls @ George Mason Patriots: daily pick limit (15) reached
   not opened Buffalo Sabres @ Florida Panthers: daily pick limit (15) reached
   not opened Jacksonville vs Central Arkansas: daily pick limit (15) reached
-  not opened Idaho St. vs Idaho: daily pick limit (15) reached
   not opened Hamburger SV @ Werder Bremen: daily pick limit (15) reached
   not opened Memphis Tigers @ Navy Midshipmen: daily pick limit (15) reached
+  not opened Idaho St. vs Idaho: daily pick limit (15) reached
+  not opened Detroit vs Atlanta: daily pick limit (15) reached
   not opened New Haven vs Mercyhurst: daily pick limit (15) reached
   not opened South Dakota vs Illinois St.: daily pick limit (15) reached
   not opened Manchester United @ Liverpool: daily pick limit (15) reached
@@ -205,37 +193,6 @@ Clock check: OK, within 0s of Kalshi's server clock
   not opened Sacred Heart vs Merrimack: daily pick limit (15) reached
   not opened South Dakota St. vs Kansas: daily pick limit (15) reached
   not opened Florida International Panthers @ Kennesaw State Owls: daily pick limit (15) reached
-NEW PICKS (6)
-
-Sat 11/21 09:00 AM HST (estimated from Kalshi)
-[NCAA Women's Basketball] Northwestern to beat Northern Illinois
-Favorite. Kalshi prices give Northwestern 87%.
-Paper: buy YES on "Northwestern" at 89¢, 11 contracts ($9.87). Pays $11.00 if Northwestern wins.
-
-Sat 11/21 09:30 AM HST (estimated from Kalshi)
-[NCAA Women's Basketball] Texas Tech to beat Purdue
-Favorite. Kalshi prices give Texas Tech 87%.
-Paper: buy YES on "Texas Tech" at 89¢, 11 contracts ($9.87). Pays $11.00 if Texas Tech wins.
-
-Sat 11/21 02:00 PM HST (estimated from Kalshi)
-[NCAA Men's Basketball] Elon to beat Morehead St.
-Favorite. Kalshi prices give Elon 88%.
-Paper: buy YES on "Elon" at 89¢, 11 contracts ($9.87). Pays $11.00 if Elon wins.
-
-Sat 11/21 02:00 PM HST (estimated from Kalshi)
-[NCAA Women's Basketball] Davidson to beat Charlotte
-Favorite. Kalshi prices give Davidson 88%.
-Paper: buy YES on "Davidson" at 85¢, 11 contracts ($9.45). Pays $11.00 if Davidson wins.
-
-Sun 11/22 09:00 AM HST (estimated from Kalshi)
-[NCAA Women's Basketball] Richmond to beat Holy Cross
-Favorite. Kalshi prices give Richmond 88%.
-Paper: buy YES on "Richmond" at 90¢, 11 contracts ($9.97). Pays $11.00 if Richmond wins.
-
-Sun 11/22 09:00 AM HST (estimated from Kalshi)
-[NCAA Women's Basketball] SIU Edwardsville to beat Valparaiso
-Favorite. Kalshi prices give SIU Edwardsville 87%.
-Paper: buy YES on "SIU Edwardsville" at 89¢, 11 contracts ($9.87). Pays $11.00 if SIU Edwardsville wins.
-
-https://seed808.github.io/kalshi-bot/
-Fri 11/20 09:46 PM HST | pick mode | 329 games matched, 6 new pick(s), 14 open, 61 skipped
+  not opened Mercyhurst vs University at Albany: daily pick limit (15) reached
+  not opened Wright St. vs Stetson: daily pick limit (15) reached
+Fri 11/20 10:46 PM HST | pick mode | 342 games matched, 0 new pick(s), 14 open, 69 skipped
