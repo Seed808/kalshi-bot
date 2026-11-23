@@ -1,13 +1,9 @@
-Scan: 10000 open markets, 114 pass volume/time filters, 9 flagged
-  KXNBATOTAL-26NOV22BOSGSW-182: spread 0.14 | vol24 6660
-  KXNBATOTAL-26NOV22BOSGSW-180: spread 0.17 | vol24 6160
-  KXNFLTDPROT-26NOV22MINSF-SFMEVANS5-2: spread 0.71 | vol24 4498
-  KXNBATEAMTOTAL-26NOV22BOSGSW-BOS91: spread 0.14 | vol24 1423
-  KXNFLRECYDS-26NOV22MINSF-MINMPRICE4-5: spread 0.11 | vol24 1413
-  KXNFLREC-26NOV22MINSF-MINMPRICE4-1: spread 0.16 | vol24 1171
-  KXAHLGAME-26NOV242000TUCTEX-TEX: spread 0.10 | vol24 944
-  KXNFLRSHYDSPRECISE-26NOV22MINSF-SFCMCCAFFREY23-70: spread 0.61 | vol24 510
-  KXESOCCERGAME-26NOV222240ADRIROSE-ADRI: spread 0.52 | vol24 506
+Settled 1 paper trade(s); labeled 10 training snapshot(s).
+Scores: 1 of 1 found on ESPN
+RESULTS
+Lost: Boston (Golden State vs Boston) -$9.93
+https://seed808.github.io/kalshi-bot/
+Scan: 10000 open markets, 33 pass volume/time filters, 0 flagged
 [KXCFLGAME] no open markets
 [KXWNBAGAME] no open markets
 [KXMLBGAME] no open markets
@@ -19,46 +15,63 @@ Scan: 10000 open markets, 114 pass volume/time filters, 9 flagged
 [KXBOXINGFIGHT] no open markets
 [KXATPMATCH] no open markets
 [KXWTAMATCH] no open markets
-[KXNCAAMBGAME] 364 mkts | 23 odds events | matched 19 | kalshi-only 12 | unmatched 150 | ambiguous 0 | odds: cached 71m
-[KXNFLGAME] 36 mkts | 16 odds events | matched 1 | kalshi-only 0 | unmatched 3 | ambiguous 0 | odds: cached 71m
-[KXNBAGAME] 64 mkts | 12 odds events | matched 8 | kalshi-only 2 | unmatched 21 | ambiguous 0 | odds: cached 71m
-[KXNCAAWBGAME] 288 mkts | 0 odds events | matched 0 | kalshi-only 26 | unmatched 118 | ambiguous 0 | odds: basketball_wncaab isn't in season at the sportsbooks
-[KXSERIEAGAME] 63 mkts | 18 odds events | matched 1 | kalshi-only 0 | unmatched 5 | ambiguous 0 | odds: cached 71m
-[KXEPLGAME] 90 mkts | 21 odds events | matched 1 | kalshi-only 0 | unmatched 10 | ambiguous 0 | odds: cached 71m
-[KXLALIGAGAME] 69 mkts | 14 odds events | matched 1 | kalshi-only 0 | unmatched 10 | ambiguous 0 | odds: cached 71m
-[KXNHLGAME] 104 mkts | 10 odds events | matched 7 | kalshi-only 0 | unmatched 45 | ambiguous 0 | odds: cached 71m
-[KXMLSGAME] 30 mkts | 9 odds events | matched 0 | kalshi-only 1 | unmatched 2 | ambiguous 0 | odds: cached 71m
-[KXUCLGAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
+[KXNCAAMBGAME] 368 mkts | 30 odds events | matched 25 | kalshi-only 17 | unmatched 142 | ambiguous 0 | odds: fresh, 1 credit(s), 159 left
+[KXNCAAWBGAME] 288 mkts | 0 odds events | matched 0 | kalshi-only 40 | unmatched 104 | ambiguous 0 | odds: basketball_wncaab isn't in season at the sportsbooks
+[KXSERIEAGAME] 63 mkts | 18 odds events | matched 1 | kalshi-only 0 | unmatched 5 | ambiguous 0 | odds: fresh, 1 credit(s), 158 left
+[KXEPLGAME] 90 mkts | 21 odds events | matched 1 | kalshi-only 0 | unmatched 10 | ambiguous 0 | odds: fresh, 1 credit(s), 157 left
+[KXLALIGAGAME] 69 mkts | 11 odds events | matched 1 | kalshi-only 0 | unmatched 13 | ambiguous 0 | odds: fresh, 1 credit(s), 156 left
+[KXNBAGAME] 62 mkts | 10 odds events | matched 10 | kalshi-only 0 | unmatched 21 | ambiguous 0 | odds: fresh, 1 credit(s), 155 left
+[KXNHLGAME] 104 mkts | 10 odds events | matched 7 | kalshi-only 0 | unmatched 45 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
+[KXMLSGAME] 30 mkts | 9 odds events | matched 0 | kalshi-only 1 | unmatched 2 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
+[KXNFLGAME] 34 mkts | 16 odds events | matched 1 | kalshi-only 0 | unmatched 3 | ambiguous 0 | odds: daily odds allowance reached (15/15.0)
+[KXUCLGAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 2 | unmatched 16 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXNCAAWVMATCH] 4 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 2 | ambiguous 0 | odds: no sportsbook feed for this sport
-[KXNCAAFGAME] 144 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 72 | ambiguous 0 | odds: no games ending within 36h, no odds bought
+[KXNCAAFGAME] 144 mkts | 0 odds events | matched 0 | kalshi-only 1 | unmatched 71 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXNCAAHGAME] 8 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 4 | ambiguous 0 | odds: no sportsbook feed for this sport
 [KXBUNDESLIGAGAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXLIGUE1GAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
-Clock check: OK, within 0s of Kalshi's server clock
-  not opened Cleveland vs Chicago: daily pick limit (15) reached
+Clock check: OK, within 1s of Kalshi's server clock
+  not opened St. Thomas vs Central Michigan: daily pick limit (15) reached
+  not opened Southern Utah vs Florida International: daily pick limit (15) reached
+  not opened Fresno St. vs Florida Gulf Coast: daily pick limit (15) reached
+  not opened William & Mary vs Coppin St.: daily pick limit (15) reached
+  not opened Siena vs Colgate: daily pick limit (15) reached
+  not opened UIC vs Rice: daily pick limit (15) reached
+  not opened Cleveland Cavaliers @ Chicago Bulls: daily pick limit (15) reached
   not opened Eastern Washington Eagles @ UNLV Rebels: daily pick limit (15) reached
   not opened Arkansas St Red Wolves @ Southern Utah Thunderbirds: daily pick limit (15) reached
+  not opened Western Michigan vs Miami (OH): daily pick limit (15) reached
   not opened Nevada Wolf Pack @ San Francisco Dons: daily pick limit (15) reached
-  not opened Tulsa Golden Hurricane @ Oregon St Beavers: daily pick limit (15) reached
   not opened Cincinnati Bengals @ Washington Commanders: daily pick limit (15) reached
+  not opened Tulsa Golden Hurricane @ Oregon St Beavers: daily pick limit (15) reached
   not opened Northern Iowa vs Green Bay: daily pick limit (15) reached
+  not opened Tennessee vs Maryland: daily pick limit (15) reached
   not opened St. Bonaventure vs Chattanooga: daily pick limit (15) reached
   not opened Ole Miss Rebels @ Clemson Tigers: daily pick limit (15) reached
+  not opened Tennessee-Martin vs Temple: daily pick limit (15) reached
+  not opened North Dakota vs Detroit Mercy: daily pick limit (15) reached
   not opened Northern Iowa Panthers @ Davidson Wildcats: daily pick limit (15) reached
-  not opened Illinois St Redbirds @ Santa Clara Broncos: daily pick limit (15) reached
   not opened Calgary Flames @ Ottawa Senators: daily pick limit (15) reached
+  not opened Illinois St Redbirds @ Santa Clara Broncos: daily pick limit (15) reached
   not opened Marist vs Binghamton: daily pick limit (15) reached
   not opened Minnesota Wild @ San Jose Sharks: daily pick limit (15) reached
+  not opened Ohio vs New Mexico St.: daily pick limit (15) reached
   not opened Columbus Blue Jackets @ New Jersey Devils: daily pick limit (15) reached
-  not opened San Jose St. vs Loyola Chicago: daily pick limit (15) reached
-  not opened Oklahoma City vs Indiana: daily pick limit (15) reached
+  not opened Bodoe/Glimt vs LASK: daily pick limit (15) reached
+  not opened Oklahoma City Thunder @ Indiana Pacers: daily pick limit (15) reached
   not opened Radford vs Furman: daily pick limit (15) reached
-  not opened Toronto Maple Leafs @ New York Islanders: daily pick limit (15) reached
-  not opened Georgia Southern Eagles @ Northern Kentucky Norse: daily pick limit (15) reached
-  not opened Memphis Grizzlies @ Charlotte Hornets: daily pick limit (15) reached
-  not opened Portland Trail Blazers @ Philadelphia 76ers: daily pick limit (15) reached
-  not opened South Carolina St. vs North Carolina A&T: daily pick limit (15) reached
-  not opened Los Angeles Kings @ Montréal Canadiens: daily pick limit (15) reached
+  not opened Pittsburgh vs Oklahoma: daily pick limit (15) reached
   not opened Toledo vs Navy: daily pick limit (15) reached
+  not opened Utah Valley Wolverines @ Stephen F. Austin Lumberjacks: daily pick limit (15) reached
+  not opened Northern Colorado vs Southeastern Louisiana: daily pick limit (15) reached
+  not opened Portland Trail Blazers @ Philadelphia 76ers: daily pick limit (15) reached
+  not opened Toronto Maple Leafs @ New York Islanders: daily pick limit (15) reached
+  not opened Xavier vs Dayton: daily pick limit (15) reached
+  not opened Memphis Grizzlies @ Charlotte Hornets: daily pick limit (15) reached
+  not opened Georgia Southern Eagles @ Northern Kentucky Norse: daily pick limit (15) reached
+  not opened Belmont vs Akron: daily pick limit (15) reached
   not opened Indiana St Sycamores @ East Carolina Pirates: daily pick limit (15) reached
-Sun 11/22 05:49 PM HST | pick mode | 79 games matched, 0 new pick(s), 12 open, 9 skipped
+  not opened Western Michigan vs Lindenwood: daily pick limit (15) reached
+  not opened Los Angeles Kings @ Montréal Canadiens: daily pick limit (15) reached
+  not opened North Carolina A&T Aggies @ South Carolina St Bulldogs: daily pick limit (15) reached
+Sun 11/22 10:15 PM HST | pick mode | 107 games matched, 0 new pick(s), 11 open, 14 skipped
