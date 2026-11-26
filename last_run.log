@@ -1,17 +1,17 @@
-Settled 2 paper trade(s); labeled 36 training snapshot(s).
-Scores: 2 of 2 found on ESPN
+Settled 5 paper trade(s); labeled 30 training snapshot(s).
+Scores: 5 of 5 found on ESPN
 RESULTS
-Won: Texas St. (Texas St. vs Pacific) +$1.23
-Lost: Northern Iowa (Northern Iowa vs Saint Louis) -$9.74
+Won: Pepperdine (Pepperdine vs Cal State Bakersfield) +$1.55
+Won: San Diego (Utah Tech vs San Diego) +$1.34
+Won: Houston Rockets (Phoenix Suns @ Houston Rockets) +$2.61
+Won: Golden State Warriors (Sacramento Kings @ Golden State Warriors) +$3.20
+Won: Loyola Marymount Lions (Eastern Washington Eagles @ Loyola Marymount Lions) +$3.20
 https://seed808.github.io/kalshi-bot/
-Trained on 3614 samples | model logloss 0.5337 vs consensus 0.5295 -> inactive (using consensus)
-Scan: 10000 open markets, 92 pass volume/time filters, 6 flagged
-  KXNHLSPREAD-26NOV25VANDET-DET4: spread 0.13 | vol24 2400
-  KXNFLRECYDS-26NOV25GBLAR-LARTATWELL8-5: spread 0.12 | vol24 1215
-  KXESOCCERGAME-26NOV252158NICOALIC-ALIC: spread 0.57 | vol24 820
-  KXNFLREC-26NOV25GBLAR-LARTATWELL8-1: spread 0.78 | vol24 788
-  KXNBA3PT-26NOV25LACMEM-MEMOPROSPER18-2: spread 0.32 | vol24 743
-  KXNCAAMBTOTAL-26NOV25EWULMU-131: spread 0.16 | vol24 602
+Scan: 10000 open markets, 53 pass volume/time filters, 4 flagged
+  KXNBAREB-26NOV25SASPOR-SASJCHAMPAGNIE30-6: spread 0.16 | vol24 2331
+  KXNBAAST-26NOV25SASPOR-SASDVASSELL24-2: spread 0.30 | vol24 2184
+  KXNBAREB-26NOV25SASPOR-SASDVASSELL24-4: spread 0.84 | vol24 1006
+  KXNBAAST-26NOV25SASPOR-SASJCHAMPAGNIE30-2: spread 0.52 | vol24 658
 [KXCFLGAME] no open markets
 [KXWNBAGAME] no open markets
 [KXMLBGAME] no open markets
@@ -22,15 +22,15 @@ Scan: 10000 open markets, 92 pass volume/time filters, 6 flagged
 [KXBOXINGFIGHT] no open markets
 [KXATPMATCH] no open markets
 [KXWTAMATCH] no open markets
-[KXNBAGAME] 66 mkts | 9 odds events | matched 2 | kalshi-only 0 | unmatched 27 | ambiguous 0 | odds: cached 172m
-[KXNCAAMBGAME] 360 mkts | 46 odds events | matched 21 | kalshi-only 5 | unmatched 149 | ambiguous 0 | odds: cached 172m
-[KXNHLGAME] 106 mkts | 14 odds events | matched 1 | kalshi-only 0 | unmatched 47 | ambiguous 0 | odds: cached 172m
-[KXNFLGAME] 60 mkts | 30 odds events | matched 3 | kalshi-only 0 | unmatched 1 | ambiguous 0 | odds: cached 172m
-[KXNCAAWBGAME] 406 mkts | 0 odds events | matched 0 | kalshi-only 13 | unmatched 190 | ambiguous 0 | odds: cached 172m
-[KXNCAAWVMATCH] 18 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 9 | ambiguous 0 | odds: no sportsbook feed for this sport
-[KXLIGAMXGAME] 9 mkts | 4 odds events | matched 3 | kalshi-only 0 | unmatched 0 | ambiguous 0 | odds: cached 172m
-[KXNCAAFGAME] 158 mkts | 69 odds events | matched 1 | kalshi-only 0 | unmatched 19 | ambiguous 0 | odds: cached 172m
-[KXNCAAHGAME] 46 mkts | 0 odds events | matched 0 | kalshi-only 1 | unmatched 22 | ambiguous 0 | odds: no sportsbook feed for this sport
+[KXNBAGAME] 56 mkts | 5 odds events | matched 0 | kalshi-only 0 | unmatched 23 | ambiguous 0 | odds: fresh, 1 credit(s), 117 left
+[KXNHLGAME] 98 mkts | 1 odds events | matched 0 | kalshi-only 0 | unmatched 49 | ambiguous 0 | odds: fresh, 1 credit(s), 116 left
+[KXNCAAMBGAME] 350 mkts | 26 odds events | matched 21 | kalshi-only 4 | unmatched 148 | ambiguous 0 | odds: fresh, 1 credit(s), 115 left
+[KXNCAAWBGAME] 404 mkts | 0 odds events | matched 0 | kalshi-only 17 | unmatched 185 | ambiguous 0 | odds: no usable games last time, not re-bought yet
+[KXNFLGAME] 58 mkts | 29 odds events | matched 3 | kalshi-only 0 | unmatched 1 | ambiguous 0 | odds: fresh, 1 credit(s), 114 left
+[KXNCAAFGAME] 158 mkts | 69 odds events | matched 6 | kalshi-only 0 | unmatched 19 | ambiguous 0 | odds: fresh, 1 credit(s), 113 left
+[KXLIGAMXGAME] 9 mkts | 3 odds events | matched 2 | kalshi-only 0 | unmatched 1 | ambiguous 0 | odds: fresh, 1 credit(s), 112 left
+[KXNCAAHGAME] 46 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 23 | ambiguous 0 | odds: no sportsbook feed for this sport
+[KXNCAAWVMATCH] 14 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 7 | ambiguous 0 | odds: no sportsbook feed for this sport
 [KXBUNDESLIGAGAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXSERIEAGAME] 60 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 20 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXLIGUE1GAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
@@ -39,32 +39,28 @@ Scan: 10000 open markets, 92 pass volume/time filters, 6 flagged
 [KXMLSGAME] 24 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 8 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 [KXUCLGAME] 54 mkts | 0 odds events | matched 0 | kalshi-only 0 | unmatched 18 | ambiguous 0 | odds: no games ending within 36h, no odds bought
 Clock check: OK, within 1s of Kalshi's server clock
-  not opened North Dakota St. vs Fairfield: open-pick limit (15) reached
-  not opened Baylor Bears @ Gonzaga Bulldogs: open-pick limit (15) reached
-  not opened Jacksonville St Gamecocks @ Pacific Tigers: open-pick limit (15) reached
-  not opened Maryland Terrapins @ San Diego St Aztecs: open-pick limit (15) reached
-  not opened Clemson Tigers @ Colorado St Rams: open-pick limit (15) reached
-  not opened San Antonio Spurs @ Portland Trail Blazers: open-pick limit (15) reached
-  not opened Wisconsin vs Syracuse: open-pick limit (15) reached
-  not opened Utah State Aggies @ USC Trojans: open-pick limit (15) reached
-  not opened South Carolina Gamecocks @ Arizona St Sun Devils: open-pick limit (15) reached
-  not opened Kansas City Chiefs @ Buffalo Bills: open-pick limit (15) reached
-  not opened Tennessee Volunteers @ Iowa State Cyclones: open-pick limit (15) reached
-  not opened Boston College Eagles @ UCF Knights: open-pick limit (15) reached
-  not opened Michigan vs Miami (FL): open-pick limit (15) reached
-  not opened San Jose Sharks @ Anaheim Ducks: open-pick limit (15) reached
-  not opened Minnesota Duluth vs Providence: open-pick limit (15) reached
-NEW PICKS (2)
+  not opened Xavier vs Virginia: daily pick limit (15) reached
+  not opened Buffalo Bulls @ Akron Zips: daily pick limit (15) reached
+  not opened Nebraska Cornhuskers @ Iowa Hawkeyes: daily pick limit (15) reached
+  not opened Maryland Terrapins @ San Diego St Aztecs: daily pick limit (15) reached
+  not opened North Dakota St. vs Fairfield: daily pick limit (15) reached
+  not opened Clemson Tigers @ Colorado St Rams: daily pick limit (15) reached
+  not opened Baylor Bears @ Gonzaga Bulldogs: daily pick limit (15) reached
+  not opened South Carolina Gamecocks @ Arizona St Sun Devils: daily pick limit (15) reached
+  not opened Little Rock vs Tennessee Tech: daily pick limit (15) reached
+  not opened Utah State Aggies @ USC Trojans: daily pick limit (15) reached
+  not opened Toledo Rockets @ Ohio Bobcats: daily pick limit (15) reached
+  not opened Kansas City Chiefs @ Buffalo Bills: daily pick limit (15) reached
+  not opened Wisconsin vs Syracuse: daily pick limit (15) reached
+  not opened Tennessee Volunteers @ Iowa State Cyclones: daily pick limit (15) reached
+  not opened Michigan vs Miami (FL): daily pick limit (15) reached
+  not opened Boston College Eagles @ UCF Knights: daily pick limit (15) reached
+NEW PICKS (1)
 
-Thu 11/26 11:30 AM HST
-[NCAA Men's Basketball] Michigan St Spartans to beat Arkansas Razorbacks
-Favorite. Sportsbooks give Michigan St Spartans 67%.
-Paper: buy YES on "Michigan St." at 68¢, 14 contracts ($9.73). Pays $14.00 if Michigan St Spartans wins.
-
-Thu 11/26 02:00 PM HST
-[NCAA Men's Basketball] LSU Tigers to beat SMU Mustangs
-Favorite. Sportsbooks give LSU Tigers 65%.
-Paper: buy YES on "LSU" at 68¢, 14 contracts ($9.73). Pays $14.00 if LSU Tigers wins.
+Fri 11/27 07:00 AM HST
+[NCAAFB] Ole Miss Rebels to beat Mississippi State Bulldogs
+Favorite. Sportsbooks give Ole Miss Rebels 88%.
+Paper: buy YES on "Ole Miss" at 89¢, 11 contracts ($9.87). Pays $11.00 if Ole Miss Rebels wins.
 
 https://seed808.github.io/kalshi-bot/
-Wed 11/25 05:06 PM HST | pick mode | 50 games matched, 2 new pick(s), 15 open, 8 skipped
+Wed 11/25 07:32 PM HST | pick mode | 53 games matched, 1 new pick(s), 11 open, 19 skipped
